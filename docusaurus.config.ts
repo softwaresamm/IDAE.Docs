@@ -25,6 +25,8 @@ const config: Config = {
   organizationName: "softwaresamm", // Usually your GitHub org/user name.
   projectName: "IDAE.Docs", // Usually your repo name.
 
+  trailingSlash: false,
+
   onBrokenLinks: "throw",
 
   // Even if you don't use internationalization, you can use this field to set
