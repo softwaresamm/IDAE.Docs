@@ -16,36 +16,6 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-basics/congratulations",
-              "path": "/IDAE.Docs/docs/tutorial-basics/congratulations",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/create-a-blog-post",
-              "path": "/IDAE.Docs/docs/tutorial-basics/create-a-blog-post",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/create-a-document",
-              "path": "/IDAE.Docs/docs/tutorial-basics/create-a-document",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/create-a-page",
-              "path": "/IDAE.Docs/docs/tutorial-basics/create-a-page",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/deploy-your-site",
-              "path": "/IDAE.Docs/docs/tutorial-basics/deploy-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "tutorial-basics/markdown-features",
-              "path": "/IDAE.Docs/docs/tutorial-basics/markdown-features",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "tutorial-extras/manage-docs-versions",
               "path": "/IDAE.Docs/docs/tutorial-extras/manage-docs-versions",
               "sidebar": "tutorialSidebar"
@@ -56,8 +26,38 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/tutorial---basics",
-              "path": "/IDAE.Docs/docs/category/tutorial---basics",
+              "id": "util-solicitudes/congratulations",
+              "path": "/IDAE.Docs/docs/util-solicitudes/congratulations",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-solicitudes/create-a-blog-post",
+              "path": "/IDAE.Docs/docs/util-solicitudes/create-a-blog-post",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-solicitudes/create-a-document",
+              "path": "/IDAE.Docs/docs/util-solicitudes/create-a-document",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-solicitudes/deploy-your-site",
+              "path": "/IDAE.Docs/docs/util-solicitudes/deploy-your-site",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-solicitudes/markdown-features",
+              "path": "/IDAE.Docs/docs/util-solicitudes/markdown-features",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-solicitudes/search-settings",
+              "path": "/IDAE.Docs/docs/util-solicitudes/search-settings",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/util---solicitudes",
+              "path": "/IDAE.Docs/docs/category/util---solicitudes",
               "sidebar": "tutorialSidebar"
             },
             {

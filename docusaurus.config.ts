@@ -77,9 +77,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "My Site",
+      title: "Samm",
       logo: {
-        alt: "My Site Logo",
+        alt: "Samm",
         src: "img/logo.svg",
       },
       items: [
