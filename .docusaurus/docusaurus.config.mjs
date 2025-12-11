@@ -32,6 +32,7 @@ export default {
   "baseUrl": "/IDAE.Docs/",
   "organizationName": "softwaresamm",
   "projectName": "IDAE.Docs",
+  "trailingSlash": false,
   "onBrokenLinks": "throw",
   "i18n": {
     "defaultLocale": "en",
@@ -77,9 +78,9 @@ export default {
       "disableSwitch": false
     },
     "navbar": {
-      "title": "My Site",
+      "title": "Samm",
       "logo": {
-        "alt": "My Site Logo",
+        "alt": "Samm",
         "src": "img/logo.svg"
       },
       "items": [

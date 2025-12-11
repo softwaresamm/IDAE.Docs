@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/IDAE.Docs/__docusaurus/debug',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug', '151'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/config',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/config', 'dc2'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/content',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/content', 'c08'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/globalData',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/globalData', '464'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/metadata',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/metadata', 'c21'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/registry',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/registry', 'c31'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/routes',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/routes', '257'),
+    exact: true
+  },
+  {
     path: '/IDAE.Docs/blog',
     component: ComponentCreator('/IDAE.Docs/blog', '469'),
     exact: true
@@ -79,22 +114,16 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', '17c'),
+    component: ComponentCreator('/IDAE.Docs/docs', '965'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', 'f54'),
+        component: ComponentCreator('/IDAE.Docs/docs', 'c65'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', '8f7'),
+            component: ComponentCreator('/IDAE.Docs/docs', '939'),
             routes: [
-              {
-                path: '/IDAE.Docs/docs/category/tutorial---basics',
-                component: ComponentCreator('/IDAE.Docs/docs/category/tutorial---basics', '047'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
               {
                 path: '/IDAE.Docs/docs/category/tutorial---extras',
                 component: ComponentCreator('/IDAE.Docs/docs/category/tutorial---extras', 'c3d'),
@@ -102,44 +131,14 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
+                path: '/IDAE.Docs/docs/category/util---solicitudes',
+                component: ComponentCreator('/IDAE.Docs/docs/category/util---solicitudes', '954'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
                 path: '/IDAE.Docs/docs/intro',
                 component: ComponentCreator('/IDAE.Docs/docs/intro', 'fae'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/tutorial-basics/congratulations',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-basics/congratulations', '391'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/tutorial-basics/create-a-blog-post',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-basics/create-a-blog-post', '532'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/tutorial-basics/create-a-document',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-basics/create-a-document', 'f51'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/tutorial-basics/create-a-page',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-basics/create-a-page', '252'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/tutorial-basics/deploy-your-site',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-basics/deploy-your-site', '4c3'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/tutorial-basics/markdown-features',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-basics/markdown-features', '829'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -152,6 +151,42 @@ export default [
               {
                 path: '/IDAE.Docs/docs/tutorial-extras/translate-your-site',
                 component: ComponentCreator('/IDAE.Docs/docs/tutorial-extras/translate-your-site', 'b0b'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-solicitudes/congratulations',
+                component: ComponentCreator('/IDAE.Docs/docs/util-solicitudes/congratulations', '45f'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-solicitudes/create-a-blog-post',
+                component: ComponentCreator('/IDAE.Docs/docs/util-solicitudes/create-a-blog-post', '3c8'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-solicitudes/create-a-document',
+                component: ComponentCreator('/IDAE.Docs/docs/util-solicitudes/create-a-document', '6ba'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-solicitudes/deploy-your-site',
+                component: ComponentCreator('/IDAE.Docs/docs/util-solicitudes/deploy-your-site', '09a'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-solicitudes/markdown-features',
+                component: ComponentCreator('/IDAE.Docs/docs/util-solicitudes/markdown-features', 'f2e'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-solicitudes/search-settings',
+                component: ComponentCreator('/IDAE.Docs/docs/util-solicitudes/search-settings', '947'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               }
