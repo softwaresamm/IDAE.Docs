@@ -4,8 +4,8 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "My Site",
-  "tagline": "Dinosaurs are cool",
+  "title": "Plataforma de Documentación",
+  "tagline": "IDAE Soluciones",
   "favicon": "img/favicon.ico",
   "future": {
     "v4": {
@@ -28,10 +28,10 @@ export default {
     },
     "experimental_router": "browser"
   },
-  "url": "https://your-docusaurus-site.example.com",
-  "baseUrl": "/",
-  "organizationName": "facebook",
-  "projectName": "docusaurus",
+  "url": "https://softwaresamm.github.io",
+  "baseUrl": "/IDAE.Docs/",
+  "organizationName": "softwaresamm",
+  "projectName": "IDAE.Docs",
   "onBrokenLinks": "throw",
   "i18n": {
     "defaultLocale": "en",
