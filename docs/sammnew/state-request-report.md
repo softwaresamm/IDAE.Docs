@@ -98,14 +98,6 @@ Una vez completada la configuración, al reportar atención en una solicitud:
 
 ## Resolución de Problemas
 
-### El dropdown de estados aparece vacío
-
-Verifique que:
-
-- Los IDs en el parámetro `valor` correspondan a registros existentes en `doc_estadoTipoDocumento_subtipoDocumento`
-- La matriz de estados esté correctamente configurada para el subtipo de documento
-- Los estados destino estén activos en el sistema
-
 ### El campo de estado no es obligatorio
 
 Confirme que:
@@ -113,10 +105,3 @@ Confirme que:
 - El parámetro `estadosReportarAtencionObligatorios` existe en la tabla `gen_config`
 - El campo `valor` contenga al menos un ID válido
 - La aplicación se haya reiniciado después de aplicar los cambios (si aplica)
-
-## Notas Adicionales
-
-- Los cambios en la configuración pueden requerir reiniciar la aplicación para que surtan efecto
-- Se recomienda probar la configuración en un ambiente de pruebas antes de aplicarla en producción
-- Mantenga un registro de los IDs de estados configurados para futuras referencias
-- Documente cualquier cambio realizado en la matriz de estados para trazabilidad
