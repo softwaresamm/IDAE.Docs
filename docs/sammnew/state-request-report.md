@@ -10,6 +10,19 @@ Este documento describe cómo configurar el cambio de estado de las solicitudes 
 
 - [SO-266: Permitir que el estado de la solicitud sea obligatorio al reportar atención](https://softwaresamm.atlassian.net/browse/SO-266)
 
+## Información de Versiones
+
+### Versión de Lanzamiento
+
+:::info **v7.1.10.6**
+:::
+
+### Versiones Requeridas
+
+| Aplicación | Versión Mínima | Descripción |
+| ---------- | -------------- | ----------- |
+| NO aplica  |                |             |
+
 ## Requisitos Previos
 
 Antes de iniciar la configuración, asegúrese de tener:
