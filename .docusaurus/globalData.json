@@ -16,13 +16,13 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-extras/manage-docs-versions",
-              "path": "/IDAE.Docs/docs/tutorial-extras/manage-docs-versions",
+              "id": "sammnew/state-request-report",
+              "path": "/IDAE.Docs/docs/sammnew/state-request-report",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "tutorial-extras/translate-your-site",
-              "path": "/IDAE.Docs/docs/tutorial-extras/translate-your-site",
+              "id": "sammnew/translate-your-site",
+              "path": "/IDAE.Docs/docs/sammnew/translate-your-site",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -56,13 +56,13 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/util---solicitudes",
-              "path": "/IDAE.Docs/docs/category/util---solicitudes",
+              "id": "/category/sammnew",
+              "path": "/IDAE.Docs/docs/category/sammnew",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "/category/tutorial---extras",
-              "path": "/IDAE.Docs/docs/category/tutorial---extras",
+              "id": "/category/util---solicitudes",
+              "path": "/IDAE.Docs/docs/category/util---solicitudes",
               "sidebar": "tutorialSidebar"
             }
           ],

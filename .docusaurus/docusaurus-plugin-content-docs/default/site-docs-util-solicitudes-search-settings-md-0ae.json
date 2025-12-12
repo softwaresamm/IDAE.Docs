@@ -1,7 +1,7 @@
 {
   "id": "util-solicitudes/search-settings",
   "title": "Configuración de Búsqueda en Campos Lista",
-  "description": "Este documento establece cómo configurar un campo tipo lista para que pueda manejar la búsqueda por exactitud_** o por coincidencia, y además cumpla con un criterio de búsqueda para la información que se muestra en el campo (**_código, valor_** o ambos_)",
+  "description": "Este documento describe cómo configurar campos tipo lista para controlar el comportamiento de búsqueda (exactitud o coincidencia) y establecer el criterio de búsqueda (por código, valor o ambos) que se aplicará al buscar información.",
   "source": "@site/docs/util-solicitudes/search-settings.md",
   "sourceDirName": "util-solicitudes",
   "slug": "/util-solicitudes/search-settings",
