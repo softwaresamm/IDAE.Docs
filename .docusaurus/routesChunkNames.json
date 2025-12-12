@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-78c": {
+  "/IDAE.Docs/docs-a9c": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-084": {
+  "/IDAE.Docs/docs-5e0": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-d6a": {
+  "/IDAE.Docs/docs-11a": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/category/sammnew-a9d": {
@@ -274,33 +274,13 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-intro-0-e-3-c1d"
   },
+  "/IDAE.Docs/docs/sammnew/item-history-fe7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-item-history-2-d-4-b2a"
+  },
   "/IDAE.Docs/docs/sammnew/state-request-report-782": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-state-request-report-914-963"
-  },
-  "/IDAE.Docs/docs/sammnew/translate-your-site-045": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-translate-your-site-737-016"
-  },
-  "/IDAE.Docs/docs/util-solicitudes/congratulations-45f": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-util-solicitudes-congratulations-867-f20"
-  },
-  "/IDAE.Docs/docs/util-solicitudes/create-a-blog-post-3c8": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-util-solicitudes-create-a-blog-postc-9-a-cdd"
-  },
-  "/IDAE.Docs/docs/util-solicitudes/create-a-document-6ba": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-util-solicitudes-create-a-document-7-ff-096"
-  },
-  "/IDAE.Docs/docs/util-solicitudes/deploy-your-site-09a": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-util-solicitudes-deploy-your-site-6-cb-f26"
-  },
-  "/IDAE.Docs/docs/util-solicitudes/markdown-features-f2e": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-util-solicitudes-markdown-features-3-d-8-496"
   },
   "/IDAE.Docs/docs/util-solicitudes/search-settings-947": {
     "__comp": "__comp---theme-doc-item-178-a40",

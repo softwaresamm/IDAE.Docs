@@ -16,38 +16,13 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/item-history",
+              "path": "/IDAE.Docs/docs/sammnew/item-history",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/state-request-report",
               "path": "/IDAE.Docs/docs/sammnew/state-request-report",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "sammnew/translate-your-site",
-              "path": "/IDAE.Docs/docs/sammnew/translate-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/congratulations",
-              "path": "/IDAE.Docs/docs/util-solicitudes/congratulations",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/create-a-blog-post",
-              "path": "/IDAE.Docs/docs/util-solicitudes/create-a-blog-post",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/create-a-document",
-              "path": "/IDAE.Docs/docs/util-solicitudes/create-a-document",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/deploy-your-site",
-              "path": "/IDAE.Docs/docs/util-solicitudes/deploy-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/markdown-features",
-              "path": "/IDAE.Docs/docs/util-solicitudes/markdown-features",
               "sidebar": "tutorialSidebar"
             },
             {

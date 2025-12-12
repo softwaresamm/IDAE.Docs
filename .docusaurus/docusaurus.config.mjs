@@ -88,7 +88,7 @@ export default {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Products"
+          "label": "Productos"
         },
         {
           "to": "/blog",

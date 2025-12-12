@@ -1,14 +1,14 @@
 {
-  "id": "sammnew/state-request-report",
+  "id": "sammnew/state-request-report copy",
   "title": "Configuración de Estados al Reportar Atención",
   "description": "Este documento describe cómo configurar el cambio de estado de las solicitudes dentro del modal de reporte de atención, permitiendo establecer si el campo de estado será obligatorio y qué estados destino estarán disponibles para selección.",
-  "source": "@site/docs/sammnew/state-request-report.md",
+  "source": "@site/docs/sammnew/state-request-report copy.md",
   "sourceDirName": "sammnew",
-  "slug": "/sammnew/state-request-report",
-  "permalink": "/IDAE.Docs/docs/sammnew/state-request-report",
+  "slug": "/sammnew/state-request-report copy",
+  "permalink": "/IDAE.Docs/docs/sammnew/state-request-report copy",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/state-request-report.md",
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/state-request-report copy.md",
   "tags": [],
   "version": "current",
   "sidebarPosition": 1,
@@ -21,7 +21,7 @@
     "permalink": "/IDAE.Docs/docs/category/sammnew"
   },
   "next": {
-    "title": "Historial de Ítems en Documentos",
-    "permalink": "/IDAE.Docs/docs/sammnew/item-history"
+    "title": "Configuración de Estados al Reportar Atención",
+    "permalink": "/IDAE.Docs/docs/sammnew/state-request-report"
   }
 }
