@@ -1,5 +1,7 @@
 ---
 sidebar_position: 1
+release_version: "0.7.5"
+release_module: "Utilidades de Solicitudes"
 ---
 
 # Configuración de Búsqueda en Campos Lista
@@ -10,6 +12,19 @@ Este documento describe cómo configurar campos tipo lista para controlar el com
 
 - [SO-395: SOL31785 - Campo NIT en la ventana de solicitudes](https://softwaresamm.atlassian.net/browse/SO-395)
 
+## Información de Versiones
+
+### Versión de Lanzamiento
+
+:::info **v0.7.5**
+:::
+
+### Versiones Requeridas
+
+| Aplicación | Versión Mínima | Descripción   |
+| ---------- | -------------- | ------------- |
+| SAMMAPI    | >= 1.0.5.7     | API principal |
+
 ## Requisitos Previos
 
 Antes de iniciar la configuración, asegúrese de tener:
@@ -19,10 +34,6 @@ Antes de iniciar la configuración, asegúrese de tener:
 - Conocimiento del esquema de la tabla `_columnas`
 - Capacidad para modificar procedimientos almacenados
 - Acceso al servicio API: `{{urlAPI}}/api/docs/campos/{{subtipodocumento}}?aplicacion={{var1}}`
-
-| Aplicación | Versión Mínima |
-| ---------- | -------------- |
-| SAMMAPI    | >= 1.0.5.7     |
 
 :::important Importante
 Esta funcionalidad requiere la versión mínima especificada de SAMMAPI. Verifique su versión actual antes de continuar.
