@@ -3,6 +3,41 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/IDAE.Docs/__docusaurus/debug',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug', '151'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/config',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/config', 'dc2'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/content',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/content', 'c08'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/globalData',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/globalData', '464'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/metadata',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/metadata', 'c21'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/registry',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/registry', 'c31'),
+    exact: true
+  },
+  {
+    path: '/IDAE.Docs/__docusaurus/debug/routes',
+    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/routes', '257'),
+    exact: true
+  },
+  {
     path: '/IDAE.Docs/blog',
     component: ComponentCreator('/IDAE.Docs/blog', '469'),
     exact: true
@@ -79,19 +114,19 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', '965'),
+    component: ComponentCreator('/IDAE.Docs/docs', '78c'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', 'c65'),
+        component: ComponentCreator('/IDAE.Docs/docs', '084'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', '939'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'd6a'),
             routes: [
               {
-                path: '/IDAE.Docs/docs/category/tutorial---extras',
-                component: ComponentCreator('/IDAE.Docs/docs/category/tutorial---extras', 'c3d'),
+                path: '/IDAE.Docs/docs/category/sammnew',
+                component: ComponentCreator('/IDAE.Docs/docs/category/sammnew', 'a9d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -108,14 +143,14 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/tutorial-extras/manage-docs-versions',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-extras/manage-docs-versions', 'a3f'),
+                path: '/IDAE.Docs/docs/sammnew/state-request-report',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/state-request-report', '782'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/tutorial-extras/translate-your-site',
-                component: ComponentCreator('/IDAE.Docs/docs/tutorial-extras/translate-your-site', 'b0b'),
+                path: '/IDAE.Docs/docs/sammnew/translate-your-site',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/translate-your-site', '045'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

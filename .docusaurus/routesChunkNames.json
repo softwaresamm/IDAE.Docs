@@ -1,273 +1,316 @@
 {
-  "/IDAE.Docs/blog-469": {
-    "__comp": "a6aa9e1f",
+  "/IDAE.Docs/__docusaurus/debug-151": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "items": [
-      {
-        "content": "7661071f"
-      },
-      {
-        "content": "f4f34a3a"
-      },
-      {
-        "content": "8717b14a"
-      },
-      {
-        "content": "925b3f96"
-      }
-    ],
-    "__props": "8b1c5770"
-  },
-  "/IDAE.Docs/blog/archive-b74": {
-    "__comp": "9e4087bc",
-    "__context": {
-      "plugin": "36994c47"
-    },
-    "__props": "dc60d973"
-  },
-  "/IDAE.Docs/blog/authors-24f": {
-    "__comp": "621db11d",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "__props": "f7182cef"
-  },
-  "/IDAE.Docs/blog/authors/all-sebastien-lorber-articles-c57": {
-    "__comp": "33fc5bb8",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "items": [
-      {
-        "content": "7661071f"
-      },
-      {
-        "content": "f4f34a3a"
-      },
-      {
-        "content": "925b3f96"
-      }
-    ],
-    "sidebar": "814f3328",
-    "__props": "f70a0168"
-  },
-  "/IDAE.Docs/blog/authors/yangshun-93b": {
-    "__comp": "33fc5bb8",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "items": [
-      {
-        "content": "7661071f"
-      },
-      {
-        "content": "8717b14a"
-      },
-      {
-        "content": "925b3f96"
-      }
-    ],
-    "sidebar": "814f3328",
-    "__props": "be0631a6"
-  },
-  "/IDAE.Docs/blog/first-blog-post-86f": {
-    "__comp": "ccc49370",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "content": "e273c56f"
-  },
-  "/IDAE.Docs/blog/long-blog-post-602": {
-    "__comp": "ccc49370",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "content": "73664a40"
-  },
-  "/IDAE.Docs/blog/mdx-blog-post-880": {
-    "__comp": "ccc49370",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "content": "59362658"
-  },
-  "/IDAE.Docs/blog/tags-cbf": {
-    "__comp": "01a85c17",
-    "__context": {
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "__props": "146111d4"
-  },
-  "/IDAE.Docs/blog/tags/docusaurus-28e": {
-    "__comp": "6875c492",
-    "__context": {
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "items": [
-      {
-        "content": "7661071f"
-      },
-      {
-        "content": "f4f34a3a"
-      },
-      {
-        "content": "8717b14a"
-      },
-      {
-        "content": "925b3f96"
-      }
-    ],
-    "__props": "bb62c1d7"
-  },
-  "/IDAE.Docs/blog/tags/facebook-265": {
-    "__comp": "6875c492",
-    "__context": {
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "items": [
-      {
-        "content": "7661071f"
-      }
-    ],
-    "__props": "a1bed532"
-  },
-  "/IDAE.Docs/blog/tags/hello-6d6": {
-    "__comp": "6875c492",
-    "__context": {
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "items": [
-      {
-        "content": "7661071f"
-      },
-      {
-        "content": "8717b14a"
-      }
-    ],
-    "__props": "dcbdfa7a"
-  },
-  "/IDAE.Docs/blog/tags/hola-335": {
-    "__comp": "6875c492",
-    "__context": {
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "items": [
-      {
-        "content": "925b3f96"
-      }
-    ],
-    "__props": "65791b5e"
-  },
-  "/IDAE.Docs/blog/welcome-f4c": {
-    "__comp": "ccc49370",
-    "__context": {
-      "data": {
-        "blogMetadata": "acecf23e"
-      },
-      "plugin": "36994c47"
-    },
-    "sidebar": "814f3328",
-    "content": "d9f32620"
-  },
-  "/IDAE.Docs/markdown-page-36a": {
-    "__comp": "1f391b9e",
-    "__context": {
-      "plugin": "a7456010"
-    },
-    "content": "393be207"
-  },
-  "/IDAE.Docs/docs-965": {
-    "__comp": "5e95c892",
-    "__context": {
-      "plugin": "aba21aa0"
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
     }
   },
-  "/IDAE.Docs/docs-c65": {
-    "__comp": "a7bd4aaa",
-    "__props": "44ebb98c"
+  "/IDAE.Docs/__docusaurus/debug/config-dc2": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
+    }
   },
-  "/IDAE.Docs/docs-939": {
-    "__comp": "a94703ab"
+  "/IDAE.Docs/__docusaurus/debug/content-c08": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
+    },
+    "__props": "__props---idae-docs-docusaurus-debug-content-2-e-8-89b"
   },
-  "/IDAE.Docs/docs/category/tutorial---extras-c3d": {
-    "__comp": "14eb3368",
-    "__props": "2d6b05ea"
+  "/IDAE.Docs/__docusaurus/debug/globalData-464": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
+    }
+  },
+  "/IDAE.Docs/__docusaurus/debug/metadata-c21": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
+    }
+  },
+  "/IDAE.Docs/__docusaurus/debug/registry-c31": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
+    }
+  },
+  "/IDAE.Docs/__docusaurus/debug/routes-257": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---idae-docs-docusaurus-debugb-38-3f3"
+    }
+  },
+  "/IDAE.Docs/blog-469": {
+    "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "items": [
+      {
+        "content": "content---idae-docs-blog-766-d0f"
+      },
+      {
+        "content": "content---idae-docs-blogf-4-f-f31"
+      },
+      {
+        "content": "content---idae-docs-blog-871-9ed"
+      },
+      {
+        "content": "content---idae-docs-blog-925-122"
+      }
+    ],
+    "__props": "__props---idae-docs-blog-8-b-1-804"
+  },
+  "/IDAE.Docs/blog/archive-b74": {
+    "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "__props": "__props---idae-docs-blog-archivedc-6-42f"
+  },
+  "/IDAE.Docs/blog/authors-24f": {
+    "__comp": "__comp---theme-blog-pages-blog-authors-list-page-621-70c",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "__props": "__props---idae-docs-blog-authorsf-71-e96"
+  },
+  "/IDAE.Docs/blog/authors/all-sebastien-lorber-articles-c57": {
+    "__comp": "__comp---theme-blog-pages-blog-authors-posts-page-33-f-bd5",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "items": [
+      {
+        "content": "content---idae-docs-blog-766-d0f"
+      },
+      {
+        "content": "content---idae-docs-blogf-4-f-f31"
+      },
+      {
+        "content": "content---idae-docs-blog-925-122"
+      }
+    ],
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "__props": "__props---idae-docs-blog-authors-all-sebastien-lorber-articlesf-70-c9e"
+  },
+  "/IDAE.Docs/blog/authors/yangshun-93b": {
+    "__comp": "__comp---theme-blog-pages-blog-authors-posts-page-33-f-bd5",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "items": [
+      {
+        "content": "content---idae-docs-blog-766-d0f"
+      },
+      {
+        "content": "content---idae-docs-blog-871-9ed"
+      },
+      {
+        "content": "content---idae-docs-blog-925-122"
+      }
+    ],
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "__props": "__props---idae-docs-blog-authors-yangshunbe-0-09d"
+  },
+  "/IDAE.Docs/blog/first-blog-post-86f": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "content": "content---idae-docs-blog-first-blog-poste-27-295"
+  },
+  "/IDAE.Docs/blog/long-blog-post-602": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "content": "content---idae-docs-blog-long-blog-post-736-154"
+  },
+  "/IDAE.Docs/blog/mdx-blog-post-880": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "content": "content---idae-docs-blog-mdx-blog-post-593-f43"
+  },
+  "/IDAE.Docs/blog/tags-cbf": {
+    "__comp": "__comp---theme-blog-tags-list-page-01-a-d0b",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "__props": "__props---idae-docs-blog-tags-146-f30"
+  },
+  "/IDAE.Docs/blog/tags/docusaurus-28e": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "items": [
+      {
+        "content": "content---idae-docs-blog-766-d0f"
+      },
+      {
+        "content": "content---idae-docs-blogf-4-f-f31"
+      },
+      {
+        "content": "content---idae-docs-blog-871-9ed"
+      },
+      {
+        "content": "content---idae-docs-blog-925-122"
+      }
+    ],
+    "__props": "__props---idae-docs-blog-tags-docusaurusbb-6-93f"
+  },
+  "/IDAE.Docs/blog/tags/facebook-265": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "items": [
+      {
+        "content": "content---idae-docs-blog-766-d0f"
+      }
+    ],
+    "__props": "__props---idae-docs-blog-tags-facebooka-1-b-82c"
+  },
+  "/IDAE.Docs/blog/tags/hello-6d6": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "items": [
+      {
+        "content": "content---idae-docs-blog-766-d0f"
+      },
+      {
+        "content": "content---idae-docs-blog-871-9ed"
+      }
+    ],
+    "__props": "__props---idae-docs-blog-tags-hellodcb-2de"
+  },
+  "/IDAE.Docs/blog/tags/hola-335": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "items": [
+      {
+        "content": "content---idae-docs-blog-925-122"
+      }
+    ],
+    "__props": "__props---idae-docs-blog-tags-hola-657-565"
+  },
+  "/IDAE.Docs/blog/welcome-f4c": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---idae-docs-blog-authorsace-dbc"
+      },
+      "plugin": "plugin---idae-docs-blog-369-05d"
+    },
+    "sidebar": "sidebar---idae-docs-blog-814-ae8",
+    "content": "content---idae-docs-blog-welcomed-9-f-4f8"
+  },
+  "/IDAE.Docs/markdown-page-36a": {
+    "__comp": "__comp---theme-mdx-page-1-f-3-b90",
+    "__context": {
+      "plugin": "plugin---idae-docs-markdown-pagea-74-ee2"
+    },
+    "content": "content---idae-docs-markdown-page-393-4ad"
+  },
+  "/IDAE.Docs/docs-78c": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---idae-docs-docsaba-696"
+    }
+  },
+  "/IDAE.Docs/docs-084": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---idae-docs-docs-44-e-0be"
+  },
+  "/IDAE.Docs/docs-d6a": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/IDAE.Docs/docs/category/sammnew-a9d": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---idae-docs-docs-category-sammnewc-6-f-fd8"
   },
   "/IDAE.Docs/docs/category/util---solicitudes-954": {
-    "__comp": "14eb3368",
-    "__props": "24285100"
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---idae-docs-docs-category-util-solicitudes-242-3f0"
   },
   "/IDAE.Docs/docs/intro-fae": {
-    "__comp": "17896441",
-    "content": "0e384e19"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-intro-0-e-3-c1d"
   },
-  "/IDAE.Docs/docs/tutorial-extras/manage-docs-versions-a3f": {
-    "__comp": "17896441",
-    "content": "dff1c289"
+  "/IDAE.Docs/docs/sammnew/state-request-report-782": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-state-request-report-914-963"
   },
-  "/IDAE.Docs/docs/tutorial-extras/translate-your-site-b0b": {
-    "__comp": "17896441",
-    "content": "e44a2883"
+  "/IDAE.Docs/docs/sammnew/translate-your-site-045": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-translate-your-site-737-016"
   },
   "/IDAE.Docs/docs/util-solicitudes/congratulations-45f": {
-    "__comp": "17896441",
-    "content": "867f4cd5"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-solicitudes-congratulations-867-f20"
   },
   "/IDAE.Docs/docs/util-solicitudes/create-a-blog-post-3c8": {
-    "__comp": "17896441",
-    "content": "c9a4d51d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-solicitudes-create-a-blog-postc-9-a-cdd"
   },
   "/IDAE.Docs/docs/util-solicitudes/create-a-document-6ba": {
-    "__comp": "17896441",
-    "content": "7ff4597d"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-solicitudes-create-a-document-7-ff-096"
   },
   "/IDAE.Docs/docs/util-solicitudes/deploy-your-site-09a": {
-    "__comp": "17896441",
-    "content": "6cb71c4e"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-solicitudes-deploy-your-site-6-cb-f26"
   },
   "/IDAE.Docs/docs/util-solicitudes/markdown-features-f2e": {
-    "__comp": "17896441",
-    "content": "3d875f16"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-solicitudes-markdown-features-3-d-8-496"
   },
   "/IDAE.Docs/docs/util-solicitudes/search-settings-947": {
-    "__comp": "17896441",
-    "content": "0ae66403"
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-solicitudes-search-settings-0-ae-62d"
   },
   "/IDAE.Docs/-959": {
-    "__comp": "1df93b7f",
+    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
     "__context": {
-      "plugin": "a7456010"
+      "plugin": "plugin---idae-docs-markdown-pagea-74-ee2"
     },
-    "config": "5e9f5e1a"
+    "config": "config---idae-docs-5-e-9-1d9"
   }
 }
