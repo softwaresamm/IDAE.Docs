@@ -3,41 +3,6 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/IDAE.Docs/__docusaurus/debug',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug', '151'),
-    exact: true
-  },
-  {
-    path: '/IDAE.Docs/__docusaurus/debug/config',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/config', 'dc2'),
-    exact: true
-  },
-  {
-    path: '/IDAE.Docs/__docusaurus/debug/content',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/content', 'c08'),
-    exact: true
-  },
-  {
-    path: '/IDAE.Docs/__docusaurus/debug/globalData',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/globalData', '464'),
-    exact: true
-  },
-  {
-    path: '/IDAE.Docs/__docusaurus/debug/metadata',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/metadata', 'c21'),
-    exact: true
-  },
-  {
-    path: '/IDAE.Docs/__docusaurus/debug/registry',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/registry', 'c31'),
-    exact: true
-  },
-  {
-    path: '/IDAE.Docs/__docusaurus/debug/routes',
-    component: ComponentCreator('/IDAE.Docs/__docusaurus/debug/routes', '257'),
-    exact: true
-  },
-  {
     path: '/IDAE.Docs/blog',
     component: ComponentCreator('/IDAE.Docs/blog', '469'),
     exact: true

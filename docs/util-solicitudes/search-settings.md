@@ -11,12 +11,13 @@ Este documento describe cómo configurar campos tipo lista para controlar el com
 ## Referencias
 
 - [SO-395: SOL31785 - Campo NIT en la ventana de solicitudes](https://softwaresamm.atlassian.net/browse/SO-395)
+- [SO-424: Al manejar busqueda exacta, al escribir y borrar el texto sobre el primer campo, no respeta la configuración y muestra opciones](https://softwaresamm.atlassian.net/browse/SO-424)
 
 ## Información de Versiones
 
 ### Versión de Lanzamiento
 
-:::info **v0.7.5**
+:::info **v0.7.6**
 :::
 
 ### Versiones Requeridas
@@ -222,3 +223,7 @@ Revise que:
 - Los datos existan en la tabla correspondiente
 - El servicio configurado en el campo esté respondiendo correctamente
 - Los filtros adicionales no estén bloqueando los resultados
+
+## Errores Conocidos
+
+- [SO-433: Manejo de dependencias en filtros de prioridades](https://softwaresamm.atlassian.net/browse/SO-433): No se respeta configuración de prioridades por subtipo de documento, actualmente se listan todas las prioridades disponibles por tipo de documento.
