@@ -530,6 +530,12 @@ Vista del historial con procedimiento almacenado personalizado mostrando múltip
 
 ![Modal de historial de ítems - Vista personalizada con tablas](./img/item-history-custom.png)
 
+### Visualizacion del Permiso
+en le formulario Configuracion - Seguridad - Perfil en el tab de permisos de acuerdo  a la configuracion hecha en Hijo funcionalidad se visualizara  de la siguiente Manera:
+
+![Visualizacion de Permisos en el perfil](./img/item-history-leave.png)
+
+
 ## Resolución de Problemas
 
 ### El botón de historial no aparece
