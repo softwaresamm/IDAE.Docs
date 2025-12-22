@@ -533,7 +533,7 @@ Vista del historial con procedimiento almacenado personalizado mostrando múltip
 ### Visualizacion del Permiso
 en le formulario Configuracion - Seguridad - Perfil en el tab de permisos de acuerdo  a la configuracion hecha en Hijo funcionalidad se visualizara  de la siguiente Manera:
 
-![Visualizacion de Permisos en el perfil](./img/item-history-leave.png)
+![Visualizacion de Permisos en el perfil](./img/item-history-permission.png)
 
 
 ## Resolución de Problemas
