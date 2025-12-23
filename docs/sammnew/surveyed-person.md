@@ -1,10 +1,7 @@
 ---
 sidebar_position: 3
-release_version: "snw7.1.10.5"
+release_version: "7.1.10.5"
 release_module: "SammNew"
-
-release_version: "api1.2.19.4"
-release_module: "SammApi"
 ---
 
 # Configuración de Campo Obligatorio: Persona Encuestada en Evaluaciones
@@ -64,15 +61,20 @@ Si existe al menos un registro con estas características, el sistema marcará e
 
 ### Implementación en API
 
-#### Endpoint afectado
-```
-GET {{urlAPI}}/api/docs/evaluaciones/{idSubtipoDocumento}
+### Request
+
+```bash title="Ejemplo de petición"
+curl --location 'https://app2.softwaresamm.com/sa_publicado/api/docs/evaluaciones/{idSubtipoDocumento}' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN1cGVyYWRtaW5pc3RyYWRvciIsIm5hbWUiOiJTdXBlciBBZG1pbiIsIklkVXNlciI6IjEiLCJFaWQiOiIwMSIsIlVpZCI6Ijc5QjctU1ctV1ExMS1BRDJYIiwiYXBwIjoiYXBwU2FtbSIsInZlcnNpb24iOiIxLjEuMCIsImlkX3RlcmNlcm8iOiIyOTM3IiwibmJmIjoxNzY1NDc5Mzc0LCJleHAiOjE3NjU0ODExNzQsImlhdCI6MTc2NTQ3OTM3NCwiaXNzIjoiaHR0cHM6Ly9hcHAyLnNvZnR3YXJlc2FtbS5jb20vc2FfcHVibGljYWRvLyIsImF1ZCI6Ijc5QjctU1ctV1ExMS1BRDJYIn0.2eiu6JYI4KR14tajqM3yRnSSRoLvjDzxnUHSlR7UTqw'
 ```
 
-#### Nueva propiedad en la respuesta
+### Response
 
-El endpoint ahora incluye la propiedad `esRequeridoPersonaEncuestada` en el JSON de respuesta:
-```json
+:::tip Campos Relevantes
+El campo `esRequeridoPersonaEncuestada` en la respuesta es el que determina si será o no obligatorio el llenado del campo Persona Encuestada.
+:::
+
+```json title="Ejemplo de respuesta"
 {
   "evaluaciones": [
     {
@@ -120,11 +122,13 @@ La validación de campo obligatorio aplica en las siguientes pantallas:
 1. **Formulario de documento con evaluaciones**
    - Ruta: `/forms/doc/doc_documento_ot.aspx`
    - Ubicación: Tab "Evaluaciones"
-   ![alt OT - Tab Evaluaciones](img/surveyed-person-image.png)
+
+     ![alt OT - Tab Evaluaciones](img/surveyed-person-image.png)
 
 2. **Pantalla dedicada de evaluación**
    - Ruta: `/servicios/srv/evaluacion.aspx`
-   ![alt Evaluación](img/surveyed-person-image-1.png)
+   
+     ![alt Evaluación](img/surveyed-person-image-1.png)
 
 #### Comportamiento
 
