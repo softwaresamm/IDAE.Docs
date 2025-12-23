@@ -172,7 +172,7 @@ Después de insertar este registro, el campo "Persona Encuestada" será obligato
 
 #### 3.1 Actualizar Registro (alternativa)
 
-O actualice el campo `[requerido]` a `0`:
+Actualice el campo `[requerido]` a `0`:
 ```sql title="Hacer el campo opcional - Opción 2"
 UPDATE [_columnas]
 SET [requerido] = 0
