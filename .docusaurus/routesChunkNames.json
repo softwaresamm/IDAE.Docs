@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-4d0": {
+  "/IDAE.Docs/docs-9f9": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-5dc": {
+  "/IDAE.Docs/docs-6eb": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-41d": {
+  "/IDAE.Docs/docs-0d6": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
@@ -281,6 +281,10 @@
   "/IDAE.Docs/docs/intro-fae": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-intro-0-e-3-c1d"
+  },
+  "/IDAE.Docs/docs/sammnew/rich-text-dfa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-rich-text-9-f-4-2d3"
   },
   "/IDAE.Docs/docs/sammnew/state-request-report-782": {
     "__comp": "__comp---theme-doc-item-178-a40",
