@@ -17,11 +17,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Markdown Features",
-    "permalink": "/IDAE.Docs/docs/util-solicitudes/markdown-features"
-  },
-  "next": {
-    "title": "Congratulations!",
-    "permalink": "/IDAE.Docs/docs/util-solicitudes/congratulations"
+    "title": "Configuración de Búsqueda en Campos Lista",
+    "permalink": "/IDAE.Docs/docs/util-solicitudes/search-settings"
   }
 }

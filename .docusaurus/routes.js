@@ -114,16 +114,28 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'a9c'),
+    component: ComponentCreator('/IDAE.Docs/docs', '35c'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '5e0'),
+        component: ComponentCreator('/IDAE.Docs/docs', 'c0d'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', '11a'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'f0f'),
             routes: [
+              {
+                path: '/IDAE.Docs/docs/app-tecnicos/permissions',
+                component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/permissions', '250'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/category/app-técnicos',
+                component: ComponentCreator('/IDAE.Docs/docs/category/app-técnicos', '32e'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
               {
                 path: '/IDAE.Docs/docs/category/sammnew',
                 component: ComponentCreator('/IDAE.Docs/docs/category/sammnew', 'a9d'),
@@ -151,6 +163,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/state-request-report',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/state-request-report', '782'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/surveyed-person',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/surveyed-person', 'b52'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

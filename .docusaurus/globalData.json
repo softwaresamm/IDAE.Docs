@@ -11,6 +11,11 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "app-tecnicos/permissions",
+              "path": "/IDAE.Docs/docs/app-tecnicos/permissions",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "intro",
               "path": "/IDAE.Docs/docs/intro",
               "sidebar": "tutorialSidebar"
@@ -26,6 +31,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/surveyed-person",
+              "path": "/IDAE.Docs/docs/sammnew/surveyed-person",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "util-solicitudes/search-settings",
               "path": "/IDAE.Docs/docs/util-solicitudes/search-settings",
               "sidebar": "tutorialSidebar"
@@ -38,6 +48,11 @@
             {
               "id": "/category/util---solicitudes",
               "path": "/IDAE.Docs/docs/category/util---solicitudes",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/app-técnicos",
+              "path": "/IDAE.Docs/docs/category/app-técnicos",
               "sidebar": "tutorialSidebar"
             }
           ],

@@ -249,18 +249,26 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-a9c": {
+  "/IDAE.Docs/docs-35c": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-5e0": {
+  "/IDAE.Docs/docs-c0d": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-11a": {
+  "/IDAE.Docs/docs-f0f": {
     "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-app-tecnicos-permissions-3-ad-137"
+  },
+  "/IDAE.Docs/docs/category/app-técnicos-32e": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---idae-docs-docs-category-app-tecnicosa-80-391"
   },
   "/IDAE.Docs/docs/category/sammnew-a9d": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
@@ -281,6 +289,10 @@
   "/IDAE.Docs/docs/sammnew/state-request-report-782": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-state-request-report-914-963"
+  },
+  "/IDAE.Docs/docs/sammnew/surveyed-person-b52": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-surveyed-persone-55-ed8"
   },
   "/IDAE.Docs/docs/util-solicitudes/search-settings-947": {
     "__comp": "__comp---theme-doc-item-178-a40",
