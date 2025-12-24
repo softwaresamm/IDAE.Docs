@@ -24,7 +24,7 @@ Este documento describe cómo configurar campos tipo lista para controlar el com
 
 | Aplicación | Versión Mínima | Descripción   |
 | ---------- | -------------- | ------------- |
-| SAMMAPI    | >= 1.0.5.7     | API principal |
+| SAMMAPI    | >= 1.2.19.5    | API principal |
 
 ## Requisitos Previos
 
