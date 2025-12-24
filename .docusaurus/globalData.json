@@ -11,6 +11,11 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "app-tecnicos/permissions",
+              "path": "/IDAE.Docs/docs/app-tecnicos/permissions",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "intro",
               "path": "/IDAE.Docs/docs/intro",
               "sidebar": "tutorialSidebar"
@@ -21,33 +26,8 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sammnew/translate-your-site",
-              "path": "/IDAE.Docs/docs/sammnew/translate-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/congratulations",
-              "path": "/IDAE.Docs/docs/util-solicitudes/congratulations",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/create-a-blog-post",
-              "path": "/IDAE.Docs/docs/util-solicitudes/create-a-blog-post",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/create-a-document",
-              "path": "/IDAE.Docs/docs/util-solicitudes/create-a-document",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/deploy-your-site",
-              "path": "/IDAE.Docs/docs/util-solicitudes/deploy-your-site",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "util-solicitudes/markdown-features",
-              "path": "/IDAE.Docs/docs/util-solicitudes/markdown-features",
+              "id": "sammnew/surveyed-person",
+              "path": "/IDAE.Docs/docs/sammnew/surveyed-person",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -63,6 +43,11 @@
             {
               "id": "/category/util---solicitudes",
               "path": "/IDAE.Docs/docs/category/util---solicitudes",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/app-técnicos",
+              "path": "/IDAE.Docs/docs/category/app-técnicos",
               "sidebar": "tutorialSidebar"
             }
           ],
