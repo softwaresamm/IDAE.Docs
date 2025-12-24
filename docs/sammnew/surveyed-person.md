@@ -16,10 +16,7 @@ Este documento describe cómo configurar si el campo "Persona Encuestada" es obl
 
 ### Versión de Lanzamiento
 
-:::info **snw7.1.10.5**
-:::
-
-:::info **api1.2.19.4**
+:::info **snw7.1.10.5 / api1.2.19.4**
 :::
 
 ### Versiones Requeridas
@@ -37,17 +34,26 @@ Antes de iniciar la configuración, asegúrese de tener:
 
 - Permisos de administrador en el sistema
 - Acceso a la base de datos del sistema
+- Conocimiento de la estructura de la tabla `[_columnas]`
 - Conocimiento de los requisitos del negocio respecto a la obligatoriedad del campo
+
+:::important Importante
+Esta funcionalidad requiere las versiones mínimas especificadas. Verifique sus versiones actuales antes de continuar.
+:::
 
 :::tip Preparación
 Determine previamente si su organización requiere trazabilidad completa de quién realiza las evaluaciones o si permite evaluaciones anónimas.
 :::
 
-## Descripción de la Funcionalidad
+## Información del Servicio
+
+:::note Información
+El sistema determina automáticamente si el campo "Persona Encuestada" es obligatorio consultando la configuración en la tabla `[_columnas]` de la base de datos y expone esta información a través del endpoint de evaluaciones.
+:::
 
 ### ¿Cómo funciona?
 
-El sistema determina automáticamente si el campo "Persona Encuestada" es obligatorio consultando la configuración en la tabla `[_columnas]` de la base de datos.
+El sistema consulta la configuración en la tabla `[_columnas]` de la base de datos.
 
 #### Criterio de validación
 
@@ -59,16 +65,16 @@ El campo será **obligatorio** cuando exista un registro en la tabla `[_columnas
 
 Si existe al menos un registro con estas características, el sistema marcará el campo como obligatorio. En caso contrario, será opcional.
 
-### Implementación en API
+### Endpoint de Evaluaciones
 
-### Request
+#### Request
 
 ```bash title="Ejemplo de petición"
 curl --location 'https://app2.softwaresamm.com/sa_publicado/api/docs/evaluaciones/{idSubtipoDocumento}' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InN1cGVyYWRtaW5pc3RyYWRvciIsIm5hbWUiOiJTdXBlciBBZG1pbiIsIklkVXNlciI6IjEiLCJFaWQiOiIwMSIsIlVpZCI6Ijc5QjctU1ctV1ExMS1BRDJYIiwiYXBwIjoiYXBwU2FtbSIsInZlcnNpb24iOiIxLjEuMCIsImlkX3RlcmNlcm8iOiIyOTM3IiwibmJmIjoxNzY1NDc5Mzc0LCJleHAiOjE3NjU0ODExNzQsImlhdCI6MTc2NTQ3OTM3NCwiaXNzIjoiaHR0cHM6Ly9hcHAyLnNvZnR3YXJlc2FtbS5jb20vc2FfcHVibGljYWRvLyIsImF1ZCI6Ijc5QjctU1ctV1ExMS1BRDJYIn0.2eiu6JYI4KR14tajqM3yRnSSRoLvjDzxnUHSlR7UTqw'
 ```
 
-### Response
+#### Response
 
 :::tip Campos Relevantes
 El campo `esRequeridoPersonaEncuestada` en la respuesta es el que determina si será o no obligatorio el llenado del campo Persona Encuestada.
@@ -105,39 +111,43 @@ El campo `esRequeridoPersonaEncuestada` en la respuesta es el que determina si s
 }
 ```
 
-#### Descripción de la nueva propiedad
+#### Descripción de la Nueva Propiedad
 
-| Campo                          | Tipo    | Descripción                                                                      |
-| ------------------------------ | ------- | -------------------------------------------------------------------------------- |
-| `esRequeridoPersonaEncuestada` | boolean | Indica si es obligatorio que la persona encuestada agregue su nombre             |
-|                                |         | `true`: El campo "Persona Encuestada" es obligatorio                             |
-|                                |         | `false`: El campo "Persona Encuestada" es opcional                               |
+| Campo                          | Tipo    | Descripción                                                                                                                                                                    |
+| ------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `esRequeridoPersonaEncuestada` | boolean | Indica si es obligatorio que la persona encuestada agregue su nombre. `true`: El campo "Persona Encuestada" es obligatorio. `false`: El campo "Persona Encuestada" es opcional |
 
 ### Implementación en Aplicación Web
 
-#### Pantallas afectadas
+:::note Información
+La validación de campo obligatorio aplica tanto en el formulario principal de documentos como en la pantalla dedicada de evaluación.
+:::
 
-La validación de campo obligatorio aplica en las siguientes pantallas:
+#### Pantallas Afectadas
 
 1. **Formulario de documento con evaluaciones**
+
    - Ruta: `/forms/doc/doc_documento_ot.aspx`
    - Ubicación: Tab "Evaluaciones"
 
      ![alt OT - Tab Evaluaciones](img/surveyed-person-image.png)
 
 2. **Pantalla dedicada de evaluación**
+
    - Ruta: `/servicios/srv/evaluacion.aspx`
-   
+
      ![alt Evaluación](img/surveyed-person-image-1.png)
 
-#### Comportamiento
+#### Comportamiento del Sistema
 
-**Cuando el campo es obligatorio:**
+**Cuando el campo es obligatorio (`[requerido] = 1`):**
+
 - El campo "Persona Encuestada" se marca como requerido en el formulario
 - El usuario no podrá guardar o enviar la evaluación sin completar este campo
 - Se muestra una indicación visual de campo obligatorio
 
-**Cuando el campo no es obligatorio:**
+**Cuando el campo no es obligatorio (`[requerido] = 0`):**
+
 - El usuario puede completar la evaluación sin llenar "Persona Encuestada"
 - El formulario permite guardar la información sin este dato
 
@@ -145,7 +155,10 @@ La validación de campo obligatorio aplica en las siguientes pantallas:
 
 ### Paso 1: Verificar Configuración Actual
 
+Antes de realizar cambios, verifique el estado actual de la configuración.
+
 Ejecute la siguiente consulta para verificar si el campo ya está configurado como obligatorio:
+
 ```sql title="Verificar configuración actual"
 SELECT *
 FROM [_columnas]
@@ -156,9 +169,12 @@ WHERE [tabla] = 'doc_documento_evaluacion'
 
 ### Paso 2: Configurar Campo como Obligatorio
 
-#### 2.1 Insertar Registro (si no existe)
+Si desea que el campo "Persona Encuestada" sea obligatorio en todas las evaluaciones del sistema, siga estos pasos.
 
-Si la consulta anterior no retorna resultados y desea hacer el campo obligatorio:
+#### Insertar Registro de Configuración
+
+Si la consulta del Paso 1 no retornó resultados, inserte un nuevo registro:
+
 ```sql title="Hacer el campo obligatorio"
 INSERT INTO [_columnas] ([tabla], [columna], [requerido])
 VALUES ('doc_documento_evaluacion', 'personaEncuestada', 1);
@@ -168,12 +184,11 @@ VALUES ('doc_documento_evaluacion', 'personaEncuestada', 1);
 Después de insertar este registro, el campo "Persona Encuestada" será obligatorio en todas las evaluaciones del sistema.
 :::
 
-### Paso 3: Configurar Campo como Opcional (si aplica)
+### Paso 2: Configurar Campo como Opcional
 
-#### 3.1 Actualizar Registro (alternativa)
+Si desea que el campo "Persona Encuestada" sea opcional, permitiendo evaluaciones sin identificar al encuestado. Puede actualizar el campo `[requerido]` a `0`:
 
-Actualice el campo `[requerido]` a `0`:
-```sql title="Hacer el campo opcional - Opción 2"
+```sql title="Hacer el campo opcional"
 UPDATE [_columnas]
 SET [requerido] = 0
 WHERE [tabla] = 'doc_documento_evaluacion'
@@ -182,11 +197,15 @@ WHERE [tabla] = 'doc_documento_evaluacion'
 
 ### Valores de Configuración
 
-| Campo       | Valor                       | Descripción                                 |
-| ----------- | --------------------------- | ------------------------------------------- |
-| `[tabla]`   | `doc_documento_evaluacion`  | Tabla del sistema relacionada con el módulo |
-| `[columna]` | `personaEncuestada`         | Nombre de la columna a validar              |
-| `[requerido]` | `1` (obligatorio) / `0` (opcional) | Estado de obligatoriedad del campo   |
+| Campo         | Valor                              | Descripción                                 |
+| ------------- | ---------------------------------- | ------------------------------------------- |
+| `[tabla]`     | `doc_documento_evaluacion`         | Tabla del sistema relacionada con el módulo |
+| `[columna]`   | `personaEncuestada`                | Nombre de la columna a validar              |
+| `[requerido]` | `1` (obligatorio) / `0` (opcional) | Estado de obligatoriedad del campo          |
+
+:::tip Consejo
+La configuración se puede cambiar en cualquier momento según las necesidades del negocio sin necesidad de actualizar el código de la aplicación.
+:::
 
 :::warning Precaución
 Los cambios en la configuración se aplicarán inmediatamente. Asegúrese de comunicar estos cambios a los usuarios que diligencian evaluaciones.
@@ -223,6 +242,7 @@ Estos cambios afectarán a todos los usuarios que diligencien evaluaciones en el
 Una vez completada la configuración, al diligenciar una evaluación:
 
 - **Si el campo es obligatorio:**
+
   - El campo "Persona Encuestada" mostrará un indicador visual de requerido
   - No se podrá guardar la evaluación sin completar este campo
   - Se mostrará un mensaje de validación si se intenta guardar sin completarlo

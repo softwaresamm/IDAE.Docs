@@ -17,11 +17,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Create a Document",
-    "permalink": "/IDAE.Docs/docs/util-solicitudes/create-a-document"
+    "title": "Configuración de Búsqueda en Campos Lista",
+    "permalink": "/IDAE.Docs/docs/util-solicitudes/search-settings"
   },
   "next": {
-    "title": "Markdown Features",
-    "permalink": "/IDAE.Docs/docs/util-solicitudes/markdown-features"
+    "title": "Deploy your site",
+    "permalink": "/IDAE.Docs/docs/util-solicitudes/deploy-your-site"
   }
 }
