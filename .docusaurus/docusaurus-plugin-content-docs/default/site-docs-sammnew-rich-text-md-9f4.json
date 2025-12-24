@@ -1,0 +1,29 @@
+{
+  "id": "sammnew/rich-text",
+  "title": "Configuración del Texto Enriquecido",
+  "description": "Este documento describe cómo configurar la funcionalidad de Texto Enriquecido en los reportes técnicos, permitiendo a los usuarios dar formato avanzado al texto (negritas, cursivas, listas, etc.) e insertar imágenes directamente en los campos Trabajos, Recomendaciones, Compromisos y Diagnóstico, tanto en el modo de reporte clásico como dinámico.",
+  "source": "@site/docs/sammnew/rich-text.md",
+  "sourceDirName": "sammnew",
+  "slug": "/sammnew/rich-text",
+  "permalink": "/IDAE.Docs/docs/sammnew/rich-text",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/rich-text.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4,
+    "release_version": "7.1.10.8",
+    "release_module": "SammNew"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Configuración de Campo Obligatorio: Persona Encuestada en Evaluaciones",
+    "permalink": "/IDAE.Docs/docs/sammnew/surveyed-person"
+  },
+  "next": {
+    "title": "Util - Solicitudes",
+    "permalink": "/IDAE.Docs/docs/category/util---solicitudes"
+  }
+}

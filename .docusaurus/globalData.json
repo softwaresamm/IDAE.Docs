@@ -21,6 +21,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/rich-text",
+              "path": "/IDAE.Docs/docs/sammnew/rich-text",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/state-request-report",
               "path": "/IDAE.Docs/docs/sammnew/state-request-report",
               "sidebar": "tutorialSidebar"
