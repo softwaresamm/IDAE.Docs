@@ -1,0 +1,29 @@
+{
+  "id": "sammnew/surveyed-person",
+  "title": "Configuración de Campo Obligatorio: Persona Encuestada en Evaluaciones",
+  "description": "Este documento describe cómo configurar si el campo \"Persona Encuestada\" es obligatorio u opcional al momento de diligenciar evaluaciones en el sistema. La configuración se realiza a nivel de base de datos y aplica tanto para la aplicación web como para las integraciones vía API.",
+  "source": "@site/docs/sammnew/surveyed-person.md",
+  "sourceDirName": "sammnew",
+  "slug": "/sammnew/surveyed-person",
+  "permalink": "/IDAE.Docs/docs/sammnew/surveyed-person",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/surveyed-person.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "release_version": "7.1.10.5",
+    "release_module": "SammNew"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Configuración de Estados al Reportar Atención",
+    "permalink": "/IDAE.Docs/docs/sammnew/state-request-report"
+  },
+  "next": {
+    "title": "Util - Solicitudes",
+    "permalink": "/IDAE.Docs/docs/category/util---solicitudes"
+  }
+}
