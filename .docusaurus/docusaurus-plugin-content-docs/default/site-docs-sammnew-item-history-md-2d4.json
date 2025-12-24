@@ -13,7 +13,9 @@
   "version": "current",
   "sidebarPosition": 2,
   "frontMatter": {
-    "sidebar_position": 2
+    "sidebar_position": 2,
+    "release_version": "7.1.10.8",
+    "release_module": "SammNew"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
@@ -21,7 +23,7 @@
     "permalink": "/IDAE.Docs/docs/sammnew/state-request-report"
   },
   "next": {
-    "title": "Util - Solicitudes",
-    "permalink": "/IDAE.Docs/docs/category/util---solicitudes"
+    "title": "Configuración de Campo Obligatorio: Persona Encuestada en Evaluaciones",
+    "permalink": "/IDAE.Docs/docs/sammnew/surveyed-person"
   }
 }

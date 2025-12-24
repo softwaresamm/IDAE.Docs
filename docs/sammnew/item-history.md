@@ -1,5 +1,7 @@
 ---
 sidebar_position: 2
+release_version: "7.1.10.8"
+release_module: "SammNew"
 ---
 
 # Historial de Ítems en Documentos
@@ -14,17 +16,19 @@ Este documento describe cómo configurar y habilitar la funcionalidad de histori
 
 ### Versión de Lanzamiento
 
-:::info **v7.1.10.6**
+:::info **v7.1.10.8**
 :::
 
 ### Versiones Requeridas
 
 | Aplicación    | Versión Mínima | Descripción                           |
 | ------------- | -------------- | ------------------------------------- |
-| Base de Datos | >= 2.1.7.1     | Scripts de configuración de historial |
+| SAMMNEW       | >= 7.1.10.8    | Aplicación web principal              |
+| SAMM LOGICA   | >= 5.6.23.4    | Lógica de negocio                     |
+| BASE DE DATOS | >= C2.1.7.1    | Scripts de configuración de historial |
 
 :::important Importante
-Asegúrese de tener las versiones mínimas requeridas antes de iniciar la configuración.
+Esta funcionalidad requiere las versiones mínimas especificadas. Verifique sus versiones actuales antes de continuar.
 :::
 
 ## Requisitos Previos
@@ -492,7 +496,9 @@ SELECT @HTMLFINAL AS resumen;
 END
 ```
 
-### Paso 3: Uso de la Funcionalidad
+### Paso 3: Asignar Permisos y Usar la Funcionalidad
+
+Una vez creado el procedimiento almacenado, asigne el permiso a los perfiles de usuario que necesiten acceder al historial.
 
 :::tip Acceso a la Funcionalidad
 Una vez completada la configuración, el botón de historial aparecerá automáticamente en todas las pantallas de ítems de documentos donde el usuario tenga el permiso habilitado.
@@ -513,10 +519,11 @@ La información se carga dinámicamente cada vez que se abre el modal, asegurand
 
 Una vez completada la configuración:
 
-1. El botón de historial aparecerá junto a cada ítem en las pantallas de documentos
-2. Al hacer clic en el botón, se abrirá un modal con el historial detallado
-3. La información mostrada dependerá del contenido del procedimiento almacenado personalizado
-4. El modal se cerrará al hacer clic en el botón de cerrar
+1. **Botón de Historial**: Aparecerá junto a cada ítem en las pantallas de documentos
+2. **Modal de Historial**: Al hacer clic en el botón, se abrirá una ventana modal con el historial detallado del ítem
+3. **Contenido Personalizado**: La información mostrada dependerá del contenido del procedimiento almacenado personalizado
+4. **Información Actualizada**: El modal carga dinámicamente la información más reciente cada vez que se abre
+5. **Cierre del Modal**: El usuario puede cerrar el modal haciendo clic en el botón de cerrar
 
 ### Visualización Estándar
 
@@ -530,11 +537,11 @@ Vista del historial con procedimiento almacenado personalizado mostrando múltip
 
 ![Modal de historial de ítems - Vista personalizada con tablas](./img/item-history-custom.png)
 
-### Visualizacion del Permiso
-en el formulario Configuracion - Seguridad - Perfil en el tab de permisos de acuerdo  a la configuracion hecha en Hijo funcionalidad se visualizara  de la siguiente Manera:
+### Visualización del Permiso
 
-![Visualizacion de Permisos en el perfil](./img/item-history-permission.png)
+En el formulario **Configuración** > **Seguridad** > **Perfil**, en el tab de **Permisos**, se visualizará la funcionalidad de acuerdo a la configuración realizada:
 
+![Visualización de Permisos en el perfil](./img/item-history-permission.png)
 
 ## Resolución de Problemas
 

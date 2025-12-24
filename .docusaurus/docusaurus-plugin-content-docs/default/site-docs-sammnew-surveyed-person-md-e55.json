@@ -19,8 +19,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Configuración de Estados al Reportar Atención",
-    "permalink": "/IDAE.Docs/docs/sammnew/state-request-report"
+    "title": "Historial de Ítems en Documentos",
+    "permalink": "/IDAE.Docs/docs/sammnew/item-history"
   },
   "next": {
     "title": "Util - Solicitudes",
