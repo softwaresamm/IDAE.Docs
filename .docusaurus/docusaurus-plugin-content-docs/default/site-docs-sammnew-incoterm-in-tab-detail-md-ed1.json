@@ -1,0 +1,29 @@
+{
+  "id": "sammnew/incoterm-in-tab-detail",
+  "title": "Visualización de Incoterm en el Tab Detalle",
+  "description": "Este documento describe cómo configurar y visualizar el campo incoterm en el tab detalle de documentos, permitiendo visualizar los términos de comercio internacional directamente en la planeación y detalle de los documentos.",
+  "source": "@site/docs/sammnew/incoterm-in-tab-detail.md",
+  "sourceDirName": "sammnew",
+  "slug": "/sammnew/incoterm-in-tab-detail",
+  "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/incoterm-in-tab-detail.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4,
+    "release_version": "7.1.10.8",
+    "release_module": "SammNew"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Configuración de Campo Obligatorio: Persona Encuestada en Evaluaciones",
+    "permalink": "/IDAE.Docs/docs/sammnew/surveyed-person"
+  },
+  "next": {
+    "title": "Util - Reportes",
+    "permalink": "/IDAE.Docs/docs/category/util---reportes"
+  }
+}
