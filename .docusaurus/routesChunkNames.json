@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-35c": {
+  "/IDAE.Docs/docs-e9e": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-c0d": {
+  "/IDAE.Docs/docs-858": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-f0f": {
+  "/IDAE.Docs/docs-8ba": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
@@ -274,6 +274,10 @@
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "__props": "__props---idae-docs-docs-category-sammnewc-6-f-fd8"
   },
+  "/IDAE.Docs/docs/category/util---reportes-f5c": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---idae-docs-docs-category-util-reportes-1-f-2-f26"
+  },
   "/IDAE.Docs/docs/category/util---solicitudes-954": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "__props": "__props---idae-docs-docs-category-util-solicitudes-242-3f0"
@@ -281,6 +285,10 @@
   "/IDAE.Docs/docs/intro-fae": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-intro-0-e-3-c1d"
+  },
+  "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail-e85": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-incoterm-in-tab-detailed-1-f63"
   },
   "/IDAE.Docs/docs/sammnew/item-history-fe7": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -293,6 +301,10 @@
   "/IDAE.Docs/docs/sammnew/surveyed-person-b52": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-surveyed-persone-55-ed8"
+  },
+  "/IDAE.Docs/docs/util-reportes/search-settings-282": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-search-settingsda-2-970"
   },
   "/IDAE.Docs/docs/util-solicitudes/search-settings-947": {
     "__comp": "__comp---theme-doc-item-178-a40",

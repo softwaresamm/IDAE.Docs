@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', '35c'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'e9e'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', 'c0d'),
+        component: ComponentCreator('/IDAE.Docs/docs', '858'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'f0f'),
+            component: ComponentCreator('/IDAE.Docs/docs', '8ba'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
@@ -143,6 +143,12 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
+                path: '/IDAE.Docs/docs/category/util---reportes',
+                component: ComponentCreator('/IDAE.Docs/docs/category/util---reportes', 'f5c'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
                 path: '/IDAE.Docs/docs/category/util---solicitudes',
                 component: ComponentCreator('/IDAE.Docs/docs/category/util---solicitudes', '954'),
                 exact: true,
@@ -151,6 +157,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/intro',
                 component: ComponentCreator('/IDAE.Docs/docs/intro', 'fae'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail', 'e85'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -169,6 +181,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/surveyed-person',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/surveyed-person', 'b52'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/search-settings',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/search-settings', '282'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
