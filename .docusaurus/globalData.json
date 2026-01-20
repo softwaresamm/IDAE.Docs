@@ -26,6 +26,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON",
+              "path": "/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/item-history",
               "path": "/IDAE.Docs/docs/sammnew/item-history",
               "sidebar": "tutorialSidebar"
