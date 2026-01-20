@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-e9e": {
+  "/IDAE.Docs/docs-dff": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-858": {
+  "/IDAE.Docs/docs-46c": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-8ba": {
+  "/IDAE.Docs/docs-d01": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
@@ -289,6 +289,10 @@
   "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail-e85": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-incoterm-in-tab-detailed-1-f63"
+  },
+  "/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON-c10": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-integration-configuration-support-for-json-string-and-native-jso-nc-36-e2c"
   },
   "/IDAE.Docs/docs/sammnew/item-history-fe7": {
     "__comp": "__comp---theme-doc-item-178-a40",

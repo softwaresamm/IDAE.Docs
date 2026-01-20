@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'e9e'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'dff'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '858'),
+        component: ComponentCreator('/IDAE.Docs/docs', '46c'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', '8ba'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'd01'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
@@ -163,6 +163,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail', 'e85'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON', 'c10'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

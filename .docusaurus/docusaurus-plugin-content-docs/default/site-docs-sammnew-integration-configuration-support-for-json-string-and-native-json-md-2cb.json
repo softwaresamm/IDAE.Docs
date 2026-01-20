@@ -1,0 +1,29 @@
+{
+  "id": "sammnew/Integration/configuration-Support-for-JSON_STRING and-native-JSON",
+  "title": "Configuracion de envio json",
+  "description": "Este documento muestra las formas que se maneja el envio de json al momento de enviar informacion ya que se puede manejar como formato json nativo o tambien como si fuera un string.",
+  "source": "@site/docs/sammnew/Integration/configuration-Support-for-JSON_STRING and-native-JSON.md",
+  "sourceDirName": "sammnew/Integration",
+  "slug": "/sammnew/Integration/configuration-Support-for-JSON_STRING and-native-JSON",
+  "permalink": "/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON_STRING and-native-JSON",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/Integration/configuration-Support-for-JSON_STRING and-native-JSON.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "release_version": "5.5.27.0",
+    "release_module": "SammWeb"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Visualización de Incoterm en el Tab Detalle",
+    "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail"
+  },
+  "next": {
+    "title": "Util - Reportes",
+    "permalink": "/IDAE.Docs/docs/category/util---reportes"
+  }
+}
