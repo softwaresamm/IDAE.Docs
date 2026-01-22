@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'dff'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'c0a'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '46c'),
+        component: ComponentCreator('/IDAE.Docs/docs', '903'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'd01'),
+            component: ComponentCreator('/IDAE.Docs/docs', '828'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
@@ -187,6 +187,24 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/surveyed-person',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/surveyed-person', 'b52'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services', '891'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README', 'dc3'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README', '269'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

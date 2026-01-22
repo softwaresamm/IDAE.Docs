@@ -1,14 +1,14 @@
 {
-  "id": "sammnew/incoterm-in-tab-detail",
+  "id": "sammnew/incoterm-in-tab-detail copy",
   "title": "Visualización de Incoterm en el Tab Detalle",
   "description": "Este documento describe cómo configurar y visualizar el campo incoterm en el tab detalle de documentos, permitiendo visualizar los términos de comercio internacional directamente en la planeación y detalle de los documentos.",
-  "source": "@site/docs/sammnew/incoterm-in-tab-detail.md",
+  "source": "@site/docs/sammnew/incoterm-in-tab-detail copy.md",
   "sourceDirName": "sammnew",
-  "slug": "/sammnew/incoterm-in-tab-detail",
-  "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail",
+  "slug": "/sammnew/incoterm-in-tab-detail copy",
+  "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail copy",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/incoterm-in-tab-detail.md",
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/incoterm-in-tab-detail copy.md",
   "tags": [],
   "version": "current",
   "sidebarPosition": 4,
@@ -23,7 +23,7 @@
     "permalink": "/IDAE.Docs/docs/sammnew/surveyed-person"
   },
   "next": {
-    "title": "Visualización de Report services",
-    "permalink": "/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services"
+    "title": "Visualización de Incoterm en el Tab Detalle",
+    "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail"
   }
 }

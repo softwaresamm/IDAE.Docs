@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-dff": {
+  "/IDAE.Docs/docs-c0a": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-46c": {
+  "/IDAE.Docs/docs-903": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-d01": {
+  "/IDAE.Docs/docs-828": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
@@ -305,6 +305,18 @@
   "/IDAE.Docs/docs/sammnew/surveyed-person-b52": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-surveyed-persone-55-ed8"
+  },
+  "/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services-891": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-visualization-of-reports-component-report-services-5-d-1-fe9"
+  },
+  "/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README-dc3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-deploy-docker-readme-930-b15"
+  },
+  "/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README-269": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-deploy-iis-readme-65-d-d52"
   },
   "/IDAE.Docs/docs/util-reportes/search-settings-282": {
     "__comp": "__comp---theme-doc-item-178-a40",

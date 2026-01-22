@@ -46,6 +46,21 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/Visualization-of-reports-component-report-services",
+              "path": "/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-reportes/DEPLOY-DOCKER-README",
+              "path": "/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "util-reportes/DEPLOY-IIS-README",
+              "path": "/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "util-reportes/search-settings",
               "path": "/IDAE.Docs/docs/util-reportes/search-settings",
               "sidebar": "tutorialSidebar"
