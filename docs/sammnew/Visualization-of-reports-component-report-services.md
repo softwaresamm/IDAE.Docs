@@ -24,7 +24,7 @@ Este documento describe lo primero a tener en cuenta para poder configurar y ver
 | Aplicación    | Versión Mínima | Descripción                           |
 | ------------- | -------------- | ------------------------------------- |
 | SAMMNEW       | >= 7.1.10.9    | Aplicación web principal              |
-| SAMM LOGICA   | >= 5.6.23.4   | Lógica de negocio                     |
+| SAMM LOGICA   | >= 5.6.23.4    | Lógica de negocio                     |
 | BASE DE DATOS | >= C2.1.6.1    | Scripts de configuración de historial |
 
 :::important Importante
@@ -45,11 +45,11 @@ La configuración del componente a utilizar depende de una instalacion previa ya
 
 ## Configuración
 
-### Paso 1: validacion web config web  
+### Paso 1: validacion web config new  
 
-En este paso se compartira un ejemplo del contenido de los appsettings que debe tener el archivo web config.
+En este paso se compartira un ejemplo del contenido de los appsettings que debe tener el archivo web config. del sitio new
 
-```sql title="web.config web"
+```sql title="web.config new"
 <appSettings>
     <add key="licencia" value="79B7-SW-WQ11-AD2X" lockItem="true" />
     <add key="correo.soporte" value="" lockItem="true" />
@@ -75,7 +75,7 @@ Asegúrese de guardar los cambios después de cada modificacion
 
 ### Paso 2: validacion web config api
 
-En este paso se compartira un ejemplo del contenido de los appsettings que debe tener el archivo web.config.
+En este paso se compartira un ejemplo del contenido de los appsettings que debe tener el archivo web.config. del api
 
 ```sql title="web.config api"
 <appSettings>
@@ -99,7 +99,7 @@ En este paso se compartira un ejemplo del contenido de los appsettings que debe 
 ```
 
 :::important Importante
-Para unas llaves (marcadas con la palabra "OJO") es importante que coincida con la seccion Authentications del documento que se ve en la siguiente imagen para garantizar su correcta validacion de seguridad ya que el token tiene cambios importantes a nivel de seguridad.
+Para unas llaves (marcadas con la palabra "OJO") es importante que coincida con la seccion Authentications del documento que se ve en la siguiente imagen (la ruta varia segun la persona que instale el servicio report services) para garantizar su correcta validacion de seguridad ya que el token tiene cambios importantes a nivel de seguridad.
 :::
 
 
@@ -108,9 +108,6 @@ Para unas llaves (marcadas con la palabra "OJO") es importante que coincida con 
 
 
 
-1. Acceda a la configuración del tab detalle del documento
-2. Localice el ítem **"Incoterm"** en la lista de campos disponibles
-3. Marque el checkbox del ítem "Incoterm" para habilitarlo
 
 
 

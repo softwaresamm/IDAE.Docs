@@ -3,6 +3,24 @@ sidebar_position: 2
 release_version: "7.1.10.9"
 release_module: "SammNew"
 ---
+
+# Despliegue de IDAE Report Service con Docker
+
+Esta guía detalla paso a paso cómo desplegar la aplicación completa (Backend + Frontend) usando Docker y Docker Compose en servidores Linux o Windows con Docker Desktop. El sistema proporciona una plataforma completa de generación y visualización de reportes SSRS (SQL Server Reporting Services).
+
+**Versión:** 0.2.3-beta
+
+## Referencias
+
+_Esta sección será completada con tickets de Jira relacionados cuando estén disponibles._
+
+## Información de Versiones
+
+### Versión de Lanzamiento
+
+:::info **v7.1.10.9**
+:::
+
 ### Versiones Requeridas
 
 | Aplicación    | Versión Mínima | Descripción                           |
@@ -11,26 +29,141 @@ release_module: "SammNew"
 | SAMM LOGICA   | >= 5.6.23.4    | Lógica de negocio                     |
 | BASE DE DATOS | >= C2.1.6.1    | Scripts de configuración de historial |
 
-# Despliegue de IDAE Report Service con Docker - Guía Completa
+## Requisitos Previos
 
-Esta guía detalla paso a paso cómo desplegar la aplicación completa (Backend + Frontend) usando Docker y Docker Compose en servidores Linux o Windows con Docker Desktop.
+:::important Importante
+Esta guía es para despliegue con **Docker** en servidores Linux, Windows Server con Docker Desktop, ambientes de desarrollo con Docker, o Kubernetes. Para despliegue en Windows Server con IIS nativo (sin Docker), consultar: `IDAE.UTIL.ReportService.Web/DEPLOY-IIS-README.md`
+:::
 
-**Versión:** 0.2.3-beta
+Antes de iniciar el despliegue, asegúrese de tener:
 
-## ⚠️ IMPORTANTE: ¿Cuándo usar esta guía?
+### 1. Sistema operativo
 
-Esta guía es para despliegue con **Docker** en:
+**Servidores Linux:**
 
-- ✅ Servidores Linux (Ubuntu, Debian, CentOS, etc.)
-- ✅ Windows Server con Docker Desktop
-- ✅ Ambientes de desarrollo con Docker
-- ✅ Kubernetes (usando las imágenes Docker generadas)
+- Ubuntu 20.04 LTS o superior
+- Debian 10 o superior
+- CentOS 8 o superior
+- Red Hat Enterprise Linux 8+
 
-**Para despliegue en Windows Server con IIS nativo (sin Docker):**
+**Windows:**
 
-- Ver: `IDAE.UTIL.ReportService.Web/DEPLOY-IIS-README.md`
+- Windows Server 2019 o superior
+- Windows 10/11 Pro (para desarrollo)
+- WSL2 activado (para Windows Desktop)
 
-## 📋 Descripción del sistema
+### 2. Docker instalado
+
+**Linux (Ubuntu/Debian):**
+
+```bash title="Instalación de Docker en Linux"
+# Actualizar sistema
+sudo apt-get update
+sudo apt-get upgrade -y
+
+# Instalar Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Agregar usuario al grupo docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Verificar instalación
+docker --version
+docker compose version
+```
+
+**Windows Server:**
+
+```powershell title="Instalación de Docker en Windows"
+# Descargar Docker Desktop para Windows Server
+# https://docs.docker.com/desktop/install/windows-install/
+
+# O usar Docker Engine directamente (sin Docker Desktop)
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+Install-Package -Name docker -ProviderName DockerMsftProvider
+
+# Iniciar servicio
+Start-Service Docker
+
+# Verificar
+docker --version
+```
+
+**Versiones mínimas requeridas:**
+
+- Docker: 20.10 o superior
+- Docker Compose: 2.0 o superior
+
+### 3. Recursos del servidor
+
+**Mínimos:**
+
+- CPU: 2 cores
+- RAM: 4 GB
+- Disco: 20 GB libres
+- Red: Acceso a SQL Server y SSRS
+
+**Recomendados:**
+
+- CPU: 4+ cores
+- RAM: 8+ GB
+- Disco: 50+ GB SSD
+- Red: Gigabit Ethernet
+
+### 4. Servicios externos requeridos
+
+**SQL Server:**
+
+- SQL Server 2019 o superior
+- Base de datos creada (ej: `sai_basica`)
+- Usuario con permisos de lectura/escritura
+
+**SSRS (SQL Server Reporting Services):**
+
+- SSRS 2019 o superior
+- Accesible via HTTP/HTTPS
+- Usuario con permisos para generar reportes
+- URL ejemplo: `http://servidor/ReportServer`
+
+### 5. Red y firewall
+
+**Puertos que se deben abrir:**
+
+| Puerto | Servicio | Descripción                        |
+| ------ | -------- | ---------------------------------- |
+| 80     | HTTP     | Acceso web (si usa Nginx)          |
+| 443    | HTTPS    | Acceso web seguro (si usa Nginx)   |
+| 3001   | Frontend | Next.js (si acceso directo)        |
+| 7268   | Backend  | .NET API HTTPS (si acceso directo) |
+| 5213   | Backend  | .NET API HTTP (si acceso directo)  |
+
+**Acceso a servicios externos:**
+
+- SQL Server (puerto 1433 por defecto)
+- SSRS (puerto 80/443)
+
+### 6. Certificados SSL (opcional pero recomendado)
+
+Si vas a usar HTTPS, necesitas certificados:
+
+```bash title="Generar certificado autofirmado (desarrollo)"
+# Opción 1: Certificado autofirmado (solo para desarrollo)
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout certificate.key -out certificate.crt
+
+# Convertir a PFX para .NET
+openssl pkcs12 -export -out certificate.pfx \
+  -inkey certificate.key -in certificate.crt -password pass:12345
+
+# Opción 2: Certificado de Let's Encrypt (producción)
+# Ver: https://letsencrypt.org/getting-started/
+```
+
+## Información del Sistema
+
+### Descripción del sistema
 
 Este sistema proporciona una plataforma completa de generación y visualización de reportes SSRS (SQL Server Reporting Services) con las siguientes características:
 
@@ -53,8 +186,6 @@ Este sistema proporciona una plataforma completa de generación y visualización
 - 📱 **Diseño responsivo**: Optimizado para diferentes tamaños de pantalla
 - ⚡ **Alto rendimiento**: Next.js 15 con Turbopack
 - 🐳 **Despliegue con Docker**: Fácil instalación y escalamiento
-
-## 🏗️ Arquitectura del sistema
 
 ### Stack tecnológico
 
@@ -131,137 +262,11 @@ Certificates/                          # Certificados SSL/TLS
 └── certificate.pfx                   # Certificado para HTTPS
 ```
 
-## Requisitos previos del servidor
-
-### 1. Sistema operativo
-
-**Servidores Linux:**
-
-- Ubuntu 20.04 LTS o superior
-- Debian 10 o superior
-- CentOS 8 o superior
-- Red Hat Enterprise Linux 8+
-
-**Windows:**
-
-- Windows Server 2019 o superior
-- Windows 10/11 Pro (para desarrollo)
-- WSL2 activado (para Windows Desktop)
-
-### 2. Docker instalado
-
-**Linux (Ubuntu/Debian):**
-
-```bash
-# Actualizar sistema
-sudo apt-get update
-sudo apt-get upgrade -y
-
-# Instalar Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-
-# Agregar usuario al grupo docker
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Verificar instalación
-docker --version
-docker compose version
-```
-
-**Windows Server:**
-
-```powershell
-# Descargar Docker Desktop para Windows Server
-# https://docs.docker.com/desktop/install/windows-install/
-
-# O usar Docker Engine directamente (sin Docker Desktop)
-Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
-Install-Package -Name docker -ProviderName DockerMsftProvider
-
-# Iniciar servicio
-Start-Service Docker
-
-# Verificar
-docker --version
-```
-
-**Versiones mínimas requeridas:**
-
-- Docker: 20.10 o superior
-- Docker Compose: 2.0 o superior
-
-### 3. Recursos del servidor
-
-**Mínimos:**
-
-- CPU: 2 cores
-- RAM: 4 GB
-- Disco: 20 GB libres
-- Red: Acceso a SQL Server y SSRS
-
-**Recomendados:**
-
-- CPU: 4+ cores
-- RAM: 8+ GB
-- Disco: 50+ GB SSD
-- Red: Gigabit Ethernet
-
-### 4. Servicios externos requeridos
-
-**SQL Server:**
-
-- SQL Server 2019 o superior
-- Base de datos creada (ej: `sai_basica`)
-- Usuario con permisos de lectura/escritura
-
-**SSRS (SQL Server Reporting Services):**
-
-- SSRS 2019 o superior
-- Accesible via HTTP/HTTPS
-- Usuario con permisos para generar reportes
-- URL ejemplo: `http://servidor/ReportServer`
-
-### 5. Red y firewall
-
-**Puertos que se deben abrir:**
-
-| Puerto | Servicio | Descripción                        |
-| ------ | -------- | ---------------------------------- |
-| 80     | HTTP     | Acceso web (si usa Nginx)          |
-| 443    | HTTPS    | Acceso web seguro (si usa Nginx)   |
-| 3001   | Frontend | Next.js (si acceso directo)        |
-| 7268   | Backend  | .NET API HTTPS (si acceso directo) |
-| 5213   | Backend  | .NET API HTTP (si acceso directo)  |
-
-**Acceso a servicios externos:**
-
-- SQL Server (puerto 1433 por defecto)
-- SSRS (puerto 80/443)
-
-### 6. Certificados SSL (opcional pero recomendado)
-
-Si vas a usar HTTPS, necesitas certificados:
-
-```bash
-# Opción 1: Certificado autofirmado (solo para desarrollo)
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout certificate.key -out certificate.crt
-
-# Convertir a PFX para .NET
-openssl pkcs12 -export -out certificate.pfx \
-  -inkey certificate.key -in certificate.crt -password pass:12345
-
-# Opción 2: Certificado de Let's Encrypt (producción)
-# Ver: https://letsencrypt.org/getting-started/
-```
-
-## 🚀 Guía de instalación paso a paso
+## Configuración
 
 ### Paso 1: Clonar el repositorio
 
-```bash
+```bash title="Clonar y preparar el entorno"
 # En el servidor, crear directorio de trabajo
 sudo mkdir -p /opt/idae
 cd /opt/idae
@@ -270,546 +275,292 @@ cd /opt/idae
 git clone <repository-url> IDAE.UTIL.ReportService
 cd IDAE.UTIL.ReportService
 
-# O copiar archivos manualmente si no tienes git:
-# Transferir carpetas completas:
-# - IDAE.UTIL.ReportService.Backend/
-# - IDAE.UTIL.ReportService.Web/
-# - IDAE.UTIL.ReportService.Container/
-# - Certificates/
+# Verificar que existen los archivos necesarios
+ls -la
 ```
 
-### Paso 2: Preparar certificados SSL (opcional)
+:::tip Consejo
+Si el servidor no tiene acceso directo a Git, puede transferir los archivos usando `scp`, `rsync`, o FTP.
+:::
 
-```bash
-# Si usas HTTPS, copiar certificados a la carpeta Certificates/
+### Paso 2: Configurar variables de entorno
+
+Crear archivo `.env` en la raíz del proyecto con las variables necesarias:
+
+```bash title="Crear archivo .env"
+cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container
+
+# Crear archivo .env
+nano .env
+```
+
+Contenido del archivo `.env`:
+
+```env title="Configuración de variables de entorno"
+# Backend API
+API_VERSION=0.2.1-beta
+ASPNETCORE_ENVIRONMENT=Staging
+ASPNETCORE_URLS=https://+:7268;http://+:5213
+ASPNETCORE_Kestrel__Certificates__Default__Path=/https/certificate.pfx
+ASPNETCORE_Kestrel__Certificates__Default__Password=12345
+
+# Database Connection
+ConnectionStrings__DefaultConnection=Server=tu-servidor-sql;Database=sai_basica;User Id=usuario;Password=contraseña;TrustServerCertificate=True;
+
+# SSRS Configuration
+ReportServer__Url=http://tu-servidor-ssrs/ReportServer
+ReportServer__Username=usuario_ssrs
+ReportServer__Password=contraseña_ssrs
+ReportServer__Domain=DOMINIO
+
+# Frontend Web
+FRONTEND_VERSION=0.2.1-beta
+NEXT_PUBLIC_API_URL=http://rs-backend-webapi:5213
+NODE_ENV=production
+
+# Registry (si usas registry privado)
+REGISTRY_URL=localhost:5000
+```
+
+:::important Importante
+Asegúrese de reemplazar todos los valores de ejemplo con sus credenciales y configuraciones reales. NO incluya este archivo en control de versiones.
+:::
+
+### Paso 3: Copiar certificados SSL
+
+```bash title="Copiar certificados al directorio correcto"
+# Crear directorio de certificados si no existe
+mkdir -p /opt/idae/IDAE.UTIL.ReportService/Certificates
+
+# Copiar certificado PFX
+cp /ruta/a/tu/certificate.pfx /opt/idae/IDAE.UTIL.ReportService/Certificates/
+
+# Verificar permisos
+chmod 600 /opt/idae/IDAE.UTIL.ReportService/Certificates/certificate.pfx
+```
+
+### Paso 4: Construir las imágenes Docker
+
+#### Opción A: Construir localmente
+
+```bash title="Construir imágenes en el servidor"
 cd /opt/idae/IDAE.UTIL.ReportService
-mkdir -p Certificates
 
-# Copiar tu certificado PFX
-cp /ruta/tu/certificate.pfx Certificates/
+# Construir imagen del Backend
+cd IDAE.UTIL.ReportService.Backend/Idae.Util.ReportService.Backend.WebApi
+docker build -t sammai-rs-backend:0.2.1-beta .
 
-# O crear uno autofirmado para pruebas:
-cd Certificates
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout certificate.key -out certificate.crt \
-  -subj "/C=MX/ST=Estado/L=Ciudad/O=IDAE/CN=localhost"
+# Construir imagen del Frontend
+cd ../../IDAE.UTIL.ReportService.Web
+docker build -t sammai-rs-frontend:0.2.1-beta .
 
-openssl pkcs12 -export -out certificate.pfx \
-  -inkey certificate.key -in certificate.crt \
-  -passout pass:12345
-
-# Dar permisos
-chmod 644 certificate.pfx
+# Verificar imágenes creadas
+docker images | grep sammai-rs
 ```
 
-### Paso 3: Configurar variables de entorno
+:::tip Consejo
+La construcción puede tardar varios minutos. Docker descargará las imágenes base necesarias (.NET SDK, Node.js) en la primera ejecución.
+:::
 
-Editar el archivo `docker-compose.sammai-rs-staging.yml`:
+#### Opción B: Usar registry privado
 
-```bash
+```bash title="Configurar y usar registry privado"
+# Iniciar registry privado
 cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container
-nano docker-compose.sammai-rs-staging.yml
+docker compose -f docker-compose.registry.yml up -d
+
+# Tag imágenes para el registry
+docker tag sammai-rs-backend:0.2.1-beta localhost:5000/sammai-rs-backend:0.2.1-beta
+docker tag sammai-rs-frontend:0.2.1-beta localhost:5000/sammai-rs-frontend:0.2.1-beta
+
+# Push al registry
+docker push localhost:5000/sammai-rs-backend:0.2.1-beta
+docker push localhost:5000/sammai-rs-frontend:0.2.1-beta
+
+# Verificar imágenes en registry
+curl http://localhost:5000/v2/_catalog
 ```
 
-**Configurar las siguientes variables:**
+### Paso 5: Iniciar los servicios
 
-```yaml
-services:
-  rs-backend-webapi:
-    environment:
-      # ⚠️ CAMBIAR: Conexión a tu SQL Server
-      - ProjectSettings__ConnectionStrings__DefaultConnection=Server=TU_SERVIDOR_SQL;Database=sai_basica;User Id=TU_USUARIO;pwd=TU_PASSWORD;Encrypt=False;TrustServerCertificate=True;
+#### Opción A: Despliegue simple (sin Nginx)
 
-      # ⚠️ CAMBIAR: URL de tu SSRS
-      - ProjectSettings__Report__SSRS__BaseRoute=http://TU_SERVIDOR_SSRS/ReportServer
-
-      # ⚠️ CAMBIAR: Usuario SSRS
-      - ProjectSettings__Report__SSRS__Authentication__Basic__Username=DOMINIO\\usuario_ssrs
-      - ProjectSettings__Report__SSRS__Authentication__Basic__Password=PASSWORD_SSRS
-
-      # ⚠️ CAMBIAR: Password del certificado (si usas HTTPS)
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=12345
-
-  rs-frontend-web:
-    build:
-      args:
-        # ⚠️ CAMBIAR: URL del backend según tu servidor
-        NEXT_PUBLIC_API_URL: http://TU_SERVIDOR:3001
-
-        # ⚠️ CAMBIAR: Base path si usas Nginx con proxy
-        NEXT_PUBLIC_BASE_PATH: /sammai
-    environment:
-      # Puerto del frontend (dejar 3001 o cambiar si hay conflicto)
-      - PORT=3001
-```
-
-**Ejemplo con valores reales:**
-
-```yaml
-# Backend
-- ProjectSettings__ConnectionStrings__DefaultConnection=Server=192.168.1.100;Database=sai_basica;User Id=sa;pwd=MiPassword123!;Encrypt=False;TrustServerCertificate=True;
-- ProjectSettings__Report__SSRS__BaseRoute=http://192.168.1.100/ReportServer
-- ProjectSettings__Report__SSRS__Authentication__Basic__Username=MIDOMINIO\\ssrs_admin
-- ProjectSettings__Report__SSRS__Authentication__Basic__Password=SsrsPass456!
-
-# Frontend
-NEXT_PUBLIC_API_URL: http://192.168.1.200:3001
-NEXT_PUBLIC_BASE_PATH: /sammai
-```
-
-### Paso 4: Crear red Docker (primera vez)
-
-```bash
-# Crear red Docker para comunicación entre contenedores
-docker network create staging.sammai-network
-
-# Verificar que se creó
-docker network ls | grep sammai
-```
-
-### Paso 5: Construir las imágenes Docker
-
-```bash
+```bash title="Iniciar aplicación sin proxy"
 cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container
 
-# Construir ambas imágenes (Backend + Frontend)
-docker compose -f docker-compose.sammai-rs-staging.yml build
-
-# Ver progreso:
-# - Building backend... (puede tardar 2-5 minutos)
-# - Building frontend... (puede tardar 3-7 minutos)
-```
-
-**Si hay errores de build:**
-
-```bash
-# Build con más detalles
-docker compose -f docker-compose.sammai-rs-staging.yml build --progress=plain
-
-# Build sin cache (si hubo cambios)
-docker compose -f docker-compose.sammai-rs-staging.yml build --no-cache
-```
-
-### Paso 6: Iniciar los contenedores
-
-```bash
-# Iniciar en modo detached (background)
+# Iniciar servicios
 docker compose -f docker-compose.sammai-rs-staging.yml up -d
 
-# Ver logs de inicio
+# Verificar que los contenedores están corriendo
+docker compose -f docker-compose.sammai-rs-staging.yml ps
+```
+
+#### Opción B: Despliegue con Nginx
+
+```bash title="Iniciar aplicación con Nginx"
+cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container
+
+# Iniciar todos los servicios incluyendo Nginx
+docker compose -f docker-compose.nginx.yml up -d
+
+# Verificar servicios
+docker compose -f docker-compose.nginx.yml ps
+```
+
+:::note Información
+Con Nginx, la aplicación estará disponible en el puerto 80 (HTTP) y 443 (HTTPS), con Nginx actuando como reverse proxy para ambos servicios.
+:::
+
+### Paso 6: Verificar el despliegue
+
+```bash title="Verificar logs y estado"
+# Ver logs de todos los servicios
 docker compose -f docker-compose.sammai-rs-staging.yml logs -f
 
-# Presionar Ctrl+C para salir de los logs (contenedores siguen corriendo)
-```
-
-**Salida esperada:**
-
-```
-Creating sammai-staging.rs.backend.webapi-container ... done
-Creating sammai-staging.rs.frontendweb-container ... done
-
-▲ Next.js 15.5.3
-- Local:        http://localhost:3001
-✓ Ready in 2s
-
-.NET API listening on https://+:7268 and http://+:5213
-```
-
-### Paso 7: Verificar que los contenedores están corriendo
-
-```bash
-# Ver estado de contenedores
-docker compose -f docker-compose.sammai-rs-staging.yml ps
-
-# Salida esperada:
-# NAME                                      STATUS    PORTS
-# sammai-staging.rs.backend.webapi-container   Up    0.0.0.0:7268->7268/tcp, 0.0.0.0:5213->5213/tcp
-# sammai-staging.rs.frontendweb-container      Up    0.0.0.0:3001->3001/tcp
-
-# Ver logs en tiempo real
+# Ver logs solo del backend
 docker compose -f docker-compose.sammai-rs-staging.yml logs -f rs-backend-webapi
+
+# Ver logs solo del frontend
 docker compose -f docker-compose.sammai-rs-staging.yml logs -f rs-frontend-web
+
+# Verificar salud de los contenedores
+docker ps
 ```
 
-### Paso 8: Probar la aplicación
+#### Probar endpoints
 
-**Probar Backend API:**
-
-```bash
-# Desde el servidor
+```bash title="Pruebas de conectividad"
+# Probar backend API
 curl http://localhost:5213/api/health
-# O si usas HTTPS:
-curl -k https://localhost:7268/swagger
+# o
+curl https://localhost:7268/api/health -k
 
-# Desde otro equipo en la red
-curl http://IP_SERVIDOR:5213/api/health
-```
-
-**Probar Frontend:**
-
-```bash
-# Desde el servidor
+# Probar frontend
 curl http://localhost:3001
 
-# Desde navegador en otro equipo
-http://IP_SERVIDOR:3001/?ssn=TOKEN_SESION
+# Si usas Nginx
+curl http://localhost/api/health
+curl http://localhost/
 ```
 
-**URLs completas:**
+### Paso 7: Configuración de Nginx (si aplica)
 
-```
-Backend API:     http://IP_SERVIDOR:5213
-Backend Swagger: http://IP_SERVIDOR:5213/swagger (o https://IP_SERVIDOR:7268/swagger)
-Frontend Web:    http://IP_SERVIDOR:3001
-```
+#### Actualizar configuración de Nginx
 
-## 🔧 Configuración con Nginx (Opcional pero recomendado)
+```bash title="Editar configuración de Nginx"
+cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container/nginx
 
-Si quieres tener un único punto de entrada (puerto 80/443) con URLs limpias:
-
-### Paso 1: Usar docker-compose con Nginx
-
-```bash
-cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container
-
-# Iniciar con Nginx
-docker compose -f docker-compose.nginx.yml up -d
+# Editar nginx.conf
+nano nginx.conf
 ```
 
-### Paso 2: Configurar nginx.conf
+Ejemplo de configuración:
 
-Editar `nginx/nginx.conf`:
-
-```nginx
-upstream backend {
-    server rs-backend-webapi:5213;
+```nginx title="nginx.conf - Configuración del proxy"
+events {
+    worker_connections 1024;
 }
 
-upstream frontend {
-    server rs-frontend-web:3001;
-}
-
-server {
-    listen 80;
-    server_name _;
-
-    # Backend API en /api
-    location /api {
-        proxy_pass http://backend;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
+http {
+    upstream backend {
+        server rs-backend-webapi:5213;
     }
 
-    # Swagger en /swagger
-    location /swagger {
-        proxy_pass http://backend;
-        proxy_set_header Host $host;
+    upstream frontend {
+        server rs-frontend-web:3001;
     }
 
-    # Frontend en /sammai
-    location /sammai {
-        proxy_pass http://frontend;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    server {
+        listen 80;
+        server_name _;
+
+        location /api/ {
+            proxy_pass http://backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location / {
+            proxy_pass http://frontend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+
+    server {
+        listen 443 ssl;
+        server_name _;
+
+        ssl_certificate /etc/nginx/ssl/certificate.crt;
+        ssl_certificate_key /etc/nginx/ssl/certificate.key;
+
+        location /api/ {
+            proxy_pass http://backend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
+
+        location / {
+            proxy_pass http://frontend;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+        }
     }
 }
 ```
 
-**Con Nginx, las URLs quedan:**
-
-```
-Backend API:    http://servidor/api
-Swagger:        http://servidor/swagger
-Frontend:       http://servidor/sammai
-```
-
-## Troubleshooting - Solución de problemas
-
-### ❌ Error: "Cannot connect to Docker daemon"
-
-**Causa:** Docker no está corriendo o el usuario no tiene permisos
-
-**Solución:**
-
+:::tip Consejo
+Después de modificar `nginx.conf`, reconstruye el contenedor de Nginx:
 ```bash
-# Iniciar Docker (Linux)
-sudo systemctl start docker
-sudo systemctl enable docker
-
-# Verificar estado
-sudo systemctl status docker
-
-# Agregar usuario a grupo docker
-sudo usermod -aG docker $USER
-newgrp docker
-
-# Windows Server
-Start-Service Docker
+docker compose -f docker-compose.nginx.yml up -d --build nginx
 ```
+:::
 
-### ❌ Error: "network staging.sammai-network not found"
+### Paso 8: Operaciones comunes
 
-**Causa:** La red Docker no fue creada
+#### Detener servicios
 
-**Solución:**
-
-```bash
-# Crear la red
-docker network create staging.sammai-network
-
-# Verificar
-docker network ls | grep sammai
-```
-
-### ❌ Error al construir: "failed to solve with frontend dockerfile.v0"
-
-**Causa:** Error en Dockerfile o dependencias no disponibles
-
-**Solución:**
-
-```bash
-# Ver logs detallados
-docker compose -f docker-compose.sammai-rs-staging.yml build --progress=plain 2>&1 | tee build.log
-
-# Limpiar cache y reintentar
-docker builder prune -a
-docker compose -f docker-compose.sammai-rs-staging.yml build --no-cache
-```
-
-### ❌ Backend no se conecta a SQL Server
-
-**Causa:** Connection string incorrecta o SQL Server no accesible
-
-**Solución:**
-
-```bash
-# Ver logs del backend
-docker logs sammai-staging.rs.backend.webapi-container
-
-# Probar conexión desde el contenedor
-docker exec sammai-staging.rs.backend.webapi-container \
-  ping -c 3 IP_SQL_SERVER
-
-# Verificar connection string
-docker compose -f docker-compose.sammai-rs-staging.yml config | grep ConnectionString
-
-# Opciones de connection string:
-# Si SQL Server está en el host:
-Server=host.docker.internal;...
-
-# Si SQL Server está en la red:
-Server=IP_SQL_SERVER;...
-
-# Si SQL Server está en otro contenedor:
-Server=nombre_contenedor_sql;...
-```
-
-### ❌ Frontend no carga o muestra error 404
-
-**Causa:** Variables de entorno incorrectas o basePath no coincide
-
-**Solución:**
-
-```bash
-# Ver logs del frontend
-docker logs sammai-staging.rs.frontendweb-container
-
-# Verificar variables de entorno
-docker inspect sammai-staging.rs.frontendweb-container | grep -A 10 Env
-
-# Verificar NEXT_PUBLIC_BASE_PATH
-# Si usas /sammai, acceder a: http://servidor:3001/sammai
-# NO acceder a: http://servidor:3001/
-
-# Reconstruir con variables correctas
-docker compose -f docker-compose.sammai-rs-staging.yml build rs-frontend-web
-docker compose -f docker-compose.sammai-rs-staging.yml up -d rs-frontend-web
-```
-
-### ❌ Contenedor se detiene inmediatamente
-
-**Causa:** Error en la aplicación o configuración
-
-**Solución:**
-
-```bash
-# Ver logs del contenedor detenido
-docker logs sammai-staging.rs.backend.webapi-container
-docker logs sammai-staging.rs.frontendweb-container
-
-# Ver últimos eventos
-docker events --since 10m
-
-# Intentar correr en modo interactivo
-docker run -it --rm --entrypoint /bin/sh localhost:5000/sammai-rs-frontend:0.2.1-beta
-
-# Dentro del contenedor, probar manualmente:
-node server.js
-```
-
-### ❌ Error: "port is already allocated"
-
-**Causa:** Puerto ya está en uso por otro servicio
-
-**Solución:**
-
-```bash
-# Ver qué está usando el puerto (Linux)
-sudo netstat -tulpn | grep :3001
-sudo lsof -i :3001
-
-# Ver qué está usando el puerto (Windows)
-netstat -ano | findstr :3001
-
-# Opción 1: Detener el servicio que usa el puerto
-# Opción 2: Cambiar puerto en docker-compose.yml:
-ports:
-  - "3002:3001"  # Puerto 3002 en host, 3001 en contenedor
-```
-
-### ❌ No se puede acceder desde otro equipo
-
-**Causa:** Firewall bloqueando puertos
-
-**Solución:**
-
-```bash
-# Linux (UFW)
-sudo ufw allow 3001/tcp
-sudo ufw allow 5213/tcp
-sudo ufw allow 7268/tcp
-sudo ufw status
-
-# Linux (firewalld)
-sudo firewall-cmd --permanent --add-port=3001/tcp
-sudo firewall-cmd --permanent --add-port=5213/tcp
-sudo firewall-cmd --reload
-
-# Windows Server
-New-NetFirewallRule -DisplayName "Docker Frontend" -Direction Inbound -LocalPort 3001 -Protocol TCP -Action Allow
-New-NetFirewallRule -DisplayName "Docker Backend HTTP" -Direction Inbound -LocalPort 5213 -Protocol TCP -Action Allow
-```
-
-### ❌ CORS error al llamar API desde Frontend
-
-**Causa:** Backend no tiene configurado el origen del Frontend
-
-**Solución:**
-
-Verificar en el archivo `appsettings.Docker.json` del backend:
-
-```json
-{
-  "ProjectSettings": {
-    "CorsOrigins": [
-      "http://localhost:3001",
-      "http://IP_SERVIDOR:3001",
-      "http://frontend:3001"
-    ]
-  }
-}
-```
-
-Si necesitas cambiar sin reconstruir:
-
-```bash
-# Editar environment en docker-compose.yml
-- ProjectSettings__CorsOrigins__0=http://localhost:3001
-- ProjectSettings__CorsOrigins__1=http://IP_SERVIDOR:3001
-
-# Reiniciar backend
-docker compose -f docker-compose.sammai-rs-staging.yml restart rs-backend-webapi
-```
-
-### 🔍 Comandos útiles para diagnóstico
-
-```bash
-# Ver todos los contenedores (incluso detenidos)
-docker ps -a
-
-# Ver logs en tiempo real de todos los servicios
-docker compose -f docker-compose.sammai-rs-staging.yml logs -f
-
-# Inspeccionar un contenedor
-docker inspect sammai-staging.rs.backend.webapi-container
-
-# Entrar a un contenedor para debugging
-docker exec -it sammai-staging.rs.backend.webapi-container /bin/bash
-docker exec -it sammai-staging.rs.frontendweb-container /bin/sh
-
-# Ver uso de recursos
-docker stats
-
-# Ver redes Docker
-docker network ls
-docker network inspect staging.sammai-network
-
-# Ver imágenes construidas
-docker images | grep sammai
-
-# Limpiar recursos no usados
-docker system prune -a
-
-# Ver espacio usado por Docker
-docker system df
-```
-
-## Operaciones comunes
-
-### Detener la aplicación
-
-```bash
-cd /opt/idae/IDAE.UTIL.ReportService/IDAE.UTIL.ReportService.Container
-
-# Detener contenedores (mantiene datos)
-docker compose -f docker-compose.sammai-rs-staging.yml stop
-
-# Detener y eliminar contenedores (mantiene imágenes)
+```bash title="Detener la aplicación"
+# Detener servicios
 docker compose -f docker-compose.sammai-rs-staging.yml down
 
-# Detener y eliminar TODO (contenedores, imágenes, volúmenes)
-docker compose -f docker-compose.sammai-rs-staging.yml down --rmi all --volumes
+# Detener y eliminar volúmenes
+docker compose -f docker-compose.sammai-rs-staging.yml down -v
 ```
 
-### Reiniciar la aplicación
+#### Actualizar la aplicación
 
-```bash
-# Reiniciar ambos servicios
+```bash title="Actualizar a nueva versión"
+# Pull cambios del repositorio
+cd /opt/idae/IDAE.UTIL.ReportService
+git pull
+
+# Reconstruir imágenes
+docker compose -f IDAE.UTIL.ReportService.Container/docker-compose.sammai-rs-staging.yml build
+
+# Reiniciar servicios
+docker compose -f IDAE.UTIL.ReportService.Container/docker-compose.sammai-rs-staging.yml up -d
+```
+
+#### Reiniciar servicios
+
+```bash title="Reiniciar contenedores"
+# Reiniciar todos los servicios
 docker compose -f docker-compose.sammai-rs-staging.yml restart
 
-# Reiniciar solo backend
+# Reiniciar servicio específico
 docker compose -f docker-compose.sammai-rs-staging.yml restart rs-backend-webapi
-
-# Reiniciar solo frontend
 docker compose -f docker-compose.sammai-rs-staging.yml restart rs-frontend-web
 ```
 
-### Actualizar la aplicación
+#### Ver logs en tiempo real
 
-```bash
-# 1. Obtener nuevos cambios del código
-cd /opt/idae/IDAE.UTIL.ReportService
-git pull origin main
-
-# 2. Detener contenedores actuales
-cd IDAE.UTIL.ReportService.Container
-docker compose -f docker-compose.sammai-rs-staging.yml down
-
-# 3. Reconstruir imágenes con nuevos cambios
-docker compose -f docker-compose.sammai-rs-staging.yml build --no-cache
-
-# 4. Iniciar con nuevas imágenes
-docker compose -f docker-compose.sammai-rs-staging.yml up -d
-
-# 5. Verificar logs
-docker compose -f docker-compose.sammai-rs-staging.yml logs -f
-```
-
-### Ver logs
-
-```bash
-# Logs en tiempo real de todos los servicios
+```bash title="Monitorear logs"
+# Logs de todos los servicios
 docker compose -f docker-compose.sammai-rs-staging.yml logs -f
 
 # Logs solo del backend
@@ -825,18 +576,18 @@ docker compose -f docker-compose.sammai-rs-staging.yml logs --tail=100
 docker compose -f docker-compose.sammai-rs-staging.yml logs > app-logs.txt
 ```
 
-### Escalar servicios
+#### Escalar servicios
 
-```bash
+```bash title="Escalar instancias"
 # Crear 3 instancias del frontend
 docker compose -f docker-compose.sammai-rs-staging.yml up -d --scale rs-frontend-web=3
 
 # Requiere configurar load balancer (Nginx) para distribuir carga
 ```
 
-### Backup y restore
+#### Backup y restore
 
-```bash
+```bash title="Gestión de backups"
 # Backup de volúmenes (si se usan)
 docker run --rm -v staging_data:/data -v $(pwd):/backup ubuntu \
   tar czf /backup/data-backup.tar.gz /data
@@ -854,11 +605,11 @@ docker save localhost:5000/sammai-rs-backend:0.2.1-beta \
 docker load < sammai-images-backup.tar.gz
 ```
 
-## Monitoreo y mantenimiento
+## Monitoreo y Mantenimiento
 
 ### Métricas de contenedores
 
-```bash
+```bash title="Ver estadísticas de recursos"
 # Ver uso de CPU, memoria y red en tiempo real
 docker stats
 
@@ -870,7 +621,7 @@ docker stats $(docker ps --filter name=sammai --format "{{.Names}}")
 
 Agregar health checks al `docker-compose.yml`:
 
-```yaml
+```yaml title="Configuración de health checks"
 services:
   rs-backend-webapi:
     healthcheck:
@@ -891,17 +642,15 @@ services:
 
 Ver estado de health:
 
-```bash
+```bash title="Verificar estado de salud"
 docker compose -f docker-compose.sammai-rs-staging.yml ps
 ```
 
 ### Rotación de logs
 
-Configurar Docker para limitar tamaño de logs:
+Configurar Docker para limitar tamaño de logs. Editar `/etc/docker/daemon.json` (Linux):
 
-Editar `/etc/docker/daemon.json` (Linux):
-
-```json
+```json title="/etc/docker/daemon.json"
 {
   "log-driver": "json-file",
   "log-opts": {
@@ -913,13 +662,13 @@ Editar `/etc/docker/daemon.json` (Linux):
 
 Reiniciar Docker:
 
-```bash
+```bash title="Aplicar configuración de logs"
 sudo systemctl restart docker
 ```
 
 ### Limpieza periódica
 
-```bash
+```bash title="Limpieza de recursos Docker"
 # Eliminar contenedores detenidos
 docker container prune -f
 
@@ -944,7 +693,7 @@ docker system prune -a --volumes -f
 
 2. **Copiar certificados:**
 
-```bash
+```bash title="Configurar certificados SSL"
 # Copiar a carpeta Certificates
 cp /ruta/fullchain.pem /opt/idae/IDAE.UTIL.ReportService/Certificates/certificate.crt
 cp /ruta/privkey.pem /opt/idae/IDAE.UTIL.ReportService/Certificates/certificate.key
@@ -964,7 +713,7 @@ openssl pkcs12 -export -out /opt/idae/IDAE.UTIL.ReportService/Certificates/certi
 
 4. **Configurar Nginx para HTTPS:**
 
-```nginx
+```nginx title="Configuración SSL en Nginx"
 server {
     listen 443 ssl;
     ssl_certificate /etc/nginx/ssl/certificate.crt;
@@ -975,7 +724,7 @@ server {
 
 ### Buenas prácticas de seguridad
 
-```bash
+```bash title="Configuraciones de seguridad recomendadas"
 # NO exponer puertos innecesarios
 # En docker-compose.yml, remover:
 ports:
@@ -991,7 +740,7 @@ docker scan localhost:5000/sammai-rs-backend:0.2.1-beta
 # Reconstruir cuando haya actualizaciones de seguridad
 ```
 
-## Despliegue en producción
+## Despliegue en Producción
 
 ### Checklist de producción
 
@@ -1026,7 +775,78 @@ docker scan localhost:5000/sammai-rs-backend:0.2.1-beta
 - Uso de disco
 - Tráfico de red
 
-## 📋 Comparación: Docker vs IIS
+## Resultado Esperado
+
+Una vez completada la configuración:
+
+1. **Backend API funcionando**: El servicio WebAPI estará accesible en `http://localhost:5213` o `https://localhost:7268`, respondiendo correctamente a las peticiones de salud en `/api/health`.
+
+2. **Frontend Web activo**: La aplicación Next.js estará disponible en `http://localhost:3001`, mostrando la interfaz de usuario para navegación de reportes.
+
+3. **Nginx (si aplica)**: El reverse proxy estará enrutando correctamente el tráfico desde los puertos 80/443 hacia los servicios backend y frontend.
+
+4. **Integración completa**: La aplicación web podrá comunicarse con el backend API, que a su vez se conectará correctamente con SQL Server y SSRS para generar reportes.
+
+5. **Logs accesibles**: Los logs de cada contenedor estarán disponibles mediante los comandos de Docker Compose para monitoreo y troubleshooting.
+
+## Resolución de Problemas
+
+### Los contenedores no inician
+
+Verifique que:
+
+- Docker está corriendo: `docker ps`
+- No hay conflictos de puertos: `netstat -tulpn | grep LISTEN`
+- Las variables de entorno están configuradas correctamente en `.env`
+- Los certificados SSL existen y tienen permisos correctos
+- Hay suficiente espacio en disco: `df -h`
+
+### Error de conexión a base de datos
+
+Confirme que:
+
+- El servidor SQL Server es accesible desde el contenedor
+- Las credenciales en `ConnectionStrings__DefaultConnection` son correctas
+- El firewall permite conexiones en el puerto 1433
+- La opción `TrustServerCertificate=True` está en la connection string si usa certificado autofirmado
+
+### Error de conexión a SSRS
+
+Revise que:
+
+- La URL del SSRS es correcta y accesible
+- Las credenciales (`ReportServer__Username`, `ReportServer__Password`, `ReportServer__Domain`) son válidas
+- El usuario tiene permisos para ejecutar reportes en SSRS
+- El servidor SSRS responde correctamente: `curl http://tu-servidor-ssrs/ReportServer`
+
+### Frontend no se conecta al backend
+
+Verifique que:
+
+- La variable `NEXT_PUBLIC_API_URL` apunta al backend correcto
+- Si usa Nginx, la configuración del proxy está correcta
+- Los contenedores están en la misma red de Docker
+- El backend está respondiendo en el puerto configurado
+
+### Certificados SSL no funcionan
+
+Confirme que:
+
+- El archivo `certificate.pfx` existe en `/Certificates/`
+- La contraseña del certificado coincide con `ASPNETCORE_Kestrel__Certificates__Default__Password`
+- Los permisos del archivo son correctos: `chmod 600 certificate.pfx`
+- El certificado no ha expirado
+
+### Contenedores se detienen inesperadamente
+
+Revise que:
+
+- Los logs de los contenedores: `docker compose logs`
+- Hay suficiente memoria RAM disponible
+- No hay errores en las variables de entorno
+- Las dependencias entre servicios están configuradas correctamente en `docker-compose.yml`
+
+## Comparación: Docker vs IIS
 
 | Aspecto                     | Docker                                           | IIS Nativo                               |
 | --------------------------- | ------------------------------------------------ | ---------------------------------------- |
@@ -1058,30 +878,26 @@ docker scan localhost:5000/sammai-rs-backend:0.2.1-beta
 - ✅ Recursos de servidor limitados
 - ✅ Políticas que no permiten contenedores
 
-## 📄 Licencia
+## Recursos Útiles
 
-Proyecto privado - Todos los derechos reservados
-
-## 👥 Soporte
-
-Para problemas o preguntas:
-
-1. Revisar la sección de **Troubleshooting**
-2. Verificar logs de contenedores
-3. Consultar documentación oficial de Docker
-4. Contactar al equipo de desarrollo
-
-### Recursos útiles
+### Documentación oficial
 
 - [Documentación oficial de Docker](https://docs.docker.com/)
 - [Docker Compose reference](https://docs.docker.com/compose/compose-file/)
 - [Next.js deployment with Docker](https://nextjs.org/docs/deployment)
 - [ASP.NET Core in Docker](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/)
 
+### Soporte
+
+Para problemas o preguntas:
+
+1. Revisar la sección de **Resolución de Problemas**
+2. Verificar logs de contenedores
+3. Consultar documentación oficial de Docker
+4. Contactar al equipo de desarrollo
+
 ---
 
 **Desarrollado con ❤️ por el equipo de IDAE Development**
 
-```
-
-```
+**Licencia:** Proyecto privado - Todos los derechos reservados

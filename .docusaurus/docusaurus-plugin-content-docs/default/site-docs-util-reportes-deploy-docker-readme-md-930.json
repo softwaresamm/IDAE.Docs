@@ -1,7 +1,7 @@
 {
   "id": "util-reportes/DEPLOY-DOCKER-README",
-  "title": "DEPLOY-DOCKER-README",
-  "description": "Versiones Requeridas",
+  "title": "Despliegue de IDAE Report Service con Docker",
+  "description": "Esta guía detalla paso a paso cómo desplegar la aplicación completa (Backend + Frontend) usando Docker y Docker Compose en servidores Linux o Windows con Docker Desktop. El sistema proporciona una plataforma completa de generación y visualización de reportes SSRS (SQL Server Reporting Services).",
   "source": "@site/docs/util-reportes/DEPLOY-DOCKER-README.md",
   "sourceDirName": "util-reportes",
   "slug": "/util-reportes/DEPLOY-DOCKER-README",
@@ -19,11 +19,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "DEPLOY-IIS-README",
+    "title": "Despliegue de IDAE Report Service en IIS",
     "permalink": "/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README"
   },
   "next": {
-    "title": "Configuración de Búsqueda en Campos Lista",
-    "permalink": "/IDAE.Docs/docs/util-reportes/search-settings"
+    "title": "Interfaz Report Services (Listado de Reportes, Filtros y Contenido)",
+    "permalink": "/IDAE.Docs/docs/util-reportes/Report-services-interface-report-list-filters-and-content"
   }
 }

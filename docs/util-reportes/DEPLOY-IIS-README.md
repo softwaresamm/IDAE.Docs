@@ -3,6 +3,24 @@ sidebar_position: 1
 release_version: "7.1.10.9"
 release_module: "SammNew"
 ---
+
+# Despliegue de IDAE Report Service en IIS
+
+Esta guía detalla paso a paso cómo desplegar la aplicación completa (Backend .NET 8.0 + Frontend Next.js 15) en Windows Server usando IIS (Internet Information Services). El sistema proporciona una plataforma completa de generación y visualización de reportes SSRS (SQL Server Reporting Services) usando AspNetCore Module V2 para ejecutar Node.js en IIS.
+
+**Versión:** 0.2.3-beta
+
+## Referencias
+
+_Esta sección será completada con tickets de Jira relacionados cuando estén disponibles._
+
+## Información de Versiones
+
+### Versión de Lanzamiento
+
+:::info **v7.1.10.9**
+:::
+
 ### Versiones Requeridas
 
 | Aplicación    | Versión Mínima | Descripción                           |
@@ -12,7 +30,12 @@ release_module: "SammNew"
 | BASE DE DATOS | >= C2.1.6.1    | Scripts de configuración de historial |
 
 ## Requisitos Previos
-Antes de iniciar la configuración, asegúrese de tener:
+
+:::important Importante
+Esta guía es para despliegue en **Windows Server con IIS nativo** (sin Docker). Para despliegue con Docker en Linux o Windows con Docker Desktop, consultar: `IDAE.UTIL.ReportService.Container/DEPLOY-DOCKER-README.md`
+:::
+
+Antes de iniciar el despliegue, asegúrese de tener:
 
 ### 1. Windows Server con IIS instalado
 
@@ -21,11 +44,76 @@ Antes de iniciar la configuración, asegúrese de tener:
 - Report services instalado: https://www.microsoft.com/en-us/download/details.aspx?id=104502&msockid=064b61102bd46bce203a75fc2a6a6a9f
 - Windows Server con IIS
 
+#### Recursos del servidor
+
+**Mínimos:**
+
+- CPU: 2 cores
+- RAM: 4 GB
+- Disco: 20 GB libres
+- Red: Acceso a SQL Server y SSRS
+
+**Recomendados:**
+
+- CPU: 4+ cores
+- RAM: 8+ GB
+- Disco: 50+ GB SSD
+- Red: Gigabit Ethernet
+
+#### Servicios externos requeridos
+
+**SQL Server:**
+
+- SQL Server 2019 o superior
+- Base de datos creada (ej: `sai_basica`)
+- Usuario con permisos de lectura/escritura
+
+**SSRS (SQL Server Reporting Services):**
+
+- SSRS 2019 o superior
+- Accesible via HTTP/HTTPS
+- Usuario con permisos para generar reportes
+- URL ejemplo: `http://servidor/ReportServer`
+
+#### Red y firewall
+
+**Puertos que se deben abrir:**
+
+| Puerto | Servicio | Descripción                        |
+| ------ | -------- | ---------------------------------- |
+| 80     | HTTP     | Acceso web (si usa Nginx)          |
+| 443    | HTTPS    | Acceso web seguro (si usa Nginx)   |
+| 3001   | Frontend | Next.js (si acceso directo)        |
+| 7268   | Backend  | .NET API HTTPS (si acceso directo) |
+| 5213   | Backend  | .NET API HTTP (si acceso directo)  |
+
+**Acceso a servicios externos:**
+
+- SQL Server (puerto 1433 por defecto)
+- SSRS (puerto 80/443)
+
+#### Certificados SSL (opcional pero recomendado)
+
+Si vas a usar HTTPS, necesitas certificados:
+
+```bash title="Generar certificado autofirmado (desarrollo)"
+# Opción 1: Certificado autofirmado (solo para desarrollo)
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout certificate.key -out certificate.crt
+
+# Convertir a PFX para .NET
+openssl pkcs12 -export -out certificate.pfx \
+  -inkey certificate.key -in certificate.crt -password pass:12345
+
+# Opción 2: Certificado de Let's Encrypt (producción)
+# Ver: https://letsencrypt.org/getting-started/
+```
+
 ### 2. Instalar IIS con las características necesarias
 
 Ejecutar como Administrador en PowerShell:
 
-```powershell
+```powershell title="Habilitar características de IIS"
 # Habilitar IIS con todas las características necesarias
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer
@@ -59,7 +147,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 
 ### 3. Instalar Node.js v20 LTS (64-bit)
 
-```powershell
+```powershell title="Instalación de Node.js"
 # Opción 1: Con winget
 winget install OpenJS.NodeJS.LTS
 
@@ -69,17 +157,20 @@ winget install OpenJS.NodeJS.LTS
 
 **Verificar instalación:**
 
-```powershell
-node -version o node - v # Debe mostrar v20.x.x
+```powershell title="Verificar versión de Node.js"
+node -version # o node -v
+# Debe mostrar v20.x.x
 
 npm -version 
 ```
 
 ### 4. Instalar ASP.NET Core Hosting Bundle 8.0
 
-**CRÍTICO**: Este módulo es el que permite que IIS ejecute Node.js
+:::important Crítico
+Este módulo es el que permite que IIS ejecute Node.js
+:::
 
-```powershell
+```powershell title="Instalar ASP.NET Core Hosting Bundle"
 # Descargar e instalar ASP.NET Core Hosting Bundle 8.0
 # URL: https://dotnet.microsoft.com/download/dotnet/8.0
 # Buscar: "Hosting Bundle" para Windows
@@ -87,14 +178,14 @@ npm -version
 
 Después de instalar, **REINICIAR EL SERVIDOR** o ejecutar:
 
-```powershell
+```powershell title="Reiniciar servicios IIS"
 net stop was /y
 net start w3svc
 ```
 
 **Verificar instalación:**
 
-```powershell
+```powershell title="Verificar módulo AspNetCore"
 # Buscar el módulo en IIS
 Get-WebGlobalModule | Where-Object { $_.Name -like '*AspNetCore*' }
 ```
@@ -103,14 +194,16 @@ Debe mostrar: `AspNetCoreModuleV2`
 
 ### 5. Instalar URL Rewrite Module (Opcional pero recomendado)
 
-```powershell
+```powershell title="Instalar URL Rewrite"
 # Descargar desde: https://www.iis.net/downloads/microsoft/url-rewrite
 # Instalar el MSI
 ```
 
 ### 6. ❌ NO instalar iisnode
 
+:::warning Advertencia
 **iisnode v0.2.26 (última versión de 2017) NO funciona con Node.js v20**. Usaremos AspNetCore Module V2 en su lugar.
+:::
 
 ### 7. Scripts de instalación automatizados
 
@@ -121,6 +214,7 @@ IDAE.UTIL.ReportService.Container\iis\
 ├── sr_api_iis_install.ps1   (Instala backend)
 └── sr_web_iis_install.ps1   (Instala frontend)
 ```
+
 **¿Qué hacen estos scripts?**
 
 - ✅ Crean carpetas en `C:\Samm\sr_api` y `C:\Samm\sr_web`
@@ -133,9 +227,13 @@ IDAE.UTIL.ReportService.Container\iis\
 
 ### 8. Carpetas compiladas
 
-De parte de desarrollo se deben recibir las carpetas de `sr_api` y `sr_web` 
+De parte de desarrollo se deben recibir las carpetas de `sr_api` y `sr_web`
 
-### 9. Estructura de carpetas en el servidor (opcional y puede cambiar segun estructura del cliente)
+### 9. Estructura de carpetas en el servidor
+
+:::note Información
+La estructura puede cambiar según la configuración del cliente
+:::
 
 ```
 C:\Samm\
@@ -155,862 +253,83 @@ C:\Samm\
     │   ├── static\                   # Assets compilados
     │   └── standalone\               # Archivos standalone
     ├── public\                       # Assets estáticos
-    ├── node_modules\                 # Dependencias empaquetadas
-    └── logs\                         # ⭐ Logs de AspNetCore Module
-        └── stdout_*.log              # Logs de Node.js/Next.js
+    └── logs\                         # Logs de Node.js (creada por IIS)
+        ├── stdout_*.log              # Salida estándar
+        └── stderr_*.log              # Errores
 ```
 
- 
+## Información del Sistema
 
+### Descripción del sistema
 
-# Despliegue de IDAE Report Service en IIS - Guía Completa
+Este sistema proporciona una plataforma completa de generación y visualización de reportes SSRS (SQL Server Reporting Services) desplegada en Windows Server con IIS, utilizando AspNetCore Module V2 para ejecutar tanto aplicaciones .NET 8.0 como Node.js v20.
 
+### Componentes de la aplicación
 
-## 📋 Descripción
+- **Backend API (.NET 8.0)**: Servicio WebAPI que se conecta a SSRS para generar reportes
+- **Frontend Web (Next.js 15)**: Aplicación web con interfaz moderna para navegar y visualizar reportes
+- **IIS (Internet Information Services)**: Servidor web de Windows que hospeda ambas aplicaciones
+- **AspNetCore Module V2**: Módulo de IIS que permite ejecutar aplicaciones .NET y Node.js
+- **SQL Server**: Base de datos (debe estar instalado por separado)
+- **SSRS**: SQL Server Reporting Services (debe estar instalado por separado)
 
-Esta guía detalla el despliegue del **Backend** (.NET 8 WebAPI) y **Frontend** (Next.js 15) en IIS usando scripts automatizados. El proceso está dividido en dos roles:
+### Stack tecnológico
 
-- **👨‍💻 Desarrollador**: Compila las aplicaciones usando scripts de build
-- **👨‍🔧 Usuario/Administrador**: Instala las aplicaciones en IIS usando scripts de instalación
+**Backend:**
 
-## ⚠️ IMPORTANTE: Este despliegue NO usa iisnode
+- .NET 8.0 WebAPI
+- Entity Framework Core
+- Serilog (logging)
+- SQL Server
 
-**iisnode v0.2.26 NO es compatible con Node.js v20**. Esta guía usa **AspNetCore Module V2** como reverse proxy, que es el mismo módulo que usa el backend .NET y funciona correctamente con Node.js moderno.
+**Frontend:**
 
----
+- Next.js 15.5.3 (App Router)
+- React 19.1.0
+- TypeScript 5
+- Tailwind CSS 4
+- Radix UI Components
+- TanStack Query (data fetching)
+- Axios
 
-## 🚀 Inicio Rápido (Para usuarios que reciben las carpetas compiladas)
+**Infraestructura:**
 
-Si recibes las carpetas `sr_api` y `sr_web` ya compiladas:
+- Windows Server 2019+
+- IIS 10+
+- AspNetCore Module V2
+- Node.js v20 LTS
+- SQL Server 2019+
+- SSRS (SQL Server Reporting Services)
 
-1. **Copia las carpetas a `Downloads`:**
-
-   - `C:\Users\TuUsuario\Downloads\sr_api` (Backend)
-   - `C:\Users\TuUsuario\Downloads\sr_web` (Frontend)
-
-2. **Ejecuta los scripts de instalación:**
-
-   ```powershell
-   # En el repositorio, carpeta iis/
-   cd C:\ruta\al\repo\IDAE.UTIL.ReportService.Container\iis
-
-   # Instalar backend (como Administrador)
-   .\sr_api_iis_install.ps1
-
-   # Instalar frontend (como Administrador)
-   .\sr_web_iis_install.ps1
-   ```
-**El script hará automáticamente:**
-
-1. ✅ Verificar que Node.js está instalado
-2. ✅ Crear carpeta `C:\Samm\sr_web`
-3. ✅ Copiar archivos desde Downloads
-4. ✅ Crear web.config para AspNetCore Module V2
-5. ✅ Crear Application Pool `sr_web`
-6. ✅ Crear aplicación en IIS bajo Default Web Site
-7. ✅ Configurar permisos
-8. ✅ Iniciar aplicación
-9. ✅ Verificar que funciona
-10. ✅ Abrir aplicación en navegador
-
-**Resultado esperado:**
+### Arquitectura de despliegue
 
 ```
-=========================================
-  INSTALACION COMPLETADA EXITOSAMENTE
-=========================================
-
-Accede a la aplicacion desde:
-  URL: http://localhost/sr_web
+┌─────────────────────────────────────────────────────┐
+│               IIS (Default Web Site)                 │
+│            Windows Server + IIS Manager              │
+│                   Port 80/443                        │
+└─────────────────┬───────────────────────────────────┘
+                  │
+      ┌───────────┴────────────┐
+      │                        │
+┌─────▼──────┐        ┌────────▼────────┐
+│  sr_api    │        │     sr_web      │
+│  .NET 8    │◄───────┤   Next.js 15    │
+│  WebAPI    │  HTTP  │   Node.js v20   │
+│  /sr_api   │        │   /sr_web       │
+└────────────┘        └─────────┬───────┘
+                                │
+                    ┌───────────┴────────────┐
+                    │                        │
+              ┌─────▼─────┐          ┌──────▼──────┐
+              │ SQL Server │          │    SSRS     │
+              │  Database  │          │   Server    │
+              └────────────┘          └─────────────┘
 ```
 
+### Resumen de diferencias clave vs despliegue tradicional
 
-3. **Acceder a las aplicaciones:**
-   - Backend: `http://localhost/sr_api/swagger`
-
-   ![Respuesta swagger](./img/R-swagger.png)
-
-   - Frontend: `http://localhost/sr_web`
-
-   ![Respuesta sr_web](./img/R-sr-web.png)
-
-
----
-
-## 📦 Para Desarrolladores: Compilar las aplicaciones
-
-### Compilar Backend (.NET 8 WebAPI)
-
-```powershell
-# Desde la carpeta del backend
-cd C:\idaeSoluciones\UTIL\IDAE.UTIL.ReportService.Backend
-
-# Ejecutar script de build
-.\build-for-iis.ps1
-```
-
-**El script hará:**
-
-- ✅ Compilar proyecto en modo Release
-- ✅ Generar archivos en `%USERPROFILE%\Downloads\sr_api`
-- ✅ Crear web.config para IIS
-- ✅ Abrir carpeta de salida
-
-**Resultado:** Carpeta `sr_api` lista para entregar
-
-### Compilar Frontend (Next.js 15)
-
-```powershell
-# Desde la carpeta del frontend
-cd C:\idaeSoluciones\UTIL\IDAE.UTIL.ReportService.Web
-
-# Ejecutar script de build
-.\build-for-iis.ps1
-```
-
-**El script hará:**
-
-- ✅ Instalar dependencias con npm
-- ✅ Compilar Next.js en modo standalone
-- ✅ Generar archivos en `%USERPROFILE%\Downloads\sr_web`
-- ✅ Crear `iis-server.js` (wrapper para IIS)
-- ✅ Crear `web.config` para IIS
-- ✅ Abrir carpeta de salida
-
-**Resultado:** Carpeta `sr_web` lista para entregar
-
-### Entregar al usuario
-
-Comprimir las carpetas y enviar:
-
-```powershell
-# Comprimir backend
-Compress-Archive -Path "$env:USERPROFILE\Downloads\sr_api" -DestinationPath "sr_api.zip"
-
-# Comprimir frontend
-Compress-Archive -Path "$env:USERPROFILE\Downloads\sr_web" -DestinationPath "sr_web.zip"
-
-# Enviar al usuario junto con los scripts de instalación en:
-# IDAE.UTIL.ReportService.Container\iis\sr_api_iis_install.ps1
-# IDAE.UTIL.ReportService.Container\iis\sr_web_iis_install.ps1
-```
-
----
-
-
-### Paso 4: Verificación final
-
-```powershell
-# Verificar que ambas aplicaciones están corriendo
-Get-WebAppPoolState -Name "sr_api"
-
-![sr api iniciado](./img/sr-api-started.png)
-
-
-Get-WebAppPoolState -Name "sr_web"
-
-![sr api iniciado](./img/sr-web-started.png)
-
-# Ambas deben mostrar: Value: Started
-```
-:::important Importante
-Powershell debe ser ejecutado como administrador 
-:::
-
-## 🛠️ Instalación manual (sin scripts)
-
-Si prefieres instalar manualmente o entender qué hacen los scripts, sigue estos pasos:
-
-### Backend Manual - Paso por paso
-
-<details>
-<summary>Click para expandir instalación manual del backend</summary>
-
-#### 1. Crear carpeta y copiar archivos
-
-```powershell
-# Crear carpeta
-New-Item -Path "C:\Samm\sr_api" -ItemType Directory -Force
-
-# Copiar archivos desde Downloads
-Copy-Item -Path "$env:USERPROFILE\Downloads\sr_api\*" -Destination "C:\Samm\sr_api" -Recurse -Force
-```
-
-#### 2. Crear Application Pool
-
-```powershell
-Import-Module WebAdministration
-
-New-WebAppPool -Name "sr_api" -Force
-Set-ItemProperty "IIS:\AppPools\sr_api" -Name "managedRuntimeVersion" -Value ""
-Set-ItemProperty "IIS:\AppPools\sr_api" -Name "startMode" -Value "AlwaysRunning"
-```
-
-#### 3. Crear aplicación en IIS
-
-```powershell
-New-WebApplication -Name "sr_api" `
-                   -Site "Default Web Site" `
-                   -PhysicalPath "C:\Samm\sr_api" `
-                   -ApplicationPool "sr_api"
-```
-
-#### 4. Configurar permisos
-
-```powershell
-icacls "C:\Samm\sr_api" /grant "IIS_IUSRS:(OI)(CI)F" /T
-```
-
-#### 5. Iniciar
-
-```powershell
-Start-WebAppPool -Name "sr_api"
-```
-
-</details>
-
-### Frontend Manual - Paso por paso
-
-<details>
-<summary>Click para expandir instalación manual del frontend</summary>
-
-#### 1. Crear carpeta y copiar archivos
-
-```powershell
-New-Item -Path "C:\Samm\sr_web" -ItemType Directory -Force
-Copy-Item -Path "$env:USERPROFILE\Downloads\sr_web\*" -Destination "C:\Samm\sr_web" -Recurse -Force
-```
-
-#### 2. Verificar archivos críticos
-
-```powershell
-Test-Path "C:\Samm\sr_web\server.js"       # Debe ser True
-Test-Path "C:\Samm\sr_web\iis-server.js"   # Debe ser True
-Test-Path "C:\Samm\sr_web\web.config"      # Debe ser True
-```
-
-#### 3. Crear Application Pool
-
-```powershell
-Import-Module WebAdministration
-
-New-WebAppPool -Name "sr_web" -Force
-Set-ItemProperty "IIS:\AppPools\sr_web" -Name "managedRuntimeVersion" -Value ""
-Set-ItemProperty "IIS:\AppPools\sr_web" -Name "enable32BitAppOnWin64" -Value $false
-Set-ItemProperty "IIS:\AppPools\sr_web" -Name "startMode" -Value "AlwaysRunning"
-```
-
-#### 4. Crear aplicación en IIS
-
-```powershell
-New-WebApplication -Name "sr_web" `
-                   -Site "Default Web Site" `
-                   -PhysicalPath "C:\Samm\sr_web" `
-                   -ApplicationPool "sr_web"
-```
-
-#### 5. Configurar permisos
-
-```powershell
-icacls "C:\Samm\sr_web" /grant "IIS_IUSRS:(OI)(CI)F" /T
-icacls "C:\Program Files\nodejs\node.exe" /grant "IIS_IUSRS:(RX)"
-```
-
-#### 6. Iniciar
-
-```powershell
-iisreset /restart
-Start-WebAppPool -Name "sr_web"
-```
-
-</details>
-
----
-
-## Configuracion final
-
-### Ubicacion de archivos:
-
-- **Backend API**: `C:\Samm\sr_api`
-- **Frontend Web**: `C:\Samm\sr_web`
-
-### URLs de acceso:
-
-- **Backend API**: `http://servidor/sr_api`
-- **Backend Swagger**: `http://servidor/sr_api/swagger`
-- **Frontend Web**: `http://servidor/sr_web`
-
-### Variables de entorno (.env.production):
-
-```
-NEXT_PUBLIC_API_URL=http://servidor/sr_api
-NEXT_PUBLIC_BASE_PATH=/sr_web
-```
-
-## Troubleshooting - Solución de problemas
-
-### ❌ Error: "HTTP 500.0 - ANCM In-Process Handler Load Failure"
-
-**Causa:** AspNetCore Module V2 no está instalado
-
-**Solución:**
-
-```powershell
-# Instalar ASP.NET Core Hosting Bundle 8.0
-# Descargar: https://dotnet.microsoft.com/download/dotnet/8.0
-
-# Después de instalar, REINICIAR:
-net stop was /y
-net start w3svc
-iisreset
-
-# Verificar instalación:
-Get-WebGlobalModule | Where-Object { $_.Name -like '*AspNetCore*' }
-```
-
-### ❌ Error: "HTTP 502.5 - ANCM Out-Of-Process Startup Failure"
-
-**Causa:** Node.js no puede iniciar (permisos, puerto ocupado, etc.)
-
-**Solución:**
-
-```powershell
-# 1. Verificar logs de Node.js
-Get-Content "C:\Samm\sr_web\logs\*.log" -Tail 50
-
-# 2. Verificar permisos
-icacls "C:\Samm\sr_web"
-# Debe mostrar: IIS_IUSRS:(OI)(CI)(F)
-
-# 3. Si no tiene permisos:
-icacls "C:\Samm\sr_web" /grant "IIS_IUSRS:(OI)(CI)F" /T /Q
-icacls "C:\Program Files\nodejs\node.exe" /grant "IIS_IUSRS:(RX)"
-
-# 4. Si hay un proceso de Node.js zombie:
-Get-Process node | Stop-Process -Force
-
-# 5. Reiniciar Application Pool
-Restart-WebAppPool -Name "sr_web"
-Start-Sleep -Seconds 10
-
-# 6. Ver logs de nuevo
-Get-Content "C:\Samm\sr_web\logs\*.log" -Tail 30
-```
-
-### ❌ Error: "listen EADDRINUSE: address already in use 0.0.0.0:3000"
-
-**Causa:** Hay otro proceso usando el puerto 3000 o el web.config está mal configurado
-
-**Solución:**
-
-```powershell
-# 1. Verificar que web.config NO tiene PORT=3000
-# El web.config NO debe tener esta variable de entorno:
-# <environmentVariable name="PORT" value="3000" />
-
-# 2. Verificar que iis-server.js existe
-Test-Path "C:\Samm\sr_web\iis-server.js"
-
-# 3. Verificar que web.config apunta a iis-server.js (NO server.js)
-Get-Content "C:\Samm\sr_web\web.config" | Select-String "arguments"
-# Debe mostrar: arguments="iis-server.js"
-
-# 4. Matar procesos de Node.js
-Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
-
-# 5. Reiniciar
-Restart-WebAppPool -Name "sr_web"
-```
-
-### ❌ Error: "HTTP 503 - Service Unavailable"
-
-**Causa:** Application Pool detenido o crasheando
-
-**Solución:**
-
-```powershell
-# 1. Ver estado del Application Pool
-Get-WebAppPoolState -Name "sr_web"
-
-# 2. Si está detenido, iniciarlo
-Start-WebAppPool -Name "sr_web"
-
-# 3. Ver eventos de Windows
-Get-EventLog -LogName Application -Source "IIS*" -Newest 10 | Format-List
-
-# 4. Ver logs de AspNetCore Module
-Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 10 | Format-List
-
-# 5. Si sigue fallando, revisar identidad del Application Pool
-Get-ItemProperty IIS:\AppPools\sr_web -Name processModel
-# identityType debe ser 4 (ApplicationPoolIdentity)
-```
-
-### ❌ Error: "HTTP 404.4 - Not Found (Handler not configured)"
-
-**Causa:** Handler de AspNetCore no está configurado o registrado
-
-**Solución:**
-
-```powershell
-# 1. Verificar que AspNetCore Module V2 está registrado
-Get-WebGlobalModule | Where-Object { $_.Name -eq 'AspNetCoreModuleV2' }
-
-# 2. Si no aparece, reinstalar Hosting Bundle
-# Descargar: https://dotnet.microsoft.com/download/dotnet/8.0
-
-# 3. Verificar que web.config tiene el handler correcto
-Get-Content "C:\Samm\sr_web\web.config"
-# Debe tener: modules="AspNetCoreModuleV2"
-
-# 4. Verificar que la aplicación existe en IIS
-Get-WebApplication -Site "Default Web Site" -Name "sr_web"
-
-# 5. Si no existe, crearla:
-New-WebApplication -Name "sr_web" `
-                   -Site "Default Web Site" `
-                   -PhysicalPath "C:\Samm\sr_web" `
-                   -ApplicationPool "sr_web"
-```
-
-### ❌ Error: "iisnode encountered an error when processing the request" (Error antiguo)
-
-**Causa:** El servidor tiene iisnode instalado y web.config está mal configurado
-
-**Solución:**
-
-```powershell
-# 1. ELIMINAR cualquier referencia a iisnode del web.config
-# El web.config NO debe tener:
-# - <iisnode ... />
-# - handler name="iisnode"
-# - modules="iisnode"
-
-# 2. Usar el web.config correcto (ver Paso 4 arriba)
-
-# 3. NO se requiere iisnode.yml - Borrarlo si existe
-Remove-Item "C:\Samm\sr_web\iisnode.yml" -ErrorAction SilentlyContinue
-
-# 4. Reiniciar
-iisreset
-```
-
-### ❌ Los logs están vacíos (stdout\*.log con 0 bytes)
-
-**Causa:** Node.js está crasheando antes de escribir logs o permisos incorrectos
-
-**Solución:**
-
-```powershell
-# 1. Probar Node.js manualmente
-cd C:\Samm\sr_web
-& "C:\Program Files\nodejs\node.exe" iis-server.js
-
-# Si da error, leer el error y solucionarlo
-
-# 2. Verificar permisos en carpeta logs
-icacls "C:\Samm\sr_web\logs"
-# Debe tener: IIS_IUSRS:(OI)(CI)(F)
-
-# 3. Dar permisos explícitos
-icacls "C:\Samm\sr_web\logs" /grant "IIS_IUSRS:(OI)(CI)F" /T
-
-# 4. Verificar que iis-server.js existe
-Test-Path "C:\Samm\sr_web\iis-server.js"
-```
-
-### ❌ Node.js no aparece en los procesos
-
-**Causa:** AspNetCore Module no puede ejecutar node.exe
-
-**Solución:**
-
-```powershell
-# 1. Verificar que Node.js está instalado
-node --version
-# Debe mostrar: v20.x.x
-
-# 2. Verificar ruta completa
-Test-Path "C:\Program Files\nodejs\node.exe"
-# Debe ser True
-
-# 3. Verificar que es 64-bit
-& "C:\Program Files\nodejs\node.exe" -p "process.arch"
-# Debe mostrar: x64
-
-# 4. Dar permisos de ejecución
-icacls "C:\Program Files\nodejs" /grant "IIS_IUSRS:(RX)" /T
-icacls "C:\Program Files\nodejs\node.exe" /grant "IIS_IUSRS:(RX)"
-
-# 5. Verificar Application Pool no es 32-bit
-Get-ItemProperty IIS:\AppPools\sr_web -Name enable32BitAppOnWin64
-# Debe ser: False
-```
-
-### ❌ La aplicación no conecta con el API backend
-
-**Causa:** Variables de entorno incorrectas o CORS no configurado
-
-**Solución:**
-
-```powershell
-# 1. Verificar que el backend está corriendo
-Invoke-WebRequest -Uri "http://localhost/sr_api/swagger" -UseBasicParsing
-
-# 2. Verificar .env.production en el frontend
-Get-Content "C:\Samm\sr_web\.env.production"
-# Debe tener:
-# NEXT_PUBLIC_API_URL=http://servidor/sr_api
-# NEXT_PUBLIC_BASE_PATH=/sr_web
-
-# 3. Verificar CORS en backend (appsettings.Production.json)
-Get-Content "C:\Samm\sr_api\appsettings.Production.json" | Select-String "CorsOrigins"
-
-# 4. Agregar origen del frontend si falta:
-# "CorsOrigins": ["http://localhost", "http://nombre-servidor"]
-
-# 5. Reiniciar ambas aplicaciones
-Restart-WebAppPool -Name "sr_api"
-Restart-WebAppPool -Name "sr_web"
-```
-
-### ❌ Error 404 en todas las rutas (excepto la página de error)
-
-**Causa:** Next.js está sirviendo pero las rutas no coinciden con basePath
-
-**Solución:**
-
-```powershell
-# 1. Verificar basePath en next.config.js
-# Debe tener: basePath: "/sr_web"
-
-# 2. Acceder con trailing slash
-# Probar: http://localhost/sr_web/ (con barra final)
-
-# 3. Verificar que la aplicación IIS se llama "sr_web"
-Get-WebApplication -Site "Default Web Site" | Select-Object Path, PhysicalPath
-
-# 4. El Path debe ser: /sr_web
-# El PhysicalPath debe ser: C:\Samm\sr_web
-```
-
-### 🔍 Comandos útiles para diagnóstico
-
-```powershell
-# Ver todos los Application Pools
-Get-WebAppPool | Select-Object Name, State, ProcessModel
-
-# Ver todas las aplicaciones en Default Web Site
-Get-WebApplication -Site "Default Web Site" | Format-Table
-
-# Ver configuración completa del Application Pool
-Get-ItemProperty IIS:\AppPools\sr_web | Format-List
-
-# Ver procesos de Node.js con detalles
-Get-Process node | Format-Table Id, StartTime, CPU, WorkingSet
-
-# Ver puertos en uso por Node.js
-$nodePid = (Get-Process node).Id
-netstat -ano | findstr $nodePid
-
-# Ver logs de Windows del último minuto
-Get-EventLog -LogName Application -After (Get-Date).AddMinutes(-1) -Newest 50 |
-  Where-Object { $_.Source -like "*IIS*" } | Format-List
-
-# Ver últimos logs de AspNetCore Module
-Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 5 | Format-List
-
-# Limpiar logs antiguos de Node.js
-Remove-Item "C:\Samm\sr_web\logs\stdout*.log" -Force
-Restart-WebAppPool -Name "sr_web"
-```
-
-## Actualizaciones posteriores
-
-Para actualizar la aplicación después del primer despliegue:
-
-### Paso 1: Compilar nueva versión (PC desarrollo)
-
-```powershell
-cd C:\idaeSoluciones\UTIL\IDAE.UTIL.ReportService.Web
-.\build-for-iis.ps1
-
-# Comprimir para transferir
-Compress-Archive -Path "C:\Samm\sr_web\*" -DestinationPath "C:\Samm\sr_web_update.zip" -Force
-```
-
-### Paso 2: Actualizar en el servidor
-
-```powershell
-# Detener el Application Pool
-Stop-WebAppPool -Name "sr_web"
-
-# Esperar a que se detenga
-Start-Sleep -Seconds 5
-
-# Matar procesos de Node.js si quedan
-Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
-
-# Hacer backup de la versión actual (opcional pero recomendado)
-Compress-Archive -Path "C:\Samm\sr_web\*" -DestinationPath "C:\Samm\Backups\sr_web_$(Get-Date -Format 'yyyyMMdd_HHmmss').zip"
-
-# Extraer nueva versión
-Expand-Archive -Path "C:\ruta\sr_web_update.zip" -DestinationPath "C:\Samm\sr_web" -Force
-
-# Verificar que iis-server.js y web.config están correctos
-Test-Path "C:\Samm\sr_web\iis-server.js"
-Test-Path "C:\Samm\sr_web\web.config"
-
-# Dar permisos de nuevo (por si acaso)
-icacls "C:\Samm\sr_web" /grant "IIS_IUSRS:(OI)(CI)F" /T /Q
-
-# Iniciar Application Pool
-Start-WebAppPool -Name "sr_web"
-
-# Esperar inicio
-Start-Sleep -Seconds 10
-
-# Verificar que funciona
-Invoke-WebRequest -Uri "http://localhost/sr_web" -UseBasicParsing
-
-# Ver logs
-Get-Content "C:\Samm\sr_web\logs\*.log" -Tail 20
-```
-
-
-
-## Configuración IIS en detalle
-
-### Application Pools configurados
-
-```
-Name: sr_api
-- .NET CLR Version: v4.0
-- Managed Pipeline Mode: Integrated
-- Identity: ApplicationPoolIdentity
-- Start Mode: AlwaysRunning
-
-Name: sr_web
-- .NET CLR Version: (Sin .NET - es Node.js)
-- Managed Pipeline Mode: Integrated
-- Identity: ApplicationPoolIdentity
-- Start Mode: AlwaysRunning
-- Enable 32-Bit Applications: False
-```
-
-### Aplicaciones web en IIS
-
-```
-Site: Default Web Site
-├── /sr_api
-│   ├── Physical Path: C:\Samm\sr_api
-│   ├── Application Pool: sr_api
-│   └── Protocols: http
-│
-└── /sr_web
-    ├── Physical Path: C:\Samm\sr_web
-    ├── Application Pool: sr_web
-    └── Protocols: http
-```
-
-## Variables de entorno y configuración
-
-### Frontend (.env.production)
-
-```env
-# URL del backend API
-NEXT_PUBLIC_API_URL=http://nombre-servidor/sr_api
-
-# Base path de la aplicación (debe coincidir con nombre en IIS)
-NEXT_PUBLIC_BASE_PATH=/sr_web
-
-# Entorno
-NODE_ENV=production
-```
-
-### Backend (appsettings.Production.json)
-
-```json
-{
-  "ProjectSettings": {
-    "UseHttps": false,
-    "PathBase": "/sr_api",
-    "CorsOrigins": [
-      "http://localhost",
-      "http://nombre-servidor",
-      "http://192.168.x.x"
-    ]
-  },
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=servidor-sql;Database=app_basica;User Id=usuario;Password=contraseña;"
-  }
-}
-```
-
-**⚠️ IMPORTANTE sobre CORS:**
-
-El backend DEBE tener el origen del frontend en CorsOrigins para que las peticiones funcionen:
-
-```powershell
-# Editar appsettings.Production.json del backend
-notepad "C:\Samm\sr_api\appsettings.Production.json"
-
-# Agregar el servidor a CorsOrigins:
-# "CorsOrigins": ["http://localhost", "http://nombre-servidor"]
-
-# Reiniciar backend
-Restart-WebAppPool -Name "sr_api"
-```
-
-## Verificación completa del despliegue
-
-### Checklist final
-
-```powershell
-# ✅ 1. IIS está instalado y corriendo
-Get-Service W3SVC
-
-# ✅ 2. Node.js instalado (64-bit, v20+)
-node --version
-
-# ✅ 3. AspNetCore Module V2 registrado
-Get-WebGlobalModule | Where-Object { $_.Name -eq 'AspNetCoreModuleV2' }
-
-# ✅ 4. Archivos del frontend existen
-Test-Path "C:\Samm\sr_web\iis-server.js"
-Test-Path "C:\Samm\sr_web\server.js"
-Test-Path "C:\Samm\sr_web\web.config"
-Test-Path "C:\Samm\sr_web\.next"
-
-# ✅ 5. Permisos correctos
-icacls "C:\Samm\sr_web" | Select-String "IIS_IUSRS"
-
-# ✅ 6. Application Pool existe y está corriendo
-Get-WebAppPoolState -Name "sr_web"
-
-# ✅ 7. Aplicación web existe en IIS
-Get-WebApplication -Site "Default Web Site" -Name "sr_web"
-
-# ✅ 8. Node.js está corriendo
-Get-Process node
-
-# ✅ 9. Logs muestran inicio exitoso
-Get-Content "C:\Samm\sr_web\logs\*.log" -Tail 10
-
-# ✅ 10. Backend está accesible
-Invoke-WebRequest -Uri "http://localhost/sr_api/swagger" -UseBasicParsing
-
-# ✅ 11. Frontend está accesible
-Invoke-WebRequest -Uri "http://localhost/sr_web" -UseBasicParsing
-```
-
-### URLs de prueba
-
-Después del despliegue, probar estas URLs en el navegador:
-
-1. **Backend API:**
-
-   - `http://localhost/sr_api` - Debe redirigir a Swagger
-   - `http://localhost/sr_api/swagger` - Documentación de la API
-   - `http://nombre-servidor/sr_api/swagger` - Desde otro equipo
-
-2. **Frontend Web:**
-   - `http://localhost/sr_web` - Aplicación Next.js
-   - `http://localhost/sr_web/` - Con trailing slash
-   - `http://nombre-servidor/sr_web` - Desde otro equipo
-
-### Verificar integración Frontend-Backend
-
-```powershell
-# Desde el servidor, verificar que el frontend puede llamar al backend
-# Abrir el frontend en navegador y abrir Developer Tools (F12)
-
-# En la consola, probar fetch al API:
-# fetch('http://localhost/sr_api/api/algo')
-#   .then(r => r.json())
-#   .then(d => console.log(d))
-
-# Si da error CORS, revisar CorsOrigins en appsettings.Production.json
-```
-
-## Monitoreo y mantenimiento
-
-### Logs importantes
-
-```powershell
-# Logs de Node.js/Next.js (frontend)
-Get-Content "C:\Samm\sr_web\logs\stdout_*.log" -Tail 50 -Wait
-
-# Logs de IIS
-Get-Content "C:\inetpub\logs\LogFiles\W3SVC1\*.log" -Tail 20
-
-# Eventos de Windows - AspNetCore Module
-Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 10
-
-# Eventos de Windows - Errores generales de IIS
-Get-EventLog -LogName Application -EntryType Error -Newest 20 |
-  Where-Object { $_.Source -like "*IIS*" }
-```
-
-### Reinicio rápido si hay problemas
-
-```powershell
-# Script de reinicio completo
-Stop-WebAppPool -Name "sr_web"
-Start-Sleep -Seconds 3
-Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
-Start-Sleep -Seconds 2
-Start-WebAppPool -Name "sr_web"
-Start-Sleep -Seconds 10
-
-# Verificar que inició
-Get-Process node
-Get-Content "C:\Samm\sr_web\logs\*.log" -Tail 15
-```
-
-### Limpieza periódica de logs
-
-```powershell
-# Eliminar logs antiguos (más de 7 días)
-Get-ChildItem "C:\Samm\sr_web\logs\*.log" |
-  Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-7) } |
-  Remove-Item -Force
-
-# Eliminar logs de IIS antiguos
-Get-ChildItem "C:\inetpub\logs\LogFiles\W3SVC1\*.log" |
-  Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-30) } |
-  Remove-Item -Force
-```
-
-## Seguridad adicional
-
-### Recomendaciones
-
-```powershell
-# 1. Deshabilitar directory browsing
-Set-WebConfigurationProperty -Filter /system.webServer/directoryBrowse `
-  -Name enabled -Value $false -PSPath "IIS:\Sites\Default Web Site\sr_web"
-
-# 2. Configurar límites de solicitud
-Set-WebConfigurationProperty -Filter /system.webServer/security/requestFiltering/requestLimits `
-  -Name maxAllowedContentLength -Value 52428800 -PSPath "IIS:\Sites\Default Web Site\sr_web"
-
-# 3. Ocultar encabezados de servidor
-# Agregar al web.config dentro de <system.webServer>:
-# <httpProtocol>
-#   <customHeaders>
-#     <remove name="X-Powered-By" />
-#   </customHeaders>
-# </httpProtocol>
-
-# 4. Habilitar compresión
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
-```
-
-## Resumen de diferencias clave vs despliegue tradicional
-
-### ❌ Lo que NO se usa en este despliegue:
+#### ❌ Lo que NO se usa en este despliegue:
 
 - ❌ **iisnode** - Incompatible con Node.js v20, reemplazado por AspNetCore Module V2
 - ❌ **iisnode.yml** - No se necesita con AspNetCore Module
@@ -1018,7 +337,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
 - ❌ **PORT=3000 fijo** - AspNetCore Module asigna puerto dinámico
 - ❌ **URL Rewrite para proxy manual** - AspNetCore Module hace proxy automático
 
-### ✅ Lo que SÍ se usa en este despliegue:
+#### ✅ Lo que SÍ se usa en este despliegue:
 
 - ✅ **AspNetCore Module V2** - Módulo moderno que maneja Node.js
 - ✅ **iis-server.js wrapper** - Traduce ASPNETCORE_PORT a PORT para Next.js
@@ -1026,7 +345,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
 - ✅ **Puerto dinámico** - Evita conflictos, cada reinicio puede usar puerto diferente
 - ✅ **Logs en carpeta logs/** - stdout\_\*.log con salida de Node.js
 
-### 🎯 Ventajas de este enfoque:
+#### 🎯 Ventajas de este enfoque:
 
 1. ✅ Compatible con Node.js v20+ (actual y futuras versiones)
 2. ✅ Usa módulo mantenido por Microsoft (AspNetCore Module)
@@ -1036,9 +355,607 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
 6. ✅ Logs centralizados y fáciles de acceder
 7. ✅ No requiere módulos de terceros abandonados
 
----
+## Configuración
 
-## 🐳 Compatibilidad con Docker
+### Paso 1: Preparar carpetas en el servidor
+
+```powershell title="Crear estructura de carpetas"
+# Crear carpetas base
+New-Item -ItemType Directory -Path "C:\Samm\sr_api" -Force
+New-Item -ItemType Directory -Path "C:\Samm\sr_web" -Force
+New-Item -ItemType Directory -Path "C:\Samm\sr_web\logs" -Force
+
+# Verificar creación
+Get-ChildItem "C:\Samm"
+```
+
+:::tip Consejo
+La ubicación `C:\Samm\` es opcional y puede cambiar según la estructura del cliente. Ajuste los scripts en consecuencia.
+:::
+
+### Paso 2: Descargar archivos compilados desde desarrollo
+
+Recibir de desarrollo las carpetas compiladas:
+
+- `sr_api` - Backend compilado (.NET 8.0)
+- `sr_web` - Frontend compilado (Next.js 15)
+
+```powershell title="Copiar archivos al servidor"
+# Copiar archivos desde Downloads (ajustar ruta según necesidad)
+Copy-Item -Path "$env:USERPROFILE\Downloads\sr_api\*" -Destination "C:\Samm\sr_api" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\sr_web\*" -Destination "C:\Samm\sr_web" -Recurse -Force
+```
+
+### Paso 3: Configurar Backend API (.NET)
+
+#### Crear Application Pool para el Backend
+
+```powershell title="Crear Application Pool sr_api"
+# Importar módulo WebAdministration
+Import-Module WebAdministration
+
+# Crear Application Pool
+New-WebAppPool -Name "sr_api"
+
+# Configurar Application Pool
+Set-ItemProperty -Path "IIS:\AppPools\sr_api" -Name "managedRuntimeVersion" -Value ""
+Set-ItemProperty -Path "IIS:\AppPools\sr_api" -Name "processModel.identityType" -Value "ApplicationPoolIdentity"
+Set-ItemProperty -Path "IIS:\AppPools\sr_api" -Name "enable32BitAppOnWin64" -Value $false
+Set-ItemProperty -Path "IIS:\AppPools\sr_api" -Name "startMode" -Value "AlwaysRunning"
+
+# Reiniciar para aplicar cambios
+Restart-WebAppPool -Name "sr_api"
+```
+
+#### Crear aplicación web en IIS
+
+```powershell title="Crear aplicación sr_api en IIS"
+# Crear aplicación bajo Default Web Site
+New-WebApplication -Name "sr_api" -Site "Default Web Site" -PhysicalPath "C:\Samm\sr_api" -ApplicationPool "sr_api"
+
+# Verificar creación
+Get-WebApplication -Name "sr_api" -Site "Default Web Site"
+```
+
+#### Configurar permisos de archivos
+
+```powershell title="Configurar permisos para sr_api"
+# Dar permisos al Application Pool Identity
+$acl = Get-Acl "C:\Samm\sr_api"
+$permission = "IIS AppPool\sr_api", "ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"
+$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
+$acl.SetAccessRule($accessRule)
+Set-Acl "C:\Samm\sr_api" $acl
+
+# Verificar permisos
+Get-Acl "C:\Samm\sr_api" | Format-List
+```
+
+#### Configurar web.config del Backend
+
+Verificar que el archivo `C:\Samm\sr_api\web.config` tenga la configuración correcta:
+
+```xml title="C:\Samm\sr_api\web.config"
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <location path="." inheritInChildApplications="false">
+    <system.webServer>
+      <handlers>
+        <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
+      </handlers>
+      <aspNetCore processPath="dotnet" 
+                  arguments=".\Idae.Util.ReportService.Backend.WebApi.dll" 
+                  stdoutLogEnabled="true" 
+                  stdoutLogFile=".\logs\stdout" 
+                  hostingModel="inprocess" />
+    </system.webServer>
+  </location>
+</configuration>
+```
+
+#### Configurar appsettings.Production.json
+
+```powershell title="Editar configuración de producción"
+# Editar archivo de configuración
+notepad "C:\Samm\sr_api\appsettings.Production.json"
+```
+
+Contenido del archivo:
+
+```json title="C:\Samm\sr_api\appsettings.Production.json"
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=tu-servidor-sql;Database=sai_basica;User Id=usuario;Password=contraseña;TrustServerCertificate=True;"
+  },
+  "ReportServer": {
+    "Url": "http://tu-servidor-ssrs/ReportServer",
+    "Username": "usuario_ssrs",
+    "Password": "contraseña_ssrs",
+    "Domain": "DOMINIO"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+:::important Importante
+Asegúrese de reemplazar todos los valores de ejemplo con sus credenciales y configuraciones reales.
+:::
+
+### Paso 4: Configurar Frontend Web (Next.js)
+
+#### Crear Application Pool para el Frontend
+
+```powershell title="Crear Application Pool sr_web"
+# Crear Application Pool
+New-WebAppPool -Name "sr_web"
+
+# Configurar Application Pool (sin managed runtime para Node.js)
+Set-ItemProperty -Path "IIS:\AppPools\sr_web" -Name "managedRuntimeVersion" -Value ""
+Set-ItemProperty -Path "IIS:\AppPools\sr_web" -Name "processModel.identityType" -Value "ApplicationPoolIdentity"
+Set-ItemProperty -Path "IIS:\AppPools\sr_web" -Name "enable32BitAppOnWin64" -Value $false
+Set-ItemProperty -Path "IIS:\AppPools\sr_web" -Name "startMode" -Value "AlwaysRunning"
+
+# Reiniciar
+Restart-WebAppPool -Name "sr_web"
+```
+
+#### Crear aplicación web en IIS
+
+```powershell title="Crear aplicación sr_web en IIS"
+# Crear aplicación bajo Default Web Site
+New-WebApplication -Name "sr_web" -Site "Default Web Site" -PhysicalPath "C:\Samm\sr_web" -ApplicationPool "sr_web"
+
+# Verificar creación
+Get-WebApplication -Name "sr_web" -Site "Default Web Site"
+```
+
+#### Configurar permisos de archivos
+
+```powershell title="Configurar permisos para sr_web"
+# Dar permisos al Application Pool Identity
+$acl = Get-Acl "C:\Samm\sr_web"
+$permission = "IIS AppPool\sr_web", "ReadAndExecute", "ContainerInherit,ObjectInherit", "None", "Allow"
+$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
+$acl.SetAccessRule($accessRule)
+Set-Acl "C:\Samm\sr_web" $acl
+
+# Permisos adicionales para carpeta logs
+$aclLogs = Get-Acl "C:\Samm\sr_web\logs"
+$permissionLogs = "IIS AppPool\sr_web", "Modify", "ContainerInherit,ObjectInherit", "None", "Allow"
+$accessRuleLogs = New-Object System.Security.AccessControl.FileSystemAccessRule $permissionLogs
+$aclLogs.SetAccessRule($accessRuleLogs)
+Set-Acl "C:\Samm\sr_web\logs" $aclLogs
+```
+
+#### Crear archivo iis-server.js
+
+:::note Información
+Este archivo es CRÍTICO - traduce ASPNETCORE_PORT a PORT para Next.js
+:::
+
+```powershell title="Crear iis-server.js"
+# Crear archivo iis-server.js
+notepad "C:\Samm\sr_web\iis-server.js"
+```
+
+Contenido del archivo:
+
+```javascript title="C:\Samm\sr_web\iis-server.js"
+// iis-server.js
+// Wrapper para ejecutar Next.js standalone con AspNetCore Module V2
+
+console.log('🚀 Starting Next.js server via AspNetCore Module V2...');
+
+// 1. AspNetCore Module asigna puerto dinámico en ASPNETCORE_PORT
+const port = process.env.ASPNETCORE_PORT || process.env.PORT || 3000;
+const hostname = process.env.HOSTNAME || '0.0.0.0';
+
+console.log(`📍 Port from ASPNETCORE_PORT: ${process.env.ASPNETCORE_PORT}`);
+console.log(`📍 Final PORT: ${port}`);
+console.log(`📍 Hostname: ${hostname}`);
+
+// 2. Configurar PORT para que Next.js lo use
+process.env.PORT = port;
+process.env.HOSTNAME = hostname;
+
+console.log('✅ Environment variables set:');
+console.log(`   - PORT=${process.env.PORT}`);
+console.log(`   - HOSTNAME=${process.env.HOSTNAME}`);
+console.log(`   - NODE_ENV=${process.env.NODE_ENV}`);
+
+// 3. Cargar el servidor standalone de Next.js
+console.log('📦 Loading Next.js standalone server...');
+require('./server.js');
+```
+
+#### Crear archivo web.config
+
+:::note Información
+Este archivo configura AspNetCore Module V2 para ejecutar Node.js
+:::
+
+```powershell title="Crear web.config"
+# Crear archivo web.config
+notepad "C:\Samm\sr_web\web.config"
+```
+
+Contenido del archivo:
+
+```xml title="C:\Samm\sr_web\web.config"
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+    <handlers>
+      <!-- Remover handler por defecto de archivos estáticos -->
+      <remove name="StaticFile" />
+      
+      <!-- Handler para AspNetCore Module V2 ejecutando Node.js -->
+      <add name="aspNetCore" 
+           path="*" 
+           verb="*" 
+           modules="AspNetCoreModuleV2" 
+           resourceType="Unspecified" />
+    </handlers>
+
+    <!-- Configuración del AspNetCore Module -->
+    <aspNetCore processPath="C:\Program Files\nodejs\node.exe"
+                arguments="iis-server.js"
+                stdoutLogEnabled="true"
+                stdoutLogFile=".\logs\stdout"
+                hostingModel="OutOfProcess">
+      
+      <!-- Variables de entorno para Next.js -->
+      <environmentVariables>
+        <environmentVariable name="NODE_ENV" value="production" />
+        <environmentVariable name="NEXT_PUBLIC_API_URL" value="http://localhost/sr_api" />
+        <environmentVariable name="NEXT_PUBLIC_BASE_PATH" value="/sr_web" />
+      </environmentVariables>
+    </aspNetCore>
+
+    <!-- Configuración de seguridad -->
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="52428800" /> <!-- 50 MB -->
+      </requestFiltering>
+    </security>
+
+    <!-- Headers de respuesta -->
+    <httpProtocol>
+      <customHeaders>
+        <remove name="X-Powered-By" />
+      </customHeaders>
+    </httpProtocol>
+
+    <!-- Compresión -->
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+  </system.webServer>
+</configuration>
+```
+
+:::tip Consejo
+Ajuste las variables de entorno `NEXT_PUBLIC_API_URL` y `NEXT_PUBLIC_BASE_PATH` según su configuración específica.
+:::
+
+#### Crear archivo .env.production
+
+```powershell title="Crear .env.production"
+# Crear archivo .env.production
+notepad "C:\Samm\sr_web\.env.production"
+```
+
+Contenido del archivo:
+
+```env title="C:\Samm\sr_web\.env.production"
+NODE_ENV=production
+NEXT_PUBLIC_API_URL=http://localhost/sr_api
+NEXT_PUBLIC_BASE_PATH=/sr_web
+```
+
+### Paso 5: Usar scripts de instalación automatizados
+
+:::tip Consejo
+Los scripts automatizan todos los pasos anteriores. Puede usarlos en lugar de la configuración manual.
+:::
+
+#### Ejecutar script de instalación del Backend
+
+```powershell title="Instalar Backend con script"
+# Navegar a la carpeta de scripts
+cd "IDAE.UTIL.ReportService.Container\iis"
+
+# Ejecutar script de instalación
+.\sr_api_iis_install.ps1
+
+# El script preguntará por la ubicación de los archivos compilados
+# Ejemplo: C:\Users\Administrator\Downloads\sr_api
+```
+
+#### Ejecutar script de instalación del Frontend
+
+```powershell title="Instalar Frontend con script"
+# Ejecutar script de instalación
+.\sr_web_iis_install.ps1
+
+# El script preguntará por la ubicación de los archivos compilados
+# Ejemplo: C:\Users\Administrator\Downloads\sr_web
+```
+
+### Paso 6: Verificar el despliegue
+
+#### Probar el Backend
+
+```powershell title="Verificar Backend API"
+# Probar endpoint de health
+Invoke-WebRequest -Uri "http://localhost/sr_api/api/health" -UseBasicParsing
+
+# Debe retornar status 200
+```
+
+#### Probar el Frontend
+
+```powershell title="Verificar Frontend Web"
+# Abrir en navegador
+Start-Process "http://localhost/sr_web"
+
+# O usar PowerShell
+Invoke-WebRequest -Uri "http://localhost/sr_web" -UseBasicParsing
+```
+
+#### Verificar logs
+
+```powershell title="Ver logs de la aplicación"
+# Ver logs del Backend
+Get-Content "C:\Samm\sr_api\logs\stdout_*.log" -Tail 50
+
+# Ver logs del Frontend
+Get-Content "C:\Samm\sr_web\logs\stdout_*.log" -Tail 50
+```
+
+### Paso 7: Configurar HTTPS (Opcional)
+
+#### Importar certificado SSL
+
+```powershell title="Importar certificado en IIS"
+# Importar certificado PFX
+$certPassword = ConvertTo-SecureString -String "TuPassword" -Force -AsPlainText
+Import-PfxCertificate -FilePath "C:\Certificates\certificate.pfx" -CertStoreLocation Cert:\LocalMachine\My -Password $certPassword
+
+# Obtener thumbprint del certificado
+Get-ChildItem -Path Cert:\LocalMachine\My | Where-Object { $_.Subject -like "*tu-dominio*" }
+```
+
+#### Agregar binding HTTPS al sitio
+
+```powershell title="Configurar HTTPS binding"
+# Agregar binding HTTPS (reemplazar THUMBPRINT con el valor real)
+New-WebBinding -Name "Default Web Site" -Protocol "https" -Port 443 -HostHeader "" -SslFlags 0
+
+# Asignar certificado al binding
+$cert = Get-Item "Cert:\LocalMachine\My\THUMBPRINT"
+$binding = Get-WebBinding -Name "Default Web Site" -Protocol "https"
+$binding.AddSslCertificate($cert.Thumbprint, "my")
+```
+
+### Paso 8: Configuraciones de seguridad adicionales
+
+```powershell title="Aplicar configuraciones de seguridad"
+# 1. Deshabilitar listado de directorios
+Set-WebConfigurationProperty -Filter /system.webServer/directoryBrowse `
+  -Name enabled -Value $false -PSPath "IIS:\Sites\Default Web Site\sr_web"
+
+# 2. Configurar límites de solicitud
+Set-WebConfigurationProperty -Filter /system.webServer/security/requestFiltering/requestLimits `
+  -Name maxAllowedContentLength -Value 52428800 -PSPath "IIS:\Sites\Default Web Site\sr_web"
+
+# 3. Habilitar compresión
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
+Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
+```
+
+### Paso 9: Operaciones comunes
+
+#### Reiniciar aplicaciones
+
+```powershell title="Reiniciar aplicaciones"
+# Reiniciar Backend
+Restart-WebAppPool -Name "sr_api"
+
+# Reiniciar Frontend
+Restart-WebAppPool -Name "sr_web"
+
+# Reiniciar ambos
+Restart-WebAppPool -Name "sr_api"
+Restart-WebAppPool -Name "sr_web"
+```
+
+#### Detener/Iniciar aplicaciones
+
+```powershell title="Controlar estado de aplicaciones"
+# Detener
+Stop-WebAppPool -Name "sr_api"
+Stop-WebAppPool -Name "sr_web"
+
+# Iniciar
+Start-WebAppPool -Name "sr_api"
+Start-WebAppPool -Name "sr_web"
+```
+
+#### Actualizar aplicación
+
+```powershell title="Actualizar a nueva versión"
+# 1. Detener aplicaciones
+Stop-WebAppPool -Name "sr_api"
+Stop-WebAppPool -Name "sr_web"
+
+# 2. Copiar nuevos archivos (reemplazar los existentes)
+Copy-Item -Path "$env:USERPROFILE\Downloads\sr_api\*" -Destination "C:\Samm\sr_api" -Recurse -Force
+Copy-Item -Path "$env:USERPROFILE\Downloads\sr_web\*" -Destination "C:\Samm\sr_web" -Recurse -Force
+
+# 3. Iniciar aplicaciones
+Start-WebAppPool -Name "sr_api"
+Start-WebAppPool -Name "sr_web"
+```
+
+## Resultado Esperado
+
+Una vez completada la configuración:
+
+1. **Backend API funcionando**: El servicio WebAPI estará accesible en `http://localhost/sr_api`, respondiendo correctamente a las peticiones de salud en `/sr_api/api/health`.
+
+2. **Frontend Web activo**: La aplicación Next.js estará disponible en `http://localhost/sr_web`, mostrando la interfaz de usuario para navegación de reportes.
+
+3. **Application Pools activos**: Ambos Application Pools (`sr_api` y `sr_web`) estarán en estado "Started" y configurados para reinicio automático.
+
+4. **Integración completa**: La aplicación web podrá comunicarse con el backend API, que a su vez se conectará correctamente con SQL Server y SSRS para generar reportes.
+
+5. **Logs accesibles**: Los logs de cada aplicación estarán disponibles en las carpetas `C:\Samm\sr_api\logs\` y `C:\Samm\sr_web\logs\` para monitoreo y troubleshooting.
+
+6. **AspNetCore Module funcionando**: Node.js v20 se ejecutará correctamente a través de AspNetCore Module V2, con puertos dinámicos asignados automáticamente.
+
+## Resolución de Problemas
+
+### Error 500.19: No se puede leer web.config
+
+Verifique que:
+
+- El archivo `web.config` existe en la carpeta de la aplicación
+- El archivo `web.config` tiene formato XML válido
+- No hay caracteres especiales o encoding incorrecto
+- El usuario del Application Pool tiene permisos de lectura en el archivo
+
+### Error 502.5: Process Failure
+
+Confirme que:
+
+- AspNetCore Module V2 está instalado: `Get-WebGlobalModule | Where-Object { $_.Name -like '*AspNetCore*' }`
+- Node.js está instalado en `C:\Program Files\nodejs\node.exe`
+- La ruta en `processPath` del `web.config` es correcta
+- Los archivos `server.js` e `iis-server.js` existen en la carpeta
+- Revisar logs en `C:\Samm\sr_web\logs\stdout_*.log`
+
+### Error 500.0: In-Process Handler Load Failure
+
+Revise que:
+
+- Para .NET: El archivo DLL principal existe
+- Para Node.js: El `hostingModel` es `OutOfProcess` (no `inprocess`)
+- El Application Pool tiene `managedRuntimeVersion` vacío para Node.js
+- ASP.NET Core Hosting Bundle 8.0 está instalado
+
+### Frontend no carga archivos estáticos
+
+Verifique que:
+
+- La carpeta `.next/static` existe y contiene archivos
+- Los permisos del Application Pool incluyen lectura en toda la carpeta
+- El `web.config` no bloquea archivos estáticos
+- La variable `NEXT_PUBLIC_BASE_PATH` está configurada correctamente
+
+### Node.js no inicia o crashea
+
+Confirme que:
+
+- Node.js v20 LTS 64-bit está instalado
+- La versión es compatible: `node -v` debe mostrar v20.x.x
+- El archivo `iis-server.js` existe y tiene la sintaxis correcta
+- Las variables de entorno en `web.config` están configuradas
+- Revisar errores en `C:\Samm\sr_web\logs\stderr_*.log`
+
+### Error de conexión al Backend API
+
+Revise que:
+
+- El Application Pool del Backend está iniciado
+- La URL en `NEXT_PUBLIC_API_URL` es correcta
+- El Backend responde: `Invoke-WebRequest -Uri "http://localhost/sr_api/api/health"`
+- No hay firewall bloqueando la comunicación local
+- El Backend está configurado para permitir CORS
+
+### Error de conexión a base de datos
+
+Confirme que:
+
+- SQL Server es accesible desde el servidor IIS
+- Las credenciales en `appsettings.Production.json` son correctas
+- El firewall permite conexiones en el puerto 1433
+- La cadena de conexión incluye `TrustServerCertificate=True` si es necesario
+- El usuario de SQL tiene permisos en la base de datos
+
+### Error de conexión a SSRS
+
+Verifique que:
+
+- La URL del SSRS es correcta y accesible
+- Las credenciales de SSRS son válidas
+- El usuario tiene permisos para ejecutar reportes
+- El servidor SSRS responde: `Invoke-WebRequest -Uri "http://tu-servidor-ssrs/ReportServer"`
+- El dominio está configurado correctamente si usa autenticación Windows
+
+### Application Pool se detiene constantemente
+
+Revise que:
+
+- No hay errores críticos en los logs de la aplicación
+- Hay suficiente memoria RAM disponible
+- No hay errores en Event Viewer de Windows: `Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 10`
+- El `startMode` del Application Pool es `AlwaysRunning`
+- Los límites de memoria del Application Pool no se están excediendo
+
+### Logs vacíos o no se generan
+
+Confirme que:
+
+- `stdoutLogEnabled="true"` en `web.config`
+- La carpeta `logs` existe: `C:\Samm\sr_web\logs`
+- El Application Pool tiene permisos de escritura en la carpeta `logs`
+- El path `stdoutLogFile=".\logs\stdout"` es correcto en `web.config`
+
+### Checklist de verificación completa
+
+Ejecutar estos comandos para diagnóstico completo:
+
+```powershell title="Checklist de diagnóstico"
+# 1. Verificar módulos IIS
+Get-WebGlobalModule | Where-Object { $_.Name -like '*AspNetCore*' }
+
+# 2. Verificar Application Pools
+Get-WebAppPoolState -Name "sr_api"
+Get-WebAppPoolState -Name "sr_web"
+
+# 3. Verificar aplicaciones web
+Get-WebApplication -Name "sr_api" -Site "Default Web Site"
+Get-WebApplication -Name "sr_web" -Site "Default Web Site"
+
+# 4. Verificar archivos críticos
+Test-Path "C:\Samm\sr_api\web.config"
+Test-Path "C:\Samm\sr_api\Idae.Util.ReportService.Backend.WebApi.dll"
+Test-Path "C:\Samm\sr_web\web.config"
+Test-Path "C:\Samm\sr_web\iis-server.js"
+Test-Path "C:\Samm\sr_web\server.js"
+
+# 5. Verificar Node.js
+node -v
+npm -v
+
+# 6. Verificar logs
+Get-Content "C:\Samm\sr_api\logs\stdout_*.log" -Tail 20
+Get-Content "C:\Samm\sr_web\logs\stdout_*.log" -Tail 20
+
+# 7. Verificar Event Viewer
+Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 5
+
+# 8. Probar endpoints
+Invoke-WebRequest -Uri "http://localhost/sr_api/api/health" -UseBasicParsing
+Invoke-WebRequest -Uri "http://localhost/sr_web" -UseBasicParsing
+```
+
+## Compatibilidad con Docker
 
 ### ¿Esta configuración afecta el despliegue con Docker?
 
@@ -1058,7 +975,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
 
 **Docker (sin cambios):**
 
-```bash
+```bash title="Inicio en Docker"
 # En Linux/Docker, Next.js se inicia directamente con server.js
 CMD ["node", "server.js"]
 
@@ -1071,74 +988,13 @@ environment:
 
 **IIS (nueva configuración):**
 
-```bash
+```bash title="Inicio en IIS"
 # En IIS, AspNetCore Module inicia Node.js con iis-server.js
 # iis-server.js lee ASPNETCORE_PORT y luego carga server.js
 
 # Variables de entorno en web.config
 <environmentVariable name="NODE_ENV" value="production" />
 # PORT se asigna automáticamente via ASPNETCORE_PORT
-```
-
-### Proceso de build independiente
-
-**Para Docker:**
-
-```bash
-# Build de imagen Docker (desde raíz del proyecto)
-cd IDAE.UTIL.ReportService.Container
-docker-compose -f docker-compose.sammai-rs-staging.yml build
-
-# El Dockerfile maneja todo internamente
-```
-
-**Para IIS:**
-
-```bash
-# Build para IIS (crea archivos locales)
-cd IDAE.UTIL.ReportService.Web
-.\build-for-iis.ps1
-
-# Crea archivos adicionales: iis-server.js, web.config
-# Estos NO se commitean al repositorio
-```
-
-### ¿Qué archivos commitear al repositorio?
-
-```bash
-# ✅ Commitear (usados por ambos entornos):
-- Dockerfile
-- next.config.js
-- package.json
-- Código fuente de la aplicación
-- docker-compose*.yml
-
-# ❌ NO commitear (específicos de IIS, generados localmente):
-- iis-server.js (se crea al ejecutar build-for-iis.ps1)
-- web.config (se crea al ejecutar build-for-iis.ps1)
-- C:\Samm\sr_web\* (archivos de despliegue local)
-
-# ✅ Commitear (documentación):
-- DEPLOY-IIS-README.md (esta guía)
-- build-for-iis.ps1 (script de compilación)
-```
-
-### Verificación de no-interferencia
-
-```bash
-# 1. Verificar que Dockerfile no cambió
-git diff Dockerfile
-
-# 2. Verificar que next.config.js sigue siendo compatible
-cat next.config.js
-# Debe tener: basePath: process.env.NEXT_PUBLIC_BASE_PATH
-
-# 3. Verificar que package.json no cambió scripts de build
-cat package.json | grep "\"build\""
-# Debe seguir siendo: "build": "next build"
-
-# 4. Build de Docker debe funcionar sin cambios
-docker-compose -f docker-compose.sammai-rs-staging.yml build rs-frontend-web
 ```
 
 ### Variables de entorno por entorno
@@ -1150,17 +1006,6 @@ docker-compose -f docker-compose.sammai-rs-staging.yml build rs-frontend-web
 | `HOSTNAME`              | ✅ `0.0.0.0`             | ✅ Automático                      |
 | `NEXT_PUBLIC_API_URL`   | ✅ Build arg             | ✅ .env.production                 |
 | `NEXT_PUBLIC_BASE_PATH` | ✅ Build arg (`/sammai`) | ✅ .env.production (`/sr_web`)     |
-
-### Migración entre entornos
-
-Si tienes una aplicación funcionando en Docker y quieres moverla a IIS:
-
-1. ✅ El código fuente es el mismo
-2. ✅ El build de Next.js es el mismo (`npm run build`)
-3. ✅ Solo cambia la forma de ejecutar (`server.js` vs `iis-server.js + web.config`)
-4. ✅ Las variables de entorno se configuran diferente
-
-**No se requiere modificar el código de la aplicación**.
 
 ### Resumen de compatibilidad
 
@@ -1174,31 +1019,30 @@ Si tienes una aplicación funcionando en Docker y quieres moverla a IIS:
 | Build de Next.js     | ✅ 100%       | `next build` genera `server.js` standalone  |
 | Variables de entorno | ✅ Compatible | Se configuran diferente pero son las mismas |
 
-### Ejemplo de despliegue dual
+## Recursos Útiles
 
-Puedes tener:
+### Documentación oficial
 
-- **Servidor Linux/Docker**: Usando Dockerfile + docker-compose
-- **Servidor Windows/IIS**: Usando iis-server.js + web.config
+- [IIS Documentation](https://docs.microsoft.com/en-us/iis/)
+- [ASP.NET Core Module](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/aspnet-core-module)
+- [Next.js Standalone Output](https://nextjs.org/docs/advanced-features/output-file-tracing)
+- [Node.js Downloads](https://nodejs.org/)
 
-Ambos usan el **mismo código fuente** del repositorio, solo cambia la **forma de desplegar**.
+### Soporte
 
----
+Para problemas o preguntas:
 
-## Contacto y soporte
-
-Si después de seguir esta guía sigues teniendo problemas:
-
-1. Revisa la sección de **Troubleshooting** arriba
-2. Ejecuta el **Checklist de verificación completa**
-3. Captura los logs: `Get-Content "C:\Samm\sr_web\logs\*.log"`
-4. Captura eventos: `Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 5`
+1. Revisar la sección de **Resolución de Problemas**
+2. Ejecutar el **Checklist de verificación completa**
+3. Capturar los logs: `Get-Content "C:\Samm\sr_web\logs\*.log"`
+4. Capturar eventos: `Get-EventLog -LogName Application -Source "IIS AspNetCore Module V2" -Newest 5`
+5. Contactar al equipo de desarrollo
 
 ### Para problemas específicos de Docker
 
 Si tienes problemas con el despliegue en Docker (no relacionados con IIS):
 
-```bash
+```bash title="Diagnóstico Docker"
 # Ver logs del contenedor
 docker logs sammai-staging.rs.frontendweb-container
 
@@ -1211,3 +1055,9 @@ docker-compose -f docker-compose.sammai-rs-staging.yml build --no-cache
 # Reiniciar contenedor
 docker-compose -f docker-compose.sammai-rs-staging.yml restart rs-frontend-web
 ```
+
+---
+
+**Desarrollado con ❤️ por el equipo de IDAE Development**
+
+**Licencia:** Proyecto privado - Todos los derechos reservados
