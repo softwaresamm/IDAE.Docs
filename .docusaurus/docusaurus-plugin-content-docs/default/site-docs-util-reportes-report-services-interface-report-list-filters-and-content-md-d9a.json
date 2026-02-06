@@ -1,0 +1,29 @@
+{
+  "id": "util-reportes/Report-services-interface-report-list-filters-and-content",
+  "title": "Interfaz Report Services (Listado de Reportes, Filtros y Contenido)",
+  "description": "Este documento describe cómo configurar y visualizar la interfaz de Report Services una vez completado el despliegue. Se detalla el proceso para ver los reportes disponibles y configurar los filtros de búsqueda necesarios para su correcta visualización.",
+  "source": "@site/docs/util-reportes/Report-services-interface-report-list-filters-and-content.md",
+  "sourceDirName": "util-reportes",
+  "slug": "/util-reportes/Report-services-interface-report-list-filters-and-content",
+  "permalink": "/IDAE.Docs/docs/util-reportes/Report-services-interface-report-list-filters-and-content",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/util-reportes/Report-services-interface-report-list-filters-and-content.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "release_version": "v0.3.1",
+    "release_module": "Utilitario de Reportes"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Despliegue de IDAE Report Service con Docker",
+    "permalink": "/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README"
+  },
+  "next": {
+    "title": "Util - Solicitudes",
+    "permalink": "/IDAE.Docs/docs/category/util---solicitudes"
+  }
+}

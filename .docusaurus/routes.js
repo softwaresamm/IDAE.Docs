@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'dff'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'f92'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '46c'),
+        component: ComponentCreator('/IDAE.Docs/docs', '2f3'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'd01'),
+            component: ComponentCreator('/IDAE.Docs/docs', '43c'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
@@ -191,8 +191,26 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/util-reportes/search-settings',
-                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/search-settings', '282'),
+                path: '/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services', '891'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README', 'dc3'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README', '269'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/Report-services-interface-report-list-filters-and-content',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/Report-services-interface-report-list-filters-and-content', '970'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
