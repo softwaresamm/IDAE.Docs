@@ -77,7 +77,7 @@ Este es muy estándar y casi no requiere cambios, sin embargo, maneja un archivo
 "AllowedHosts": "*",
 "ProjectSettings": {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=ROCA-SAMM\\SQLEXPRESS;Database=sn_dev;user=sa;pwd=SammRoca$;Encrypt=False;"
+    "DefaultConnection": "Server=SQLEXPRESS;Database=sn_dev;user=sa;pwd=12234;Encrypt=False;"
   }
 }
 ```
