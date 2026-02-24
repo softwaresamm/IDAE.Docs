@@ -19,8 +19,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Interfaz Report Services (Listado de Reportes, Filtros y Contenido)",
-    "permalink": "/IDAE.Docs/docs/util-reportes/PDF name"
+    "title": "Nombre del PDF",
+    "permalink": "/IDAE.Docs/docs/util-reportes/PDF-name"
   },
   "next": {
     "title": "Util - Solicitudes",

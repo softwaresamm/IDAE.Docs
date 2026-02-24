@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'ab8'),
+    component: ComponentCreator('/IDAE.Docs/docs', '564'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '618'),
+        component: ComponentCreator('/IDAE.Docs/docs', 'c6b'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'aa0'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'ca8'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
@@ -209,8 +209,8 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/util-reportes/PDF name',
-                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/PDF name', '09d'),
+                path: '/IDAE.Docs/docs/util-reportes/PDF-name',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/PDF-name', '12b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
