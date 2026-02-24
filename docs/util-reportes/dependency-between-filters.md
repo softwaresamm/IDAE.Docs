@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-release_version: "v0.3.1"
+release_version: "v0.3.0"
 release_module: "Utilitario de Reportes"
 ---
 
@@ -104,45 +104,12 @@ from [rep_campoReporteDependiente]
 
 where id=0
 ```
-como podemos observar tenemos los campos [id_campoReporte_origen] del cual dejaremos como filtro padre por decirlo de alguna forma y tenemos [id_campoReporte_dependiente] el cual mostrara los resultados dependiendo del [id_campoReporte_origen]
+como podemos observar tenemos los campos [id_campoReporte_origen] del cual dejaremos como filtro padre por decirlo de alguna forma y tenemos [id_campoReporte_dependiente] el cual mostrara los resultados dependiendo del [id_campoReporte_origen] .
 
 :::important Importante
 Si se modifica directamente uno de los procedimientos `*_Get...ReportName`, los cambios afectarán a todos los reportes que lo utilicen. Evalúe el impacto antes de realizar modificaciones.
 :::
 
-## Resultado Esperado
-
-Una vez completada la configuración:
-
-1. **Nombre personalizado**: El archivo PDF generado tomará el nombre definido en el procedimiento almacenado correspondiente.
-2. **Compatibilidad con orígenes múltiples**: El parámetro `aplicacion` asegura que el nombre sea gestionado correctamente según la aplicación que genera la solicitud.
-3. **Retrocompatibilidad**: Los procedimientos originales `_nombreArchivoExportar` y `_nombreReporteTecnico` continúan siendo considerados en la lógica de control.
-
-## Resolución de Problemas
-
-### El PDF se genera con un nombre incorrecto o genérico
-
-Verifique que:
-
-- La columna `tabla` en `rep_reporte` tiene el valor correcto para el reporte en cuestión
-- El procedimiento `*_GetReportName` (o el correspondiente) está correctamente implementado y retorna el nombre esperado
-- La versión de REPORT SERVICES instalada es `>= 0.3.1`
-
-### El procedimiento no es invocado
-
-Confirme que:
-
-- El nombre del procedimiento sigue la convención `*_GetDefaultReportName`, `*_GetDocumentReportName`, `*_GetReportName` o `*_GetTechnicalReportReportName`
-- El valor del parámetro `aplicacion` coincide con uno de los valores válidos (0, 1, 2 o 3)
-
-### Error al ejecutar desde una aplicación específica
-
-Revise que:
-
-- El valor del parámetro `aplicacion` enviado por la aplicación cliente es correcto según la tabla de parámetros del servicio
-- Las versiones de SAMMNEW y SAMM LOGICA cumplen con los mínimos requeridos
-
----
 
 **Versión del Documento:** 1.0
 **Última Actualización:** Enero 2026
