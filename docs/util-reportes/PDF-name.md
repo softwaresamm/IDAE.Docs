@@ -74,7 +74,7 @@ De ser necesario, el nombre del documento puede controlarse directamente mediant
 
 ### Paso 2: Configurar la columna `tabla` en `rep_reporte`
 
-Para que el procedimiento pueda determinar el nombre correcto del archivo, es necesario especificar el origen en la columna `tabla` de la tabla `rep_reporte`.
+Para que el procedimiento pueda determinar el nombre correcto del archivo, es necesario especificar el origen en la columna `tabla` de la tabla `rep_reporte`. ejemplo como tabla se puede dejar 'doc_documento' 
 
 ```sql title="Verificar configuración de la columna tabla"
 -- Consultar el registro del reporte a configurar
