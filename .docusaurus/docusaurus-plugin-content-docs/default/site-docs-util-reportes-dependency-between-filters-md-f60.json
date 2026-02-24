@@ -1,0 +1,29 @@
+{
+  "id": "util-reportes/dependency-between-filters",
+  "title": "Dependencia entre filtros",
+  "description": "Este documento describe cómo configurar la dependencia entre los filtros para los reportes donde la idea es optimizar los resultados o el uso de los filtros posteriores ejemplo : si filtro un cliente espero solo ver las sucursales de ese cliente previamente filtrado.",
+  "source": "@site/docs/util-reportes/dependency-between-filters.md",
+  "sourceDirName": "util-reportes",
+  "slug": "/util-reportes/dependency-between-filters",
+  "permalink": "/IDAE.Docs/docs/util-reportes/dependency-between-filters",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/util-reportes/dependency-between-filters.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "release_version": "v0.3.1",
+    "release_module": "Utilitario de Reportes"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Interfaz Report Services (Listado de Reportes, Filtros y Contenido)",
+    "permalink": "/IDAE.Docs/docs/util-reportes/Report-services-interface-report-list-filters-and-content"
+  },
+  "next": {
+    "title": "Util - Solicitudes",
+    "permalink": "/IDAE.Docs/docs/category/util---solicitudes"
+  }
+}

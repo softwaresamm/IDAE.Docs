@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', '564'),
+    component: ComponentCreator('/IDAE.Docs/docs', '0dc'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', 'c6b'),
+        component: ComponentCreator('/IDAE.Docs/docs', 'f6a'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'ca8'),
+            component: ComponentCreator('/IDAE.Docs/docs', '74f'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
@@ -193,6 +193,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services', '891'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/util-reportes/dependency-between-filters',
+                component: ComponentCreator('/IDAE.Docs/docs/util-reportes/dependency-between-filters', '8eb'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
