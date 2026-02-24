@@ -10,7 +10,8 @@ Este documento describe cómo configurar el nuevo procedimiento para el control 
 
 ## Referencias
 
-- [SO-375: Nombre del adjunto sea tomado del SP](URL-de-Jira)
+- [SO-375: Nombre del adjunto sea tomado del SP](https://softwaresamm.atlassian.net/jira/software/c/projects/SCRUM/boards/173?issueParent=16415&selectedIssue=SO-375#)
+-[SO-430: Al momento de descargar el formato de impresion del utilitario de reportes, quede con el nombre del archivo ](https://softwaresamm.atlassian.net/browse/SO-430)
 
 ## Información de Versiones
 
