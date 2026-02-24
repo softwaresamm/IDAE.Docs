@@ -4,13 +4,13 @@ release_version: "v0.3.0"
 release_module: "Utilitario de Reportes"
 ---
 
-# Dependencia entre filtros
-Este documento describe cómo configurar la dependencia entre los filtros para los reportes donde la idea es optimizar los resultados o el uso de los filtros posteriores ejemplo : si filtro un cliente espero solo ver las sucursales de ese cliente previamente filtrado.
+# Dependencia entre Filtros
+
+Este documento describe cómo configurar la dependencia entre los filtros para los reportes, con el objetivo de optimizar los resultados al encadenar filtros secuencialmente. Por ejemplo, si se filtra por un cliente, se espera ver únicamente las sucursales pertenecientes a ese cliente previamente seleccionado.
 
 ## Referencias
 
 - [SO-394: Ajustar consumos desde utilitario para el manejo de dependencias](https://softwaresamm.atlassian.net/browse/SO-394)
-
 
 ## Información de Versiones
 
@@ -23,7 +23,7 @@ Este documento describe cómo configurar la dependencia entre los filtros para l
 
 | Aplicación      | Versión Mínima | Descripción                           |
 | --------------- | -------------- | ------------------------------------- |
-| SAMMNEW         | >= 7.1.10.13    | Aplicación web principal              |
+| SAMMNEW         | >= 7.1.10.13   | Aplicación web principal              |
 | SAMM LOGICA     | >= 5.6.23.7    | Lógica de negocio                     |
 | BASE DE DATOS   | >= C2.1.8.0    | Scripts de configuración de historial |
 | REPORT SERVICES | >= 0.3.0       | Utilitario de Reportes                |
@@ -34,6 +34,7 @@ Antes de iniciar la configuración, asegúrese de tener:
 
 - La versión mínima de Report Services instalada y operativa
 - Acceso a los procedimientos almacenados del módulo de reportes
+- Permisos de escritura sobre la base de datos para ejecutar sentencias `INSERT`
 
 :::important Importante
 Esta funcionalidad requiere la versión mínima especificada de Report Services. Verifique su versión actual antes de continuar.
@@ -56,26 +57,33 @@ El servicio acepta un parámetro `aplicacion` que identifica desde qué aplicaci
 
 ## Configuración
 
-### Paso 1: Identificar la existencia de la tabla rep_campoReporteDependiente
+### Paso 1: Verificar la existencia de la tabla `rep_campoReporteDependiente`
 
-Se debe realizar una consulta simple como un select * from rep_campoReporteDependiente se espera tener como resultado el registro con el id 0
+Realice una consulta simple para confirmar que la tabla existe y contiene el registro base con `id = 0`, el cual se usará como plantilla en el paso siguiente.
 
-### Paso 2: Identificar los id de los campos reporte a Relacionar
-
-```sql title="Consulta para ver los id de campo reporte"
--- Consultar el registro del reporte a configurar
-SELECT *
-FROM rep_camporeporte 
-WHERE id_reporte = -- id del reporte tecnico a configurar
+```sql title="Verificar existencia de la tabla"
+SELECT * FROM rep_campoReporteDependiente WHERE id = 0
 ```
 
+:::tip Consejo
+Se espera obtener al menos un registro como resultado. Si la consulta no retorna filas, verifique que la versión de la base de datos cumple con el mínimo requerido.
+:::
 
+### Paso 2: Identificar los IDs de los campos reporte a relacionar
 
-### Paso 3: Realizar un insert a la tabla rep_campoReporteDependiente
+Consulte la tabla `rep_camporeporte` para obtener los identificadores de los campos del reporte que desea vincular. Necesitará el ID del campo que actuará como **filtro padre** (`id_campoReporte_origen`) y el ID del campo que actuará como **filtro dependiente** (`id_campoReporte_dependiente`).
 
-Al haber identificado los id de los campos reporte se podra proceder a realizar el insert por base de datos 
+```sql title="Consultar los campos del reporte a configurar"
+SELECT *
+FROM rep_camporeporte
+WHERE id_reporte = -- id del reporte técnico a configurar
+```
 
-```sql title="Estructura del insert"
+### Paso 3: Registrar la dependencia en `rep_campoReporteDependiente`
+
+Con los IDs identificados en el paso anterior, ejecute el siguiente `INSERT` para registrar la relación de dependencia entre los filtros. El ejemplo a continuación configura la dependencia de `sucursal` a partir de `equipo`.
+
+```sql title="Insertar la dependencia entre filtros"
 INSERT INTO [dbo].[rep_campoReporteDependiente]
            ([uid]
            ,[eid]
@@ -88,7 +96,7 @@ INSERT INTO [dbo].[rep_campoReporteDependiente]
            ,[campoReporteDependiente_codigo]
            ,[id_campoReporte_origen]
            ,[id_campoReporte_dependiente])
-     select
+     SELECT
            [uid]
            ,[eid]
            ,[id_usuario_modifico]
@@ -98,18 +106,48 @@ INSERT INTO [dbo].[rep_campoReporteDependiente]
            ,1
            ,'sucursal -> equipo'
            ,[campoReporteDependiente_codigo]
-           ,616
-           ,615
-from [rep_campoReporteDependiente]
-
-where id=0
+           ,616   -- ID del campo filtro padre (origen)
+           ,615   -- ID del campo filtro dependiente
+     FROM [rep_campoReporteDependiente]
+     WHERE id = 0
 ```
-como podemos observar tenemos los campos [id_campoReporte_origen] del cual dejaremos como filtro padre por decirlo de alguna forma y tenemos [id_campoReporte_dependiente] el cual mostrara los resultados dependiendo del [id_campoReporte_origen] .
 
-:::important Importante
-Si se modifica directamente uno de los procedimientos `*_Get...ReportName`, los cambios afectarán a todos los reportes que lo utilicen. Evalúe el impacto antes de realizar modificaciones.
-:::
+El campo `id_campoReporte_origen` corresponde al **filtro padre** que condiciona los resultados, mientras que `id_campoReporte_dependiente` es el **filtro hijo** cuyos valores se mostrarán según la selección del filtro padre.
 
+## Resultado Esperado
+
+Una vez completada la configuración:
+
+1. **Filtrado encadenado activo**: Al seleccionar un valor en el filtro padre (por ejemplo, un cliente), el filtro dependiente (por ejemplo, sucursal) mostrará únicamente los registros asociados a esa selección.
+2. **Registro creado correctamente**: La tabla `rep_campoReporteDependiente` contendrá el nuevo registro con los IDs de los campos relacionados y el campo `active = 1`.
+3. **Sin impacto en otros reportes**: Los reportes que no utilicen los campos configurados no se verán afectados por el cambio.
+
+## Resolución de Problemas
+
+### El filtro dependiente no se actualiza al cambiar el filtro padre
+
+Verifique que:
+
+- El `INSERT` se ejecutó correctamente y el registro existe en `rep_campoReporteDependiente` con `active = 1`.
+- Los valores de `id_campoReporte_origen` e `id_campoReporte_dependiente` corresponden a los campos correctos del reporte.
+- La versión de Report Services instalada cumple con el mínimo requerido (`>= 0.3.0`).
+
+### La consulta del Paso 1 no retorna ningún registro
+
+Confirme que:
+
+- La tabla `rep_campoReporteDependiente` existe en la base de datos.
+- La versión de la base de datos cumple con el mínimo requerido (`>= C2.1.8.0`).
+- El usuario de base de datos tiene permisos de lectura sobre la tabla.
+
+### El `INSERT` del Paso 3 falla con error de clave foránea
+
+Revise que:
+
+- Los IDs especificados en `id_campoReporte_origen` e `id_campoReporte_dependiente` existen en la tabla `rep_camporeporte`.
+- El reporte técnico objetivo está correctamente registrado en el sistema.
+
+---
 
 **Versión del Documento:** 1.0
 **Última Actualización:** Enero 2026

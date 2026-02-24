@@ -1,7 +1,7 @@
 {
   "id": "util-reportes/dependency-between-filters",
-  "title": "Dependencia entre filtros",
-  "description": "Este documento describe cómo configurar la dependencia entre los filtros para los reportes donde la idea es optimizar los resultados o el uso de los filtros posteriores ejemplo : si filtro un cliente espero solo ver las sucursales de ese cliente previamente filtrado.",
+  "title": "Dependencia entre Filtros",
+  "description": "Este documento describe cómo configurar la dependencia entre los filtros para los reportes, con el objetivo de optimizar los resultados al encadenar filtros secuencialmente. Por ejemplo, si se filtra por un cliente, se espera ver únicamente las sucursales pertenecientes a ese cliente previamente seleccionado.",
   "source": "@site/docs/util-reportes/dependency-between-filters.md",
   "sourceDirName": "util-reportes",
   "slug": "/util-reportes/dependency-between-filters",
@@ -14,7 +14,7 @@
   "sidebarPosition": 3,
   "frontMatter": {
     "sidebar_position": 3,
-    "release_version": "v0.3.1",
+    "release_version": "v0.3.0",
     "release_module": "Utilitario de Reportes"
   },
   "sidebar": "tutorialSidebar",
