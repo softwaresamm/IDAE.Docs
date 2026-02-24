@@ -19,8 +19,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Despliegue de IDAE Report Service con Docker",
-    "permalink": "/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README"
+    "title": "Interfaz Report Services (Listado de Reportes, Filtros y Contenido)",
+    "permalink": "/IDAE.Docs/docs/util-reportes/PDF name"
   },
   "next": {
     "title": "Util - Solicitudes",
