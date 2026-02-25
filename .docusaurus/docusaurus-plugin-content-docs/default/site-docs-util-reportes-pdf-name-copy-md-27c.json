@@ -1,0 +1,29 @@
+{
+  "id": "util-reportes/PDF-name copy",
+  "title": "Nombre del PDF",
+  "description": "Este documento describe cómo configurar el nuevo procedimiento para el control del nombre del archivo PDF generado, permitiendo que el nombre del adjunto sea tomado directamente desde el stored procedure correspondiente.",
+  "source": "@site/docs/util-reportes/PDF-name copy.md",
+  "sourceDirName": "util-reportes",
+  "slug": "/util-reportes/PDF-name copy",
+  "permalink": "/IDAE.Docs/docs/util-reportes/PDF-name copy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/util-reportes/PDF-name copy.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3,
+    "release_version": "v0.3.1",
+    "release_module": "Utilitario de Reportes"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Despliegue de IDAE Report Service con Docker",
+    "permalink": "/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README"
+  },
+  "next": {
+    "title": "Nombre del PDF",
+    "permalink": "/IDAE.Docs/docs/util-reportes/PDF-name"
+  }
+}
