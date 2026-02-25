@@ -10,7 +10,7 @@ Este documento describe cómo configurar la dependencia entre los filtros para l
 
 ## Referencias
 
-- [SO-394: Ajustar consumos desde utilitario para el manejo de dependencias](https://softwaresamm.atlassian.net/browse/SO-394)
+- [SO-394: Ajustar consumos desde utilitario para el manejo de dependencias](https://softwaresamm.atlassian.net/browse/SO-394).
 
 ## Información de Versiones
 
