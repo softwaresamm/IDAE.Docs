@@ -19,8 +19,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Visualización de Incoterm en el Tab Detalle",
-    "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail"
+    "title": "Configuración del Texto Enriquecido",
+    "permalink": "/IDAE.Docs/docs/sammnew/rich-text"
   },
   "next": {
     "title": "Configuración de Envío JSON en Integraciones",

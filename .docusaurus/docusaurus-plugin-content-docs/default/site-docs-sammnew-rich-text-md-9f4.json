@@ -14,16 +14,16 @@
   "sidebarPosition": 4,
   "frontMatter": {
     "sidebar_position": 4,
-    "release_version": "7.1.10.8",
+    "release_version": "7.1.10.13",
     "release_module": "SammNew"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Configuración de Campo Obligatorio: Persona Encuestada en Evaluaciones",
-    "permalink": "/IDAE.Docs/docs/sammnew/surveyed-person"
+    "title": "Visualización de Incoterm en el Tab Detalle",
+    "permalink": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail"
   },
   "next": {
-    "title": "Util - Solicitudes",
-    "permalink": "/IDAE.Docs/docs/category/util---solicitudes"
+    "title": "Visualización de Report services",
+    "permalink": "/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services"
   }
 }

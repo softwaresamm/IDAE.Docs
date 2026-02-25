@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-release_version: "7.1.10.8"
+release_version: "7.1.10.13"
 release_module: "SammNew"
 ---
 
@@ -19,14 +19,14 @@ Este documento describe cómo configurar la funcionalidad de Texto Enriquecido e
 
 ### Versión de Lanzamiento
 
-:::info **v7.1.10.8**
+:::info **v7.1.10.13**
 :::
 
 ### Versiones Requeridas
 
 | Aplicación    | Versión Mínima | Descripción              |
 | ------------- | -------------- | ------------------------ |
-| SAMMNEW       | >= 7.1.10.8    | Aplicación web principal |
+| SAMMNEW       | >= 7.1.10.13   | Aplicación web principal |
 | SAMMAPI       | >= 1.2.19.6    | API principal            |
 | SAMM CORE     | >= 2.0.18.5    | Core del sistema         |
 | BASE DE DATOS | >= C2.1.4.3    | Base de datos            |
@@ -107,7 +107,6 @@ Si las verificaciones anteriores no retornan resultados, debe ejecutar los scrip
 **Scripts de referencia:**
 
 1. **Agregar columnas de texto enriquecido a la tabla `ort_reporteTecnico`:**
-
    - [SAMMAPI/Versions/Grupo2/2.1.4.1/SO_53_1.sql](https://github.com/softwaresamm/SAMM.DBObjects/blob/develop/SAMM.DBObjects/SAMMAPI/Versions/Grupo2/2.1.4.1/SO_53_1.sql)
    - [SAMMAPI/Versions/Grupo2/2.1.4.1/SO_53_2.sql](https://github.com/softwaresamm/SAMM.DBObjects/blob/develop/SAMM.DBObjects/SAMMAPI/Versions/Grupo2/2.1.4.1/SO_53_2.sql)
 
@@ -197,7 +196,7 @@ Confirme que:
 
 - El parámetro `textoEnriquecido` en la tabla `gen_config` tenga el valor `1`
 - Las columnas enriquecidas existan en la tabla `ort_reporteTecnico`
-- La versión de SAMMNEW sea al menos `7.1.10.8`
+- La versión de SAMMNEW sea al menos `7.1.10.13`
 - Se haya refrescado la página después de cambiar la configuración
 
 ### El formato del texto no se guarda

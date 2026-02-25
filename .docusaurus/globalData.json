@@ -21,6 +21,26 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/incoterm-in-tab-detail",
+              "path": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON",
+              "path": "/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/item-history",
+              "path": "/IDAE.Docs/docs/sammnew/item-history",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/rich-text",
+              "path": "/IDAE.Docs/docs/sammnew/rich-text",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/state-request-report",
               "path": "/IDAE.Docs/docs/sammnew/state-request-report",
               "sidebar": "tutorialSidebar"
