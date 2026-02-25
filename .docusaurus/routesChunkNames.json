@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-9f9": {
+  "/IDAE.Docs/docs-0dc": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-6eb": {
+  "/IDAE.Docs/docs-f6a": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-0d6": {
+  "/IDAE.Docs/docs-74f": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
@@ -274,6 +274,10 @@
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "__props": "__props---idae-docs-docs-category-sammnewc-6-f-fd8"
   },
+  "/IDAE.Docs/docs/category/util---reportes-f5c": {
+    "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
+    "__props": "__props---idae-docs-docs-category-util-reportes-1-f-2-f26"
+  },
   "/IDAE.Docs/docs/category/util---solicitudes-954": {
     "__comp": "__comp---theme-doc-category-generated-index-page-14-e-640",
     "__props": "__props---idae-docs-docs-category-util-solicitudes-242-3f0"
@@ -281,6 +285,18 @@
   "/IDAE.Docs/docs/intro-fae": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-intro-0-e-3-c1d"
+  },
+  "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail-e85": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-incoterm-in-tab-detailed-1-f63"
+  },
+  "/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON-c10": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-integration-configuration-support-for-json-string-and-native-jso-nc-36-e2c"
+  },
+  "/IDAE.Docs/docs/sammnew/item-history-fe7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-item-history-2-d-4-b2a"
   },
   "/IDAE.Docs/docs/sammnew/rich-text-dfa": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -293,6 +309,30 @@
   "/IDAE.Docs/docs/sammnew/surveyed-person-b52": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-surveyed-persone-55-ed8"
+  },
+  "/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services-891": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-visualization-of-reports-component-report-services-5-d-1-fe9"
+  },
+  "/IDAE.Docs/docs/util-reportes/dependency-between-filters-8eb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-dependency-between-filtersf-60-526"
+  },
+  "/IDAE.Docs/docs/util-reportes/DEPLOY-DOCKER-README-dc3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-deploy-docker-readme-930-b15"
+  },
+  "/IDAE.Docs/docs/util-reportes/DEPLOY-IIS-README-269": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-deploy-iis-readme-65-d-d52"
+  },
+  "/IDAE.Docs/docs/util-reportes/PDF-name-12b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-pdf-name-7-fd-7b9"
+  },
+  "/IDAE.Docs/docs/util-reportes/Report-services-interface-report-list-filters-and-content-970": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-util-reportes-report-services-interface-report-list-filters-and-contentd-9-a-4ec"
   },
   "/IDAE.Docs/docs/util-solicitudes/search-settings-947": {
     "__comp": "__comp---theme-doc-item-178-a40",

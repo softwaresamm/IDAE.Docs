@@ -88,7 +88,7 @@ export default {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Products"
+          "label": "Productos"
         },
         {
           "to": "/blog",
@@ -146,7 +146,7 @@ export default {
           ]
         }
       ],
-      "copyright": "Copyright © 2025 My Project, Inc. Built with Docusaurus."
+      "copyright": "Copyright © 2026 My Project, Inc. Built with Docusaurus."
     },
     "prism": {
       "theme": {
