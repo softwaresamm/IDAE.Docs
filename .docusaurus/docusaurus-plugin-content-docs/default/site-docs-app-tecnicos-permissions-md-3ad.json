@@ -21,5 +21,9 @@
   "previous": {
     "title": "App Técnicos",
     "permalink": "/IDAE.Docs/docs/category/app-técnicos"
+  },
+  "next": {
+    "title": "Template de Documentación - IDAE.Docs",
+    "permalink": "/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template"
   }
 }

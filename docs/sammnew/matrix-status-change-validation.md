@@ -67,7 +67,7 @@ En la columna valor se dejara los IDs de los estados que se requieran visualizar
 
 #### 2.2 Actualizar Parámetro (si ya existe)
 
-<span style="color: red;">:::warning Precaución</span>
+:::warning Precaución
 Al actualizar los IDs, asegúrese de que correspondan a estados válidos configurados en la matriz de estados. IDs inexistentes causarán errores en la aplicación.
 :::
 

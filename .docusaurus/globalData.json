@@ -11,6 +11,11 @@
           "mainDocId": "intro",
           "docs": [
             {
+              "id": "app-tecnicos/add-document-type-param-checklist-template",
+              "path": "/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "app-tecnicos/permissions",
               "path": "/IDAE.Docs/docs/app-tecnicos/permissions",
               "sidebar": "tutorialSidebar"
@@ -33,6 +38,11 @@
             {
               "id": "sammnew/item-history",
               "path": "/IDAE.Docs/docs/sammnew/item-history",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/matrix-status-change-validation",
+              "path": "/IDAE.Docs/docs/sammnew/matrix-status-change-validation",
               "sidebar": "tutorialSidebar"
             },
             {
