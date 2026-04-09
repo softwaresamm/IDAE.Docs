@@ -1,0 +1,27 @@
+{
+  "id": "app-tecnicos/add-document-type-param-checklist-template",
+  "title": "Filtro de Subtipo de Documento",
+  "description": "Este documento describe cómo funciona y se configura el procedimiento fil_subtipodocumento,",
+  "source": "@site/docs/app-tecnicos/add-document-type-param-checklist-template.md",
+  "sourceDirName": "app-tecnicos",
+  "slug": "/app-tecnicos/add-document-type-param-checklist-template",
+  "permalink": "/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/app-tecnicos/add-document-type-param-checklist-template.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "App Técnicos",
+    "permalink": "/IDAE.Docs/docs/category/app-técnicos"
+  },
+  "next": {
+    "title": "Configuración de Permisos",
+    "permalink": "/IDAE.Docs/docs/app-tecnicos/permissions"
+  }
+}

@@ -114,16 +114,22 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', '4c4'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'ad5'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '4f7'),
+        component: ComponentCreator('/IDAE.Docs/docs', '63d'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', '51e'),
+            component: ComponentCreator('/IDAE.Docs/docs', '079'),
             routes: [
+              {
+                path: '/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template',
+                component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template', '9a5'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/permissions',
                 component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/permissions', '250'),
@@ -175,6 +181,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/item-history',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/item-history', 'fe7'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/matrix-status-change-validation',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/matrix-status-change-validation', '014'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

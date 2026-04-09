@@ -1,0 +1,24 @@
+{
+  "id": "sammnew/matrix-status-change-validation",
+  "title": "Validar mensaje por ausencia de cambios de estado en matriz según parámetro gen_config",
+  "description": "Este documento describe cómo validar el mensaje que se presenta cuando no existen cambios de estado disponibles en la matriz de la solicitud, controlando su comportamiento según la existencia y configuración del parámetro definido en gen_config.",
+  "source": "@site/docs/sammnew/matrix-status-change-validation.md",
+  "sourceDirName": "sammnew",
+  "slug": "/sammnew/matrix-status-change-validation",
+  "permalink": "/IDAE.Docs/docs/sammnew/matrix-status-change-validation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/matrix-status-change-validation.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Configuración de Envío JSON en Integraciones",
+    "permalink": "/IDAE.Docs/docs/sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON"
+  },
+  "next": {
+    "title": "Util - Reportes",
+    "permalink": "/IDAE.Docs/docs/category/util---reportes"
+  }
+}

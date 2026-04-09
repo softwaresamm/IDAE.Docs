@@ -1,6 +1,6 @@
 {
   "id": "intro",
-  "title": "Veriones",
+  "title": "Versiones",
   "description": "Let's discover Docusaurus in less than 5 minutes.",
   "source": "@site/docs/intro.md",
   "sourceDirName": ".",
