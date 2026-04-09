@@ -1,447 +1,222 @@
-# Template de Documentación - IDAE.Docs
+---
+sidebar_position: 1
+---
 
-Este template define la estructura y reglas estándar para crear documentos de funcionalidades en el proyecto IDAE.Docs.
+# Filtro de Subtipo de Documento
+
+Este documento describe cómo funciona y se configura el procedimiento `fil_subtipodocumento`,
+el cual permite obtener la lista de subtipos de documento disponibles para un usuario,
+filtrando los resultados según el parametro `@td`. para el valor `1` se espera los subtipos de solicitud y para el `2`
+se espera los subtipos de orden de trabajo
 
 ---
 
-## Estructura del Documento
-
-Todos los documentos técnicos deben seguir esta estructura:
-
-### 1. Frontmatter (Metadata)
-
-```yaml
----
-sidebar_position: [número]
-release_version: "[versión]"
-release_module: "[nombre del módulo]"
----
-```
-
-**Reglas:**
-
-- `sidebar_position`: Número entero que define el orden en el sidebar
-- `release_version`: Versión en la que se liberó la funcionalidad (formato: "X.Y.Z")
-- `release_module`: Nombre del módulo al que pertenece (usar nombres consistentes)
-
-### 2. Título Principal
-
-```markdown
-# [Nombre de la Funcionalidad]
-```
-
-**Reglas:**
-
-- Usar un título claro y descriptivo
-- Debe ser un H1 (`#`)
-- Evitar abreviaciones innecesarias
-
-### 3. Descripción Introductoria
-
-Párrafo conciso que explica:
-
-- **Qué hace** la funcionalidad
-- **Para qué sirve**
-- **Qué problema resuelve**
-
-**Ejemplo:**
-
-```markdown
-Este documento describe cómo configurar [funcionalidad] para [objetivo],
-permitiendo [beneficio específico].
-```
-
-### 4. Referencias
-
-```markdown
 ## Referencias
 
-- [CÓDIGO-###: Descripción del ticket](URL-de-Jira)
-- [CÓDIGO-###: Descripción del ticket](URL-de-Jira)
-```
+- [SO-570: Implementar parámetro tipoDocumento para ajustar visualización del campo documento según funcionalidad en la APP](https://softwaresamm.atlassian.net/browse/SO-570)
 
-**Reglas:**
+---
 
-- Incluir todos los tickets de Jira relacionados
-- Usar el formato: `[CÓDIGO-NÚMERO: Descripción breve](URL)`
-- Listar en orden de relevancia o cronológico
-
-### 5. Información de Versiones
-
-```markdown
 ## Información de Versiones
 
 ### Versión de Lanzamiento
 
-:::info **vX.Y.Z**
+:::info **APP v 2.3.0.1**
 :::
 
 ### Versiones Requeridas
 
-| Aplicación    | Versión Mínima | Descripción       |
-| ------------- | -------------- | ----------------- |
-| SAMMAPI       | >= X.Y.Z       | API principal     |
-| SAMMNEW       | >= X.Y.Z       | Aplicación web    |
-| SAMM LOGICA   | >= X.Y.Z       | Lógica de negocio |
-| SAMM CORE     | >= X.Y.Z       | Core del sistema  |
-| BASE DE DATOS | >= CX.Y.Z      | Base de datos     |
-```
+| Aplicación    | Versión Mínima | Descripción              |
+| ------------- | -------------- | ------------------------ |
+| SAMMAPI       | >= 1.2.22.0    | API principal            |
+| SAMM LOGICA   | >= 5.6.24.2    | Lógica de negocio        |
+| SAMM CORE     | >= 2.0.19.3    | Core del sistema         |
+| BASE DE DATOS | >= C2.1.10.0   | Base de datos SQL Server |
 
-**Reglas:**
+---
 
-- Siempre incluir la versión de lanzamiento en un callout `:::info`
-- Tabla de versiones requeridas debe incluir solo las aplicaciones relevantes
-- Usar formato de versionamiento semántico: `>= X.Y.Z`
-- Incluir descripción breve de cada aplicación
-- Para Base de Datos usar prefijo `C` (ej: `>= C2.1.7.2`)
-
-### 6. Requisitos Previos
-
-```markdown
 ## Requisitos Previos
 
-Antes de iniciar la configuración, asegúrese de tener:
+Antes de utilizar o configurar este procedimiento, asegúrese de tener:
 
-- [Requisito 1]
-- [Requisito 2]
-- [Requisito 3]
-
+- Acceso a la base de datos por medio del usuario superadministrador
+- verificar la creacion del sp fil_subtipodocumento
+- Contar con la Version actualizada del APP
+  
 :::important Importante
-[Mensaje de advertencia o nota crítica sobre requisitos]
+el procedimiento debe iniciar con la tres letras fil.
 :::
-```
 
-**Reglas:**
+---
 
-- Listar todos los requisitos necesarios antes de empezar
-- Incluir permisos, accesos, conocimientos técnicos necesarios
-- Usar callout `:::important` para notas críticas
-- Mantener lista concisa pero completa
-
-### 7. Información del Servicio (si aplica)
-
-````markdown
 ## Información del Servicio
 
 :::note Información
-[Descripción breve del servicio y su propósito]
+El procedimiento `fil_subtipodocumento` actúa como fuente de datos para la seleccion
+del subtipo de documento en la aplicación. Acepta el ID de usuario, un identificador
+de entidad (`@p_eid`) y un tipo de documento (`@td`) para contextualizarlo, y retorna
+los subtipos de documento esperados
 :::
 
-### Parámetros del Servicio
+### Parámetros del procedimiento
 
-| Parámetro | Valor | Descripción                 |
-| --------- | ----- | --------------------------- |
-| [param1]  | X     | [Descripción del parámetro] |
-| [param2]  | Y     | [Descripción del parámetro] |
+| Parámetro       | Tipo           | Descripción                                                      |
+| --------------- | -------------- | ---------------------------------------------------------------- |
+| `@p_id_usuario` | `INT`          | ID del usuario. activo en la APP                                 |
+| `@p_eid`        | `VARCHAR(50)`  | Identificador de entidad asociada a SAMM                         |
+| `@td`           | `VARCHAR(50)`  | Tipo de documento (nuevo parámetro)                              |
 
-### Request
 
-```bash title="Ejemplo de petición"
-curl --location '[URL]' \
---header 'Authorization: Bearer [TOKEN]'
-```
-````
+### Ejecución
 
-### Response
-
-```json title="Ejemplo de respuesta"
-{
-  "campo": "valor"
-}
+```SQL title="Ejemplo de ejecución directa en SQL Server"
+EXEC [dbo].[fil_subtipodocumento]
+    @p_id_usuario =  5,
+    @p_eid        = '01',
+    @td           = '2'
 ```
 
-````
+### Respuesta
 
-**Reglas:**
-- Incluir solo si la funcionalidad utiliza un servicio API
-- Usar callout `:::note` para descripción del servicio
-- Incluir tabla de parámetros si el servicio los acepta
-- Ejemplos de request deben usar formato bash con curl
-- Ejemplos de response deben usar formato JSON
-- Usar títulos descriptivos en los bloques de código
-- Tokens y URLs pueden ser de ejemplo/mock
 
-**Tips adicionales:**
-- Usar callout `:::tip` para resaltar campos importantes en el response
-- Incluir explicación de campos relevantes después del ejemplo
+|  ID   | codigo |      subtipoDocumento      |
+| ----- | -------|----------------------------|
+| `2`  |  `OTT`  |     `Orden de Trabajo`     |
 
-### 8. Configuración
 
-```markdown
+---
+
 ## Configuración
 
-### Paso 1: [Nombre del Paso]
+### Paso 1: Creación o actualización del procedimiento
 
-[Descripción de qué se hace en este paso]
+El procedimiento debe existir en la base de datos.
+Ejecute el siguiente script para crearlo o actualizarlo:
 
-#### [Subtítulo si es necesario]
+```sql title="Creación del procedimiento fil_subtipodocumento"
+CREATE OR ALTER PROCEDURE [dbo].[fil_subtipodocumento]
+    @p_id_usuario INT,
+    @p_eid        VARCHAR(50),
+    @td           VARCHAR(50)-- Parámetro nuevo;
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-[Contenido del paso]
+    -- 1: retorna todos los subtipos activos de solicitud
+    IF @td = '1'
+    BEGIN
+        SELECT
+            id,
+            subtipoDocumento_codigo AS codigo,
+            subtipoDocumento
+        FROM doc_subtipodocumento
+        WHERE id_tipodocumento = 1
+              AND id = 1;
+    END
 
-```sql title="Descripción del código"
--- Código SQL o script
-````
+    -- 2: retorna todos los subtipos activos de Orden de trabajo
+    ELSE IF @td = '2'
+    BEGIN
+        SELECT
+            id,
+            subtipoDocumento_codigo AS codigo,
+            subtipoDocumento
+        FROM doc_subtipodocumento
+        WHERE id_tipodocumento = 2 
+          AND id = 2;
+    END
 
-:::tip Consejo
-[Consejo útil relacionado con este paso]
+END
+```
+
+### Paso 2: Activacion en `_columnas`
+
+Se debe relacionar el procedimiento anteriormene creado o modificado en la tabla condición de `doc_documento`
+```sql title="Verificar la columna condición en la base de datos"
+SELECT condicion
+FROM _columnas
+WHERE tabla = 'doc_documento'
+AND columna = 'id_subtipoDocumento'
+```
+```sql title="Actualizacón valor del campo condición en la base de datos"
+UPDATE _columnas
+SET condicion='fil_subtipodocumento'
+WHERE tabla = 'doc_documento'
+AND columna = 'id_subtipoDocumento'
+```
+
+### Paso 3: Prueba de ejecución
+
+:::tip consejo
+Ejecute el procedimiento con distintos valores para validar su comportamiento:
 :::
 
-### Paso 2: [Nombre del Paso]
+```sql title="Prueba con usuario superadministrador (id = 1)"
+EXEC [dbo].[fil_subtipodocumento]
+    @p_id_usuario = 1,
+    @p_eid        = '01',
+    @td           = '1' ó @td = '2'
+```
 
-[Continuar con siguientes pasos...]
+```sql title="Prueba con usuario no superadministrador"
+EXEC [dbo].[fil_subtipodocumento]
+    @p_id_usuario = 5,
+    @p_eid        = '01',
+    @td           = '1' ó @td = '2'
+```
 
-````
+### Paso 4: Configuración Campos formulario mostrar en mostrarEnApp
 
-**Reglas:**
-- Numerar los pasos secuencialmente
-- Cada paso debe tener un título descriptivo
-- Incluir explicaciones antes de mostrar código
-- Código debe tener título descriptivo
-- Usar callouts para notas, consejos o advertencias:
-  - `:::tip` - Consejos útiles
-  - `:::note` - Información adicional
-  - `:::important` - Advertencias importantes
-  - `:::warning` - Precauciones críticas
-- Incluir subtítulos (H4) cuando un paso tenga múltiples secciones
+```sql title="Campos necesario para la funcionalidad"
+update _columnas
+set mostrarEnApp = 1
+where tabla = 'doc_documento'
+and columna in ('id_subtipoDocumento','motivoServicio')
 
-### 9. Casos Especiales (si aplica)
+update _columnas
+set mostrarEnApp = 1
+where tabla = 'doc_documento.ot'
+and columna in ('motivoServicio','id_tipoServicio','email')
 
-```markdown
-## Casos Especiales
+update _columnas
+set mostrarEnApp = 1
+where tabla = 'doc_documento.solicitud'
+and columna in ('id_subtipoDocumento','motivoServicio','solicitante','telefono','email')
 
-:::note Comportamientos Predefinidos
-[Explicación de los casos especiales]
-:::
 
-| Caso          | Campo/Valor    | Descripción                      |
-| ------------- | -------------- | -------------------------------- |
-| [Caso 1]      | [valor]        | [Descripción del comportamiento] |
-| [Caso 2]      | [valor]        | [Descripción del comportamiento] |
-````
+```
 
-**Reglas:**
+### Paso 5: Desactivar campos requeridos
 
-- Incluir solo si hay comportamientos excepcionales o predefinidos
-- Usar callout para introducir la sección
-- Tabla debe mostrar claramente el caso, valor y descripción
+```sql title="Campos requeridos para los documentos"
+update _columnas
+set requerido = 0
+where tabla = 'doc_documento'
+and columna not in ('id_subtipoDocumento')
 
-### 10. Resultado Esperado
+update _columnas
+set requerido = 0
+where tabla = 'doc_documento.ot'
+and columna not in ('motivoServicio','id_tipoServicio')
 
-```markdown
+update _columnas
+set requerido = 0
+where tabla = 'doc_documento.solicitud'
+and columna not in ('id_subtipoDocumento','motivoServicio','solicitante','telefono','email')
+```
+---
+
 ## Resultado Esperado
 
-Una vez completada la configuración:
+Una vez ejecutado el procedimiento correctamente:
 
-1. **[Resultado 1]**: [Descripción del comportamiento esperado]
-2. **[Resultado 2]**: [Descripción del comportamiento esperado]
-3. **[Resultado 3]**: [Descripción del comportamiento esperado]
+1. **Al momento de ingresar al menú gestion de equipos e ingresar al menú de crear servicio solo se debe visualizar subtipos de ordenes de trabajo.**
+2. **Al momento de ingresar al menú gestion de equipos e ingresar al menú de crear snovedad solo se debe visualizar subtipos de solicitud.**
+3. **Visualizar en cada uno de ellos los campos anteriormente configurados.**
+4. **Generar cada uno de los documentos de manera correcta.**
 
-### [Subtítulo de Resultado Visual]
+---
 
-![alt text](./img/[nombre-imagen].png)
-```
-
-**Reglas:**
-
-- Listar todos los resultados esperados numerados
-- Usar negritas para el nombre del resultado
-- Incluir capturas de pantalla cuando sea relevante
-- Imágenes deben estar en carpeta `img/` relativa al documento
-- Usar alt text descriptivo en las imágenes
-- Agrupar resultados visuales con subtítulos si hay múltiples imágenes
-
-### 11. Resolución de Problemas
-
-```markdown
-## Resolución de Problemas
-
-### [Problema 1]
-
-Verifique que:
-
-- [Verificación 1]
-- [Verificación 2]
-- [Verificación 3]
-
-### [Problema 2]
-
-Confirme que:
-
-- [Confirmación 1]
-- [Confirmación 2]
-
-### [Problema 3]
-
-Revise que:
-
-- [Revisión 1]
-- [Revisión 2]
-```
-
-**Reglas:**
-
-- Listar problemas comunes como H3
-- Usar verbos de acción: "Verifique", "Confirme", "Revise"
-- Cada problema debe tener lista de verificaciones específicas
-- Ordenar de más común a menos común
-- Ser específico en las soluciones
-
-### 12. Errores Conocidos (si aplica)
-
-```markdown
 ## Errores Conocidos
 
-- [CÓDIGO-###: Descripción del error](URL-de-Jira): [Explicación breve del problema y su estado]
-```
-
-**Reglas:**
-
-- Incluir solo si existen errores conocidos sin resolver
-- Enlazar al ticket de Jira correspondiente
-- Explicar brevemente el impacto del error
-- Mantener actualizado cuando se resuelvan
-
----
-
-## Reglas Generales de Formato
-
-### Callouts (Admoniciones)
-
-Docusaurus soporta los siguientes tipos de callouts:
-
-```markdown
-:::note
-Información adicional o aclaraciones
-:::
-
-:::tip
-Consejos útiles, mejores prácticas
-:::
-
-:::info
-Información importante que destacar
-:::
-
-:::warning
-Advertencias sobre precauciones a tomar
-:::
-
-:::danger
-Peligros críticos o acciones que pueden causar problemas
-:::
-
-:::important
-Información crítica que no debe pasarse por alto
-:::
-```
-
-**Cuándo usar cada tipo:**
-
-- `note` - Información complementaria
-- `tip` - Mejores prácticas, consejos de optimización
-- `info` - Información destacada (versiones, datos importantes)
-- `warning` - Precauciones, cosas a evitar
-- `danger` - Acciones peligrosas, riesgo de pérdida de datos
-- `important` - Requisitos críticos, pasos obligatorios
-
-### Bloques de Código
-
-````markdown
-```[lenguaje] title="Título descriptivo"
-[código]
-```
-````
-
-```
-
-**Reglas:**
-- Siempre especificar el lenguaje: `sql`, `bash`, `json`, `javascript`, etc.
-- Siempre incluir un título descriptivo
-- Mantener el código formateado y legible
-- Incluir comentarios cuando sea necesario
-
-### Tablas
-
-**Reglas:**
-- Usar alineación consistente
-- Incluir headers descriptivos
-- Mantener columnas balanceadas en contenido
-- Primera columna generalmente más estrecha
-
-### Enlaces
-
-**Reglas:**
-- Enlaces internos: usar rutas relativas
-- Enlaces externos: usar URLs completas
-- Texto del enlace debe ser descriptivo
-- Formato: `[Texto descriptivo](URL)`
-
-### Imágenes
-
-**Reglas:**
-- Guardar en carpeta `img/` relativa al documento
-- Usar nombres descriptivos con guiones: `nombre-descriptivo.png`
-- Siempre incluir alt text
-- Formato: `![Texto alternativo](./img/nombre-imagen.png)`
-- Preferir PNG para capturas de pantalla
-
-### Listas
-
-**Reglas:**
-- Usar `-` para listas no ordenadas
-- Usar números `1.`, `2.` para listas ordenadas
-- Mantener consistencia en indentación (2 espacios)
-- Usar listas ordenadas cuando el orden importa
-
-### Formato de Texto
-
-**Reglas:**
-- `**negrita**` para términos importantes, resultados esperados
-- `` `código` `` para nombres de campos, tablas, procedimientos, valores
-- *cursiva* usar con moderación, solo para énfasis leve
-
----
-
-## Checklist de Revisión
-
-Antes de publicar un documento, verificar:
-
-- [ ] Frontmatter completo y correcto
-- [ ] Título claro y descriptivo
-- [ ] Descripción introductoria presente
-- [ ] Referencias a Jira incluidas
-- [ ] Versiones especificadas correctamente
-- [ ] Requisitos previos listados
-- [ ] Pasos de configuración numerados y claros
-- [ ] Ejemplos de código con títulos
-- [ ] Callouts usados apropiadamente
-- [ ] Imágenes con alt text
-- [ ] Sección de resolución de problemas completa
-- [ ] Ortografía y gramática revisadas
-- [ ] Enlaces funcionando correctamente
-- [ ] Código probado y funcional
-
----
-
-## Ejemplo de Aplicación
-
-Ver archivos de referencia:
-- [search-settings.md](./docs/util-solicitudes/search-settings.md) - Ejemplo completo y bien estructurado
-- [permissions.md](./docs/app-tecnicos/permissions.md) - Ejemplo actualizado siguiendo este template
-
----
-
-## Notas Finales
-
-- **Consistencia**: Mantener el mismo estilo en todos los documentos
-- **Claridad**: Escribir para que cualquier técnico pueda seguir los pasos
-- **Completitud**: No asumir conocimiento previo, explicar cada paso
-- **Actualización**: Mantener los documentos actualizados con cambios de versión
-- **Validación**: Siempre probar los pasos antes de documentar
-
----
-
-**Versión del Template:** 1.0
-**Última Actualización:** Diciembre 2025
-**Mantenedor:** Equipo de Documentación IDAE
-```
+- Sin errores conocidos al momento de redactar este documento.

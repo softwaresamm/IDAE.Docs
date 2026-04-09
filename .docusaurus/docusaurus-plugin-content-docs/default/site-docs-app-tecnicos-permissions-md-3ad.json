@@ -19,11 +19,7 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "App Técnicos",
-    "permalink": "/IDAE.Docs/docs/category/app-técnicos"
-  },
-  "next": {
-    "title": "Template de Documentación - IDAE.Docs",
+    "title": "Filtro de Subtipo de Documento",
     "permalink": "/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template"
   }
 }
