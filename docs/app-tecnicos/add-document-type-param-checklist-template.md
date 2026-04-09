@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Filtro de Subtipo de Documento
+# Filtro de tipo de Documento
 
 Este documento describe cómo funciona y se configura el procedimiento `fil_subtipodocumento`,
 el cual permite obtener la lista de subtipos de documento disponibles para un usuario,
