@@ -1,19 +1,25 @@
 ---
 sidebar_position: 1
+release_version: "2.3.0.1"
+release_module: "Gestión de Documentos"
 ---
 
-# Filtro de tipo de Documento
+# Filtro de Tipo de Documento
 
 Este documento describe cómo funciona y se configura el procedimiento `fil_subtipodocumento`,
 el cual permite obtener la lista de subtipos de documento disponibles para un usuario,
-filtrando los resultados según el parametro `@td`. para el valor `1` se espera los subtipos de solicitud y para el `2`
-se espera los subtipos de orden de trabajo
+filtrando los resultados según el parámetro `@td`. Para el valor `1` se esperan los subtipos de solicitud
+y para el `2` se esperan los subtipos de orden de trabajo.
+
+Adicionalmente, se informa cómo manejar el procedimiento `fil_prioridad` para la asignación
+de las prioridades según el documento al que se quiere afectar (`doc_documento.solicitud`, `doc_documento.ot`).
 
 ---
 
 ## Referencias
 
 - [SO-570: Implementar parámetro tipoDocumento para ajustar visualización del campo documento según funcionalidad en la APP](https://softwaresamm.atlassian.net/browse/SO-570)
+- [SO-507: Al crear una solicitud, NO está teniendo en cuenta el estado](https://softwaresamm.atlassian.net/browse/SO-507)
 
 ---
 
@@ -21,7 +27,7 @@ se espera los subtipos de orden de trabajo
 
 ### Versión de Lanzamiento
 
-:::info **APP v 2.3.0.1**
+:::info **APP v2.3.0.1**
 :::
 
 ### Versiones Requeridas
@@ -40,11 +46,11 @@ se espera los subtipos de orden de trabajo
 Antes de utilizar o configurar este procedimiento, asegúrese de tener:
 
 - Acceso a la base de datos por medio del usuario superadministrador
-- verificar la creacion del sp fil_subtipodocumento
-- Contar con la Version actualizada del APP
-  
+- Verificar la creación del SP `fil_subtipodocumento`
+- Contar con la versión actualizada de la APP
+
 :::important Importante
-el procedimiento debe iniciar con la tres letras fil.
+El procedimiento debe iniciar con las tres letras `fil`.
 :::
 
 ---
@@ -52,24 +58,23 @@ el procedimiento debe iniciar con la tres letras fil.
 ## Información del Servicio
 
 :::note Información
-El procedimiento `fil_subtipodocumento` actúa como fuente de datos para la seleccion
+El procedimiento `fil_subtipodocumento` actúa como fuente de datos para la selección
 del subtipo de documento en la aplicación. Acepta el ID de usuario, un identificador
 de entidad (`@p_eid`) y un tipo de documento (`@td`) para contextualizarlo, y retorna
-los subtipos de documento esperados
+los subtipos de documento esperados.
 :::
 
 ### Parámetros del procedimiento
 
-| Parámetro       | Tipo           | Descripción                                                      |
-| --------------- | -------------- | ---------------------------------------------------------------- |
-| `@p_id_usuario` | `INT`          | ID del usuario. activo en la APP                                 |
-| `@p_eid`        | `VARCHAR(50)`  | Identificador de entidad asociada a SAMM                         |
-| `@td`           | `VARCHAR(50)`  | Tipo de documento (nuevo parámetro)                              |
-
+| Parámetro       | Tipo          | Descripción                             |
+| --------------- | ------------- | --------------------------------------- |
+| `@p_id_usuario` | `INT`         | ID del usuario activo en la APP         |
+| `@p_eid`        | `VARCHAR(50)` | Identificador de entidad asociada a SAMM |
+| `@td`           | `VARCHAR(50)` | Tipo de documento (nuevo parámetro)     |
 
 ### Ejecución
 
-```SQL title="Ejemplo de ejecución directa en SQL Server"
+```sql title="Ejemplo de ejecución directa en SQL Server"
 EXEC [dbo].[fil_subtipodocumento]
     @p_id_usuario =  5,
     @p_eid        = '01',
@@ -78,15 +83,13 @@ EXEC [dbo].[fil_subtipodocumento]
 
 ### Respuesta
 
-
-|  ID   | codigo |      subtipoDocumento      |
-| ----- | -------|----------------------------|
-| `2`  |  `OTT`  |     `Orden de Trabajo`     |
-
+| ID  | codigo | subtipoDocumento   |
+| --- | ------ | ------------------ |
+| `2` | `OTT`  | `Orden de Trabajo` |
 
 ---
 
-## Configuración
+## Configuración - fil_subtipodocumento
 
 ### Paso 1: Creación o actualización del procedimiento
 
@@ -97,12 +100,12 @@ Ejecute el siguiente script para crearlo o actualizarlo:
 CREATE OR ALTER PROCEDURE [dbo].[fil_subtipodocumento]
     @p_id_usuario INT,
     @p_eid        VARCHAR(50),
-    @td           VARCHAR(50)-- Parámetro nuevo;
+    @td           VARCHAR(50) -- Parámetro nuevo
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    -- 1: retorna todos los subtipos activos de solicitud
+    -- 1: Retorna todos los subtipos activos de solicitud
     IF @td = '1'
     BEGIN
         SELECT
@@ -114,7 +117,7 @@ BEGIN
               AND id = 1;
     END
 
-    -- 2: retorna todos los subtipos activos de Orden de trabajo
+    -- 2: Retorna todos los subtipos activos de Orden de Trabajo
     ELSE IF @td = '2'
     BEGIN
         SELECT
@@ -122,98 +125,204 @@ BEGIN
             subtipoDocumento_codigo AS codigo,
             subtipoDocumento
         FROM doc_subtipodocumento
-        WHERE id_tipodocumento = 2 
+        WHERE id_tipodocumento = 2
           AND id = 2;
     END
 
 END
 ```
 
-### Paso 2: Activacion en `_columnas`
+### Paso 2: Activación en `_columnas`
 
-Se debe relacionar el procedimiento anteriormene creado o modificado en la tabla condición de `doc_documento`
+Se debe relacionar el procedimiento anteriormente creado o modificado en la tabla condición de `doc_documento`.
+
 ```sql title="Verificar la columna condición en la base de datos"
 SELECT condicion
 FROM _columnas
 WHERE tabla = 'doc_documento'
 AND columna = 'id_subtipoDocumento'
 ```
-```sql title="Actualizacón valor del campo condición en la base de datos"
+
+```sql title="Actualización del valor del campo condición en la base de datos"
 UPDATE _columnas
-SET condicion='fil_subtipodocumento'
+SET condicion = 'fil_subtipodocumento'
 WHERE tabla = 'doc_documento'
 AND columna = 'id_subtipoDocumento'
 ```
 
 ### Paso 3: Prueba de ejecución
 
-:::tip consejo
-Ejecute el procedimiento con distintos valores para validar su comportamiento:
+:::tip Consejo
+Ejecute el procedimiento con distintos valores para validar su comportamiento.
 :::
 
-```sql title="Prueba con usuario superadministrador (id = 1)"
+```sql title="Prueba con usuario superadministrador (@p_id_usuario = 1)"
 EXEC [dbo].[fil_subtipodocumento]
     @p_id_usuario = 1,
     @p_eid        = '01',
-    @td           = '1' ó @td = '2'
+    @td           = '1' -- ó @td = '2'
 ```
 
 ```sql title="Prueba con usuario no superadministrador"
 EXEC [dbo].[fil_subtipodocumento]
     @p_id_usuario = 5,
     @p_eid        = '01',
-    @td           = '1' ó @td = '2'
+    @td           = '1' -- ó @td = '2'
 ```
 
-### Paso 4: Configuración Campos formulario mostrar en mostrarEnApp
+### Paso 4: Configuración de campos del formulario en `mostrarEnApp`
 
-```sql title="Campos necesario para la funcionalidad"
-update _columnas
-set mostrarEnApp = 1
-where tabla = 'doc_documento'
-and columna in ('id_subtipoDocumento','motivoServicio')
+```sql title="Campos necesarios para la funcionalidad"
+UPDATE _columnas
+SET mostrarEnApp = 1
+WHERE tabla = 'doc_documento'
+AND columna IN ('id_subtipoDocumento', 'motivoServicio');
 
-update _columnas
-set mostrarEnApp = 1
-where tabla = 'doc_documento.ot'
-and columna in ('motivoServicio','id_tipoServicio','email')
+UPDATE _columnas
+SET mostrarEnApp = 1
+WHERE tabla = 'doc_documento.ot'
+AND columna IN ('motivoServicio', 'id_tipoServicio', 'email');
 
-update _columnas
-set mostrarEnApp = 1
-where tabla = 'doc_documento.solicitud'
-and columna in ('id_subtipoDocumento','motivoServicio','solicitante','telefono','email')
-
-
+UPDATE _columnas
+SET mostrarEnApp = 1
+WHERE tabla = 'doc_documento.solicitud'
+AND columna IN ('id_subtipoDocumento', 'motivoServicio', 'solicitante', 'telefono', 'email');
 ```
 
 ### Paso 5: Desactivar campos requeridos
 
 ```sql title="Campos requeridos para los documentos"
-update _columnas
-set requerido = 0
-where tabla = 'doc_documento'
-and columna not in ('id_subtipoDocumento')
+UPDATE _columnas
+SET requerido = 0
+WHERE tabla = 'doc_documento'
+AND columna NOT IN ('id_subtipoDocumento');
 
-update _columnas
-set requerido = 0
-where tabla = 'doc_documento.ot'
-and columna not in ('motivoServicio','id_tipoServicio')
+UPDATE _columnas
+SET requerido = 0
+WHERE tabla = 'doc_documento.ot'
+AND columna NOT IN ('motivoServicio', 'id_tipoServicio');
 
-update _columnas
-set requerido = 0
-where tabla = 'doc_documento.solicitud'
-and columna not in ('id_subtipoDocumento','motivoServicio','solicitante','telefono','email')
+UPDATE _columnas
+SET requerido = 0
+WHERE tabla = 'doc_documento.solicitud'
+AND columna NOT IN ('id_subtipoDocumento', 'motivoServicio', 'solicitante', 'telefono', 'email');
 ```
+
+---
+
+## Configuración - fil_prioridad
+
+### Paso 1: Creación o actualización del procedimiento
+
+El procedimiento debe existir en la base de datos.
+Ejecute el siguiente script para crearlo o actualizarlo:
+
+```sql title="Creación del procedimiento fil_prioridad"
+CREATE OR ALTER PROCEDURE [dbo].[fil_prioridad]
+    @p_id_usuario INT,
+    @p_eid        VARCHAR(50),
+    @td           VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- 1: Retorna todas las prioridades activas de solicitud
+    IF @td = '1'
+    BEGIN
+        SELECT id, prioridadDocumento_codigo AS codigo, prioridadDocumento
+        FROM doc_prioridadDocumento
+        WHERE doc_prioridadDocumento.id_tipoDocumento = 1
+          AND id IN (1); -- Colocar las prioridades a mostrar o pausar la condición para mostrarlos todos
+    END
+
+    -- 2: Retorna todas las prioridades activas de Orden de Trabajo
+    ELSE IF @td = '2'
+    BEGIN
+        SELECT id, prioridadDocumento_codigo AS codigo, prioridadDocumento
+        FROM doc_prioridadDocumento
+        WHERE id_tipoDocumento = 2
+          AND id IN (5, 6); -- Colocar las prioridades a mostrar o pausar la condición para mostrarlos todos
+    END
+
+END
+```
+
+### Paso 2: Activación en `_columnas`
+
+Se debe relacionar el procedimiento anteriormente creado o modificado en la columna condición de `doc_documento`.
+
+```sql title="Verificar la columna condición en la base de datos"
+SELECT condicion
+FROM _columnas
+WHERE tabla = 'doc_documento'
+AND columna = 'id_prioridadDocumento'
+```
+
+```sql title="Actualización del valor del campo condición en la base de datos"
+UPDATE _columnas
+SET condicion = 'fil_prioridad'
+WHERE tabla = 'doc_documento'
+AND columna = 'id_prioridadDocumento'
+```
+
+### Paso 3: Prueba de ejecución
+
+:::tip Consejo
+Ejecute el procedimiento con distintos valores para validar su comportamiento.
+:::
+
+```sql title="Prueba con usuario superadministrador (@p_id_usuario = 1)"
+EXEC [dbo].[fil_prioridad]
+    @p_id_usuario = 1,
+    @p_eid        = '01',
+    @td           = '1' -- ó @td = '2'
+```
+
+```sql title="Prueba con usuario no superadministrador"
+EXEC [dbo].[fil_prioridad]
+    @p_id_usuario = 5,
+    @p_eid        = '01',
+    @td           = '1' -- ó @td = '2'
+```
+
 ---
 
 ## Resultado Esperado
 
-Una vez ejecutado el procedimiento correctamente:
+Una vez completada la configuración:
 
-1. **Al momento de ingresar al menú gestion de equipos e ingresar al menú de crear servicio solo se debe visualizar subtipos de ordenes de trabajo.**
-2. **Al momento de ingresar al menú gestion de equipos e ingresar al menú de crear snovedad solo se debe visualizar subtipos de solicitud.**
-3. **Visualizar en cada uno de ellos los campos anteriormente configurados.**
-4. **Generar cada uno de los documentos de manera correcta.**
+1. **Gestión de Equipos - Crear Servicio**: Al ingresar al menú de gestión de equipos y acceder a crear servicio, solo se deben visualizar subtipos de órdenes de trabajo.
+2. **Gestión de Equipos - Crear Novedad**: Al ingresar al menú de gestión de equipos y acceder a crear novedad, solo se deben visualizar subtipos de solicitud.
+3. **Campos configurados visibles**: Se deben visualizar en cada documento únicamente los campos anteriormente configurados.
+4. **Generación de documentos**: Cada uno de los documentos debe generarse de manera correcta.
+
+---
+
+## Resolución de Problemas
+
+### El procedimiento no retorna resultados
+
+Verifique que:
+
+- El valor del parámetro `@td` corresponda a `'1'` para solicitudes o `'2'` para órdenes de trabajo
+- Los registros en `doc_subtipodocumento` tengan el `id_tipodocumento` correcto
+- El usuario indicado en `@p_id_usuario` esté activo en la APP
+
+### Los subtipos no aparecen en la APP
+
+Confirme que:
+
+- El campo `condicion` en `_columnas` esté actualizado con el valor `fil_subtipodocumento`
+- El campo `mostrarEnApp` esté en `1` para las columnas requeridas
+- La versión de la APP sea `>= 2.3.0.1`
+
+### Las prioridades no se filtran correctamente
+
+Revise que:
+
+- El campo `condicion` en `_columnas` esté actualizado con el valor `fil_prioridad`
+- Los IDs de prioridad en el procedimiento `fil_prioridad` correspondan a los registros existentes en `doc_prioridadDocumento`
+- El parámetro `@td` se esté enviando correctamente desde la APP
 
 ---
 

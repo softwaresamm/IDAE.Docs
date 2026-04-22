@@ -1,6 +1,6 @@
 {
   "id": "app-tecnicos/add-document-type-param-checklist-template",
-  "title": "Filtro de Subtipo de Documento",
+  "title": "Filtro de Tipo de Documento",
   "description": "Este documento describe cómo funciona y se configura el procedimiento fil_subtipodocumento,",
   "source": "@site/docs/app-tecnicos/add-document-type-param-checklist-template.md",
   "sourceDirName": "app-tecnicos",
@@ -13,7 +13,9 @@
   "version": "current",
   "sidebarPosition": 1,
   "frontMatter": {
-    "sidebar_position": 1
+    "sidebar_position": 1,
+    "release_version": "2.3.0.1",
+    "release_module": "Gestión de Documentos"
   },
   "sidebar": "tutorialSidebar",
   "previous": {
@@ -21,7 +23,7 @@
     "permalink": "/IDAE.Docs/docs/category/app-técnicos"
   },
   "next": {
-    "title": "Configuración de Permisos",
-    "permalink": "/IDAE.Docs/docs/app-tecnicos/permissions"
+    "title": "Configuración de Checklist Condicional para Tipos de Reporte",
+    "permalink": "/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types"
   }
 }
