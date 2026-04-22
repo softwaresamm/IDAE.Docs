@@ -114,19 +114,25 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'ad5'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'e57'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '63d'),
+        component: ComponentCreator('/IDAE.Docs/docs', '0e9'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', '079'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'd96'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template',
                 component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template', '9a5'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types',
+                component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types', '146'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
