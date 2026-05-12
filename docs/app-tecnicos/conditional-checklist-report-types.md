@@ -44,20 +44,22 @@ update _columnas
 set mostrarEnAPI = 0
 where tabla = 'equ_equipo'
 and columna  not in ( 'horometroActual','equipo')
-```
 
-- en la tabla _columnas se debe desactivar requeridos
+--en la tabla _columnas se debe desactivar requeridos
+```
 ```
 update _columnas
 set requerido = 0
 where tabla = 'equ_equipo'
 and columna not in ('horometroActual')
 
-- en la tabla _columnas que sea la tabla dis_evento se debe desactivar mostrarenAPI
-```
+--en la tabla _columnas que sea la tabla dis_evento se debe desactivar mostrarenAPI
+
 update _columnas
 set mostrarEnAPI = 0
 where tabla = 'dis_evento'
+```
+
 ```
 update _columnas
 set requerido = 0
@@ -84,6 +86,70 @@ En este paso se define el modelo sobre el cual se aplicará el checklist condici
 - Confirmar la creacion del procedimiento Almacenado mob_plantillasListaChequeoXEquipo
 - Confirmar la creacion del procedimiento almacenado v_checklistTodas
 
+```sql title="crear o alterar mob_plantillasListaChequeoXEquipo"
+CREATE OR ALTER   PROCEDURE [dbo].[mob_plantillasListaChequeoXEquipo] 
+	@p_idEquipo INT,
+	@p_idUsuario INT,
+	@p_eid VARCHAR(20)
+AS
+BEGIN
+	
+	SET NOCOUNT ON;
+
+	SELECT (
+		SELECT
+			v_PCL.id,
+			v_PCL.item,
+			v_PCL.seccion,
+			v_PCL.tipo,
+			v_PCL.IDsOpciones,
+			v_PCL.textosOpciones,
+			v_PCL.esVariable,
+			v_PCL.orden,
+			v_PCL.rango,
+			v_PCL.obligatorio,
+			v_PCL.id_lista,
+            dbo.esDependiente(v_PCL.id) as esDependiente,
+			v_PCL.vrDefecto,
+            v_PCL.lista
+		FROM [dbo].[v_checklistTodas] v_PCL
+			INNER JOIN [cat_catalogo.equipo_pruebaCheckList] CE_PCL
+		ON CE_PCL.id_pruebaCheckList = v_PCL.id_lista
+			INNER JOIN [equ_equipo] EQU
+		ON EQU.[id_catalogo.equipo] = CE_PCL.[id_catalogo.equipo]
+		WHERE 
+			EQU.id = @p_idEquipo
+		FOR JSON PATH
+	)
+END
+
+```
+```sql title="crear o alterar v_checklistTodas"
+CREATE     VIEW [dbo].[v_checklistTodas]
+AS
+	SELECT 
+			CLA.id_atributo id,
+			CLA.cat_atributo_atributo as item,
+			SA.seccionAtributo as seccion,
+			CLA.cat_atributo_id_tipoAtributo as tipo,
+			dbo.f_opcionesAtributo(CLA.id_atributo,1) as IDsOpciones,
+			dbo.f_opcionesAtributo(CLA.id_atributo,0) as textosOpciones,
+			CLA.cat_atributo_esVariable as esVariable,
+			CLA.orden as orden,
+			'NI' as rango,
+			CLA.cat_atributo_esObligatorio as obligatorio,
+			CLA.id_pruebaChecklist as id_lista,
+            CLA.cat_pruebaCheckList_pruebaCheckList as lista,
+			CLA.valorDefecto as  vrDefecto
+		FROM view_cat_pruebaCheckList_atributo CLA
+			INNER JOIN cat_seccionAtributo SA on SA.id= CLA.cat_atributo_id_seccionAtributo
+			INNER JOIN gen_unidad UNI on UNI.id=CLA.cat_atributo_id_unidad
+			INNER JOIN cat_pruebaCheckList as pc ON pc.id = CLA.id_pruebaCheckList
+		WHERE
+			CLA.active = 1
+			AND pc.active = 1
+
+```
 :::tip Consejo
 Se recomienda crear una lista de chequeo con opciones condicionales y sus atributos para diligenciar la información,se recomienda ajustar el SP mob_plantillasListaChequeoXEquipo para que solo retorne la lista de chequeo requerida
 :::
