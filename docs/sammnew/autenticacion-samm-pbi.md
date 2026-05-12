@@ -60,11 +60,11 @@ La autenticación con Power BI se realiza mediante el protocolo **OAuth 2.0** a 
 
 | Parámetro       | Valor de ejemplo                         | Descripción                                      |
 | --------------- | ---------------------------------------- | ------------------------------------------------ |
-| `pbi:TenantId`  | `9fcdd101-73b0-4129-82ea-374815044389`   | ID del directorio (tenant) en Azure AD           |
-| `pbi:ClientId`  | `b66fb065-5fea-4d1e-bd69-1e49d9b25963`   | ID de la aplicación registrada en Azure AD       |
-| `pbi:ClientSecret` | ``                                     | Secreto de cliente generado en Azure AD     |
-| `pbi:WorkspaceId` | `6b7de268-e42d-48da-b9c8-3a3f617d77fa` | ID del workspace (grupo) en Power BI Service     |
-| `pbi:ReportId`  | `a83f027a-5c4e-4a7f-bf54-85a4f42b6333`   | ID del reporte a embeber dentro del workspace    |
+| `pbi:TenantId`  | ``                                       | ID del directorio (tenant) en Azure AD           |
+| `pbi:ClientId`  | ``                                       | ID de la aplicación registrada en Azure AD       |
+| `pbi:ClientSecret` | ``                                    | Secreto de cliente generado en Azure AD     |
+| `pbi:WorkspaceId` | ``                                     | ID del workspace (grupo) en Power BI Service     |
+| `pbi:ReportId`  | ``                                       | ID del reporte a embeber dentro del workspace    |
 
 ### Request
 
@@ -193,11 +193,11 @@ Con todos los valores obtenidos en los pasos anteriores, agregue las siguientes 
 <appSettings>
   <!-- ... otras keys existentes ... -->
 
-  <add key="pbi:TenantId"     value="9fcdd101-73b0-4129-82ea-374815044389" />
-  <add key="pbi:ClientId"     value="b66fb065-5fea-4d1e-bd69-1e49d9b25" />
+  <add key="pbi:TenantId"     value="" />
+  <add key="pbi:ClientId"     value="" />
   <add key="pbi:ClientSecret" value="" />
-  <add key="pbi:WorkspaceId"  value="6b7de268-e42d-48da-b9c8-3a3f617d77fa" />
-  <add key="pbi:ReportId"     value="a83f027a-5c4e-4a7f-bf54-85a4f42b6333" />
+  <add key="pbi:WorkspaceId"  value="" />
+  <add key="pbi:ReportId"     value="" />
 </appSettings>
 ```
 
