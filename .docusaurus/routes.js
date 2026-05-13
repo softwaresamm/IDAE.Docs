@@ -114,15 +114,15 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', 'e57'),
+    component: ComponentCreator('/IDAE.Docs/docs', 'c5b'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '0e9'),
+        component: ComponentCreator('/IDAE.Docs/docs', 'e28'),
         routes: [
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'd96'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'b92'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template',
@@ -133,6 +133,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types',
                 component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types', '146'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/app-tecnicos/edit-equipment-branch-dependency',
+                component: ComponentCreator('/IDAE.Docs/docs/app-tecnicos/edit-equipment-branch-dependency', '706'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -169,6 +175,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/intro',
                 component: ComponentCreator('/IDAE.Docs/docs/intro', 'fae'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/autenticacion-samm-pbi',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/autenticacion-samm-pbi', 'f80'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

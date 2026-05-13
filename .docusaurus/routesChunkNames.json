@@ -249,17 +249,17 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-e57": {
+  "/IDAE.Docs/docs-c5b": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-0e9": {
+  "/IDAE.Docs/docs-e28": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
-  "/IDAE.Docs/docs-d96": {
+  "/IDAE.Docs/docs-b92": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template-9a5": {
@@ -269,6 +269,10 @@
   "/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types-146": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-app-tecnicos-conditional-checklist-report-typesf-4-a-55a"
+  },
+  "/IDAE.Docs/docs/app-tecnicos/edit-equipment-branch-dependency-706": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-app-tecnicos-edit-equipment-branch-dependency-4-ca-13f"
   },
   "/IDAE.Docs/docs/app-tecnicos/permissions-250": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -293,6 +297,10 @@
   "/IDAE.Docs/docs/intro-fae": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-intro-0-e-3-c1d"
+  },
+  "/IDAE.Docs/docs/sammnew/autenticacion-samm-pbi-f80": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-autenticacion-samm-pbi-6-f-7-818"
   },
   "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail-e85": {
     "__comp": "__comp---theme-doc-item-178-a40",

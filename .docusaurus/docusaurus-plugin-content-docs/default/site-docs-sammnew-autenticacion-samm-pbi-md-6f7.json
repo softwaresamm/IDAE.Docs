@@ -1,0 +1,29 @@
+{
+  "id": "sammnew/autenticacion-samm-pbi",
+  "title": "Autenticación de Conexión SAMM con Power BI",
+  "description": "Este documento describe cómo configurar la autenticación por usuario para la integración de SAMM con Power BI, permitiendo que cada usuario acceda a los reportes embebidos bajo su propia identidad, garantizando trazabilidad y control de acceso granular.",
+  "source": "@site/docs/sammnew/autenticacion-samm-pbi.md",
+  "sourceDirName": "sammnew",
+  "slug": "/sammnew/autenticacion-samm-pbi",
+  "permalink": "/IDAE.Docs/docs/sammnew/autenticacion-samm-pbi",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/sammnew/autenticacion-samm-pbi.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "release_version": "7.1.12.0",
+    "release_module": "Integración Power BI"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "SammNew",
+    "permalink": "/IDAE.Docs/docs/category/sammnew"
+  },
+  "next": {
+    "title": "Configuración de Estados al Reportar Atención",
+    "permalink": "/IDAE.Docs/docs/sammnew/state-request-report"
+  }
+}
