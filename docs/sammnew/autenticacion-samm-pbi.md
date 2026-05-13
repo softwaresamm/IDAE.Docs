@@ -206,6 +206,12 @@ Guarde el archivo y reinicie el pool de aplicaciones en IIS para que los cambios
 :::warning Precaución
 El valor de `pbi:ClientSecret` es sensible. Asegúrese de que el `web.config` **no esté expuesto públicamente** y que esté excluido del repositorio de control de versiones mediante `.gitignore` o mecanismos equivalentes.
 :::
+### Paso 6: Consultar reporte 
+
+Para consultar el reporte de PBI, basta con ir al botón Reportes, como se muestra en la imagen.
+
+![reporte PBI](./img/consultarreportepbi.png)
+
 
 ---
 
