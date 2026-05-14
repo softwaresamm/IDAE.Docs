@@ -56,6 +56,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/database/alquileres/alq_periodoalquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_periodoalquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/database/alquileres/alq_tarifa",
               "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_tarifa",
               "sidebar": "tutorialSidebar"
@@ -493,11 +498,6 @@
             {
               "id": "sammnew/database/documentos/doc_documento_proyecto_etapa",
               "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_etapa",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "sammnew/database/documentos/doc_documento_proyecto_recursoFisico",
-              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_recursoFisico",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -1081,11 +1081,6 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sammnew/database/proyectos/pro_actividad_calidad",
-              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_calidad",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "sammnew/database/proyectos/pro_actividad_ejecutor",
               "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_ejecutor",
               "sidebar": "tutorialSidebar"
@@ -1096,18 +1091,8 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sammnew/database/proyectos/pro_actividad_factorexito",
-              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_factorexito",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "sammnew/database/proyectos/pro_actividad_hito",
               "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_hito",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "sammnew/database/proyectos/pro_actividad_predecesora",
-              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_predecesora",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -1123,11 +1108,6 @@
             {
               "id": "sammnew/database/proyectos/pro_calidad",
               "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_calidad",
-              "sidebar": "tutorialSidebar"
-            },
-            {
-              "id": "sammnew/database/proyectos/pro_ejecutor_archivo",
-              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutor_archivo",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -1151,11 +1131,6 @@
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sammnew/database/proyectos/pro_etapa_actividad",
-              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_etapa_actividad",
-              "sidebar": "tutorialSidebar"
-            },
-            {
               "id": "sammnew/database/proyectos/pro_factorexito",
               "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_factorexito",
               "sidebar": "tutorialSidebar"
@@ -1171,13 +1146,18 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/database/proyectos/pro_horarioEjecutores",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioEjecutores",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/database/proyectos/pro_horarioProyecto",
               "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioProyecto",
               "sidebar": "tutorialSidebar"
             },
             {
-              "id": "sammnew/database/proyectos/pro_presupuesto",
-              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_presupuesto",
+              "id": "sammnew/database/proyectos/pro_horarioTrabajo",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioTrabajo",
               "sidebar": "tutorialSidebar"
             },
             {
@@ -1256,6 +1236,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/database/seguridad/seg_cargo_actividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_actividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/database/seguridad/seg_cargo_envioCorreo",
               "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_envioCorreo",
               "sidebar": "tutorialSidebar"
@@ -1303,6 +1288,11 @@
             {
               "id": "sammnew/database/seguridad/seg_sesion",
               "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_sesionHistorico",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesionHistorico",
               "sidebar": "tutorialSidebar"
             },
             {

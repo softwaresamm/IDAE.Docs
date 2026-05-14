@@ -249,13 +249,13 @@
     },
     "content": "content---idae-docs-markdown-page-393-4ad"
   },
-  "/IDAE.Docs/docs-947": {
+  "/IDAE.Docs/docs-9f9": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---idae-docs-docsaba-696"
     }
   },
-  "/IDAE.Docs/docs-63f": {
+  "/IDAE.Docs/docs-70c": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---idae-docs-docs-44-e-0be"
   },
@@ -351,7 +351,7 @@
     "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
     "__props": "__props---idae-docs-docs-tags-ter-97-e-60d"
   },
-  "/IDAE.Docs/docs-dda": {
+  "/IDAE.Docs/docs-d72": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template-9a5": {
@@ -409,6 +409,10 @@
   "/IDAE.Docs/docs/sammnew/database/alquileres/alq_historicoAlquiler-9e9": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-alquileres-alq-historico-alquiler-586-a69"
+  },
+  "/IDAE.Docs/docs/sammnew/database/alquileres/alq_periodoalquiler-50a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-database-alquileres-alq-periodoalquiler-21-a-3cf"
   },
   "/IDAE.Docs/docs/sammnew/database/alquileres/alq_tarifa-243": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -761,10 +765,6 @@
   "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_etapa-825": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-documentos-doc-documento-proyecto-etapac-2-a-ef3"
-  },
-  "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_recursoFisico-033": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-documentos-doc-documento-proyecto-recurso-fisico-042-689"
   },
   "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_sucursal-db0": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -1226,10 +1226,6 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-1-c-1-cb3"
   },
-  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_calidad-1d7": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-calidadf-38-221"
-  },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_ejecutor-788": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-ejecutor-6-cc-d0c"
@@ -1238,17 +1234,9 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-etapa-4-f-4-1c5"
   },
-  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_factorexito-116": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-factorexito-820-b90"
-  },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_hito-ff9": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-hito-52-f-086"
-  },
-  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_predecesora-dc3": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-actividad-predecesorae-7-d-3e9"
   },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_recursoFisico-36f": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -1261,10 +1249,6 @@
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_calidad-5b2": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-calidad-680-9ea"
-  },
-  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutor_archivo-926": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-ejecutor-archivof-78-cfe"
   },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutores-74c": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -1282,10 +1266,6 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-etapa-10-d-864"
   },
-  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_etapa_actividad-d51": {
-    "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-etapa-actividadc-31-ecb"
-  },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_factorexito-e3b": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-factorexito-16-b-7df"
@@ -1298,13 +1278,17 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-hitof-21-f80"
   },
+  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioEjecutores-0b2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-horario-ejecutoresb-70-cbc"
+  },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioProyecto-3c8": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-horario-proyectofb-2-10b"
   },
-  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_presupuesto-da4": {
+  "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioTrabajo-140": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-presupuesto-5-ba-f63"
+    "content": "content---idae-docs-docs-sammnew-database-proyectos-pro-horario-trabajoe-91-ef6"
   },
   "/IDAE.Docs/docs/sammnew/database/proyectos/pro_recursoFisico-42c": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -1366,6 +1350,10 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-seguridad-seg-cargofdd-d47"
   },
+  "/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_actividad-f83": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-database-seguridad-seg-cargo-actividad-1-a-8-7f3"
+  },
   "/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_envioCorreo-297": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-seguridad-seg-cargo-envio-correoac-5-a30"
@@ -1405,6 +1393,10 @@
   "/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesion-dcc": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---idae-docs-docs-sammnew-database-seguridad-seg-sesion-158-22b"
+  },
+  "/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesionHistorico-33a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---idae-docs-docs-sammnew-database-seguridad-seg-sesion-historico-2-e-3-ef5"
   },
   "/IDAE.Docs/docs/sammnew/database/seguridad/seg_usuario-ae6": {
     "__comp": "__comp---theme-doc-item-178-a40",

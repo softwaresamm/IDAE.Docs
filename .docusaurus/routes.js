@@ -114,11 +114,11 @@ export default [
   },
   {
     path: '/IDAE.Docs/docs',
-    component: ComponentCreator('/IDAE.Docs/docs', '947'),
+    component: ComponentCreator('/IDAE.Docs/docs', '9f9'),
     routes: [
       {
         path: '/IDAE.Docs/docs',
-        component: ComponentCreator('/IDAE.Docs/docs', '63f'),
+        component: ComponentCreator('/IDAE.Docs/docs', '70c'),
         routes: [
           {
             path: '/IDAE.Docs/docs/tags',
@@ -237,7 +237,7 @@ export default [
           },
           {
             path: '/IDAE.Docs/docs',
-            component: ComponentCreator('/IDAE.Docs/docs', 'dda'),
+            component: ComponentCreator('/IDAE.Docs/docs', 'd72'),
             routes: [
               {
                 path: '/IDAE.Docs/docs/app-tecnicos/add-document-type-param-checklist-template',
@@ -320,6 +320,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/database/alquileres/alq_historicoAlquiler',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/alquileres/alq_historicoAlquiler', '9e9'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/database/alquileres/alq_periodoalquiler',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/alquileres/alq_periodoalquiler', '50a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -848,12 +854,6 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_etapa',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_etapa', '825'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_recursoFisico',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_recursoFisico', '033'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -1548,12 +1548,6 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_calidad',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_calidad', '1d7'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
                 path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_ejecutor',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_ejecutor', '788'),
                 exact: true,
@@ -1566,20 +1560,8 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_factorexito',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_factorexito', '116'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
                 path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_hito',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_hito', 'ff9'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_predecesora',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_predecesora', 'dc3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -1598,12 +1580,6 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_calidad',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_calidad', '5b2'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
-                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutor_archivo',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutor_archivo', '926'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -1632,12 +1608,6 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_etapa_actividad',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_etapa_actividad', 'd51'),
-                exact: true,
-                sidebar: "tutorialSidebar"
-              },
-              {
                 path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_factorexito',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_factorexito', 'e3b'),
                 exact: true,
@@ -1656,14 +1626,20 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
+                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioEjecutores',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioEjecutores', '0b2'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
                 path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioProyecto',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioProyecto', '3c8'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_presupuesto',
-                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_presupuesto', 'da4'),
+                path: '/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioTrabajo',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioTrabajo', '140'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -1758,6 +1734,12 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
+                path: '/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_actividad',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_actividad', 'f83'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
                 path: '/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_envioCorreo',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_envioCorreo', '297'),
                 exact: true,
@@ -1814,6 +1796,12 @@ export default [
               {
                 path: '/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesion',
                 component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesion', 'dcc'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesionHistorico',
+                component: ComponentCreator('/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesionHistorico', '33a'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
