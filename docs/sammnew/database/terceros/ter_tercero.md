@@ -62,9 +62,9 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona
-- **id_estadoTercero** → [unknown_estadoTercero](../general/unknown_estadoTercero) - Referencia a unknown_estadoTercero
-- **id_naturalezaTercero** → [unknown_naturalezaTercero](../general/unknown_naturalezaTercero) - Referencia a unknown_naturalezaTercero
-- **id_formaPago** → [unknown_formaPago](../general/unknown_formaPago) - Referencia a unknown_formaPago
+- **id_estadoTercero** → [ter_estadoTercero](../terceros/ter_estadoTercero) - Referencia a ter_estadoTercero
+- **id_naturalezaTercero** → [ter_naturalezaTercero](../terceros/ter_naturalezaTercero) - Referencia a ter_naturalezaTercero
+- **id_formaPago** → [doc_formaPago](../documentos/doc_formaPago) - Referencia a doc_formaPago
 
 ### Relaciones Entrantes
 

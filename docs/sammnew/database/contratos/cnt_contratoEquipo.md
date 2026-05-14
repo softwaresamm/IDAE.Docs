@@ -48,7 +48,7 @@ Todas las tablas incluyen estos campos:
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_contrato** → [cnt_contrato](../contratos/cnt_contrato) - Referencia a cnt_contrato
-- **id_contratoDetalleVisita** → [unknown_contratoDetalleVisita](../general/unknown_contratoDetalleVisita) - Referencia a unknown_contratoDetalleVisita
+- **id_contratoDetalleVisita** → [cnt_contratoDetalleVisita](../contratos/cnt_contratoDetalleVisita) - Referencia a cnt_contratoDetalleVisita
 
 ### Relaciones Entrantes
 

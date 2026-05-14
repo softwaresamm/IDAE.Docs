@@ -66,13 +66,13 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoServicio** → [unknown_tipoServicio](../general/unknown_tipoServicio) - Referencia a unknown_tipoServicio
+- **id_tipoServicio** → [gen_tipoServicio](../general/gen_tipoServicio) - Referencia a gen_tipoServicio
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_usuario_coordinador** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_motivoCancelacion** → [unknown_motivoCancelacion](../general/unknown_motivoCancelacion) - Referencia a unknown_motivoCancelacion
+- **id_motivoCancelacion** → [ort_motivoCancelacion](../ordenes/ort_motivoCancelacion) - Referencia a ort_motivoCancelacion
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
-- **id_sistema** → [unknown_sistema](../general/unknown_sistema) - Referencia a unknown_sistema
-- **id_departamentoSolicitud** → [unknown_departamentoSolicitud](../general/unknown_departamentoSolicitud) - Referencia a unknown_departamentoSolicitud
+- **id_sistema** → [cat_sistema](../catalogo/cat_sistema) - Referencia a cat_sistema
+- **id_departamentoSolicitud** → [ort_departamentoSolicitud](../ordenes/ort_departamentoSolicitud) - Referencia a ort_departamentoSolicitud
 - **id_contrato** → [cnt_contrato](../contratos/cnt_contrato) - Referencia a cnt_contrato
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona
 

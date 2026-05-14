@@ -44,7 +44,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_formaPago** → [unknown_formaPago](../general/unknown_formaPago) - Referencia a unknown_formaPago
+- **id_formaPago** → [doc_formaPago](../documentos/doc_formaPago) - Referencia a doc_formaPago
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
 
 ### Relaciones Entrantes

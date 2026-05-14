@@ -43,7 +43,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_pregunta** → [unknown_pregunta](../general/unknown_pregunta) - Referencia a unknown_pregunta
+- **id_pregunta** → [doc_pregunta](../documentos/doc_pregunta) - Referencia a doc_pregunta
 
 ### Relaciones Entrantes
 

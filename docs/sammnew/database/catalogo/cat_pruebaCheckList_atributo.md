@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_pruebaCheckList** → [unknown_pruebaCheckList](../general/unknown_pruebaCheckList) - Referencia a unknown_pruebaCheckList
-- **id_atributo** → [unknown_atributo](../general/unknown_atributo) - Referencia a unknown_atributo
+- **id_pruebaCheckList** → [cat_pruebaCheckList](../catalogo/cat_pruebaCheckList) - Referencia a cat_pruebaCheckList
+- **id_atributo** → [cat_atributo](../catalogo/cat_atributo) - Referencia a cat_atributo
 
 ### Relaciones Entrantes
 

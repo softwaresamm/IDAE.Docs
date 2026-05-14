@@ -43,8 +43,8 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
-- **id_atributo** → [unknown_atributo](../general/unknown_atributo) - Referencia a unknown_atributo
-- **id_opcionAtributo** → [unknown_opcionAtributo](../general/unknown_opcionAtributo) - Referencia a unknown_opcionAtributo
+- **id_atributo** → [cat_atributo](../catalogo/cat_atributo) - Referencia a cat_atributo
+- **id_opcionAtributo** → [equ_opcionAtributo](../equipos/equ_opcionAtributo) - Referencia a equ_opcionAtributo
 
 ### Relaciones Entrantes
 

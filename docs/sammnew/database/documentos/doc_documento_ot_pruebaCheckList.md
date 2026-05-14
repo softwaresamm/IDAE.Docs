@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
-- **id_pruebaCheckList** → [unknown_pruebaCheckList](../general/unknown_pruebaCheckList) - Referencia a unknown_pruebaCheckList
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
+- **id_pruebaCheckList** → [cat_pruebaCheckList](../catalogo/cat_pruebaCheckList) - Referencia a cat_pruebaCheckList
 
 ### Relaciones Entrantes
 

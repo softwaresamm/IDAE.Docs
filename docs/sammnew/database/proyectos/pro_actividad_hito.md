@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_hito** → [unknown_hito](../general/unknown_hito) - Referencia a unknown_hito
-- **id_actividad** → [unknown_actividad](../general/unknown_actividad) - Referencia a unknown_actividad
+- **id_hito** → [pro_hito](../proyectos/pro_hito) - Referencia a pro_hito
+- **id_actividad** → [pro_actividad](../proyectos/pro_actividad) - Referencia a pro_actividad
 
 ### Relaciones Entrantes
 

@@ -83,12 +83,11 @@ Todas las tablas incluyen estos campos:
 
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 - **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
-- **id_centroCosto** → [unknown_centroCosto](../general/unknown_centroCosto) - Referencia a unknown_centroCosto
+- **id_centroCosto** → [doc_centroCosto](../documentos/doc_centroCosto) - Referencia a doc_centroCosto
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 - **id_bodega** → [gen_bodega](../general/gen_bodega) - Referencia a gen_bodega
-- **id_incoterm** → [unknown_incoterm](../general/unknown_incoterm) - Referencia a unknown_incoterm
-- **id_itemDocumento_superior** → [itemDocumento_superior](../general/itemDocumento_superior) - Referencia a itemDocumento_superior
-- **id_listaprecio** → [unknown_listaprecio](../general/unknown_listaprecio) - Referencia a unknown_listaprecio
+- **id_incoterm** → [doc_incoterm](../documentos/doc_incoterm) - Referencia a doc_incoterm
+- **id_itemDocumento_superior** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
 
 ### Relaciones Entrantes
 

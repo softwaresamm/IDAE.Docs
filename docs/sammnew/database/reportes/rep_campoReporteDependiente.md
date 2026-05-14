@@ -41,8 +41,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_campoReporte_origen** → [campoReporte_origen](../general/campoReporte_origen) - Referencia a campoReporte_origen
-- **id_campoReporte_dependiente** → [campoReporte_dependiente](../general/campoReporte_dependiente) - Referencia a campoReporte_dependiente
+- **id_campoReporte_origen** → [rep_campoReporte](../reportes/rep_campoReporte) - Referencia a rep_campoReporte
+- **id_campoReporte_dependiente** → [rep_campoReporte](../reportes/rep_campoReporte) - Referencia a rep_campoReporte
 
 ### Relaciones Entrantes
 

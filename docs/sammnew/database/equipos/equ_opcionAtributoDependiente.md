@@ -41,8 +41,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_opcionAtributo_hijo** → [opcionAtributo_hijo](../general/opcionAtributo_hijo) - Referencia a opcionAtributo_hijo
-- **id_opcionAtributo_padre** → [opcionAtributo_padre](../general/opcionAtributo_padre) - Referencia a opcionAtributo_padre
+- **id_opcionAtributo_hijo** → [equ_opcionAtributo](../equipos/equ_opcionAtributo) - Referencia a equ_opcionAtributo
+- **id_opcionAtributo_padre** → [equ_opcionAtributo](../equipos/equ_opcionAtributo) - Referencia a equ_opcionAtributo
 
 ### Relaciones Entrantes
 

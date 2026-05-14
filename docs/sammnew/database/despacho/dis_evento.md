@@ -56,13 +56,13 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
-- **id_motivoEvento** → [unknown_motivoEvento](../general/unknown_motivoEvento) - Referencia a unknown_motivoEvento
+- **id_motivoEvento** → [dis_motivoEvento](../despacho/dis_motivoEvento) - Referencia a dis_motivoEvento
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_estadoEquipo** → [unknown_estadoEquipo](../general/unknown_estadoEquipo) - Referencia a unknown_estadoEquipo
-- **id_falla** → [unknown_falla](../general/unknown_falla) - Referencia a unknown_falla
-- **id_falla_causa** → [falla_causa](../general/falla_causa) - Referencia a falla_causa
-- **id_metodoDeteccion** → [unknown_metodoDeteccion](../general/unknown_metodoDeteccion) - Referencia a unknown_metodoDeteccion
-- **id_estadoEvento** → [unknown_estadoEvento](../general/unknown_estadoEvento) - Referencia a unknown_estadoEvento
+- **id_estadoEquipo** → [equ_estadoEquipo](../equipos/equ_estadoEquipo) - Referencia a equ_estadoEquipo
+- **id_falla** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_falla_causa** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_metodoDeteccion** → [dis_metodoDeteccion](../despacho/dis_metodoDeteccion) - Referencia a dis_metodoDeteccion
+- **id_estadoEvento** → [dis_estadoEvento](../despacho/dis_estadoEvento) - Referencia a dis_estadoEvento
 
 ### Relaciones Entrantes
 

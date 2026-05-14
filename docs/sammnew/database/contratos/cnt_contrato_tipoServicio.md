@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_contrato** → [cnt_contrato](../contratos/cnt_contrato) - Referencia a cnt_contrato
-- **id_tipoServicio** → [unknown_tipoServicio](../general/unknown_tipoServicio) - Referencia a unknown_tipoServicio
-- **id_listaPrecio** → [unknown_listaPrecio](../general/unknown_listaPrecio) - Referencia a unknown_listaPrecio
+- **id_tipoServicio** → [gen_tipoServicio](../general/gen_tipoServicio) - Referencia a gen_tipoServicio
+- **id_listaPrecio** → [cat_listaPrecio](../catalogo/cat_listaPrecio) - Referencia a cat_listaPrecio
 
 ### Relaciones Entrantes
 

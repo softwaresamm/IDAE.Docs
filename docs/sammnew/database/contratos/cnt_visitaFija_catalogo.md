@@ -42,7 +42,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_visitaFija** → [unknown_visitaFija](../general/unknown_visitaFija) - Referencia a unknown_visitaFija
+- **id_visitaFija** → [cnt_visitaFija](../contratos/cnt_visitaFija) - Referencia a cnt_visitaFija
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 
 ### Relaciones Entrantes

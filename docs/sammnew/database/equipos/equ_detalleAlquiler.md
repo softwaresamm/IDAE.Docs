@@ -59,7 +59,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
-- **id_documento_alquiler** → [documento_alquiler](../general/documento_alquiler) - Referencia a documento_alquiler
+- **id_documento_alquiler** → [doc_documento_alquiler](../documentos/doc_documento_alquiler) - Referencia a doc_documento_alquiler
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
 - **id_tercero** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo

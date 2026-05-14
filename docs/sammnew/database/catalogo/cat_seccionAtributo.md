@@ -41,7 +41,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_usoSeccionAtributo** → [unknown_usoSeccionAtributo](../general/unknown_usoSeccionAtributo) - Referencia a unknown_usoSeccionAtributo
+- **id_usoSeccionAtributo** → [cat_usoSeccionAtributo](../catalogo/cat_usoSeccionAtributo) - Referencia a cat_usoSeccionAtributo
 
 ### Relaciones Entrantes
 

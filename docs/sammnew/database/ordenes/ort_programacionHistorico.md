@@ -47,10 +47,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_programacion** → [unknown_programacion](../general/unknown_programacion) - Referencia a unknown_programacion
+- **id_programacion** → [ort_programacion](../ordenes/ort_programacion) - Referencia a ort_programacion
 - **id_usuario_actual** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 - **id_usuario_programado** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_motivo** → [unknown_motivo](../general/unknown_motivo) - Referencia a unknown_motivo
 
 ### Relaciones Entrantes
 

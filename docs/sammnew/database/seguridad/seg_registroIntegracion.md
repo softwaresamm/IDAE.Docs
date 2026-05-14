@@ -45,7 +45,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_puntoIntegracion** → [unknown_puntoIntegracion](../general/unknown_puntoIntegracion) - Referencia a unknown_puntoIntegracion
+- **id_puntoIntegracion** → [syn_puntoIntegracion](../integracion/syn_puntoIntegracion) - Referencia a syn_puntoIntegracion
 
 ### Relaciones Entrantes
 

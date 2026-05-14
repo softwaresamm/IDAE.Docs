@@ -43,7 +43,7 @@ Todas las tablas incluyen estos campos:
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_contacto** → [unknown_contacto](../general/unknown_contacto) - Referencia a unknown_contacto
+- **id_contacto** → [ter_contacto](../terceros/ter_contacto) - Referencia a ter_contacto
 
 ### Relaciones Entrantes
 

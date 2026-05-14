@@ -41,7 +41,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_subTipodocumento** → [unknown_subTipodocumento](../general/unknown_subTipodocumento) - Referencia a unknown_subTipodocumento
+*Esta tabla no tiene relaciones salientes (foreign keys).*
 
 ### Relaciones Entrantes
 

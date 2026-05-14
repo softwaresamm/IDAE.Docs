@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_familia** → [unknown_familia](../general/unknown_familia) - Referencia a unknown_familia
-- **id_falla** → [unknown_falla](../general/unknown_falla) - Referencia a unknown_falla
+- **id_familia** → [gen_familia](../general/gen_familia) - Referencia a gen_familia
+- **id_falla** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
 
 ### Relaciones Entrantes
 

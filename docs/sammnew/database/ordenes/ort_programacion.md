@@ -52,13 +52,13 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_tipoProgramacion** → [unknown_tipoProgramacion](../general/unknown_tipoProgramacion) - Referencia a unknown_tipoProgramacion
-- **id_motivoCancelacion** → [unknown_motivoCancelacion](../general/unknown_motivoCancelacion) - Referencia a unknown_motivoCancelacion
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
-- **id_programacion** → [unknown_programacion](../general/unknown_programacion) - Referencia a unknown_programacion
-- **id_reporteTecnico** → [unknown_reporteTecnico](../general/unknown_reporteTecnico) - Referencia a unknown_reporteTecnico
-- **id_catalogo_actividad** → [catalogo_actividad](../general/catalogo_actividad) - Referencia a catalogo_actividad
-- **id_soporteItemDocumento** → [unknown_soporteItemDocumento](../general/unknown_soporteItemDocumento) - Referencia a unknown_soporteItemDocumento
+- **id_tipoProgramacion** → [ort_tipoProgramacion](../ordenes/ort_tipoProgramacion) - Referencia a ort_tipoProgramacion
+- **id_motivoCancelacion** → [ort_motivoCancelacion](../ordenes/ort_motivoCancelacion) - Referencia a ort_motivoCancelacion
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
+- **id_programacion** → [ort_programacion](../ordenes/ort_programacion) - Referencia a ort_programacion
+- **id_reporteTecnico** → [ort_reporteTecnico](../ordenes/ort_reporteTecnico) - Referencia a ort_reporteTecnico
+- **id_catalogo_actividad** → [cat_catalogo_actividad](../catalogo/cat_catalogo_actividad) - Referencia a cat_catalogo_actividad
+- **id_soporteItemDocumento** → [doc_soporteItemDocumento](../documentos/doc_soporteItemDocumento) - Referencia a doc_soporteItemDocumento
 
 ### Relaciones Entrantes
 

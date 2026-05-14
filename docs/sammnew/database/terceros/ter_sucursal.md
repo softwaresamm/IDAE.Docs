@@ -60,7 +60,7 @@ Todas las tablas incluyen estos campos:
 - **id_usuario_asesor** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 - **id_usuario_tecnico** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
-- **id_estadoTercero** → [unknown_estadoTercero](../general/unknown_estadoTercero) - Referencia a unknown_estadoTercero
+- **id_estadoTercero** → [ter_estadoTercero](../terceros/ter_estadoTercero) - Referencia a ter_estadoTercero
 
 ### Relaciones Entrantes
 

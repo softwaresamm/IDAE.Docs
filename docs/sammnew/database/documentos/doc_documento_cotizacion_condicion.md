@@ -42,9 +42,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_opcionCondicion** → [unknown_opcionCondicion](../general/unknown_opcionCondicion) - Referencia a unknown_opcionCondicion
-- **id_documento_cotizacion** → [documento_cotizacion](../general/documento_cotizacion) - Referencia a documento_cotizacion
-- **id_condicion** → [unknown_condicion](../general/unknown_condicion) - Referencia a unknown_condicion
+- **id_opcionCondicion** → [doc_opcionCondicion](../documentos/doc_opcionCondicion) - Referencia a doc_opcionCondicion
+- **id_documento_cotizacion** → [doc_documento_cotizacion](../documentos/doc_documento_cotizacion) - Referencia a doc_documento_cotizacion
+- **id_condicion** → [doc_condicion](../documentos/doc_condicion) - Referencia a doc_condicion
 
 ### Relaciones Entrantes
 

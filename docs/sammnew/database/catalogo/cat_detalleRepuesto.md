@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_repuesto** → [catalogo_repuesto](../general/catalogo_repuesto) - Referencia a catalogo_repuesto
-- **id_catalogo_repuesto_hijo** → [catalogo_repuesto_hijo](../general/catalogo_repuesto_hijo) - Referencia a catalogo_repuesto_hijo
+- **id_catalogo_repuesto** → [cat_catalogo_repuesto](../catalogo/cat_catalogo_repuesto) - Referencia a cat_catalogo_repuesto
+- **id_catalogo_repuesto_hijo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 
 ### Relaciones Entrantes
 

@@ -40,7 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoCatalogo** → [unknown_tipoCatalogo](../general/unknown_tipoCatalogo) - Referencia a unknown_tipoCatalogo
+- **id_tipoCatalogo** → [cat_tipoCatalogo](../catalogo/cat_tipoCatalogo) - Referencia a cat_tipoCatalogo
 
 ### Relaciones Entrantes
 

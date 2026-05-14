@@ -41,9 +41,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_equipo** → [catalogo_equipo](../general/catalogo_equipo) - Referencia a catalogo_equipo
-- **id_sistema** → [unknown_sistema](../general/unknown_sistema) - Referencia a unknown_sistema
-- **id_versionEquipo** → [unknown_versionEquipo](../general/unknown_versionEquipo) - Referencia a unknown_versionEquipo
+- **id_catalogo_equipo** → [cat_catalogo_equipo](../catalogo/cat_catalogo_equipo) - Referencia a cat_catalogo_equipo
+- **id_sistema** → [cat_sistema](../catalogo/cat_sistema) - Referencia a cat_sistema
+- **id_versionEquipo** → [cat_versionEquipo](../catalogo/cat_versionEquipo) - Referencia a cat_versionEquipo
 
 ### Relaciones Entrantes
 

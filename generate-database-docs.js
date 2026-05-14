@@ -31,6 +31,34 @@ const MODULE_FOLDERS = {
   tax: { folder: "taxonomia", name: "Taxonomía" },
 };
 
+// Global table index: entity_name -> full_table_name
+let TABLE_INDEX = {};
+
+// Build table index from all VB files
+function buildTableIndex() {
+  console.log("Construyendo índice de tablas...");
+  const vbFiles = fs.readdirSync(VB_FILES_DIR).filter((f) => f.endsWith(".vb"));
+  
+  vbFiles.forEach((file) => {
+    const tableName = path.basename(file, ".vb");
+    // Extract entity name (without prefix)
+    const parts = tableName.split("_");
+    if (parts.length > 1) {
+      const entityName = parts.slice(1).join("_"); // Everything after prefix
+      TABLE_INDEX[entityName] = tableName;
+      
+      // Also add without underscores for compound names
+      // e.g., catalogo_equipo and catalogoequipo both map to cat_catalogo_equipo
+      const entityNameNoUnderscore = entityName.replace(/_/g, "");
+      if (entityNameNoUnderscore !== entityName) {
+        TABLE_INDEX[entityNameNoUnderscore] = tableName;
+      }
+    }
+  });
+  
+  console.log(`✓ Índice construido con ${Object.keys(TABLE_INDEX).length} entradas`);
+}
+
 // Parse VB.NET file to extract column information
 function parseVBFile(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
@@ -74,22 +102,9 @@ function parseVBFile(filePath) {
     // Extract referenced table for FKs
     let referencedTable = null;
     if (isFK) {
-      referencedTable = columnName.substring(3); // Remove 'id_' prefix
-      // Handle special cases
-      if (referencedTable.includes("_")) {
-        // e.g., id_tercero_cliente -> ter_tercero
-        const parts = referencedTable.split("_");
-        if (
-          parts[0] === "tercero" ||
-          parts[0] === "empresa" ||
-          parts[0] === "usuario"
-        ) {
-          referencedTable = findTableByName(parts[0]);
-        }
-      } else {
-        referencedTable = findTableByName(referencedTable);
-      }
-
+      const entityName = columnName.substring(3); // Remove 'id_' prefix
+      referencedTable = findTableByName(entityName);
+      
       if (referencedTable) {
         fks.push({ column: columnName, references: referencedTable });
       }
@@ -108,30 +123,34 @@ function parseVBFile(filePath) {
   return { className, columns, fks };
 }
 
-// Find table name by entity name
+// Find table name by entity name using the built index
 function findTableByName(entityName) {
-  const commonMappings = {
-    empresa: "gen_empresa",
-    tercero: "ter_tercero",
-    usuario: "seg_usuario",
-    perfil: "seg_perfil",
-    documento: "doc_documento",
-    equipo: "equ_equipo",
-    catalogo: "cat_catalogo",
-    contrato: "cnt_contrato",
-    bodega: "gen_bodega",
-    zona: "gen_zona",
-    moneda: "gen_moneda",
-    impuesto: "gen_impuesto",
-    unidad: "gen_unidad",
-    sucursal: "ter_sucursal",
-    itemDocumento: "doc_itemDocumento",
-    estadoTipoDocumento: "doc_estadoTipoDocumento",
-    subtipoDocumento: "doc_subtipoDocumento",
-    tipoDocumento: "doc_tipoDocumento",
-  };
-
-  return commonMappings[entityName] || `unknown_${entityName}`;
+  // Try direct lookup
+  if (TABLE_INDEX[entityName]) {
+    return TABLE_INDEX[entityName];
+  }
+  
+  // Try without underscores
+  const noUnderscore = entityName.replace(/_/g, "");
+  if (TABLE_INDEX[noUnderscore]) {
+    return TABLE_INDEX[noUnderscore];
+  }
+  
+  // Try common variations
+  const variations = [
+    entityName.toLowerCase(),
+    entityName.replace(/_/g, ""),
+    entityName.split("_")[0], // First part only
+  ];
+  
+  for (const variant of variations) {
+    if (TABLE_INDEX[variant]) {
+      return TABLE_INDEX[variant];
+    }
+  }
+  
+  // Not found
+  return null;
 }
 
 // Generate markdown content for a table
@@ -234,6 +253,9 @@ ORDER BY id DESC;
 // Main execution
 function main() {
   console.log("Iniciando generación de documentación...");
+
+  // Build table index first
+  buildTableIndex();
 
   // Read all VB files
   const vbFiles = fs.readdirSync(VB_FILES_DIR).filter((f) => f.endsWith(".vb"));

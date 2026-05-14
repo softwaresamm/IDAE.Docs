@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_rol** → [unknown_rol](../general/unknown_rol) - Referencia a unknown_rol
-- **id_contacto** → [unknown_contacto](../general/unknown_contacto) - Referencia a unknown_contacto
+- **id_rol** → [pro_rol](../proyectos/pro_rol) - Referencia a pro_rol
+- **id_contacto** → [ter_contacto](../terceros/ter_contacto) - Referencia a ter_contacto
 
 ### Relaciones Entrantes
 

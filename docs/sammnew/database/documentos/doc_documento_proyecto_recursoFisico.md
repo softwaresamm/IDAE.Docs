@@ -41,8 +41,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_recursoFisico** → [unknown_recursoFisico](../general/unknown_recursoFisico) - Referencia a unknown_recursoFisico
-- **id_documento_proyecto** → [documento_proyecto](../general/documento_proyecto) - Referencia a documento_proyecto
+- **id_recursoFisico** → [pro_recursoFisico](../proyectos/pro_recursoFisico) - Referencia a pro_recursoFisico
+- **id_documento_proyecto** → [doc_documento_proyecto](../documentos/doc_documento_proyecto) - Referencia a doc_documento_proyecto
 
 ### Relaciones Entrantes
 

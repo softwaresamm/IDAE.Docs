@@ -56,18 +56,18 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
-- **id_equipo_padre** → [equipo_padre](../general/equipo_padre) - Referencia a equipo_padre
+- **id_equipo_padre** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_tercero** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
-- **id_documento_alquiler** → [documento_alquiler](../general/documento_alquiler) - Referencia a documento_alquiler
-- **id_prestamo** → [unknown_prestamo](../general/unknown_prestamo) - Referencia a unknown_prestamo
-- **id_reporteTecnico** → [unknown_reporteTecnico](../general/unknown_reporteTecnico) - Referencia a unknown_reporteTecnico
-- **id_evento** → [unknown_evento](../general/unknown_evento) - Referencia a unknown_evento
+- **id_documento_alquiler** → [doc_documento_alquiler](../documentos/doc_documento_alquiler) - Referencia a doc_documento_alquiler
+- **id_prestamo** → [equ_prestamo](../equipos/equ_prestamo) - Referencia a equ_prestamo
+- **id_reporteTecnico** → [ort_reporteTecnico](../ordenes/ort_reporteTecnico) - Referencia a ort_reporteTecnico
+- **id_evento** → [dis_evento](../despacho/dis_evento) - Referencia a dis_evento
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
-- **id_tipoTrazabilidad** → [unknown_tipoTrazabilidad](../general/unknown_tipoTrazabilidad) - Referencia a unknown_tipoTrazabilidad
-- **id_cicloHorometro** → [unknown_cicloHorometro](../general/unknown_cicloHorometro) - Referencia a unknown_cicloHorometro
-- **id_posicion** → [unknown_posicion](../general/unknown_posicion) - Referencia a unknown_posicion
-- **id_estadoEquipo** → [unknown_estadoEquipo](../general/unknown_estadoEquipo) - Referencia a unknown_estadoEquipo
+- **id_tipoTrazabilidad** → [equ_tipoTrazabilidad](../equipos/equ_tipoTrazabilidad) - Referencia a equ_tipoTrazabilidad
+- **id_cicloHorometro** → [equ_cicloHorometro](../equipos/equ_cicloHorometro) - Referencia a equ_cicloHorometro
+- **id_posicion** → [cat_posicion](../catalogo/cat_posicion) - Referencia a cat_posicion
+- **id_estadoEquipo** → [equ_estadoEquipo](../equipos/equ_estadoEquipo) - Referencia a equ_estadoEquipo
 
 ### Relaciones Entrantes
 

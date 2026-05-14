@@ -50,11 +50,11 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
-- **id_contratoEquipo** → [unknown_contratoEquipo](../general/unknown_contratoEquipo) - Referencia a unknown_contratoEquipo
-- **id_contratoDetalleVisita** → [unknown_contratoDetalleVisita](../general/unknown_contratoDetalleVisita) - Referencia a unknown_contratoDetalleVisita
-- **id_catalogo_tempario** → [catalogo_tempario](../general/catalogo_tempario) - Referencia a catalogo_tempario
-- **id_configContrato** → [unknown_configContrato](../general/unknown_configContrato) - Referencia a unknown_configContrato
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
+- **id_contratoEquipo** → [cnt_contratoEquipo](../contratos/cnt_contratoEquipo) - Referencia a cnt_contratoEquipo
+- **id_contratoDetalleVisita** → [cnt_contratoDetalleVisita](../contratos/cnt_contratoDetalleVisita) - Referencia a cnt_contratoDetalleVisita
+- **id_catalogo_tempario** → [cat_catalogo_tempario](../catalogo/cat_catalogo_tempario) - Referencia a cat_catalogo_tempario
+- **id_configContrato** → [cnt_configContrato](../contratos/cnt_configContrato) - Referencia a cnt_configContrato
 
 ### Relaciones Entrantes
 

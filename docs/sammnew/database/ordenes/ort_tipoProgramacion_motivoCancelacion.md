@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoProgramacion** → [unknown_tipoProgramacion](../general/unknown_tipoProgramacion) - Referencia a unknown_tipoProgramacion
-- **id_motivoCancelacion** → [unknown_motivoCancelacion](../general/unknown_motivoCancelacion) - Referencia a unknown_motivoCancelacion
+- **id_tipoProgramacion** → [ort_tipoProgramacion](../ordenes/ort_tipoProgramacion) - Referencia a ort_tipoProgramacion
+- **id_motivoCancelacion** → [ort_motivoCancelacion](../ordenes/ort_motivoCancelacion) - Referencia a ort_motivoCancelacion
 
 ### Relaciones Entrantes
 

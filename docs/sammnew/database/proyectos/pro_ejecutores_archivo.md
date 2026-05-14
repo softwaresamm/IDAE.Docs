@@ -44,8 +44,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_archivo** → [unknown_archivo](../general/unknown_archivo) - Referencia a unknown_archivo
-- **id_ejecutores** → [unknown_ejecutores](../general/unknown_ejecutores) - Referencia a unknown_ejecutores
+- **id_archivo** → [gen_archivo](../general/gen_archivo) - Referencia a gen_archivo
+- **id_ejecutores** → [pro_ejecutores](../proyectos/pro_ejecutores) - Referencia a pro_ejecutores
 
 ### Relaciones Entrantes
 

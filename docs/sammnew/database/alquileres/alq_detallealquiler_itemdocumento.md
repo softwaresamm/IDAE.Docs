@@ -40,8 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_detallealquiler** → [unknown_detallealquiler](../general/unknown_detallealquiler) - Referencia a unknown_detallealquiler
-- **id_itemdocumento** → [unknown_itemdocumento](../general/unknown_itemdocumento) - Referencia a unknown_itemdocumento
+*Esta tabla no tiene relaciones salientes (foreign keys).*
 
 ### Relaciones Entrantes
 

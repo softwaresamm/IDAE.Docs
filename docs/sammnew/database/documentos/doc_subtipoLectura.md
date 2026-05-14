@@ -42,7 +42,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_subtipoDocumento** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
-- **id_subtipoDocumento_origen** → [subtipoDocumento_origen](../general/subtipoDocumento_origen) - Referencia a subtipoDocumento_origen
+- **id_subtipoDocumento_origen** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
 
 ### Relaciones Entrantes
 

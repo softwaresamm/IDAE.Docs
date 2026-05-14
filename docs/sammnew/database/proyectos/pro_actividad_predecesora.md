@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_actividad_origen** → [actividad_origen](../general/actividad_origen) - Referencia a actividad_origen
-- **id_actividad_destino** → [actividad_destino](../general/actividad_destino) - Referencia a actividad_destino
+- **id_actividad_origen** → [pro_actividad](../proyectos/pro_actividad) - Referencia a pro_actividad
+- **id_actividad_destino** → [pro_actividad](../proyectos/pro_actividad) - Referencia a pro_actividad
 
 ### Relaciones Entrantes
 

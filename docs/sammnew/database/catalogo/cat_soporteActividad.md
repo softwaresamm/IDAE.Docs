@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_detalleTempario** → [unknown_detalleTempario](../general/unknown_detalleTempario) - Referencia a unknown_detalleTempario
-- **id_cargo** → [unknown_cargo](../general/unknown_cargo) - Referencia a unknown_cargo
+- **id_detalleTempario** → [cat_detalleTempario](../catalogo/cat_detalleTempario) - Referencia a cat_detalleTempario
+- **id_cargo** → [seg_cargo](../seguridad/seg_cargo) - Referencia a seg_cargo
 
 ### Relaciones Entrantes
 

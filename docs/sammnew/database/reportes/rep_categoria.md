@@ -40,7 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_categoria** → [unknown_categoria](../general/unknown_categoria) - Referencia a unknown_categoria
+- **id_categoria** → [rep_categoria](../reportes/rep_categoria) - Referencia a rep_categoria
 
 ### Relaciones Entrantes
 

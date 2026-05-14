@@ -57,17 +57,17 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_periodoContrato** → [unknown_periodoContrato](../general/unknown_periodoContrato) - Referencia a unknown_periodoContrato
+- **id_periodoContrato** → [cnt_periodoContrato](../contratos/cnt_periodoContrato) - Referencia a cnt_periodoContrato
 - **id_tercero** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
-- **id_tipoServicio** → [unknown_tipoServicio](../general/unknown_tipoServicio) - Referencia a unknown_tipoServicio
-- **id_tipoContrato** → [unknown_tipoContrato](../general/unknown_tipoContrato) - Referencia a unknown_tipoContrato
+- **id_tipoServicio** → [gen_tipoServicio](../general/gen_tipoServicio) - Referencia a gen_tipoServicio
+- **id_tipoContrato** → [cnt_tipoContrato](../contratos/cnt_tipoContrato) - Referencia a cnt_tipoContrato
 - **id_tercero_servicio** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_subtipoDocumento** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
-- **id_departamentoSolicitud** → [unknown_departamentoSolicitud](../general/unknown_departamentoSolicitud) - Referencia a unknown_departamentoSolicitud
+- **id_departamentoSolicitud** → [ort_departamentoSolicitud](../ordenes/ort_departamentoSolicitud) - Referencia a ort_departamentoSolicitud
 - **id_usuario_coordinador** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_documento_alquiler** → [documento_alquiler](../general/documento_alquiler) - Referencia a documento_alquiler
-- **id_estadoTipoDocumento_inicial** → [estadoTipoDocumento_inicial](../general/estadoTipoDocumento_inicial) - Referencia a estadoTipoDocumento_inicial
-- **id_subtipoDocumento_solicitud** → [subtipoDocumento_solicitud](../general/subtipoDocumento_solicitud) - Referencia a subtipoDocumento_solicitud
+- **id_documento_alquiler** → [doc_documento_alquiler](../documentos/doc_documento_alquiler) - Referencia a doc_documento_alquiler
+- **id_estadoTipoDocumento_inicial** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
+- **id_subtipoDocumento_solicitud** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
 
 ### Relaciones Entrantes
 

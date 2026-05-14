@@ -48,12 +48,12 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
-- **id_atributo** → [unknown_atributo](../general/unknown_atributo) - Referencia a unknown_atributo
-- **id_opcionAtributo** → [unknown_opcionAtributo](../general/unknown_opcionAtributo) - Referencia a unknown_opcionAtributo
-- **id_reporteTecnico** → [unknown_reporteTecnico](../general/unknown_reporteTecnico) - Referencia a unknown_reporteTecnico
-- **id_pruebaCheckList** → [unknown_pruebaCheckList](../general/unknown_pruebaCheckList) - Referencia a unknown_pruebaCheckList
-- **id_evento** → [unknown_evento](../general/unknown_evento) - Referencia a unknown_evento
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
+- **id_atributo** → [cat_atributo](../catalogo/cat_atributo) - Referencia a cat_atributo
+- **id_opcionAtributo** → [equ_opcionAtributo](../equipos/equ_opcionAtributo) - Referencia a equ_opcionAtributo
+- **id_reporteTecnico** → [ort_reporteTecnico](../ordenes/ort_reporteTecnico) - Referencia a ort_reporteTecnico
+- **id_pruebaCheckList** → [cat_pruebaCheckList](../catalogo/cat_pruebaCheckList) - Referencia a cat_pruebaCheckList
+- **id_evento** → [dis_evento](../despacho/dis_evento) - Referencia a dis_evento
 
 ### Relaciones Entrantes
 

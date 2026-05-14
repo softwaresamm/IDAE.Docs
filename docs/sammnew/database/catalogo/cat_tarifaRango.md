@@ -43,7 +43,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tarifa** → [unknown_tarifa](../general/unknown_tarifa) - Referencia a unknown_tarifa
+- **id_tarifa** → [cat_tarifa](../catalogo/cat_tarifa) - Referencia a cat_tarifa
 
 ### Relaciones Entrantes
 

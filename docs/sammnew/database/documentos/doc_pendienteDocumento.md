@@ -49,8 +49,8 @@ Todas las tablas incluyen estos campos:
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 - **id_tipoDocumento** → [doc_tipoDocumento](../documentos/doc_tipoDocumento) - Referencia a doc_tipoDocumento
-- **id_reporteTecnico** → [unknown_reporteTecnico](../general/unknown_reporteTecnico) - Referencia a unknown_reporteTecnico
-- **id_tipoPendiente** → [unknown_tipoPendiente](../general/unknown_tipoPendiente) - Referencia a unknown_tipoPendiente
+- **id_reporteTecnico** → [ort_reporteTecnico](../ordenes/ort_reporteTecnico) - Referencia a ort_reporteTecnico
+- **id_tipoPendiente** → [doc_tipoPendiente](../documentos/doc_tipoPendiente) - Referencia a doc_tipoPendiente
 
 ### Relaciones Entrantes
 

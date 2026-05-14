@@ -49,10 +49,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_cargo** → [unknown_cargo](../general/unknown_cargo) - Referencia a unknown_cargo
-- **id_subTipoCatalogo** → [unknown_subTipoCatalogo](../general/unknown_subTipoCatalogo) - Referencia a unknown_subTipoCatalogo
-- **id_condicion** → [unknown_condicion](../general/unknown_condicion) - Referencia a unknown_condicion
-- **id_opcionCondicion** → [unknown_opcionCondicion](../general/unknown_opcionCondicion) - Referencia a unknown_opcionCondicion
+- **id_cargo** → [seg_cargo](../seguridad/seg_cargo) - Referencia a seg_cargo
+- **id_condicion** → [doc_condicion](../documentos/doc_condicion) - Referencia a doc_condicion
+- **id_opcionCondicion** → [doc_opcionCondicion](../documentos/doc_opcionCondicion) - Referencia a doc_opcionCondicion
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona
 
 ### Relaciones Entrantes

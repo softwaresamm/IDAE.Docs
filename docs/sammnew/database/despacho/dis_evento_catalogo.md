@@ -45,7 +45,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_evento** → [unknown_evento](../general/unknown_evento) - Referencia a unknown_evento
+- **id_evento** → [dis_evento](../despacho/dis_evento) - Referencia a dis_evento
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 
 ### Relaciones Entrantes

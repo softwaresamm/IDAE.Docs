@@ -42,7 +42,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_subtipoDocumento** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
-- **id_prioridadDocumento** → [unknown_prioridadDocumento](../general/unknown_prioridadDocumento) - Referencia a unknown_prioridadDocumento
+- **id_prioridadDocumento** → [doc_prioridadDocumento](../documentos/doc_prioridadDocumento) - Referencia a doc_prioridadDocumento
 
 ### Relaciones Entrantes
 

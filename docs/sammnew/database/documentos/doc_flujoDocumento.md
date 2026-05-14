@@ -48,10 +48,10 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_subtipoDocumento_origen** → [subtipoDocumento_origen](../general/subtipoDocumento_origen) - Referencia a subtipoDocumento_origen
-- **id_subtipoDocumento_destino** → [subtipoDocumento_destino](../general/subtipoDocumento_destino) - Referencia a subtipoDocumento_destino
-- **id_estadoTipoDocumento_origen** → [estadoTipoDocumento_origen](../general/estadoTipoDocumento_origen) - Referencia a estadoTipoDocumento_origen
-- **id_estadoTipoDocumento_resultado** → [estadoTipoDocumento_resultado](../general/estadoTipoDocumento_resultado) - Referencia a estadoTipoDocumento_resultado
+- **id_subtipoDocumento_origen** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
+- **id_subtipoDocumento_destino** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
+- **id_estadoTipoDocumento_origen** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
+- **id_estadoTipoDocumento_resultado** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
 
 ### Relaciones Entrantes
 

@@ -49,8 +49,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_departamentoSolicitud** → [unknown_departamentoSolicitud](../general/unknown_departamentoSolicitud) - Referencia a unknown_departamentoSolicitud
-- **id_medioSolicitud** → [unknown_medioSolicitud](../general/unknown_medioSolicitud) - Referencia a unknown_medioSolicitud
+- **id_departamentoSolicitud** → [ort_departamentoSolicitud](../ordenes/ort_departamentoSolicitud) - Referencia a ort_departamentoSolicitud
+- **id_medioSolicitud** → [doc_medioSolicitud](../documentos/doc_medioSolicitud) - Referencia a doc_medioSolicitud
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona

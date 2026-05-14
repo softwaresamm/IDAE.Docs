@@ -48,10 +48,10 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
-- **id_catalogo_tempario** → [catalogo_tempario](../general/catalogo_tempario) - Referencia a catalogo_tempario
-- **id_pruebaCheckList** → [unknown_pruebaCheckList](../general/unknown_pruebaCheckList) - Referencia a unknown_pruebaCheckList
-- **id_Sistema** → [unknown_Sistema](../general/unknown_Sistema) - Referencia a unknown_Sistema
-- **id_detalleTempario_padre** → [detalleTempario_padre](../general/detalleTempario_padre) - Referencia a detalleTempario_padre
+- **id_catalogo_tempario** → [cat_catalogo_tempario](../catalogo/cat_catalogo_tempario) - Referencia a cat_catalogo_tempario
+- **id_pruebaCheckList** → [cat_pruebaCheckList](../catalogo/cat_pruebaCheckList) - Referencia a cat_pruebaCheckList
+- **id_Sistema** → [cat_sistema](../catalogo/cat_sistema) - Referencia a cat_sistema
+- **id_detalleTempario_padre** → [cat_detalleTempario](../catalogo/cat_detalleTempario) - Referencia a cat_detalleTempario
 
 ### Relaciones Entrantes
 

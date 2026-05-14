@@ -48,8 +48,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_seccionAtributo** → [unknown_seccionAtributo](../general/unknown_seccionAtributo) - Referencia a unknown_seccionAtributo
-- **id_tipoAtributo** → [unknown_tipoAtributo](../general/unknown_tipoAtributo) - Referencia a unknown_tipoAtributo
+- **id_seccionAtributo** → [cat_seccionAtributo](../catalogo/cat_seccionAtributo) - Referencia a cat_seccionAtributo
+- **id_tipoAtributo** → [equ_tipoAtributo](../equipos/equ_tipoAtributo) - Referencia a equ_tipoAtributo
 - **id_unidad** → [gen_unidad](../general/gen_unidad) - Referencia a gen_unidad
 
 ### Relaciones Entrantes

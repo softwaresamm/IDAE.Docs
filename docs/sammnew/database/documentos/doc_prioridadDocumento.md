@@ -44,7 +44,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_tipoDocumento** → [doc_tipoDocumento](../documentos/doc_tipoDocumento) - Referencia a doc_tipoDocumento
-- **id_estrategiaPrioridad** → [unknown_estrategiaPrioridad](../general/unknown_estrategiaPrioridad) - Referencia a unknown_estrategiaPrioridad
+- **id_estrategiaPrioridad** → [doc_estrategiaPrioridad](../documentos/doc_estrategiaPrioridad) - Referencia a doc_estrategiaPrioridad
 
 ### Relaciones Entrantes
 

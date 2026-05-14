@@ -41,7 +41,6 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
-- **id_listaprecio** → [unknown_listaprecio](../general/unknown_listaprecio) - Referencia a unknown_listaprecio
 
 ### Relaciones Entrantes
 

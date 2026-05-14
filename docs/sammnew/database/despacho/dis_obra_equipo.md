@@ -41,7 +41,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_obra** → [unknown_obra](../general/unknown_obra) - Referencia a unknown_obra
+- **id_obra** → [dis_obra](../despacho/dis_obra) - Referencia a dis_obra
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 
 ### Relaciones Entrantes

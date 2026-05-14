@@ -45,8 +45,8 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
-- **id_detalleAlquiler** → [unknown_detalleAlquiler](../general/unknown_detalleAlquiler) - Referencia a unknown_detalleAlquiler
-- **id_tipoTarifa** → [unknown_tipoTarifa](../general/unknown_tipoTarifa) - Referencia a unknown_tipoTarifa
+- **id_detalleAlquiler** → [equ_detalleAlquiler](../equipos/equ_detalleAlquiler) - Referencia a equ_detalleAlquiler
+- **id_tipoTarifa** → [alq_tipoTarifa](../alquileres/alq_tipoTarifa) - Referencia a alq_tipoTarifa
 
 ### Relaciones Entrantes
 

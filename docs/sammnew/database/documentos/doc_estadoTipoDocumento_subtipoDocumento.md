@@ -45,7 +45,7 @@ Todas las tablas incluyen estos campos:
 
 - **id_estadoTipoDocumento** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
 - **id_subtipoDocumento** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
-- **id_estadoTipoDocumento_destino** → [estadoTipoDocumento_destino](../general/estadoTipoDocumento_destino) - Referencia a estadoTipoDocumento_destino
+- **id_estadoTipoDocumento_destino** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
 
 ### Relaciones Entrantes
 

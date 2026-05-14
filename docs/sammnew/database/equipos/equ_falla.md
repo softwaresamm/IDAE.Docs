@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoFalla** → [unknown_tipoFalla](../general/unknown_tipoFalla) - Referencia a unknown_tipoFalla
-- **id_falla** → [unknown_falla](../general/unknown_falla) - Referencia a unknown_falla
+- **id_tipoFalla** → [equ_tipoFalla](../equipos/equ_tipoFalla) - Referencia a equ_tipoFalla
+- **id_falla** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
 
 ### Relaciones Entrantes
 

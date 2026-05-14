@@ -42,7 +42,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_contacto** → [unknown_contacto](../general/unknown_contacto) - Referencia a unknown_contacto
+- **id_contacto** → [ter_contacto](../terceros/ter_contacto) - Referencia a ter_contacto
 
 ### Relaciones Entrantes
 

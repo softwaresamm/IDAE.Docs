@@ -44,7 +44,7 @@ Todas las tablas incluyen estos campos:
 
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 - **id_estadoTipoDocumento** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
-- **id_motivoestado** → [unknown_motivoestado](../general/unknown_motivoestado) - Referencia a unknown_motivoestado
+- **id_motivoestado** → [doc_motivoestado](../documentos/doc_motivoestado) - Referencia a doc_motivoestado
 
 ### Relaciones Entrantes
 

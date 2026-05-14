@@ -44,9 +44,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_horarioTrabajo** → [unknown_horarioTrabajo](../general/unknown_horarioTrabajo) - Referencia a unknown_horarioTrabajo
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_horarioEjecutores** → [unknown_horarioEjecutores](../general/unknown_horarioEjecutores) - Referencia a unknown_horarioEjecutores
 
 ### Relaciones Entrantes
 

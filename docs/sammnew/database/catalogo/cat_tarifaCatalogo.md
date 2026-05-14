@@ -42,9 +42,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_tarifa** → [catalogo_tarifa](../general/catalogo_tarifa) - Referencia a catalogo_tarifa
-- **id_catalogo_elemento** → [catalogo_elemento](../general/catalogo_elemento) - Referencia a catalogo_elemento
-- **id_tipotarifa** → [unknown_tipotarifa](../general/unknown_tipotarifa) - Referencia a unknown_tipotarifa
+- **id_catalogo_tarifa** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
+- **id_catalogo_elemento** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 
 ### Relaciones Entrantes
 

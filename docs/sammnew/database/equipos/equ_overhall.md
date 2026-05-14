@@ -44,7 +44,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
 
 ### Relaciones Entrantes
 

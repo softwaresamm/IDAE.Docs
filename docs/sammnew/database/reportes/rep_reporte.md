@@ -46,7 +46,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_funcionalidad** → [unknown_funcionalidad](../general/unknown_funcionalidad) - Referencia a unknown_funcionalidad
+- **id_funcionalidad** → [gui_funcionalidad](../interfaz/gui_funcionalidad) - Referencia a gui_funcionalidad
 
 ### Relaciones Entrantes
 

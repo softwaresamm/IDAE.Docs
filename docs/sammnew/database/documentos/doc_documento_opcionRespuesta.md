@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
-- **id_opcionRespuesta** → [unknown_opcionRespuesta](../general/unknown_opcionRespuesta) - Referencia a unknown_opcionRespuesta
-- **id_pregunta** → [unknown_pregunta](../general/unknown_pregunta) - Referencia a unknown_pregunta
+- **id_opcionRespuesta** → [doc_opcionRespuesta](../documentos/doc_opcionRespuesta) - Referencia a doc_opcionRespuesta
+- **id_pregunta** → [doc_pregunta](../documentos/doc_pregunta) - Referencia a doc_pregunta
 
 ### Relaciones Entrantes
 

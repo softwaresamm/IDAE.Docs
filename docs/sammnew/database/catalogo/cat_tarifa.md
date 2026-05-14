@@ -54,13 +54,13 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_marca** → [unknown_marca](../general/unknown_marca) - Referencia a unknown_marca
-- **id_cargo** → [unknown_cargo](../general/unknown_cargo) - Referencia a unknown_cargo
-- **id_tipoServicio** → [unknown_tipoServicio](../general/unknown_tipoServicio) - Referencia a unknown_tipoServicio
-- **id_familia** → [unknown_familia](../general/unknown_familia) - Referencia a unknown_familia
-- **id_atributo** → [unknown_atributo](../general/unknown_atributo) - Referencia a unknown_atributo
+- **id_marca** → [cat_marca](../catalogo/cat_marca) - Referencia a cat_marca
+- **id_cargo** → [seg_cargo](../seguridad/seg_cargo) - Referencia a seg_cargo
+- **id_tipoServicio** → [gen_tipoServicio](../general/gen_tipoServicio) - Referencia a gen_tipoServicio
+- **id_familia** → [gen_familia](../general/gen_familia) - Referencia a gen_familia
+- **id_atributo** → [cat_atributo](../catalogo/cat_atributo) - Referencia a cat_atributo
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona
-- **id_catalogo_equipo** → [catalogo_equipo](../general/catalogo_equipo) - Referencia a catalogo_equipo
+- **id_catalogo_equipo** → [cat_catalogo_equipo](../catalogo/cat_catalogo_equipo) - Referencia a cat_catalogo_equipo
 
 ### Relaciones Entrantes
 

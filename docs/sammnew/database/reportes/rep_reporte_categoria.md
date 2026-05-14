@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_categoria** → [unknown_categoria](../general/unknown_categoria) - Referencia a unknown_categoria
-- **id_reporte** → [unknown_reporte](../general/unknown_reporte) - Referencia a unknown_reporte
+- **id_categoria** → [rep_categoria](../reportes/rep_categoria) - Referencia a rep_categoria
+- **id_reporte** → [rep_reporte](../reportes/rep_reporte) - Referencia a rep_reporte
 
 ### Relaciones Entrantes
 

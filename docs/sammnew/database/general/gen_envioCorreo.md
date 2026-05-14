@@ -51,10 +51,10 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_reporte** → [unknown_reporte](../general/unknown_reporte) - Referencia a unknown_reporte
+- **id_reporte** → [rep_reporte](../reportes/rep_reporte) - Referencia a rep_reporte
 - **id_subtipoDocumento** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
 - **id_estadoTipoDocumento** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
-- **id_remitenteCorreo** → [unknown_remitenteCorreo](../general/unknown_remitenteCorreo) - Referencia a unknown_remitenteCorreo
+- **id_remitenteCorreo** → [gen_remitenteCorreo](../general/gen_remitenteCorreo) - Referencia a gen_remitenteCorreo
 
 ### Relaciones Entrantes
 

@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_calidad** → [unknown_calidad](../general/unknown_calidad) - Referencia a unknown_calidad
-- **id_documento_proyecto** → [documento_proyecto](../general/documento_proyecto) - Referencia a documento_proyecto
+- **id_calidad** → [pro_calidad](../proyectos/pro_calidad) - Referencia a pro_calidad
+- **id_documento_proyecto** → [doc_documento_proyecto](../documentos/doc_documento_proyecto) - Referencia a doc_documento_proyecto
 
 ### Relaciones Entrantes
 

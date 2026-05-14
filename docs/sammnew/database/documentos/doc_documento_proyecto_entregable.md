@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_documento_proyecto** → [documento_proyecto](../general/documento_proyecto) - Referencia a documento_proyecto
-- **id_entregable** → [unknown_entregable](../general/unknown_entregable) - Referencia a unknown_entregable
+- **id_documento_proyecto** → [doc_documento_proyecto](../documentos/doc_documento_proyecto) - Referencia a doc_documento_proyecto
+- **id_entregable** → [pro_entregable](../proyectos/pro_entregable) - Referencia a pro_entregable
 
 ### Relaciones Entrantes
 

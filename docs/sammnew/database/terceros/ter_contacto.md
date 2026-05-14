@@ -52,7 +52,7 @@ Todas las tablas incluyen estos campos:
 
 - **id_tercero** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_cargoContacto** → [unknown_cargoContacto](../general/unknown_cargoContacto) - Referencia a unknown_cargoContacto
+- **id_cargoContacto** → [ter_cargoContacto](../terceros/ter_cargoContacto) - Referencia a ter_cargoContacto
 
 ### Relaciones Entrantes
 

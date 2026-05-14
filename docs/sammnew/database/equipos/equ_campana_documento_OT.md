@@ -40,8 +40,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_campana** → [unknown_campana](../general/unknown_campana) - Referencia a unknown_campana
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
+- **id_campana** → [equ_campana](../equipos/equ_campana) - Referencia a equ_campana
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
 
 ### Relaciones Entrantes
 

@@ -65,17 +65,17 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_equipo** → [catalogo_equipo](../general/catalogo_equipo) - Referencia a catalogo_equipo
-- **id_sistema** → [unknown_sistema](../general/unknown_sistema) - Referencia a unknown_sistema
+- **id_catalogo_equipo** → [cat_catalogo_equipo](../catalogo/cat_catalogo_equipo) - Referencia a cat_catalogo_equipo
+- **id_sistema** → [cat_sistema](../catalogo/cat_sistema) - Referencia a cat_sistema
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona
-- **id_versionEquipo** → [unknown_versionEquipo](../general/unknown_versionEquipo) - Referencia a unknown_versionEquipo
+- **id_versionEquipo** → [cat_versionEquipo](../catalogo/cat_versionEquipo) - Referencia a cat_versionEquipo
 - **id_tercero_comprador** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_tercero** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_tercero_servicio** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
-- **id_estadoEquipo** → [unknown_estadoEquipo](../general/unknown_estadoEquipo) - Referencia a unknown_estadoEquipo
-- **id_centroCosto** → [unknown_centroCosto](../general/unknown_centroCosto) - Referencia a unknown_centroCosto
+- **id_estadoEquipo** → [equ_estadoEquipo](../equipos/equ_estadoEquipo) - Referencia a equ_estadoEquipo
+- **id_centroCosto** → [doc_centroCosto](../documentos/doc_centroCosto) - Referencia a doc_centroCosto
 
 ### Relaciones Entrantes
 

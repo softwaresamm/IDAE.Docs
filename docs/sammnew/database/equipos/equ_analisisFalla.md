@@ -44,11 +44,11 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_equipo** → [catalogo_equipo](../general/catalogo_equipo) - Referencia a catalogo_equipo
-- **id_falla** → [unknown_falla](../general/unknown_falla) - Referencia a unknown_falla
-- **id_falla_causa** → [falla_causa](../general/falla_causa) - Referencia a falla_causa
-- **id_falla_efecto** → [falla_efecto](../general/falla_efecto) - Referencia a falla_efecto
-- **id_falla_solucion** → [falla_solucion](../general/falla_solucion) - Referencia a falla_solucion
+- **id_catalogo_equipo** → [cat_catalogo_equipo](../catalogo/cat_catalogo_equipo) - Referencia a cat_catalogo_equipo
+- **id_falla** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_falla_causa** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_falla_efecto** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_falla_solucion** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
 
 ### Relaciones Entrantes
 

@@ -43,8 +43,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_envioCorreo** → [unknown_envioCorreo](../general/unknown_envioCorreo) - Referencia a unknown_envioCorreo
-- **id_registroEnvio** → [unknown_registroEnvio](../general/unknown_registroEnvio) - Referencia a unknown_registroEnvio
+- **id_envioCorreo** → [gen_envioCorreo](../general/gen_envioCorreo) - Referencia a gen_envioCorreo
+- **id_registroEnvio** → [gen_registroEnvio](../general/gen_registroEnvio) - Referencia a gen_registroEnvio
 
 ### Relaciones Entrantes
 

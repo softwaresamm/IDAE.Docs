@@ -45,7 +45,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
-- **id_cargo** → [unknown_cargo](../general/unknown_cargo) - Referencia a unknown_cargo
+- **id_cargo** → [seg_cargo](../seguridad/seg_cargo) - Referencia a seg_cargo
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 
 ### Relaciones Entrantes

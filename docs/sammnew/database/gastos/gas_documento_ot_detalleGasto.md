@@ -41,8 +41,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_detalleGasto** → [unknown_detalleGasto](../general/unknown_detalleGasto) - Referencia a unknown_detalleGasto
-- **id_documento_ot** → [documento_ot](../general/documento_ot) - Referencia a documento_ot
+- **id_detalleGasto** → [gas_detalleGasto](../gastos/gas_detalleGasto) - Referencia a gas_detalleGasto
+- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
 - **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
 
 ### Relaciones Entrantes

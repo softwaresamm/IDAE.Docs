@@ -49,7 +49,6 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipogasto** → [unknown_tipogasto](../general/unknown_tipogasto) - Referencia a unknown_tipogasto
 - **id_usuario_aprobo** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 - **id_usuario_solicitante** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 - **id_estadoTipoDocumento** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento

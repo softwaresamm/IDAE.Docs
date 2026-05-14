@@ -66,8 +66,8 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_perfil** → [seg_perfil](../seguridad/seg_perfil) - Referencia a seg_perfil
-- **id_cargo** → [unknown_cargo](../general/unknown_cargo) - Referencia a unknown_cargo
-- **id_grupo** → [unknown_grupo](../general/unknown_grupo) - Referencia a unknown_grupo
+- **id_cargo** → [seg_cargo](../seguridad/seg_cargo) - Referencia a seg_cargo
+- **id_grupo** → [seg_grupo](../seguridad/seg_grupo) - Referencia a seg_grupo
 - **id_zona** → [gen_zona](../general/gen_zona) - Referencia a gen_zona
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 

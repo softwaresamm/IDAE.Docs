@@ -47,9 +47,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_actividad** → [unknown_actividad](../general/unknown_actividad) - Referencia a unknown_actividad
-- **id_SesionActividad** → [unknown_SesionActividad](../general/unknown_SesionActividad) - Referencia a unknown_SesionActividad
-- **id_ejecutores** → [unknown_ejecutores](../general/unknown_ejecutores) - Referencia a unknown_ejecutores
+- **id_actividad** → [pro_actividad](../proyectos/pro_actividad) - Referencia a pro_actividad
+- **id_SesionActividad** → [pro_SesionActividad](../proyectos/pro_SesionActividad) - Referencia a pro_SesionActividad
+- **id_ejecutores** → [pro_ejecutores](../proyectos/pro_ejecutores) - Referencia a pro_ejecutores
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
 
 ### Relaciones Entrantes

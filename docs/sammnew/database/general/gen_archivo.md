@@ -47,7 +47,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoArchivo** → [unknown_tipoArchivo](../general/unknown_tipoArchivo) - Referencia a unknown_tipoArchivo
+- **id_tipoArchivo** → [gen_tipoArchivo](../general/gen_tipoArchivo) - Referencia a gen_tipoArchivo
 
 ### Relaciones Entrantes
 

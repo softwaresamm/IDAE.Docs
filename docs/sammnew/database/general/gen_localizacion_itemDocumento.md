@@ -41,7 +41,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_localizacion** → [unknown_localizacion](../general/unknown_localizacion) - Referencia a unknown_localizacion
+- **id_localizacion** → [gen_localizacion](../general/gen_localizacion) - Referencia a gen_localizacion
 - **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
 
 ### Relaciones Entrantes

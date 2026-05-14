@@ -38,8 +38,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_bodega_origen** → [bodega_origen](../general/bodega_origen) - Referencia a bodega_origen
-- **id_bodega_destino** → [bodega_destino](../general/bodega_destino) - Referencia a bodega_destino
+- **id_bodega_origen** → [gen_bodega](../general/gen_bodega) - Referencia a gen_bodega
+- **id_bodega_destino** → [gen_bodega](../general/gen_bodega) - Referencia a gen_bodega
 
 ### Relaciones Entrantes
 

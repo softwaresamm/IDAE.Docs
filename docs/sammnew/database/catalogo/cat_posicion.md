@@ -44,11 +44,11 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_equipo_equipo** → [catalogo_equipo_equipo](../general/catalogo_equipo_equipo) - Referencia a catalogo_equipo_equipo
-- **id_catalogo_equipo_componente** → [catalogo_equipo_componente](../general/catalogo_equipo_componente) - Referencia a catalogo_equipo_componente
-- **id_dimension_x** → [dimension_x](../general/dimension_x) - Referencia a dimension_x
-- **id_dimension_y** → [dimension_y](../general/dimension_y) - Referencia a dimension_y
-- **id_dimension_z** → [dimension_z](../general/dimension_z) - Referencia a dimension_z
+- **id_catalogo_equipo_equipo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
+- **id_catalogo_equipo_componente** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
+- **id_dimension_x** → [cat_dimension](../catalogo/cat_dimension) - Referencia a cat_dimension
+- **id_dimension_y** → [cat_dimension](../catalogo/cat_dimension) - Referencia a cat_dimension
+- **id_dimension_z** → [cat_dimension](../catalogo/cat_dimension) - Referencia a cat_dimension
 
 ### Relaciones Entrantes
 

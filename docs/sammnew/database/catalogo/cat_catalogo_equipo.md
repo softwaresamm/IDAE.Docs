@@ -40,7 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_marca** → [unknown_marca](../general/unknown_marca) - Referencia a unknown_marca
+- **id_marca** → [cat_marca](../catalogo/cat_marca) - Referencia a cat_marca
 
 ### Relaciones Entrantes
 

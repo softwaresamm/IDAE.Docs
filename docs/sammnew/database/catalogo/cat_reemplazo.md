@@ -42,9 +42,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoReemplazo** → [unknown_tipoReemplazo](../general/unknown_tipoReemplazo) - Referencia a unknown_tipoReemplazo
-- **id_catalogo_repuesto** → [catalogo_repuesto](../general/catalogo_repuesto) - Referencia a catalogo_repuesto
-- **id_catalogo_repuesto_1** → [catalogo_repuesto_1](../general/catalogo_repuesto_1) - Referencia a catalogo_repuesto_1
+- **id_tipoReemplazo** → [cat_tipoReemplazo](../catalogo/cat_tipoReemplazo) - Referencia a cat_tipoReemplazo
+- **id_catalogo_repuesto** → [cat_catalogo_repuesto](../catalogo/cat_catalogo_repuesto) - Referencia a cat_catalogo_repuesto
+- **id_catalogo_repuesto_1** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
 
 ### Relaciones Entrantes
 

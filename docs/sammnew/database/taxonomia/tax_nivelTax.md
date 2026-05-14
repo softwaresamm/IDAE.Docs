@@ -44,7 +44,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_nivelTax** → [unknown_nivelTax](../general/unknown_nivelTax) - Referencia a unknown_nivelTax
+- **id_nivelTax** → [tax_nivelTax](../taxonomia/tax_nivelTax) - Referencia a tax_nivelTax
 
 ### Relaciones Entrantes
 

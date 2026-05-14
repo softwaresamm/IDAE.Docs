@@ -43,7 +43,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_subtipoDocumento** → [doc_subtipoDocumento](../documentos/doc_subtipoDocumento) - Referencia a doc_subtipoDocumento
-- **id_atributo** → [unknown_atributo](../general/unknown_atributo) - Referencia a unknown_atributo
+- **id_atributo** → [cat_atributo](../catalogo/cat_atributo) - Referencia a cat_atributo
 
 ### Relaciones Entrantes
 

@@ -41,7 +41,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_campoTexto** → [unknown_campoTexto](../general/unknown_campoTexto) - Referencia a unknown_campoTexto
+- **id_campoTexto** → [gui_campoTexto](../interfaz/gui_campoTexto) - Referencia a gui_campoTexto
 
 ### Relaciones Entrantes
 

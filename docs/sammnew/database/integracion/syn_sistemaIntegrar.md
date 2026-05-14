@@ -46,7 +46,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_tipoAutenticacion** → [unknown_tipoAutenticacion](../general/unknown_tipoAutenticacion) - Referencia a unknown_tipoAutenticacion
+- **id_tipoAutenticacion** → [syn_tipoAutenticacion](../integracion/syn_tipoAutenticacion) - Referencia a syn_tipoAutenticacion
 
 ### Relaciones Entrantes
 

@@ -43,7 +43,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_evaluacion** → [unknown_evaluacion](../general/unknown_evaluacion) - Referencia a unknown_evaluacion
+- **id_evaluacion** → [doc_evaluacion](../documentos/doc_evaluacion) - Referencia a doc_evaluacion
 
 ### Relaciones Entrantes
 

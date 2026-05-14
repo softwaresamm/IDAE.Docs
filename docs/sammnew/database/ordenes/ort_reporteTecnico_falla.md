@@ -42,10 +42,10 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_reporteTecnico** → [unknown_reporteTecnico](../general/unknown_reporteTecnico) - Referencia a unknown_reporteTecnico
-- **id_falla** → [unknown_falla](../general/unknown_falla) - Referencia a unknown_falla
-- **id_falla_causa** → [falla_causa](../general/falla_causa) - Referencia a falla_causa
-- **id_falla_efecto** → [falla_efecto](../general/falla_efecto) - Referencia a falla_efecto
+- **id_reporteTecnico** → [ort_reporteTecnico](../ordenes/ort_reporteTecnico) - Referencia a ort_reporteTecnico
+- **id_falla** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_falla_causa** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
+- **id_falla_efecto** → [equ_falla](../equipos/equ_falla) - Referencia a equ_falla
 
 ### Relaciones Entrantes
 

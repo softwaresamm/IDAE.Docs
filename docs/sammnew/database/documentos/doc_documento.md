@@ -71,10 +71,10 @@ Todas las tablas incluyen estos campos:
 - **id_tercero_cliente** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 - **id_tercero_proveedor** → [ter_tercero](../terceros/ter_tercero) - Referencia a ter_tercero
-- **id_prioridadDocumento** → [unknown_prioridadDocumento](../general/unknown_prioridadDocumento) - Referencia a unknown_prioridadDocumento
+- **id_prioridadDocumento** → [doc_prioridadDocumento](../documentos/doc_prioridadDocumento) - Referencia a doc_prioridadDocumento
 - **id_moneda** → [gen_moneda](../general/gen_moneda) - Referencia a gen_moneda
 - **id_estadoTipoDocumento** → [doc_estadoTipoDocumento](../documentos/doc_estadoTipoDocumento) - Referencia a doc_estadoTipoDocumento
-- **id_motivoestado** → [unknown_motivoestado](../general/unknown_motivoestado) - Referencia a unknown_motivoestado
+- **id_motivoestado** → [doc_motivoestado](../documentos/doc_motivoestado) - Referencia a doc_motivoestado
 - **id_usuario_asignado** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 - **id_usuario_enUso** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 

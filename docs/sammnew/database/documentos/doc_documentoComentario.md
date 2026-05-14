@@ -57,11 +57,10 @@ Todas las tablas incluyen estos campos:
 
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
-- **id_tarea** → [unknown_tarea](../general/unknown_tarea) - Referencia a unknown_tarea
-- **id_documentoComentario** → [unknown_documentoComentario](../general/unknown_documentoComentario) - Referencia a unknown_documentoComentario
-- **id_contacto** → [unknown_contacto](../general/unknown_contacto) - Referencia a unknown_contacto
-- **id_usuarioOriginal** → [unknown_usuarioOriginal](../general/unknown_usuarioOriginal) - Referencia a unknown_usuarioOriginal
-- **id_reporteTecnico** → [unknown_reporteTecnico](../general/unknown_reporteTecnico) - Referencia a unknown_reporteTecnico
+- **id_tarea** → [doc_tarea](../documentos/doc_tarea) - Referencia a doc_tarea
+- **id_documentoComentario** → [doc_documentoComentario](../documentos/doc_documentoComentario) - Referencia a doc_documentoComentario
+- **id_contacto** → [ter_contacto](../terceros/ter_contacto) - Referencia a ter_contacto
+- **id_reporteTecnico** → [ort_reporteTecnico](../ordenes/ort_reporteTecnico) - Referencia a ort_reporteTecnico
 
 ### Relaciones Entrantes
 

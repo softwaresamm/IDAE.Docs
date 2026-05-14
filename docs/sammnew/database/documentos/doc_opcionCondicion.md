@@ -40,7 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_condicion** → [unknown_condicion](../general/unknown_condicion) - Referencia a unknown_condicion
+- **id_condicion** → [doc_condicion](../documentos/doc_condicion) - Referencia a doc_condicion
 
 ### Relaciones Entrantes
 

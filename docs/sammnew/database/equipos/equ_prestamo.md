@@ -44,7 +44,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_estadoPrestamo** → [unknown_estadoPrestamo](../general/unknown_estadoPrestamo) - Referencia a unknown_estadoPrestamo
+- **id_estadoPrestamo** → [equ_estadoPrestamo](../equipos/equ_estadoPrestamo) - Referencia a equ_estadoPrestamo
 - **id_usuario_entrego** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 
 ### Relaciones Entrantes

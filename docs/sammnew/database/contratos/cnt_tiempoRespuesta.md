@@ -44,8 +44,8 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_contrato** → [cnt_contrato](../contratos/cnt_contrato) - Referencia a cnt_contrato
-- **id_prioridadDocumento** → [unknown_prioridadDocumento](../general/unknown_prioridadDocumento) - Referencia a unknown_prioridadDocumento
-- **id_estrategiaPrioridad** → [unknown_estrategiaPrioridad](../general/unknown_estrategiaPrioridad) - Referencia a unknown_estrategiaPrioridad
+- **id_prioridadDocumento** → [doc_prioridadDocumento](../documentos/doc_prioridadDocumento) - Referencia a doc_prioridadDocumento
+- **id_estrategiaPrioridad** → [doc_estrategiaPrioridad](../documentos/doc_estrategiaPrioridad) - Referencia a doc_estrategiaPrioridad
 
 ### Relaciones Entrantes
 

@@ -41,7 +41,7 @@ Todas las tablas incluyen estos campos:
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_perfil** → [seg_perfil](../seguridad/seg_perfil) - Referencia a seg_perfil
-- **id_bloqueHome** → [unknown_bloqueHome](../general/unknown_bloqueHome) - Referencia a unknown_bloqueHome
+- **id_bloqueHome** → [gui_bloqueHome](../interfaz/gui_bloqueHome) - Referencia a gui_bloqueHome
 
 ### Relaciones Entrantes
 

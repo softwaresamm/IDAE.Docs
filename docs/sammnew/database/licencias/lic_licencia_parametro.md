@@ -42,8 +42,8 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_licencia** → [unknown_licencia](../general/unknown_licencia) - Referencia a unknown_licencia
-- **id_parametro** → [unknown_parametro](../general/unknown_parametro) - Referencia a unknown_parametro
+- **id_licencia** → [lic_licencia](../licencias/lic_licencia) - Referencia a lic_licencia
+- **id_parametro** → [lic_parametro](../licencias/lic_parametro) - Referencia a lic_parametro
 
 ### Relaciones Entrantes
 

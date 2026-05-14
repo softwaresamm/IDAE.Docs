@@ -42,7 +42,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_bodega** → [catalogo_bodega](../general/catalogo_bodega) - Referencia a catalogo_bodega
+- **id_catalogo_bodega** → [cat_catalogo_bodega](../catalogo/cat_catalogo_bodega) - Referencia a cat_catalogo_bodega
 
 ### Relaciones Entrantes
 

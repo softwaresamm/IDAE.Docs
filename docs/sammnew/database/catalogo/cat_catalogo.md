@@ -49,8 +49,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_familia** → [unknown_familia](../general/unknown_familia) - Referencia a unknown_familia
-- **id_subTipoCatalogo** → [unknown_subTipoCatalogo](../general/unknown_subTipoCatalogo) - Referencia a unknown_subTipoCatalogo
+- **id_familia** → [gen_familia](../general/gen_familia) - Referencia a gen_familia
 - **id_unidad** → [gen_unidad](../general/gen_unidad) - Referencia a gen_unidad
 - **id_impuesto** → [gen_impuesto](../general/gen_impuesto) - Referencia a gen_impuesto
 

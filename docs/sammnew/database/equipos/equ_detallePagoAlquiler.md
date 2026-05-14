@@ -49,7 +49,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_pagoAlquiler** → [unknown_pagoAlquiler](../general/unknown_pagoAlquiler) - Referencia a unknown_pagoAlquiler
+- **id_pagoAlquiler** → [equ_pagoAlquiler](../equipos/equ_pagoAlquiler) - Referencia a equ_pagoAlquiler
 - **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_documento** → [doc_documento](../documentos/doc_documento) - Referencia a doc_documento
 - **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento

@@ -52,9 +52,9 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_funcionalidad** → [unknown_funcionalidad](../general/unknown_funcionalidad) - Referencia a unknown_funcionalidad
-- **id_tipoFuncionalidad** → [unknown_tipoFuncionalidad](../general/unknown_tipoFuncionalidad) - Referencia a unknown_tipoFuncionalidad
-- **id_aplicacion** → [unknown_aplicacion](../general/unknown_aplicacion) - Referencia a unknown_aplicacion
+- **id_funcionalidad** → [gui_funcionalidad](../interfaz/gui_funcionalidad) - Referencia a gui_funcionalidad
+- **id_tipoFuncionalidad** → [gui_tipoFuncionalidad](../interfaz/gui_tipoFuncionalidad) - Referencia a gui_tipoFuncionalidad
+- **id_aplicacion** → [gui_aplicacion](../interfaz/gui_aplicacion) - Referencia a gui_aplicacion
 
 ### Relaciones Entrantes
 

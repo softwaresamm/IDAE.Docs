@@ -40,7 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_pendienteDocumento** → [unknown_pendienteDocumento](../general/unknown_pendienteDocumento) - Referencia a unknown_pendienteDocumento
+- **id_pendienteDocumento** → [doc_pendienteDocumento](../documentos/doc_pendienteDocumento) - Referencia a doc_pendienteDocumento
 - **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
 
 ### Relaciones Entrantes

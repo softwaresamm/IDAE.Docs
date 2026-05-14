@@ -40,7 +40,7 @@ Todas las tablas incluyen estos campos:
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_ayuda** → [unknown_ayuda](../general/unknown_ayuda) - Referencia a unknown_ayuda
+- **id_ayuda** → [gui_ayuda](../interfaz/gui_ayuda) - Referencia a gui_ayuda
 
 ### Relaciones Entrantes
 
