@@ -1,7 +1,7 @@
 ---
 sidebar_position: 31
 title: cat_tarifaCatalogo
-description: Tabla para gestionar tarifaCatalogo en el sistema SAMM
+description: Tabla cat_tarifaCatalogo del módulo Catálogo
 tags: [database, cat]
 ---
 
@@ -9,41 +9,41 @@ tags: [database, cat]
 
 ## Descripción
 
-Tabla para gestionar tarifaCatalogo en el sistema SAMM.
+Tabla cat_tarifaCatalogo del módulo Catálogo.
 
 **Módulo**: Catálogo  
 **Prefijo**: `cat_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| tarifaCatalogo | VARCHAR | ✓ | - | - | - |
-| tarifaCatalogo_codigo | VARCHAR | ✓ | - | - | - |
-| id_catalogo_tarifa | INTEGER | ✓ | FK | - | - |
-| id_catalogo_elemento | INTEGER | ✓ | FK | - | - |
-| id_tipotarifa | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| tarifaCatalogo | VARCHAR | ✗ | - | - |
+| tarifaCatalogo_codigo | VARCHAR | ✓ | - | - |
+| id_catalogo_tarifa | INTEGER | ✗ | FK | - |
+| id_catalogo_elemento | INTEGER | ✗ | FK | - |
+| id_tipotarifa | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_catalogo_tarifa** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
-- **id_catalogo_elemento** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
+*Esta tabla no tiene relaciones salientes definidas.*
 
 ### Relaciones Entrantes
 
@@ -52,20 +52,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Catálogo
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `cat_tarifaCatalogo`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM cat_tarifaCatalogo WHERE active = 1;
+SELECT * FROM [cat_tarifaCatalogo] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM cat_tarifaCatalogo
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [cat_tarifaCatalogo] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

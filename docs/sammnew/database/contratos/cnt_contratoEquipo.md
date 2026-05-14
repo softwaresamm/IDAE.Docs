@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 title: cnt_contratoEquipo
-description: Tabla para gestionar contratoEquipo en el sistema SAMM
+description: Tabla cnt_contratoEquipo del módulo Contratos
 tags: [database, cnt]
 ---
 
@@ -9,46 +9,47 @@ tags: [database, cnt]
 
 ## Descripción
 
-Tabla para gestionar contratoEquipo en el sistema SAMM.
+Tabla cnt_contratoEquipo del módulo Contratos.
 
 **Módulo**: Contratos  
 **Prefijo**: `cnt_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| contratoEquipo | VARCHAR | ✓ | - | - | - |
-| contratoEquipo_codigo | VARCHAR | ✓ | - | - | - |
-| precioVisita | DECIMAL | ✓ | - | - | - |
-| precioServicio | DECIMAL | ✓ | - | - | - |
-| fecha_ff | DATE | ✓ | - | - | - |
-| promedio | DECIMAL | ✓ | - | - | - |
-| id_equipo | INTEGER | ✓ | FK | - | - |
-| id_contrato | INTEGER | ✓ | FK | - | - |
-| id_contratoDetalleVisita | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| contratoEquipo | VARCHAR | ✗ | - | - |
+| contratoEquipo_codigo | VARCHAR | ✓ | - | - |
+| precioVisita | MONEY | ✓ | - | - |
+| precioServicio | MONEY | ✓ | - | - |
+| fecha_ff | DATETIME | ✓ | - | - |
+| promedio | FLOAT | ✓ | - | - |
+| id_equipo | INTEGER | ✗ | FK | - |
+| id_contrato | INTEGER | ✗ | FK | - |
+| id_contratoDetalleVisita | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_contrato** → [cnt_contrato](../contratos/cnt_contrato) - Referencia a cnt_contrato
 - **id_contratoDetalleVisita** → [cnt_contratoDetalleVisita](../contratos/cnt_contratoDetalleVisita) - Referencia a cnt_contratoDetalleVisita
+- **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 
 ### Relaciones Entrantes
 
@@ -57,20 +58,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Contratos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `cnt_contratoEquipo`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM cnt_contratoEquipo WHERE active = 1;
+SELECT * FROM [cnt_contratoEquipo] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM cnt_contratoEquipo
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [cnt_contratoEquipo] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: syn_puntoIntegracionTabla
-description: Tabla para gestionar puntoIntegracionTabla en el sistema SAMM
+description: Tabla syn_puntoIntegracionTabla del módulo Integración
 tags: [database, syn]
 ---
 
@@ -9,33 +9,34 @@ tags: [database, syn]
 
 ## Descripción
 
-Tabla para gestionar puntoIntegracionTabla en el sistema SAMM.
+Tabla syn_puntoIntegracionTabla del módulo Integración.
 
 **Módulo**: Integración  
 **Prefijo**: `syn_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| puntoIntegracionTabla | VARCHAR | ✓ | - | - | - |
-| puntoIntegracionTabla_codigo | VARCHAR | ✓ | - | - | - |
-| id_puntoIntegracion | INTEGER | ✓ | FK | - | - |
-| tabla | VARCHAR | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| puntoIntegracionTabla | VARCHAR | ✗ | - | - |
+| puntoIntegracionTabla_codigo | VARCHAR | ✓ | - | - |
+| id_puntoIntegracion | INTEGER | ✗ | FK | - |
+| tabla | VARCHAR | ✗ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
@@ -50,20 +51,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Integración
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `syn_puntoIntegracionTabla`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM syn_puntoIntegracionTabla WHERE active = 1;
+SELECT * FROM [syn_puntoIntegracionTabla] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM syn_puntoIntegracionTabla
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [syn_puntoIntegracionTabla] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

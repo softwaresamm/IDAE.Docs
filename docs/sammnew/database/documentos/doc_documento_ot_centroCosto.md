@@ -1,48 +1,49 @@
 ---
-sidebar_position: 19
-title: doc_documento_ot_centroCosto
-description: Tabla para gestionar documento_ot_centroCosto en el sistema SAMM
+sidebar_position: 12
+title: doc_documento.ot_centroCosto
+description: Tabla doc_documento.ot_centroCosto del módulo Documentos
 tags: [database, doc]
 ---
 
-# doc_documento_ot_centroCosto
+# doc_documento.ot_centroCosto
 
 ## Descripción
 
-Tabla para gestionar documento_ot_centroCosto en el sistema SAMM.
+Tabla doc_documento.ot_centroCosto del módulo Documentos.
 
 **Módulo**: Documentos  
 **Prefijo**: `doc_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| documento_ot_centroCosto | VARCHAR | ✓ | - | - | - |
-| porcentaje | DECIMAL | ✓ | - | - | - |
-| id_centroCosto | INTEGER | ✓ | FK | - | - |
-| id_documento_ot | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| documento.ot_centroCosto | VARCHAR | ✗ | - | - |
+| porcentaje | FLOAT | ✓ | - | - |
+| id_centroCosto | INTEGER | ✗ | FK | - |
+| id_documento.ot | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_centroCosto** → [doc_centroCosto](../documentos/doc_centroCosto) - Referencia a doc_centroCosto
-- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
+- **id_documento.ot** → [doc_documento.ot](../documentos/doc_documento_ot) - Referencia a doc_documento.ot
 
 ### Relaciones Entrantes
 
@@ -51,20 +52,23 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Documentos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `doc_documento.ot_centroCosto`
+- El punto en el nombre separa el tipo de documento del subtipo
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM doc_documento_ot_centroCosto WHERE active = 1;
+SELECT * FROM [doc_documento.ot_centroCosto] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM doc_documento_ot_centroCosto
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [doc_documento.ot_centroCosto] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

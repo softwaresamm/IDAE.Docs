@@ -1,63 +1,66 @@
 ---
-sidebar_position: 10
-title: doc_documento_cotizacion
-description: Tabla para gestionar documento_cotizacion en el sistema SAMM
+sidebar_position: 6
+title: doc_documento.cotizacion
+description: Tabla doc_documento.cotizacion del módulo Documentos
 tags: [database, doc]
 ---
 
-# doc_documento_cotizacion
+# doc_documento.cotizacion
 
 ## Descripción
 
-Tabla para gestionar documento_cotizacion en el sistema SAMM.
+Tabla doc_documento.cotizacion del módulo Documentos.
 
 **Módulo**: Documentos  
 **Prefijo**: `doc_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| documento_cotizacion | VARCHAR | ✓ | - | - | - |
-| version | INTEGER | ✓ | - | - | - |
-| validez | INTEGER | ✓ | - | - | - |
-| contacto | VARCHAR | ✓ | - | - | - |
-| cargo | VARCHAR | ✓ | - | - | - |
-| encabezado | VARCHAR | ✓ | - | - | - |
-| condiciones | VARCHAR | ✓ | - | - | - |
-| notas | VARCHAR | ✓ | - | - | - |
-| esAIU | BIT | ✓ | - | - | - |
-| procentajeA | DECIMAL | ✓ | - | - | - |
-| procentajeI | DECIMAL | ✓ | - | - | - |
-| procentajeU | DECIMAL | ✓ | - | - | - |
-| valorA | DECIMAL | ✓ | - | - | - |
-| valorI | DECIMAL | ✓ | - | - | - |
-| valorU | DECIMAL | ✓ | - | - | - |
-| telefono | VARCHAR | ✓ | - | - | - |
-| id_sucursal | INTEGER | ✓ | FK | - | - |
-| id_equipo | INTEGER | ✓ | FK | - | - |
-| id_usuario_asesor | INTEGER | ✓ | FK | - | - |
-| email | VARCHAR | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| documento.cotizacion | VARCHAR | ✗ | - | - |
+| version | INTEGER | ✗ | - | - |
+| validez | INTEGER | ✗ | - | - |
+| contacto | VARCHAR | ✗ | - | - |
+| cargo | VARCHAR | ✗ | - | - |
+| encabezado | VARCHAR | ✗ | - | - |
+| condiciones | VARCHAR | ✗ | - | - |
+| notas | VARCHAR | ✗ | - | - |
+| esAIU | BIT | ✗ | - | - |
+| procentajeA | FLOAT | ✓ | - | - |
+| procentajeI | FLOAT | ✓ | - | - |
+| procentajeU | FLOAT | ✓ | - | - |
+| valorA | FLOAT | ✓ | - | - |
+| valorI | FLOAT | ✓ | - | - |
+| valorU | FLOAT | ✓ | - | - |
+| id_sucursal | INTEGER | ✗ | FK | - |
+| id_equipo | INTEGER | ✗ | FK | - |
+| id_usuario_asesor | INTEGER | ✗ | FK | - |
+| email | VARCHAR | ✓ | - | - |
+| telefono | VARCHAR | ✓ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
 - **id_sucursal** → [ter_sucursal](../terceros/ter_sucursal) - Referencia a ter_sucursal
-- **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 - **id_usuario_asesor** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
+- **id_equipo** → [equ_equipo](../equipos/equ_equipo) - Referencia a equ_equipo
 
 ### Relaciones Entrantes
 
@@ -66,20 +69,23 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Documentos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `doc_documento.cotizacion`
+- El punto en el nombre separa el tipo de documento del subtipo
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM doc_documento_cotizacion WHERE active = 1;
+SELECT * FROM [doc_documento.cotizacion] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM doc_documento_cotizacion
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [doc_documento.cotizacion] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

@@ -1,7 +1,7 @@
 ---
-sidebar_position: 50
+sidebar_position: 49
 title: doc_soporteItemDocumento
-description: Tabla para gestionar soporteItemDocumento en el sistema SAMM
+description: Tabla doc_soporteItemDocumento del módulo Documentos
 tags: [database, doc]
 ---
 
@@ -9,41 +9,42 @@ tags: [database, doc]
 
 ## Descripción
 
-Tabla para gestionar soporteItemDocumento en el sistema SAMM.
+Tabla doc_soporteItemDocumento del módulo Documentos.
 
 **Módulo**: Documentos  
 **Prefijo**: `doc_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| soporteItemDocumento | VARCHAR | ✓ | - | - | - |
-| soporteItemDocumento_codigo | VARCHAR | ✓ | - | - | - |
-| duracionPlaneada | DECIMAL | ✓ | - | - | - |
-| Valor | DECIMAL | ✓ | - | - | - |
-| Costo | DECIMAL | ✓ | - | - | - |
-| id_itemDocumento | INTEGER | ✓ | FK | - | - |
-| id_usuario | INTEGER | ✓ | FK | - | - |
-| duracionEjecutada | DECIMAL | ✓ | - | - | - |
-| horasOrdinales | DECIMAL | ✓ | - | - | - |
-| horasFestivas | DECIMAL | ✓ | - | - | - |
-| horasNocturnas | DECIMAL | ✓ | - | - | - |
-| periodo | VARCHAR | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| soporteItemDocumento | VARCHAR | ✗ | - | - |
+| soporteItemDocumento_codigo | VARCHAR | ✓ | - | - |
+| duracionPlaneada | FLOAT | ✗ | - | - |
+| Valor | MONEY | ✗ | - | - |
+| Costo | MONEY | ✗ | - | - |
+| id_itemDocumento | INTEGER | ✗ | FK | - |
+| id_usuario | INTEGER | ✗ | FK | - |
+| duracionEjecutada | FLOAT | ✗ | - | - |
+| horasOrdinales | FLOAT | ✗ | - | - |
+| horasFestivas | FLOAT | ✗ | - | - |
+| horasNocturnas | FLOAT | ✗ | - | - |
+| periodo | VARCHAR | ✗ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
@@ -59,20 +60,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Documentos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `doc_soporteItemDocumento`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM doc_soporteItemDocumento WHERE active = 1;
+SELECT * FROM [doc_soporteItemDocumento] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM doc_soporteItemDocumento
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [doc_soporteItemDocumento] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

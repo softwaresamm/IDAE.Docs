@@ -1,7 +1,7 @@
 ---
-sidebar_position: 11
+sidebar_position: 10
 title: pro_ejecutores
-description: Tabla para gestionar ejecutores en el sistema SAMM
+description: Tabla pro_ejecutores del módulo Proyectos
 tags: [database, pro]
 ---
 
@@ -9,41 +9,44 @@ tags: [database, pro]
 
 ## Descripción
 
-Tabla para gestionar ejecutores en el sistema SAMM.
+Tabla pro_ejecutores del módulo Proyectos.
 
 **Módulo**: Proyectos  
 **Prefijo**: `pro_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| ejecutores | VARCHAR | ✓ | - | - | - |
-| ejecutores_codigo | VARCHAR | ✓ | - | - | - |
-| costo | DECIMAL | ✓ | - | - | - |
-| unidadTiempo | VARCHAR | ✓ | - | - | - |
-| id_horarioTrabajo | INTEGER | ✓ | FK | - | - |
-| id_usuario | INTEGER | ✓ | FK | - | - |
-| id_horarioEjecutores | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| ejecutores | VARCHAR | ✗ | - | - |
+| ejecutores_codigo | VARCHAR | ✓ | - | - |
+| costo | FLOAT | ✗ | - | - |
+| unidadTiempo | VARCHAR | ✗ | - | - |
+| id_horarioTrabajo | INTEGER | ✗ | FK | - |
+| id_usuario | INTEGER | ✗ | FK | - |
+| id_horarioEjecutores | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
+- **id_horarioEjecutores** → [pro_horarioEjecutores](../proyectos/pro_horarioEjecutores) - Referencia a pro_horarioEjecutores
+- **id_horarioTrabajo** → [pro_horarioTrabajo](../proyectos/pro_horarioTrabajo) - Referencia a pro_horarioTrabajo
 - **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
 
 ### Relaciones Entrantes
@@ -53,20 +56,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Proyectos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `pro_ejecutores`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM pro_ejecutores WHERE active = 1;
+SELECT * FROM [pro_ejecutores] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM pro_ejecutores
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [pro_ejecutores] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

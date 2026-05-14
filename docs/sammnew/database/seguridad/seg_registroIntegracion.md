@@ -1,7 +1,7 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 title: seg_registroIntegracion
-description: Tabla para gestionar registroIntegracion en el sistema SAMM
+description: Tabla seg_registroIntegracion del módulo Seguridad
 tags: [database, seg]
 ---
 
@@ -9,37 +9,38 @@ tags: [database, seg]
 
 ## Descripción
 
-Tabla para gestionar registroIntegracion en el sistema SAMM.
+Tabla seg_registroIntegracion del módulo Seguridad.
 
 **Módulo**: Seguridad  
 **Prefijo**: `seg_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| registroIntegracion | VARCHAR | ✓ | - | - | - |
-| registroIntegracion_codigo | VARCHAR | ✓ | - | - | - |
-| mensaje | VARCHAR | ✓ | - | - | - |
-| respuesta | VARCHAR | ✓ | - | - | - |
-| codigoRespuesta | VARCHAR | ✓ | - | - | - |
-| idObjeto | INTEGER | ✓ | - | - | - |
-| id_puntoIntegracion | INTEGER | ✓ | FK | - | - |
-| numeroReintento | INTEGER | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| registroIntegracion | VARCHAR | ✗ | - | - |
+| registroIntegracion_codigo | VARCHAR | ✓ | - | - |
+| mensaje | VARCHAR | ✓ | - | - |
+| respuesta | VARCHAR | ✓ | - | - |
+| codigoRespuesta | VARCHAR | ✓ | - | - |
+| idObjeto | INTEGER | ✓ | - | - |
+| id_puntoIntegracion | INTEGER | ✗ | FK | - |
+| numeroReintento | INTEGER | ✓ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
@@ -54,20 +55,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Seguridad
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `seg_registroIntegracion`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM seg_registroIntegracion WHERE active = 1;
+SELECT * FROM [seg_registroIntegracion] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM seg_registroIntegracion
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [seg_registroIntegracion] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

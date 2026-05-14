@@ -1,7 +1,7 @@
 ---
-sidebar_position: 22
+sidebar_position: 19
 title: pro_recursoFisico
-description: Tabla para gestionar recursoFisico en el sistema SAMM
+description: Tabla pro_recursoFisico del módulo Proyectos
 tags: [database, pro]
 ---
 
@@ -9,36 +9,37 @@ tags: [database, pro]
 
 ## Descripción
 
-Tabla para gestionar recursoFisico en el sistema SAMM.
+Tabla pro_recursoFisico del módulo Proyectos.
 
 **Módulo**: Proyectos  
 **Prefijo**: `pro_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| recursoFisico | VARCHAR | ✓ | - | - | - |
-| recursoFisico_codigo | VARCHAR | ✓ | - | - | - |
-| costo | DECIMAL | ✓ | - | - | - |
-| unidadTiempo | VARCHAR | ✓ | - | - | - |
-| esPropio | BIT | ✓ | - | - | - |
-| id_equipo | INTEGER | ✓ | FK | - | - |
-| id_catalogo | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| recursoFisico | VARCHAR | ✗ | - | - |
+| recursoFisico_codigo | VARCHAR | ✓ | - | - |
+| costo | FLOAT | ✗ | - | - |
+| unidadTiempo | VARCHAR | ✗ | - | - |
+| esPropio | BIT | ✗ | - | - |
+| id_equipo | INTEGER | ✗ | FK | - |
+| id_catalogo | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
@@ -54,20 +55,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Proyectos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `pro_recursoFisico`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM pro_recursoFisico WHERE active = 1;
+SELECT * FROM [pro_recursoFisico] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM pro_recursoFisico
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [pro_recursoFisico] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

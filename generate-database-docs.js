@@ -38,7 +38,7 @@ let TABLE_INDEX = {};
 function buildTableIndex() {
   console.log("Construyendo índice de tablas...");
   const vbFiles = fs.readdirSync(VB_FILES_DIR).filter((f) => f.endsWith(".vb"));
-  
+
   vbFiles.forEach((file) => {
     const tableName = path.basename(file, ".vb");
     // Extract entity name (without prefix)
@@ -46,7 +46,7 @@ function buildTableIndex() {
     if (parts.length > 1) {
       const entityName = parts.slice(1).join("_"); // Everything after prefix
       TABLE_INDEX[entityName] = tableName;
-      
+
       // Also add without underscores for compound names
       // e.g., catalogo_equipo and catalogoequipo both map to cat_catalogo_equipo
       const entityNameNoUnderscore = entityName.replace(/_/g, "");
@@ -55,8 +55,10 @@ function buildTableIndex() {
       }
     }
   });
-  
-  console.log(`✓ Índice construido con ${Object.keys(TABLE_INDEX).length} entradas`);
+
+  console.log(
+    `✓ Índice construido con ${Object.keys(TABLE_INDEX).length} entradas`,
+  );
 }
 
 // Parse VB.NET file to extract column information
@@ -104,7 +106,7 @@ function parseVBFile(filePath) {
     if (isFK) {
       const entityName = columnName.substring(3); // Remove 'id_' prefix
       referencedTable = findTableByName(entityName);
-      
+
       if (referencedTable) {
         fks.push({ column: columnName, references: referencedTable });
       }
@@ -129,26 +131,26 @@ function findTableByName(entityName) {
   if (TABLE_INDEX[entityName]) {
     return TABLE_INDEX[entityName];
   }
-  
+
   // Try without underscores
   const noUnderscore = entityName.replace(/_/g, "");
   if (TABLE_INDEX[noUnderscore]) {
     return TABLE_INDEX[noUnderscore];
   }
-  
+
   // Try common variations
   const variations = [
     entityName.toLowerCase(),
     entityName.replace(/_/g, ""),
     entityName.split("_")[0], // First part only
   ];
-  
+
   for (const variant of variations) {
     if (TABLE_INDEX[variant]) {
       return TABLE_INDEX[variant];
     }
   }
-  
+
   // Not found
   return null;
 }

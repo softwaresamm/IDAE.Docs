@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: gas_detalleGasto
-description: Tabla para gestionar detalleGasto en el sistema SAMM
+description: Tabla gas_detalleGasto del módulo Gastos
 tags: [database, gas]
 ---
 
@@ -9,45 +9,45 @@ tags: [database, gas]
 
 ## Descripción
 
-Tabla para gestionar detalleGasto en el sistema SAMM.
+Tabla gas_detalleGasto del módulo Gastos.
 
 **Módulo**: Gastos  
 **Prefijo**: `gas_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| detalleGasto | VARCHAR | ✓ | - | - | - |
-| detalleGasto_codigo | VARCHAR | ✓ | - | - | - |
-| fecha_ff | DATE | ✓ | - | - | - |
-| valor | DECIMAL | ✓ | - | - | - |
-| cantidad | DECIMAL | ✓ | - | - | - |
-| id_gasto | INTEGER | ✓ | FK | - | - |
-| id_catalogo | INTEGER | ✓ | FK | - | - |
-| id_documento_gasto | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| detalleGasto | VARCHAR | ✗ | - | - |
+| detalleGasto_codigo | VARCHAR | ✓ | - | - |
+| fecha_ff | DATETIME | ✗ | - | - |
+| valor | FLOAT | ✗ | - | - |
+| cantidad | FLOAT | ✗ | - | - |
+| id_gasto | INTEGER | ✗ | FK | - |
+| id_catalogo | INTEGER | ✗ | FK | - |
+| id_documento.gasto | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_gasto** → [gas_gasto](../gastos/gas_gasto) - Referencia a gas_gasto
 - **id_catalogo** → [cat_catalogo](../catalogo/cat_catalogo) - Referencia a cat_catalogo
-- **id_documento_gasto** → [doc_documento_gasto](../documentos/doc_documento_gasto) - Referencia a doc_documento_gasto
+- **id_gasto** → [gas_gasto](../gastos/gas_gasto) - Referencia a gas_gasto
 
 ### Relaciones Entrantes
 
@@ -56,20 +56,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Gastos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `gas_detalleGasto`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM gas_detalleGasto WHERE active = 1;
+SELECT * FROM [gas_detalleGasto] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM gas_detalleGasto
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [gas_detalleGasto] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

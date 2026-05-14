@@ -1,7 +1,7 @@
 ---
 sidebar_position: 14
 title: cnt_visitaFija
-description: Tabla para gestionar visitaFija en el sistema SAMM
+description: Tabla cnt_visitaFija del módulo Contratos
 tags: [database, cnt]
 ---
 
@@ -9,52 +9,53 @@ tags: [database, cnt]
 
 ## Descripción
 
-Tabla para gestionar visitaFija en el sistema SAMM.
+Tabla cnt_visitaFija del módulo Contratos.
 
 **Módulo**: Contratos  
 **Prefijo**: `cnt_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| visitaFija | VARCHAR | ✓ | - | - | - |
-| visitaFija_codigo | VARCHAR | ✓ | - | - | - |
-| fecha_ff | DATE | ✓ | - | - | - |
-| fechaCreada_ff | DATE | ✓ | - | - | - |
-| horometro | DECIMAL | ✓ | - | - | - |
-| id_documento_ot | INTEGER | ✓ | FK | - | - |
-| id_contratoEquipo | INTEGER | ✓ | FK | - | - |
-| id_contratoDetalleVisita | INTEGER | ✓ | FK | - | - |
-| id_catalogo_tempario | INTEGER | ✓ | FK | - | - |
-| esPorTrabajo | BIT | ✓ | - | - | - |
-| correoRecordatorio | VARCHAR | ✓ | - | - | - |
-| presupuesto | DECIMAL | ✓ | - | - | - |
-| id_configContrato | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| visitaFija | VARCHAR | ✗ | - | - |
+| visitaFija_codigo | VARCHAR | ✓ | - | - |
+| fecha_ff | DATETIME | ✗ | - | - |
+| fechaCreada_ff | DATETIME | ✗ | - | - |
+| horometro | FLOAT | ✓ | - | - |
+| id_documento.ot | INTEGER | ✗ | FK | - |
+| id_contratoEquipo | INTEGER | ✗ | FK | - |
+| id_contratoDetalleVisita | INTEGER | ✗ | FK | - |
+| id_catalogo.tempario | INTEGER | ✗ | FK | - |
+| esPorTrabajo | BIT | ✓ | - | - |
+| correoRecordatorio | VARCHAR | ✗ | - | - |
+| id_configContrato | INTEGER | ✓ | FK | - |
+| presupuesto | FLOAT | ✓ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_documento_ot** → [doc_documento_ot](../documentos/doc_documento_ot) - Referencia a doc_documento_ot
 - **id_contratoEquipo** → [cnt_contratoEquipo](../contratos/cnt_contratoEquipo) - Referencia a cnt_contratoEquipo
-- **id_contratoDetalleVisita** → [cnt_contratoDetalleVisita](../contratos/cnt_contratoDetalleVisita) - Referencia a cnt_contratoDetalleVisita
-- **id_catalogo_tempario** → [cat_catalogo_tempario](../catalogo/cat_catalogo_tempario) - Referencia a cat_catalogo_tempario
 - **id_configContrato** → [cnt_configContrato](../contratos/cnt_configContrato) - Referencia a cnt_configContrato
+- **id_contratoDetalleVisita** → [cnt_contratoDetalleVisita](../contratos/cnt_contratoDetalleVisita) - Referencia a cnt_contratoDetalleVisita
+- **id_documento.ot** → [doc_documento.ot](../documentos/doc_documento_ot) - Referencia a doc_documento.ot
+- **id_catalogo.tempario** → [cat_catalogo.tempario](../catalogo/cat_catalogo_tempario) - Referencia a cat_catalogo.tempario
 
 ### Relaciones Entrantes
 
@@ -63,20 +64,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Contratos
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `cnt_visitaFija`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM cnt_visitaFija WHERE active = 1;
+SELECT * FROM [cnt_visitaFija] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM cnt_visitaFija
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [cnt_visitaFija] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

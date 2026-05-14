@@ -1,49 +1,50 @@
 ---
 sidebar_position: 24
-title: cat_reemplazo_catalogo_equipo
-description: Tabla para gestionar reemplazo_catalogo_equipo en el sistema SAMM
+title: cat_reemplazo_catalogo.equipo
+description: Tabla cat_reemplazo_catalogo.equipo del módulo Catálogo
 tags: [database, cat]
 ---
 
-# cat_reemplazo_catalogo_equipo
+# cat_reemplazo_catalogo.equipo
 
 ## Descripción
 
-Tabla para gestionar reemplazo_catalogo_equipo en el sistema SAMM.
+Tabla cat_reemplazo_catalogo.equipo del módulo Catálogo.
 
 **Módulo**: Catálogo  
 **Prefijo**: `cat_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| reemplazo_catalogo_equipo | VARCHAR | ✓ | - | - | - |
-| id_reemplazo | INTEGER | ✓ | FK | - | - |
-| id_versionEquipo | INTEGER | ✓ | FK | - | - |
-| id_catalogo_equipo | INTEGER | ✓ | FK | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| reemplazo_catalogo.equipo | VARCHAR | ✗ | - | - |
+| id_reemplazo | INTEGER | ✗ | FK | - |
+| id_versionEquipo | INTEGER | ✗ | FK | - |
+| id_catalogo.equipo | INTEGER | ✗ | FK | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-- **id_reemplazo** → [cat_reemplazo](../catalogo/cat_reemplazo) - Referencia a cat_reemplazo
 - **id_versionEquipo** → [cat_versionEquipo](../catalogo/cat_versionEquipo) - Referencia a cat_versionEquipo
-- **id_catalogo_equipo** → [cat_catalogo_equipo](../catalogo/cat_catalogo_equipo) - Referencia a cat_catalogo_equipo
+- **id_reemplazo** → [cat_reemplazo](../catalogo/cat_reemplazo) - Referencia a cat_reemplazo
+- **id_catalogo.equipo** → [cat_catalogo.equipo](../catalogo/cat_catalogo_equipo) - Referencia a cat_catalogo.equipo
 
 ### Relaciones Entrantes
 
@@ -52,20 +53,23 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Catálogo
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `cat_reemplazo_catalogo.equipo`
+- El punto en el nombre separa el tipo de documento del subtipo
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM cat_reemplazo_catalogo_equipo WHERE active = 1;
+SELECT * FROM [cat_reemplazo_catalogo.equipo] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM cat_reemplazo_catalogo_equipo
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [cat_reemplazo_catalogo.equipo] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

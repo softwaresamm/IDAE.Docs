@@ -1,7 +1,7 @@
 ---
 sidebar_position: 8
 title: gen_diaFestivo
-description: Tabla para gestionar diaFestivo en el sistema SAMM
+description: Tabla gen_diaFestivo del módulo General / Configuración
 tags: [database, gen]
 ---
 
@@ -9,38 +9,39 @@ tags: [database, gen]
 
 ## Descripción
 
-Tabla para gestionar diaFestivo en el sistema SAMM.
+Tabla gen_diaFestivo del módulo General / Configuración.
 
 **Módulo**: General / Configuración  
 **Prefijo**: `gen_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| diaFestivo | VARCHAR | ✓ | - | - | - |
-| diaFestivo_codigo | VARCHAR | ✓ | - | - | - |
-| fecha_ff | DATE | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| diaFestivo | VARCHAR | ✗ | - | - |
+| diaFestivo_codigo | VARCHAR | ✓ | - | - |
+| fecha_ff | DATETIME | ✓ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-*Esta tabla no tiene relaciones salientes (foreign keys).*
+*Esta tabla no tiene relaciones salientes definidas.*
 
 ### Relaciones Entrantes
 
@@ -49,20 +50,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo General / Configuración
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `gen_diaFestivo`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM gen_diaFestivo WHERE active = 1;
+SELECT * FROM [gen_diaFestivo] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM gen_diaFestivo
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [gen_diaFestivo] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

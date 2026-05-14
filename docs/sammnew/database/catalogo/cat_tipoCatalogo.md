@@ -1,7 +1,7 @@
 ---
 sidebar_position: 33
 title: cat_tipoCatalogo
-description: Tabla para gestionar tipoCatalogo en el sistema SAMM
+description: Tabla cat_tipoCatalogo del módulo Catálogo
 tags: [database, cat]
 ---
 
@@ -9,39 +9,40 @@ tags: [database, cat]
 
 ## Descripción
 
-Tabla para gestionar tipoCatalogo en el sistema SAMM.
+Tabla cat_tipoCatalogo del módulo Catálogo.
 
 **Módulo**: Catálogo  
 **Prefijo**: `cat_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| tipoCatalogo | VARCHAR | ✓ | - | - | - |
-| tipoCatalogo_codigo | VARCHAR | ✓ | - | - | - |
-| afectaInventario | BIT | ✓ | - | - | - |
-| afectaProduccion | BIT | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| tipoCatalogo | VARCHAR | ✗ | - | - |
+| tipoCatalogo_codigo | VARCHAR | ✓ | - | - |
+| afectaInventario | BIT | ✗ | - | - |
+| afectaProduccion | BIT | ✗ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
 
-*Esta tabla no tiene relaciones salientes (foreign keys).*
+*Esta tabla no tiene relaciones salientes definidas.*
 
 ### Relaciones Entrantes
 
@@ -50,20 +51,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Catálogo
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `cat_tipoCatalogo`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM cat_tipoCatalogo WHERE active = 1;
+SELECT * FROM [cat_tipoCatalogo] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM cat_tipoCatalogo
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [cat_tipoCatalogo] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.

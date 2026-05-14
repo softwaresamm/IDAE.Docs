@@ -1,7 +1,7 @@
 ---
 sidebar_position: 18
 title: cat_listaPrecio
-description: Tabla para gestionar listaPrecio en el sistema SAMM
+description: Tabla cat_listaPrecio del módulo Catálogo
 tags: [database, cat]
 ---
 
@@ -9,35 +9,36 @@ tags: [database, cat]
 
 ## Descripción
 
-Tabla para gestionar listaPrecio en el sistema SAMM.
+Tabla cat_listaPrecio del módulo Catálogo.
 
 **Módulo**: Catálogo  
 **Prefijo**: `cat_`
 
 ## Estructura de la Tabla
 
-| Columna | Tipo | Nulo | Clave | Default | Constraint |
-|---------|------|------|-------|---------|------------|
-| id | INTEGER | ✗ | PK | - | - |
-| active | BIT | ✓ | - | - | - |
-| listaPrecio | VARCHAR | ✓ | - | - | - |
-| listaPrecio_codigo | VARCHAR | ✓ | - | - | - |
-| porcentajeDescuento | DECIMAL | ✓ | - | - | - |
-| esPrivado | BIT | ✓ | - | - | - |
-| id_moneda | INTEGER | ✓ | FK | - | - |
-| paraCompra | BIT | ✓ | - | - | - |
+| Columna | Tipo | Nulo | Clave | Descripción |
+|---------|------|------|-------|-------------|
+| listaPrecio | VARCHAR | ✗ | - | - |
+| listaPrecio_codigo | VARCHAR | ✓ | - | - |
+| porcentajeDescuento | FLOAT | ✗ | - | - |
+| esPrivado | BIT | ✗ | - | - |
+| id_moneda | INTEGER | ✗ | FK | - |
+| paraCompra | BIT | ✓ | - | - |
 
-### Columnas Estándar
+### Columnas de Auditoría
 
-Todas las tablas incluyen estos campos:
-- **id**: Clave primaria auto-incremental
-- **active**: Indicador de registro activo (soft delete)
-- **id_usuario_creo**: Usuario que creó el registro
-- **id_usuario_modifico**: Usuario que modificó el registro
-- **fechaCreacion**: Fecha y hora de creación
-- **fechaModificacion**: Fecha y hora de última modificación
-- **uid**: Control multiempresa (User ID)
-- **eid**: Control multiempresa (Entity ID)
+Todas las tablas incluyen estas columnas estándar:
+
+| Columna | Tipo | Descripción |
+|---------|------|-------------|
+| id | INTEGER | Clave primaria auto-incremental |
+| active | BIT | Registro activo (soft delete) |
+| id_usuario_creo | INTEGER | Usuario que creó el registro |
+| id_usuario_modifico | INTEGER | Usuario que modificó el registro |
+| fechaCreacion | DATETIME | Fecha y hora de creación |
+| fechaModificacion | DATETIME | Fecha y hora de última modificación |
+| uid | VARCHAR | Control multiempresa (User ID) |
+| eid | VARCHAR | Control multiempresa (Entity ID) |
 
 ## Relaciones
 
@@ -52,20 +53,22 @@ Todas las tablas incluyen estos campos:
 ## Notas Técnicas
 
 - Esta tabla forma parte del módulo Catálogo
-- Utiliza el patrón de nomenclatura estándar del sistema
+- Nombre real en base de datos: `cat_listaPrecio`
 
 ## Ejemplos de Uso
 
 ```sql
 -- Consulta básica
-SELECT * FROM cat_listaPrecio WHERE active = 1;
+SELECT * FROM [cat_listaPrecio] WHERE active = 1;
 
--- Consulta con joins (si aplica)
-SELECT * FROM cat_listaPrecio
-WHERE active = 1
-ORDER BY id DESC;
+-- Consulta con joins
+SELECT t.*, u.usuario
+FROM [cat_listaPrecio] t
+LEFT JOIN seg_usuario u ON t.id_usuario_creo = u.id
+WHERE t.active = 1
+ORDER BY t.id DESC;
 ```
 
 ---
 
-**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
+**Nota**: Documentación generada desde el esquema real de la base de datos `sn_dev`.
