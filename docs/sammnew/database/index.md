@@ -15,13 +15,14 @@ SAMM es un sistema de gestión de mantenimiento para operaciones de activos, pos
 
 ### Estadísticas
 
-- **Total de tablas**: 270+ tablas
-- **Módulos funcionales**: 12 módulos principales
-- **Base de datos**: SQL Server
+- **Total de tablas**: 268 tablas
+- **Módulos funcionales**: 19 módulos
+- **Base de datos**: SQL Server (sn_dev)
 
 ### Características Principales
 
-- **Auditoría completa**: Todas las tablas incluyen campos `uid` (user ID) y `eid` (entity ID) para trazabilidad
+- **Auditoría completa**: Todas las tablas incluyen `id_usuario_creo`, `id_usuario_modifico`, `fechaCreacion`, `fechaModificacion`
+- **Control multiempresa**: Campos `uid` y `eid` en todas las tablas para trazabilidad entre entidades
 - **Soft delete**: Campo `active` (bit) en todas las tablas para borrado lógico
 - **Relaciones FK**: Campos que comienzan con `id_` representan relaciones de clave foránea
 - **Primary keys**: Campo `id` (integer) como clave primaria en todas las tablas
@@ -72,12 +73,16 @@ Catálogo maestro de productos, repuestos, equipos y servicios.
 **Tablas principales:**
 - [cat_catalogo](./catalogo/cat_catalogo) - Catálogo maestro de items
 - [cat_tipoCatalogo](./catalogo/cat_tipoCatalogo) - Tipos de catálogo (equipo, repuesto, servicio)
-- [cat_catalogo_equipo](./catalogo/cat_catalogo_equipo) - Catálogo de equipos
+- [cat_catalogo.equipo](./catalogo/cat_catalogo_equipo) - Catálogo de equipos
+- [cat_catalogo.actividad](./catalogo/cat_catalogo_actividad) - Actividades del catálogo
+- [cat_catalogo.repuesto](./catalogo/cat_catalogo_repuesto) - Repuestos del catálogo
+- [cat_catalogo.tempario](./catalogo/cat_catalogo_tempario) - Temparios del catálogo
 - [cat_marca](./catalogo/cat_marca) - Marcas y fabricantes
 - [cat_sistema](./catalogo/cat_sistema) - Sistemas de equipos
 - [cat_atributo](./catalogo/cat_atributo) - Definiciones de atributos dinámicos
 - [cat_seccionAtributo](./catalogo/cat_seccionAtributo) - Agrupaciones de atributos
 - [cat_listaPrecio](./catalogo/cat_listaPrecio) - Listas de precios
+- [cat_versionEquipo](./catalogo/cat_versionEquipo) - Versiones de equipos
 
 ### 5. Documentos (doc_*)
 Sistema de gestión documental, órdenes, cotizaciones y flujos de trabajo.
@@ -158,6 +163,65 @@ Gestión de alquileres de equipos.
 - [alq_tipoTarifa](./alquileres/alq_tipoTarifa) - Tipos de tarifa
 - [alq_detalleLiquidacion](./alquileres/alq_detalleLiquidacion) - Detalles de liquidación
 - [alq_historicoAlquiler](./alquileres/alq_historicoAlquiler) - Historial de alquileres
+- [alq_periodoalquiler](./alquileres/alq_periodoalquiler) - Períodos de alquiler
+
+### 13. Despacho (dis_*)
+Gestión de eventos de despacho y obras.
+
+**Tablas principales:**
+- [dis_evento](./despacho/dis_evento) - Eventos de despacho
+- [dis_estadoEvento](./despacho/dis_estadoEvento) - Estados de evento
+- [dis_motivoEvento](./despacho/dis_motivoEvento) - Motivos de evento
+- [dis_metodoDeteccion](./despacho/dis_metodoDeteccion) - Métodos de detección
+- [dis_obra](./despacho/dis_obra) - Obras asociadas a eventos
+
+### 14. Comisiones (com_*)
+Registro de comisiones.
+
+**Tablas principales:**
+- [com_comision](./comisiones/com_comision) - Comisiones generadas
+
+### 15. Gastos (gas_*)
+Gestión de gastos operativos.
+
+**Tablas principales:**
+- [gas_gasto](./gastos/gas_gasto) - Gastos
+- [gas_tipoGasto](./gastos/gas_tipoGasto) - Tipos de gasto
+- [gas_detalleGasto](./gastos/gas_detalleGasto) - Detalle de gastos
+- [gas_documento.ot_detalleGasto](./gastos/gas_documento_ot_detalleGasto) - Gastos en órdenes de trabajo
+
+### 16. Interfaz (gui_*)
+Configuración de la interfaz de usuario.
+
+**Tablas principales:**
+- [gui_funcionalidad](./interfaz/gui_funcionalidad) - Funcionalidades del sistema
+- [gui_tipoFuncionalidad](./interfaz/gui_tipoFuncionalidad) - Tipos de funcionalidad
+- [gui_bloqueHome](./interfaz/gui_bloqueHome) - Bloques del home
+- [gui_ayuda](./interfaz/gui_ayuda) - Textos de ayuda
+- [gui_campoTexto](./interfaz/gui_campoTexto) - Campos de texto configurables
+
+### 17. Geográfico (geo_*)
+Datos geográficos y de ubicación.
+
+**Tablas principales:**
+- [geo_ubicacion](./geografico/geo_ubicacion) - Ubicaciones geográficas
+
+### 18. Reportes (rep_*)
+Configuración del módulo de reportes.
+
+**Tablas principales:**
+- [rep_reporte](./reportes/rep_reporte) - Reportes configurados
+- [rep_categoria](./reportes/rep_categoria) - Categorías de reporte
+- [rep_campoReporte](./reportes/rep_campoReporte) - Campos de reporte
+- [rep_origenDato](./reportes/rep_origenDato) - Orígenes de datos
+- [rep_indicador](./reportes/rep_indicador) - Indicadores
+
+### 19. Taxonomía (tax_*)
+Estructura de taxonomía y clasificación.
+
+**Tablas principales:**
+- [tax_nivelTax](./taxonomia/tax_nivelTax) - Niveles de taxonomía
+- [tax_objetoTax](./taxonomia/tax_objetoTax) - Objetos de taxonomía
 
 ## Convenciones del Esquema
 
@@ -175,6 +239,17 @@ Las tablas siguen el patrón `[módulo]_[entidad]`:
 - `syn_` = Integración (Synchronization)
 - `lic_` = Licencias
 - `alq_` = Alquileres
+- `dis_` = Despacho
+- `com_` = Comisiones
+- `gas_` = Gastos
+- `gui_` = Interfaz
+- `geo_` = Geográfico
+- `rep_` = Reportes
+- `tax_` = Taxonomía
+
+:::note Nomenclatura con punto
+Algunas tablas usan **punto** como separador de subtipo, por ejemplo `cat_catalogo.equipo`. El punto indica que es una especialización del catálogo base (`cat_catalogo`). Los archivos de documentación reemplazan el punto por guión bajo en el nombre del archivo.
+:::
 
 ### Tipos de Datos
 - **INTEGER**: Números enteros, usado para IDs y contadores
@@ -231,7 +306,7 @@ graph TD
     B --> G[cnt_contrato]
     G --> H[cnt_contratoEquipo]
     H --> D
-    D --> I[cat_catalogo_equipo]
+    D --> I[cat_catalogo.equipo]
     I --> J[cat_catalogo]
 ```
 
