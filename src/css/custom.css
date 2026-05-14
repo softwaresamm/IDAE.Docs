@@ -18,11 +18,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   /* Tokens de marca */
-  --idae-purple:  #21104a;
-  --idae-teal:    #0d2b35;
-  --idae-navy:    #003163;
-  --idae-yellow:  #cccd33;
-  --idae-blue:    #336799;
+  --idae-purple: #21104a;
+  --idae-teal: #0d2b35;
+  --idae-navy: #003163;
+  --idae-yellow: #cccd33;
+  --idae-blue: #336799;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -37,10 +37,9 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* ── Navbar: morado corporativo IDAE ──────────────────────────────────────── */
+/* ── Navbar: mismo degradado que el hero ─────────────────────────────────── */
 .navbar {
-  background-color: var(--idae-purple);
-  border-bottom: 3px solid var(--idae-yellow);
+  background: linear-gradient(135deg, var(--idae-purple) 0%, var(--idae-navy) 60%, var(--idae-teal) 100%);
 }
 
 .navbar__title,
@@ -57,9 +56,9 @@
   color: #ffffff;
 }
 
-/* ── Footer ───────────────────────────────────────────────────────────────── */
+/* ── Footer: mismo degradado invertido que el hero ───────────────────────── */
 .footer--dark {
-  background-color: var(--idae-teal);
+  background: linear-gradient(135deg, var(--idae-teal) 0%, var(--idae-navy) 40%, var(--idae-purple) 100%);
 }
 
 /* ── Hero banner (página principal) ──────────────────────────────────────── */
@@ -67,7 +66,19 @@
   background: linear-gradient(135deg, var(--idae-purple) 0%, var(--idae-navy) 60%, var(--idae-teal) 100%);
 }
 
-/* ── Barra de búsqueda ────────────────────────────────────────────────────── */
+/* ── Dark mode: mantener degradado ───────────────────────────────────────── */
 [data-theme='dark'] .navbar {
-  background-color: #160b33;
+  background: linear-gradient(135deg, #2a1560 0%, #00256e 60%, #0d3040 100%);
+}
+
+[data-theme='dark'] .footer--dark {
+  background: linear-gradient(135deg, #0d3040 0%, #00256e 40%, #2a1560 100%);
+  border-top: 2px solid var(--idae-yellow);
+}
+
+/* Separación visual entre tarjetas y footer en dark mode */
+[data-theme='dark'] .features {
+  background-color: #1b1b1d;
+  border-top: 1px solid rgba(204, 205, 51, 0.25);
+  border-bottom: 1px solid rgba(204, 205, 51, 0.25);
 }

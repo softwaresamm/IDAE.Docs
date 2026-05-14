@@ -116,7 +116,7 @@ export default {
           "items": [
             {
               "label": "SAMM Web",
-              "to": "/docs/sammnew"
+              "to": "/docs/category/sammnew"
             },
             {
               "label": "Utilidades - Reportes",

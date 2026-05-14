@@ -43,8 +43,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
+          editUrl: "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
         },
         blog: {
           showReadingTime: true,
@@ -54,8 +53,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
+          editUrl: "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
@@ -107,7 +105,7 @@ const config: Config = {
           items: [
             {
               label: "SAMM Web",
-              to: "/docs/sammnew",
+              to: "/docs/category/sammnew",
             },
             {
               label: "Utilidades - Reportes",
