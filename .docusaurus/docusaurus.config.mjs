@@ -4,8 +4,8 @@
  * Modify the docusaurus.config.js file at your site's root instead.
  */
 export default {
-  "title": "Plataforma de Documentación",
-  "tagline": "IDAE Soluciones",
+  "title": "IDAE Soluciones",
+  "tagline": "Plataforma de Documentación Técnica",
   "favicon": "img/favicon.ico",
   "future": {
     "v4": {
@@ -35,9 +35,9 @@ export default {
   "trailingSlash": false,
   "onBrokenLinks": "throw",
   "i18n": {
-    "defaultLocale": "en",
+    "defaultLocale": "es",
     "locales": [
-      "en"
+      "es"
     ],
     "path": "i18n",
     "localeConfigs": {}
@@ -48,7 +48,7 @@ export default {
       {
         "docs": {
           "sidebarPath": "./sidebars.ts",
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/"
+          "editUrl": "https://github.com/softwaresamm/IDAE.Docs/tree/main/"
         },
         "blog": {
           "showReadingTime": true,
@@ -59,7 +59,7 @@ export default {
             ],
             "xslt": true
           },
-          "editUrl": "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          "editUrl": "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
           "onInlineTags": "warn",
           "onInlineAuthors": "warn",
           "onUntruncatedBlogPosts": "warn"
@@ -78,9 +78,9 @@ export default {
       "disableSwitch": false
     },
     "navbar": {
-      "title": "Samm",
+      "title": "IDAE Soluciones",
       "logo": {
-        "alt": "Samm",
+        "alt": "IDAE Soluciones",
         "src": "img/logo.svg"
       },
       "items": [
@@ -88,15 +88,20 @@ export default {
           "type": "docSidebar",
           "sidebarId": "tutorialSidebar",
           "position": "left",
-          "label": "Productos"
+          "label": "Documentación"
         },
         {
           "to": "/blog",
-          "label": "Blog",
+          "label": "Novedades",
           "position": "left"
         },
         {
-          "href": "https://github.com/facebook/docusaurus",
+          "href": "https://idaesoluciones.com",
+          "label": "idaesoluciones.com",
+          "position": "right"
+        },
+        {
+          "href": "https://github.com/softwaresamm/IDAE.Docs",
           "label": "GitHub",
           "position": "right"
         }
@@ -107,46 +112,50 @@ export default {
       "style": "dark",
       "links": [
         {
-          "title": "Docs",
+          "title": "Productos",
           "items": [
             {
-              "label": "Tutorial",
-              "to": "/docs/intro"
+              "label": "SAMM Web",
+              "to": "/docs/sammnew"
+            },
+            {
+              "label": "Utilidades - Reportes",
+              "to": "/docs/util-reportes"
+            },
+            {
+              "label": "App Técnicos",
+              "to": "/docs/app-tecnicos"
             }
           ]
         },
         {
-          "title": "Community",
+          "title": "IDAE Soluciones",
           "items": [
             {
-              "label": "Stack Overflow",
-              "href": "https://stackoverflow.com/questions/tagged/docusaurus"
+              "label": "Sitio web",
+              "href": "https://idaesoluciones.com"
             },
             {
-              "label": "Discord",
-              "href": "https://discordapp.com/invite/docusaurus"
-            },
-            {
-              "label": "X",
-              "href": "https://x.com/docusaurus"
+              "label": "Contáctenos",
+              "href": "https://idaesoluciones.com/contacto"
             }
           ]
         },
         {
-          "title": "More",
+          "title": "Repositorio",
           "items": [
             {
-              "label": "Blog",
+              "label": "Novedades",
               "to": "/blog"
             },
             {
               "label": "GitHub",
-              "href": "https://github.com/facebook/docusaurus"
+              "href": "https://github.com/softwaresamm/IDAE.Docs"
             }
           ]
         }
       ],
-      "copyright": "Copyright © 2026 My Project, Inc. Built with Docusaurus."
+      "copyright": "Copyright © 2026 IDAE Soluciones S.A.S. Todos los derechos reservados."
     },
     "prism": {
       "theme": {

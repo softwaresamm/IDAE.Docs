@@ -4,27 +4,70 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* ── IDAE Soluciones brand palette ────────────────────────────────────────── */
 :root {
-  --ifm-color-primary: #0a4371;
-  --ifm-color-primary-dark: #093c66;
-  --ifm-color-primary-darker: #083960;
-  --ifm-color-primary-darkest: #072f4f;
-  --ifm-color-primary-light: #0b4a7c;
-  --ifm-color-primary-lighter: #0c4d82;
-  --ifm-color-primary-lightest: #0d5793;
+  /* Primary: azul corporativo IDAE */
+  --ifm-color-primary: #336799;
+  --ifm-color-primary-dark: #2c5986;
+  --ifm-color-primary-darker: #264d73;
+  --ifm-color-primary-darkest: #1f4060;
+  --ifm-color-primary-light: #3973ac;
+  --ifm-color-primary-lighter: #4080bf;
+  --ifm-color-primary-lightest: #5f94c9;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Tokens de marca */
+  --idae-purple:  #21104a;
+  --idae-teal:    #0d2b35;
+  --idae-navy:    #003163;
+  --idae-yellow:  #cccd33;
+  --idae-blue:    #336799;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #4a9fd8;
-  --ifm-color-primary-dark: #328fcc;
-  --ifm-color-primary-darker: #2d86c2;
-  --ifm-color-primary-darkest: #256fa0;
-  --ifm-color-primary-light: #62afe4;
-  --ifm-color-primary-lighter: #6fb8e8;
-  --ifm-color-primary-lightest: #8dc8ed;
+  --ifm-color-primary: #62a0d4;
+  --ifm-color-primary-dark: #4f91cb;
+  --ifm-color-primary-darker: #4589c5;
+  --ifm-color-primary-darkest: #3070ab;
+  --ifm-color-primary-light: #75afdc;
+  --ifm-color-primary-lighter: #82b8e2;
+  --ifm-color-primary-lightest: #9dcaeb;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* ── Navbar: morado corporativo IDAE ──────────────────────────────────────── */
+.navbar {
+  background-color: var(--idae-purple);
+  border-bottom: 3px solid var(--idae-yellow);
+}
+
+.navbar__title,
+.navbar__link,
+.navbar__link:hover {
+  color: #ffffff;
+}
+
+.navbar__link--active {
+  color: var(--idae-yellow);
+}
+
+.navbar__toggle svg {
+  color: #ffffff;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────────────── */
+.footer--dark {
+  background-color: var(--idae-teal);
+}
+
+/* ── Hero banner (página principal) ──────────────────────────────────────── */
+.hero--primary {
+  background: linear-gradient(135deg, var(--idae-purple) 0%, var(--idae-navy) 60%, var(--idae-teal) 100%);
+}
+
+/* ── Barra de búsqueda ────────────────────────────────────────────────────── */
+[data-theme='dark'] .navbar {
+  background-color: #160b33;
 }

@@ -5,52 +5,59 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: ReactNode;
+  link: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'SAMM Web',
+    icon: '🖥️',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        CMMS 100&nbsp;% web para gestión de mantenimiento preventivo y correctivo,
+        activos, órdenes de trabajo y reportes desde cualquier lugar.
       </>
     ),
+    link: '/docs/sammnew',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Utilidades – Reportes',
+    icon: '📊',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Microservicio de generación de reportes sobre SSRS. Parametrización,
+        renderizado y distribución de reportes integrados con SAMM.
       </>
     ),
+    link: '/docs/util-reportes',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'App Técnicos',
+    icon: '📱',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Aplicación offline-first para técnicos de campo. Registro de servicios,
+        captura de firma digital y sincronización automática.
       </>
     ),
+    link: '/docs/app-tecnicos',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, icon, description, link}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+      <div className="text--center" style={{fontSize: '3rem', padding: '1rem 0'}}>
+        {icon}
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
+        <a className="button button--primary button--sm" href={link}>
+          Ver documentación →
+        </a>
       </div>
     </div>
   );

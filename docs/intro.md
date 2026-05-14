@@ -2,46 +2,59 @@
 sidebar_position: 1
 ---
 
-# Versiones
+# Bienvenido a IDAE Docs
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Bienvenido a la **plataforma de documentación técnica de IDAE Soluciones**.  
+Aquí encontrarás guías, referencias y notas de versión de todos nuestros productos.
 
-## Getting Started
+## ¿Qué es IDAE Soluciones?
 
-Get started by **creating a new site**.
+[IDAE Soluciones](https://idaesoluciones.com) desarrolla aplicaciones web y servicios de consultoría
+orientados a la gestión de mantenimiento, inspecciones y operaciones industriales.
+Nuestro producto principal es **SAMM**, un CMMS 100 % web con soporte para campo y firma digital.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+---
 
-### What you'll need
+## Productos documentados
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+### SAMM Web
 
-## Generate a new site
+Software de mantenimiento preventivo y correctivo en la nube.  
+Incluye gestión de activos, órdenes de trabajo, reportes y módulo de técnicos de campo.
 
-Generate a new Docusaurus site using the **classic template**.
+→ [Ver documentación de SAMM Web](/docs/sammnew)
 
-The classic template will automatically be added to your project after you run the command:
+---
 
-```bash
-npm init docusaurus@latest my-website classic
+### Utilidades – Reportes
+
+Microservicio de generación de reportes basado en SQL Server Reporting Services (SSRS).  
+Permite renderizar, parametrizar y distribuir reportes desde cualquier módulo SAMM.
+
+→ [Ver documentación de Utilidades - Reportes](/docs/util-reportes)
+
+---
+
+### App Técnicos
+
+Aplicación offline-first para técnicos de campo.  
+Permite registrar servicios, capturar firmas y sincronizar información sin conexión a internet.
+
+→ [Ver documentación de App Técnicos](/docs/app-tecnicos)
+
+---
+
+## URL pública de esta documentación
+
+```
+https://softwaresamm.github.io/IDAE.Docs/
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+---
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## ¿Cómo contribuir?
 
-## Start your site
+El repositorio de esta documentación se encuentra en GitHub:  
+[github.com/softwaresamm/IDAE.Docs](https://github.com/softwaresamm/IDAE.Docs)
 
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Puedes editar cualquier página usando el enlace **"Editar esta página"** que aparece al pie de cada artículo.

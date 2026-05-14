@@ -5,8 +5,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Plataforma de Documentación",
-  tagline: "IDAE Soluciones",
+  title: "IDAE Soluciones",
+  tagline: "Plataforma de Documentación Técnica",
   favicon: "img/favicon.ico",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -14,10 +14,8 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
+  // URL pública de GitHub Pages
   url: "https://softwaresamm.github.io",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/IDAE.Docs/",
 
   // GitHub pages deployment config.
@@ -33,8 +31,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "es",
+    locales: ["es"],
   },
 
   presets: [
@@ -46,7 +44,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
         },
         blog: {
           showReadingTime: true,
@@ -57,7 +55,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
@@ -71,15 +69,14 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Samm",
+      title: "IDAE Soluciones",
       logo: {
-        alt: "Samm",
+        alt: "IDAE Soluciones",
         src: "img/logo.svg",
       },
       items: [
@@ -87,11 +84,16 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tutorialSidebar",
           position: "left",
-          label: "Productos",
+          label: "Documentación",
         },
-        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/blog", label: "Novedades", position: "left" },
         {
-          href: "https://github.com/facebook/docusaurus",
+          href: "https://idaesoluciones.com",
+          label: "idaesoluciones.com",
+          position: "right",
+        },
+        {
+          href: "https://github.com/softwaresamm/IDAE.Docs",
           label: "GitHub",
           position: "right",
         },
@@ -101,46 +103,50 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Productos",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs/intro",
+              label: "SAMM Web",
+              to: "/docs/sammnew",
+            },
+            {
+              label: "Utilidades - Reportes",
+              to: "/docs/util-reportes",
+            },
+            {
+              label: "App Técnicos",
+              to: "/docs/app-tecnicos",
             },
           ],
         },
         {
-          title: "Community",
+          title: "IDAE Soluciones",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
+              label: "Sitio web",
+              href: "https://idaesoluciones.com",
             },
             {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "X",
-              href: "https://x.com/docusaurus",
+              label: "Contáctenos",
+              href: "https://idaesoluciones.com/contacto",
             },
           ],
         },
         {
-          title: "More",
+          title: "Repositorio",
           items: [
             {
-              label: "Blog",
+              label: "Novedades",
               to: "/blog",
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/softwaresamm/IDAE.Docs",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} IDAE Soluciones S.A.S. Todos los derechos reservados.`,
     },
     prism: {
       theme: prismThemes.github,
