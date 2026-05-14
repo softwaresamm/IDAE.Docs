@@ -22,7 +22,7 @@ Nuestro producto principal es **SAMM**, un CMMS 100 % web con soporte para campo
 Software de mantenimiento preventivo y correctivo en la nube.  
 Incluye gestión de activos, órdenes de trabajo, reportes y módulo de técnicos de campo.
 
-→ [Ver documentación de SAMM Web](/docs/sammnew)
+→ [Ver documentación de SAMM Web](/docs/category/sammnew)
 
 ---
 

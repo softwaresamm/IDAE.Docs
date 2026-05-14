@@ -339,9 +339,7 @@ graph TD
 
 ## Referencias
 
-- [Estructura del Proyecto](/docs/intro)
-- [Guía de Desarrollo](/docs/sammnew/guia-desarrollo)
-- [API Reference](/docs/sammnew/api-reference)
+- [Inicio de documentación](/docs/intro)
 
 ---
 
