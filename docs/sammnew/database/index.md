@@ -33,195 +33,195 @@ SAMM es un sistema de gestión de mantenimiento para operaciones de activos, pos
 Tablas maestras y de configuración del sistema.
 
 **Tablas principales:**
-- [gen_empresa](./general/gen_empresa) - Empresas y entidades organizacionales
-- [gen_bodega](./general/gen_bodega) - Bodegas y almacenes
-- [gen_zona](./general/gen_zona) - Zonas geográficas
-- [gen_moneda](./general/gen_moneda) - Monedas
-- [gen_impuesto](./general/gen_impuesto) - Impuestos y tasas
-- [gen_unidad](./general/gen_unidad) - Unidades de medida
-- [gen_tipoServicio](./general/gen_tipoServicio) - Tipos de servicio
-- [gen_config](./general/gen_config) - Parámetros de configuración del sistema
+- [gen_empresa](./general/gen_empresa.md) - Empresas y entidades organizacionales
+- [gen_bodega](./general/gen_bodega.md) - Bodegas y almacenes
+- [gen_zona](./general/gen_zona.md) - Zonas geográficas
+- [gen_moneda](./general/gen_moneda.md) - Monedas
+- [gen_impuesto](./general/gen_impuesto.md) - Impuestos y tasas
+- [gen_unidad](./general/gen_unidad.md) - Unidades de medida
+- [gen_tipoServicio](./general/gen_tipoServicio.md) - Tipos de servicio
+- [gen_config](./general/gen_config.md) - Parámetros de configuración del sistema
 
 ### 2. Equipos (equ_*)
 Gestión completa del ciclo de vida de equipos y activos.
 
 **Tablas principales:**
-- [equ_equipo](./equipos/equ_equipo) - Equipos (serial, ubicación, garantía, horómetro, costo)
-- [equ_estadoEquipo](./equipos/equ_estadoEquipo) - Estados de equipos (activo, inactivo, mantenimiento)
-- [equ_equipoAtributo](./equipos/equ_equipoAtributo) - Atributos personalizados de equipos
-- [equ_falla](./equipos/equ_falla) - Registro de fallas
-- [equ_tipoFalla](./equipos/equ_tipoFalla) - Catálogo de tipos de falla
-- [equ_prestamo](./equipos/equ_prestamo) - Préstamos de equipos
-- [equ_alquiler](./equipos/equ_alquiler) - Alquileres de equipos
-- [equ_overhall](./equipos/equ_overhall) - Mantenimientos mayores
+- [equ_equipo](./equipos/equ_equipo.md) - Equipos (serial, ubicación, garantía, horómetro, costo)
+- [equ_estadoEquipo](./equipos/equ_estadoEquipo.md) - Estados de equipos (activo, inactivo, mantenimiento)
+- [equ_equipoAtributo](./equipos/equ_equipoAtributo.md) - Atributos personalizados de equipos
+- [equ_falla](./equipos/equ_falla.md) - Registro de fallas
+- [equ_tipoFalla](./equipos/equ_tipoFalla.md) - Catálogo de tipos de falla
+- [equ_prestamo](./equipos/equ_prestamo.md) - Préstamos de equipos
+- [equ_alquiler](./equipos/equ_alquiler.md) - Alquileres de equipos
+- [equ_overhall](./equipos/equ_overhall.md) - Mantenimientos mayores
 
 ### 3. Contratos (cnt_*)
 Administración de contratos de servicio y mantenimiento.
 
 **Tablas principales:**
-- [cnt_contrato](./contratos/cnt_contrato) - Contratos (fechas, montos, condiciones)
-- [cnt_tipoContrato](./contratos/cnt_tipoContrato) - Tipos de contrato
-- [cnt_contratoEquipo](./contratos/cnt_contratoEquipo) - Equipos asociados a contratos
-- [cnt_visitaFija](./contratos/cnt_visitaFija) - Programación de visitas fijas
-- [cnt_periodoContrato](./contratos/cnt_periodoContrato) - Períodos de facturación
-- [cnt_pagosContrato](./contratos/cnt_pagosContrato) - Pagos de contratos
-- [cnt_tiempoRespuesta](./contratos/cnt_tiempoRespuesta) - SLAs de tiempo de respuesta
+- [cnt_contrato](./contratos/cnt_contrato.md) - Contratos (fechas, montos, condiciones)
+- [cnt_tipoContrato](./contratos/cnt_tipoContrato.md) - Tipos de contrato
+- [cnt_contratoEquipo](./contratos/cnt_contratoEquipo.md) - Equipos asociados a contratos
+- [cnt_visitaFija](./contratos/cnt_visitaFija.md) - Programación de visitas fijas
+- [cnt_periodoContrato](./contratos/cnt_periodoContrato.md) - Períodos de facturación
+- [cnt_pagosContrato](./contratos/cnt_pagosContrato.md) - Pagos de contratos
+- [cnt_tiempoRespuesta](./contratos/cnt_tiempoRespuesta.md) - SLAs de tiempo de respuesta
 
 ### 4. Catálogo (cat_*)
 Catálogo maestro de productos, repuestos, equipos y servicios.
 
 **Tablas principales:**
-- [cat_catalogo](./catalogo/cat_catalogo) - Catálogo maestro de items
-- [cat_tipoCatalogo](./catalogo/cat_tipoCatalogo) - Tipos de catálogo (equipo, repuesto, servicio)
-- [cat_catalogo.equipo](./catalogo/cat_catalogo_equipo) - Catálogo de equipos
-- [cat_catalogo.actividad](./catalogo/cat_catalogo_actividad) - Actividades del catálogo
-- [cat_catalogo.repuesto](./catalogo/cat_catalogo_repuesto) - Repuestos del catálogo
-- [cat_catalogo.tempario](./catalogo/cat_catalogo_tempario) - Temparios del catálogo
-- [cat_marca](./catalogo/cat_marca) - Marcas y fabricantes
-- [cat_sistema](./catalogo/cat_sistema) - Sistemas de equipos
-- [cat_atributo](./catalogo/cat_atributo) - Definiciones de atributos dinámicos
-- [cat_seccionAtributo](./catalogo/cat_seccionAtributo) - Agrupaciones de atributos
-- [cat_listaPrecio](./catalogo/cat_listaPrecio) - Listas de precios
-- [cat_versionEquipo](./catalogo/cat_versionEquipo) - Versiones de equipos
+- [cat_catalogo](./catalogo/cat_catalogo.md) - Catálogo maestro de items
+- [cat_tipoCatalogo](./catalogo/cat_tipoCatalogo.md) - Tipos de catálogo (equipo, repuesto, servicio)
+- [cat_catalogo.equipo](./catalogo/cat_catalogo_equipo.md) - Catálogo de equipos
+- [cat_catalogo.actividad](./catalogo/cat_catalogo_actividad.md) - Actividades del catálogo
+- [cat_catalogo.repuesto](./catalogo/cat_catalogo_repuesto.md) - Repuestos del catálogo
+- [cat_catalogo.tempario](./catalogo/cat_catalogo_tempario.md) - Temparios del catálogo
+- [cat_marca](./catalogo/cat_marca.md) - Marcas y fabricantes
+- [cat_sistema](./catalogo/cat_sistema.md) - Sistemas de equipos
+- [cat_atributo](./catalogo/cat_atributo.md) - Definiciones de atributos dinámicos
+- [cat_seccionAtributo](./catalogo/cat_seccionAtributo.md) - Agrupaciones de atributos
+- [cat_listaPrecio](./catalogo/cat_listaPrecio.md) - Listas de precios
+- [cat_versionEquipo](./catalogo/cat_versionEquipo.md) - Versiones de equipos
 
 ### 5. Documentos (doc_*)
 Sistema de gestión documental, órdenes, cotizaciones y flujos de trabajo.
 
 **Tablas principales:**
-- [doc_documento](./documentos/doc_documento) - Documentos maestros (facturas, OT, cotizaciones)
-- [doc_tipoDocumento](./documentos/doc_tipoDocumento) - Tipos de documento
-- [doc_subtipoDocumento](./documentos/doc_subtipoDocumento) - Subtipos de documento
-- [doc_itemDocumento](./documentos/doc_itemDocumento) - Líneas de documento
-- [doc_estadoTipoDocumento](./documentos/doc_estadoTipoDocumento) - Estados por tipo de documento
-- [doc_flujoDocumento](./documentos/doc_flujoDocumento) - Flujos de trabajo
-- [doc_pendienteDocumento](./documentos/doc_pendienteDocumento) - Tareas pendientes
+- [doc_documento](./documentos/doc_documento.md) - Documentos maestros (facturas, OT, cotizaciones)
+- [doc_tipoDocumento](./documentos/doc_tipoDocumento.md) - Tipos de documento
+- [doc_subtipoDocumento](./documentos/doc_subtipoDocumento.md) - Subtipos de documento
+- [doc_itemDocumento](./documentos/doc_itemDocumento.md) - Líneas de documento
+- [doc_estadoTipoDocumento](./documentos/doc_estadoTipoDocumento.md) - Estados por tipo de documento
+- [doc_flujoDocumento](./documentos/doc_flujoDocumento.md) - Flujos de trabajo
+- [doc_pendienteDocumento](./documentos/doc_pendienteDocumento.md) - Tareas pendientes
 
 ### 6. Terceros (ter_*)
 Gestión de clientes, proveedores y contactos.
 
 **Tablas principales:**
-- [ter_tercero](./terceros/ter_tercero) - Terceros (clientes, proveedores, fabricantes)
-- [ter_naturalezaTercero](./terceros/ter_naturalezaTercero) - Tipos de tercero (persona, empresa)
-- [ter_sucursal](./terceros/ter_sucursal) - Sucursales y locaciones
-- [ter_contacto](./terceros/ter_contacto) - Contactos
-- [ter_cargoContacto](./terceros/ter_cargoContacto) - Cargos de contactos
-- [ter_estadoTercero](./terceros/ter_estadoTercero) - Estados de terceros
+- [ter_tercero](./terceros/ter_tercero.md) - Terceros (clientes, proveedores, fabricantes)
+- [ter_naturalezaTercero](./terceros/ter_naturalezaTercero.md) - Tipos de tercero (persona, empresa)
+- [ter_sucursal](./terceros/ter_sucursal.md) - Sucursales y locaciones
+- [ter_contacto](./terceros/ter_contacto.md) - Contactos
+- [ter_cargoContacto](./terceros/ter_cargoContacto.md) - Cargos de contactos
+- [ter_estadoTercero](./terceros/ter_estadoTercero.md) - Estados de terceros
 
 ### 7. Órdenes de Trabajo (ort_*)
 Programación y ejecución de órdenes de servicio.
 
 **Tablas principales:**
-- [ort_programacion](./ordenes/ort_programacion) - Programación de trabajos
-- [ort_tipoProgramacion](./ordenes/ort_tipoProgramacion) - Tipos de programación
-- [ort_reporteTecnico](./ordenes/ort_reporteTecnico) - Reportes técnicos de ejecución
-- [ort_canalAtencion](./ordenes/ort_canalAtencion) - Canales de solicitud de servicio
-- [ort_departamentoSolicitud](./ordenes/ort_departamentoSolicitud) - Departamentos solicitantes
-- [ort_vale](./ordenes/ort_vale) - Vales de trabajo
+- [ort_programacion](./ordenes/ort_programacion.md) - Programación de trabajos
+- [ort_tipoProgramacion](./ordenes/ort_tipoProgramacion.md) - Tipos de programación
+- [ort_reporteTecnico](./ordenes/ort_reporteTecnico.md) - Reportes técnicos de ejecución
+- [ort_canalAtencion](./ordenes/ort_canalAtencion.md) - Canales de solicitud de servicio
+- [ort_departamentoSolicitud](./ordenes/ort_departamentoSolicitud.md) - Departamentos solicitantes
+- [ort_vale](./ordenes/ort_vale.md) - Vales de trabajo
 
 ### 8. Seguridad (seg_*)
 Control de acceso, usuarios y perfiles.
 
 **Tablas principales:**
-- [seg_usuario](./seguridad/seg_usuario) - Usuarios del sistema
-- [seg_perfil](./seguridad/seg_perfil) - Perfiles y roles
-- [seg_cargo](./seguridad/seg_cargo) - Cargos laborales
-- [seg_grupo](./seguridad/seg_grupo) - Grupos de usuarios
-- [seg_sesion](./seguridad/seg_sesion) - Sesiones activas
+- [seg_usuario](./seguridad/seg_usuario.md) - Usuarios del sistema
+- [seg_perfil](./seguridad/seg_perfil.md) - Perfiles y roles
+- [seg_cargo](./seguridad/seg_cargo.md) - Cargos laborales
+- [seg_grupo](./seguridad/seg_grupo.md) - Grupos de usuarios
+- [seg_sesion](./seguridad/seg_sesion.md) - Sesiones activas
 
 ### 9. Proyectos (pro_*)
 Gestión de proyectos y actividades.
 
 **Tablas principales:**
-- [pro_actividad](./proyectos/pro_actividad) - Actividades de proyecto
-- [pro_etapa](./proyectos/pro_etapa) - Etapas de proyecto
-- [pro_entregable](./proyectos/pro_entregable) - Entregables
-- [pro_recursoFisico](./proyectos/pro_recursoFisico) - Recursos físicos asignados
-- [pro_ejecutores](./proyectos/pro_ejecutores) - Miembros del equipo
-- [pro_hito](./proyectos/pro_hito) - Hitos del proyecto
+- [pro_actividad](./proyectos/pro_actividad.md) - Actividades de proyecto
+- [pro_etapa](./proyectos/pro_etapa.md) - Etapas de proyecto
+- [pro_entregable](./proyectos/pro_entregable.md) - Entregables
+- [pro_recursoFisico](./proyectos/pro_recursoFisico.md) - Recursos físicos asignados
+- [pro_ejecutores](./proyectos/pro_ejecutores.md) - Miembros del equipo
+- [pro_hito](./proyectos/pro_hito.md) - Hitos del proyecto
 
 ### 10. Integración (syn_*)
 Sincronización e integración con sistemas externos.
 
 **Tablas principales:**
-- [syn_puntoIntegracion](./integracion/syn_puntoIntegracion) - Puntos de integración/endpoints
-- [syn_sistemaIntegrar](./integracion/syn_sistemaIntegrar) - Sistemas a integrar
-- [syn_tipoAutenticacion](./integracion/syn_tipoAutenticacion) - Métodos de autenticación
+- [syn_puntoIntegracion](./integracion/syn_puntoIntegracion.md) - Puntos de integración/endpoints
+- [syn_sistemaIntegrar](./integracion/syn_sistemaIntegrar.md) - Sistemas a integrar
+- [syn_tipoAutenticacion](./integracion/syn_tipoAutenticacion.md) - Métodos de autenticación
 
 ### 11. Licencias (lic_*)
 Gestión de licencias y parámetros del sistema.
 
 **Tablas principales:**
-- [lic_licencia](./licencias/lic_licencia) - Licencias
-- [lic_parametro](./licencias/lic_parametro) - Parámetros de licencia
-- [lic_licencia_parametro](./licencias/lic_licencia_parametro) - Valores de parámetros
+- [lic_licencia](./licencias/lic_licencia.md) - Licencias
+- [lic_parametro](./licencias/lic_parametro.md) - Parámetros de licencia
+- [lic_licencia_parametro](./licencias/lic_licencia_parametro.md) - Valores de parámetros
 
 ### 12. Alquileres (alq_*)
 Gestión de alquileres de equipos.
 
 **Tablas principales:**
-- [alq_tarifa](./alquileres/alq_tarifa) - Tarifas de alquiler
-- [alq_tipoTarifa](./alquileres/alq_tipoTarifa) - Tipos de tarifa
-- [alq_detalleLiquidacion](./alquileres/alq_detalleLiquidacion) - Detalles de liquidación
-- [alq_historicoAlquiler](./alquileres/alq_historicoAlquiler) - Historial de alquileres
-- [alq_periodoalquiler](./alquileres/alq_periodoalquiler) - Períodos de alquiler
+- [alq_tarifa](./alquileres/alq_tarifa.md) - Tarifas de alquiler
+- [alq_tipoTarifa](./alquileres/alq_tipoTarifa.md) - Tipos de tarifa
+- [alq_detalleLiquidacion](./alquileres/alq_detalleLiquidacion.md) - Detalles de liquidación
+- [alq_historicoAlquiler](./alquileres/alq_historicoAlquiler.md) - Historial de alquileres
+- [alq_periodoalquiler](./alquileres/alq_periodoalquiler.md) - Períodos de alquiler
 
 ### 13. Despacho (dis_*)
 Gestión de eventos y obras.
 
 **Tablas principales:**
-- [dis_evento](./despacho/dis_evento) - Eventos
-- [dis_estadoEvento](./despacho/dis_estadoEvento) - Estados de evento
-- [dis_motivoEvento](./despacho/dis_motivoEvento) - Motivos de evento
-- [dis_metodoDeteccion](./despacho/dis_metodoDeteccion) - Métodos de detección
-- [dis_obra](./despacho/dis_obra) - Obras asociadas a eventos
+- [dis_evento](./despacho/dis_evento.md) - Eventos
+- [dis_estadoEvento](./despacho/dis_estadoEvento.md) - Estados de evento
+- [dis_motivoEvento](./despacho/dis_motivoEvento.md) - Motivos de evento
+- [dis_metodoDeteccion](./despacho/dis_metodoDeteccion.md) - Métodos de detección
+- [dis_obra](./despacho/dis_obra.md) - Obras asociadas a eventos
 
 ### 14. Comisiones (com_*)
 Registro de comisiones.
 
 **Tablas principales:**
-- [com_comision](./comisiones/com_comision) - Comisiones generadas
+- [com_comision](./comisiones/com_comision.md) - Comisiones generadas
 
 ### 15. Gastos (gas_*)
 Gestión de gastos operativos.
 
 **Tablas principales:**
-- [gas_gasto](./gastos/gas_gasto) - Gastos
-- [gas_tipoGasto](./gastos/gas_tipoGasto) - Tipos de gasto
-- [gas_detalleGasto](./gastos/gas_detalleGasto) - Detalle de gastos
-- [gas_documento.ot_detalleGasto](./gastos/gas_documento_ot_detalleGasto) - Gastos en órdenes de trabajo
+- [gas_gasto](./gastos/gas_gasto.md) - Gastos
+- [gas_tipoGasto](./gastos/gas_tipoGasto.md) - Tipos de gasto
+- [gas_detalleGasto](./gastos/gas_detalleGasto.md) - Detalle de gastos
+- [gas_documento.ot_detalleGasto](./gastos/gas_documento_ot_detalleGasto.md) - Gastos en órdenes de trabajo
 
 ### 16. Interfaz (gui_*)
 Configuración de la interfaz de usuario.
 
 **Tablas principales:**
-- [gui_funcionalidad](./interfaz/gui_funcionalidad) - Funcionalidades del sistema
-- [gui_tipoFuncionalidad](./interfaz/gui_tipoFuncionalidad) - Tipos de funcionalidad
-- [gui_bloqueHome](./interfaz/gui_bloqueHome) - Bloques del home
-- [gui_ayuda](./interfaz/gui_ayuda) - Textos de ayuda
-- [gui_campoTexto](./interfaz/gui_campoTexto) - Campos de texto configurables
+- [gui_funcionalidad](./interfaz/gui_funcionalidad.md) - Funcionalidades del sistema
+- [gui_tipoFuncionalidad](./interfaz/gui_tipoFuncionalidad.md) - Tipos de funcionalidad
+- [gui_bloqueHome](./interfaz/gui_bloqueHome.md) - Bloques del home
+- [gui_ayuda](./interfaz/gui_ayuda.md) - Textos de ayuda
+- [gui_campoTexto](./interfaz/gui_campoTexto.md) - Campos de texto configurables
 
 ### 17. Geográfico (geo_*)
 Datos geográficos y de ubicación.
 
 **Tablas principales:**
-- [geo_ubicacion](./geografico/geo_ubicacion) - Ubicaciones geográficas
+- [geo_ubicacion](./geografico/geo_ubicacion.md) - Ubicaciones geográficas
 
 ### 18. Reportes (rep_*)
 Configuración del módulo de reportes.
 
 **Tablas principales:**
-- [rep_reporte](./reportes/rep_reporte) - Reportes configurados
-- [rep_categoria](./reportes/rep_categoria) - Categorías de reporte
-- [rep_campoReporte](./reportes/rep_campoReporte) - Campos de reporte
-- [rep_origenDato](./reportes/rep_origenDato) - Orígenes de datos
-- [rep_indicador](./reportes/rep_indicador) - Indicadores
+- [rep_reporte](./reportes/rep_reporte.md) - Reportes configurados
+- [rep_categoria](./reportes/rep_categoria.md) - Categorías de reporte
+- [rep_campoReporte](./reportes/rep_campoReporte.md) - Campos de reporte
+- [rep_origenDato](./reportes/rep_origenDato.md) - Orígenes de datos
+- [rep_indicador](./reportes/rep_indicador.md) - Indicadores
 
 ### 19. Taxonomía (tax_*)
 Estructura de taxonomía y clasificación.
 
 **Tablas principales:**
-- [tax_nivelTax](./taxonomia/tax_nivelTax) - Niveles de taxonomía
-- [tax_objetoTax](./taxonomia/tax_objetoTax) - Objetos de taxonomía
+- [tax_nivelTax](./taxonomia/tax_nivelTax.md) - Niveles de taxonomía
+- [tax_objetoTax](./taxonomia/tax_objetoTax.md) - Objetos de taxonomía
 
 ## Convenciones del Esquema
 
