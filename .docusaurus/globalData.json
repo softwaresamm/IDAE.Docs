@@ -41,6 +41,1361 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "sammnew/database/alquileres/alq_detallealquiler_itemdocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_detallealquiler_itemdocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/alquileres/alq_detalleLiquidacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_detalleLiquidacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/alquileres/alq_historicoAlquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_historicoAlquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/alquileres/alq_tarifa",
+              "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_tarifa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/alquileres/alq_tipoTarifa",
+              "path": "/IDAE.Docs/docs/sammnew/database/alquileres/alq_tipoTarifa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_atributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_atributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_atributo_opcionAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_atributo_opcionAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_actividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_actividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_bodega",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_bodega",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_equipo_atributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_equipo_atributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_equipo_catalogo_tempario",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_equipo_catalogo_tempario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_equipo_pruebaCheckList",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_equipo_pruebaCheckList",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_listaPrecio",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_listaPrecio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_otro",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_otro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_producto",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_producto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_repuesto",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_repuesto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_catalogo_tempario",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_catalogo_tempario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_detalleRepuesto",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_detalleRepuesto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_detalleTempario",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_detalleTempario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_dimension",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_dimension",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_listaPrecio",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_listaPrecio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_marca",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_marca",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_posicion",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_posicion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_pruebaCheckList",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_pruebaCheckList",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_pruebaCheckList_atributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_pruebaCheckList_atributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_reemplazo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_reemplazo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_reemplazo_catalogo_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_reemplazo_catalogo_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_seccionAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_seccionAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_sistema",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_sistema",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_sistema_catalogo_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_sistema_catalogo_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_soporteActividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_soporteActividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_subtipoCatalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_subtipoCatalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_tarifa",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_tarifa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_tarifaCatalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_tarifaCatalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_tarifaRango",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_tarifaRango",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_tipoCatalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_tipoCatalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_tipoCatalogo_listaPrecio",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_tipoCatalogo_listaPrecio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_tipoReemplazo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_tipoReemplazo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_usoSeccionAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_usoSeccionAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_versionEquipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_versionEquipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/catalogo/cat_versionEquipo_detalleTempario",
+              "path": "/IDAE.Docs/docs/sammnew/database/catalogo/cat_versionEquipo_detalleTempario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/comisiones/com_comision",
+              "path": "/IDAE.Docs/docs/sammnew/database/comisiones/com_comision",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_configContrato",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_configContrato",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contrato",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contrato",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contrato_catalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contrato_catalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contrato_sucursal",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contrato_sucursal",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contrato_tipoServicio",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contrato_tipoServicio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contrato_zona",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contrato_zona",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contratoDetalleVisita",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contratoDetalleVisita",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_contratoEquipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_contratoEquipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_corrimientoVisitaFija",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_corrimientoVisitaFija",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_pagosContrato",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_pagosContrato",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_periodoContrato",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_periodoContrato",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_tiempoRespuesta",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_tiempoRespuesta",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_tipoContrato",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_tipoContrato",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_visitaFija",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_visitaFija",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/contratos/cnt_visitaFija_catalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/contratos/cnt_visitaFija_catalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_estadoEvento",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_estadoEvento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_evento",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_evento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_evento_catalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_evento_catalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_evento_estadoEvento",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_evento_estadoEvento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_metodoDeteccion",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_metodoDeteccion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_motivoEvento",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_motivoEvento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_obra",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_obra",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_obra_catalogo",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_obra_catalogo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/despacho/dis_obra_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/despacho/dis_obra_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_centroCosto",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_centroCosto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_condicion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_condicion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_costeo",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_costeo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_alquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_alquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_catalogo_tempario",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_catalogo_tempario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_contacto",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_contacto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_cotizacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_cotizacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_cotizacion_condicion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_cotizacion_condicion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_entrada",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_entrada",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_estadoTipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_estadoTipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_evaluacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_evaluacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_gasto",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_gasto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_opcionRespuesta",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_opcionRespuesta",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_ordenCompra",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_ordenCompra",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_ot",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_ot",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_ot_centroCosto",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_ot_centroCosto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_ot_pruebaCheckList",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_ot_pruebaCheckList",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto_calidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_calidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto_ejecutores",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_ejecutores",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto_entregable",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_entregable",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto_etapa",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_etapa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto_recursoFisico",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_recursoFisico",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_proyecto_sucursal",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_proyecto_sucursal",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_requisicion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_requisicion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_salida",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_salida",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_solicitud",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_solicitud",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documento_traslado",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documento_traslado",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documentoAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documentoAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_documentoComentario",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_documentoComentario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_estadoTipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_estadoTipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_estadoTipoDocumento_perfil",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_estadoTipoDocumento_perfil",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_estadoTipoDocumento_subtipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_estadoTipoDocumento_subtipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_estrategiaPrioridad",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_estrategiaPrioridad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_evaluacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_evaluacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_flujoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_flujoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_formaPago",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_formaPago",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_incoterm",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_incoterm",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_itemDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_itemDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_medioSolicitud",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_medioSolicitud",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_motivoestado",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_motivoestado",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_opcionCondicion",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_opcionCondicion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_opcionRespuesta",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_opcionRespuesta",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_pendienteDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_pendienteDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_pendienteDocumento_doc_itemDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_pendienteDocumento_doc_itemDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_pregunta",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_pregunta",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_prioridadDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_prioridadDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_prioridadSubtipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_prioridadSubtipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_soporteItemDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_soporteItemDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_subtipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_subtipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_subtipoDocumento_atributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_subtipoDocumento_atributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_subtipoLectura",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_subtipoLectura",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_tarea",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_tarea",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_tipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_tipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/documentos/doc_tipoPendiente",
+              "path": "/IDAE.Docs/docs/sammnew/database/documentos/doc_tipoPendiente",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_alquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_alquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_analisisFalla",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_analisisFalla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_campana",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_campana",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_campana_documento_OT",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_campana_documento_OT",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_cicloHorometro",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_cicloHorometro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_detalleAlquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_detalleAlquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_detallePagoAlquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_detallePagoAlquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_equipo_itemDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_equipo_itemDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_equipoAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_equipoAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_estadoEquipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_estadoEquipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_estadoPrestamo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_estadoPrestamo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_falla",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_falla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_familia_falla",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_familia_falla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_opcionAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_opcionAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_opcionAtributoDependiente",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_opcionAtributoDependiente",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_overhall",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_overhall",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_pagoAlquiler",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_pagoAlquiler",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_prestamo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_prestamo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_prestamo_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_prestamo_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_tipoAtributo",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_tipoAtributo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_tipoFalla",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_tipoFalla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_tipoTrazabilidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_tipoTrazabilidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/equipos/equ_trazabilidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/equipos/equ_trazabilidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/gastos/gas_detalleGasto",
+              "path": "/IDAE.Docs/docs/sammnew/database/gastos/gas_detalleGasto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/gastos/gas_documento_ot_detalleGasto",
+              "path": "/IDAE.Docs/docs/sammnew/database/gastos/gas_documento_ot_detalleGasto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/gastos/gas_gasto",
+              "path": "/IDAE.Docs/docs/sammnew/database/gastos/gas_gasto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/gastos/gas_tipoGasto",
+              "path": "/IDAE.Docs/docs/sammnew/database/gastos/gas_tipoGasto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_accesosSamm",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_accesosSamm",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_archivo",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_archivo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_bodega",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_bodega",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_bodega_usuario",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_bodega_usuario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_config",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_config",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_configuracionServicio",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_configuracionServicio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_detalleRegistroEnvio",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_detalleRegistroEnvio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_diaFestivo",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_diaFestivo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_empresa",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_empresa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_envioCorreo",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_envioCorreo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_familia",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_familia",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_firma",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_firma",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_firmaContacto",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_firmaContacto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_impuesto",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_impuesto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_localizacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_localizacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_localizacion_itemDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_localizacion_itemDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_moneda",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_moneda",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_presupuestoEmpresa",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_presupuestoEmpresa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_registroEnvio",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_registroEnvio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_remitenteCorreo",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_remitenteCorreo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_tipoArchivo",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_tipoArchivo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_tipoServicio",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_tipoServicio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_unidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_unidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/general/gen_zona",
+              "path": "/IDAE.Docs/docs/sammnew/database/general/gen_zona",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/geografico/geo_ubicacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/geografico/geo_ubicacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/index",
+              "path": "/IDAE.Docs/docs/sammnew/database/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/integracion/syn_campoIntegracion",
+              "path": "/IDAE.Docs/docs/sammnew/database/integracion/syn_campoIntegracion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/integracion/syn_puntoIntegracion",
+              "path": "/IDAE.Docs/docs/sammnew/database/integracion/syn_puntoIntegracion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/integracion/syn_puntoIntegracion_estadoTipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/integracion/syn_puntoIntegracion_estadoTipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/integracion/syn_puntoIntegracionTabla",
+              "path": "/IDAE.Docs/docs/sammnew/database/integracion/syn_puntoIntegracionTabla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/integracion/syn_sistemaIntegrar",
+              "path": "/IDAE.Docs/docs/sammnew/database/integracion/syn_sistemaIntegrar",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/integracion/syn_tipoAutenticacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/integracion/syn_tipoAutenticacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_aplicacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_aplicacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_ayuda",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_ayuda",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_bloqueHome",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_bloqueHome",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_campoTexto",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_campoTexto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_detalleBloqueHome",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_detalleBloqueHome",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_funcionalidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_funcionalidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_textoDefecto",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_textoDefecto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/interfaz/gui_tipoFuncionalidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/interfaz/gui_tipoFuncionalidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/licencias/lic_catalogo_parametro",
+              "path": "/IDAE.Docs/docs/sammnew/database/licencias/lic_catalogo_parametro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/licencias/lic_licencia",
+              "path": "/IDAE.Docs/docs/sammnew/database/licencias/lic_licencia",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/licencias/lic_licencia_parametro",
+              "path": "/IDAE.Docs/docs/sammnew/database/licencias/lic_licencia_parametro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/licencias/lic_parametro",
+              "path": "/IDAE.Docs/docs/sammnew/database/licencias/lic_parametro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_canalAtencion",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_canalAtencion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_departamentoSolicitud",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_departamentoSolicitud",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_motivoCancelacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_motivoCancelacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_programacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_programacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_programacionHistorico",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_programacionHistorico",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_reporteTecnico",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_reporteTecnico",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_reporteTecnico_falla",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_reporteTecnico_falla",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_reporteTecnico_ot",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_reporteTecnico_ot",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_tipoProgramacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_tipoProgramacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_tipoProgramacion_motivoCancelacion",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_tipoProgramacion_motivoCancelacion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/ordenes/ort_vale",
+              "path": "/IDAE.Docs/docs/sammnew/database/ordenes/ort_vale",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_calidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_calidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_ejecutor",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_ejecutor",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_etapa",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_etapa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_factorexito",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_factorexito",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_hito",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_hito",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_predecesora",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_predecesora",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividad_recursoFisico",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividad_recursoFisico",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_actividadPredecesora",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_actividadPredecesora",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_calidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_calidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_ejecutor_archivo",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutor_archivo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_ejecutores",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutores",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_ejecutores_archivo",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_ejecutores_archivo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_entregable",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_entregable",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_etapa",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_etapa",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_etapa_actividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_etapa_actividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_factorexito",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_factorexito",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_GrupoSesion",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_GrupoSesion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_hito",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_hito",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_horarioProyecto",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_horarioProyecto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_presupuesto",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_presupuesto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_recursoFisico",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_recursoFisico",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_reporteActividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_reporteActividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_rol",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_rol",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_rol_contacto",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_rol_contacto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/proyectos/pro_SesionActividad",
+              "path": "/IDAE.Docs/docs/sammnew/database/proyectos/pro_SesionActividad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_campoReporte",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_campoReporte",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_campoReporteDependiente",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_campoReporteDependiente",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_categoria",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_categoria",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_indicador",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_indicador",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_opcionReporte",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_opcionReporte",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_origenDato",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_origenDato",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_reporte",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_reporte",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_reporte_categoria",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_reporte_categoria",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/reportes/rep_tipoCampoReporte",
+              "path": "/IDAE.Docs/docs/sammnew/database/reportes/rep_tipoCampoReporte",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_cargo",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_cargo_envioCorreo",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_cargo_envioCorreo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_grupo",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_grupo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_perfil",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_perfil",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_perfil_bloqueHome",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_perfil_bloqueHome",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_perfil_funcionalidad",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_perfil_funcionalidad",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_perfil_subtipoDocumento",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_perfil_subtipoDocumento",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_perfil_tercero",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_perfil_tercero",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_registroIntegracion",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_registroIntegracion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_registroPeticion",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_registroPeticion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_sesion",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_sesion",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_usuario",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_usuario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/seguridad/seg_usuario_catalogo_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/seguridad/seg_usuario_catalogo_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/taxonomia/tax_nivelTax",
+              "path": "/IDAE.Docs/docs/sammnew/database/taxonomia/tax_nivelTax",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/taxonomia/tax_objetoTax",
+              "path": "/IDAE.Docs/docs/sammnew/database/taxonomia/tax_objetoTax",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_cargoContacto",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_cargoContacto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_contacto",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_contacto",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_contacto_equipo",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_contacto_equipo",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_contacto_sucursal",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_contacto_sucursal",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_estadoTercero",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_estadoTercero",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_naturalezaTercero",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_naturalezaTercero",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_sector",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_sector",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_sucursal",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_sucursal",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_sucursal_listaprecio",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_sucursal_listaprecio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_sucursal_usuario",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_sucursal_usuario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_tercero",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_tercero",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_tercero_listaprecio",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_tercero_listaprecio",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_tercero_sector",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_tercero_sector",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "sammnew/database/terceros/ter_tercero_usuario",
+              "path": "/IDAE.Docs/docs/sammnew/database/terceros/ter_tercero_usuario",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "sammnew/incoterm-in-tab-detail",
               "path": "/IDAE.Docs/docs/sammnew/incoterm-in-tab-detail",
               "sidebar": "tutorialSidebar"

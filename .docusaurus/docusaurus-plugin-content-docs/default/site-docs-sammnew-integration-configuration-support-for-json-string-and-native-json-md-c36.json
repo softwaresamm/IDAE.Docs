@@ -19,8 +19,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Visualización de Report services",
-    "permalink": "/IDAE.Docs/docs/sammnew/Visualization-of-reports-component-report-services"
+    "title": "tax_objetoTax",
+    "permalink": "/IDAE.Docs/docs/sammnew/database/taxonomia/tax_objetoTax"
   },
   "next": {
     "title": "Validar mensaje por ausencia de cambios de estado en matriz según parámetro gen_config",

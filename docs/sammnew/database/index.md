@@ -191,8 +191,12 @@ Todas las tablas incluyen estos campos:
 |-------|------|-------------|
 | `id` | INTEGER | Clave primaria, auto-incremental |
 | `active` | BIT | Indica si el registro está activo (soft delete) |
-| `uid` | VARCHAR | User ID - Usuario que creó/modificó el registro |
-| `eid` | VARCHAR | Entity ID - ID de entidad para auditoría |
+| `id_usuario_creo` | INTEGER | ID del usuario que creó el registro |
+| `id_usuario_modifico` | INTEGER | ID del usuario que modificó el registro |
+| `fechaCreacion` | DATETIME | Fecha y hora de creación del registro |
+| `fechaModificacion` | DATETIME | Fecha y hora de última modificación |
+| `uid` | VARCHAR | User ID - Control multiempresa |
+| `eid` | VARCHAR | Entity ID - Control multiempresa |
 
 ### Campos de Relación
 - Los campos que comienzan con `id_` son claves foráneas

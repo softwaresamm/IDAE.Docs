@@ -28,11 +28,15 @@ Tabla para gestionar dimension en el sistema SAMM.
 
 ### Columnas Estándar
 
-Todas las tablas incluyen estos campos de auditoría:
+Todas las tablas incluyen estos campos:
 - **id**: Clave primaria auto-incremental
 - **active**: Indicador de registro activo (soft delete)
-- **uid**: User ID del usuario que creó/modificó
-- **eid**: Entity ID para trazabilidad
+- **id_usuario_creo**: Usuario que creó el registro
+- **id_usuario_modifico**: Usuario que modificó el registro
+- **fechaCreacion**: Fecha y hora de creación
+- **fechaModificacion**: Fecha y hora de última modificación
+- **uid**: Control multiempresa (User ID)
+- **eid**: Control multiempresa (Entity ID)
 
 ## Relaciones
 
