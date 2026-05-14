@@ -166,10 +166,10 @@ Gestión de alquileres de equipos.
 - [alq_periodoalquiler](./alquileres/alq_periodoalquiler) - Períodos de alquiler
 
 ### 13. Despacho (dis_*)
-Gestión de eventos de despacho y obras.
+Gestión de eventos y obras.
 
 **Tablas principales:**
-- [dis_evento](./despacho/dis_evento) - Eventos de despacho
+- [dis_evento](./despacho/dis_evento) - Eventos
 - [dis_estadoEvento](./despacho/dis_estadoEvento) - Estados de evento
 - [dis_motivoEvento](./despacho/dis_motivoEvento) - Motivos de evento
 - [dis_metodoDeteccion](./despacho/dis_metodoDeteccion) - Métodos de detección

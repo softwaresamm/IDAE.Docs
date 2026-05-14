@@ -3,7 +3,7 @@
 /**
  * Generador de Diccionario de Datos - SammNew
  * Fuente: Base de datos sn_dev (SQL Server, JeffreyCaro)
- * 
+ *
  * Requiere haber ejecutado previamente:
  *   sqlcmd -S JeffreyCaro -d sn_dev -E -Q "..." -o schema_columns.txt
  *   sqlcmd -S JeffreyCaro -d sn_dev -E -Q "..." -o schema_fks.txt
@@ -15,36 +15,42 @@ const path = require("path");
 // Configuration
 const SCHEMA_COLUMNS_FILE = "C:\\idaeSoluciones\\IDAE.Docs\\schema_columns.txt";
 const SCHEMA_FKS_FILE = "C:\\idaeSoluciones\\IDAE.Docs\\schema_fks.txt";
-const DOCS_OUTPUT_DIR = "C:\\idaeSoluciones\\IDAE.Docs\\docs\\sammnew\\database";
+const DOCS_OUTPUT_DIR =
+  "C:\\idaeSoluciones\\IDAE.Docs\\docs\\sammnew\\database";
 
 // Columnas de auditoría estándar (no se muestran en la tabla principal)
 const AUDIT_COLUMNS = new Set([
-  "id", "uid", "eid",
-  "id_usuario_creo", "id_usuario_modifico",
-  "fechaCreacion", "fechaModificacion", "active"
+  "id",
+  "uid",
+  "eid",
+  "id_usuario_creo",
+  "id_usuario_modifico",
+  "fechaCreacion",
+  "fechaModificacion",
+  "active",
 ]);
 
 // Module mapping: prefix -> { folder, name, position }
 const MODULE_FOLDERS = {
-  gen: { folder: "general",     name: "General / Configuración",  position: 1  },
-  equ: { folder: "equipos",     name: "Equipos",                  position: 2  },
-  cnt: { folder: "contratos",   name: "Contratos",                position: 3  },
-  cat: { folder: "catalogo",    name: "Catálogo",                 position: 4  },
-  doc: { folder: "documentos",  name: "Documentos",               position: 5  },
-  ter: { folder: "terceros",    name: "Terceros",                 position: 6  },
-  ort: { folder: "ordenes",     name: "Órdenes de Trabajo",       position: 7  },
-  seg: { folder: "seguridad",   name: "Seguridad",                position: 8  },
-  pro: { folder: "proyectos",   name: "Proyectos",                position: 9  },
-  syn: { folder: "integracion", name: "Integración",              position: 10 },
-  lic: { folder: "licencias",   name: "Licencias",                position: 11 },
-  alq: { folder: "alquileres",  name: "Alquileres",               position: 12 },
-  dis: { folder: "despacho",    name: "Despacho",                 position: 13 },
-  com: { folder: "comisiones",  name: "Comisiones",               position: 14 },
-  gas: { folder: "gastos",      name: "Gastos",                   position: 15 },
-  gui: { folder: "interfaz",    name: "Interfaz",                 position: 16 },
-  geo: { folder: "geografico",  name: "Geográfico",               position: 17 },
-  rep: { folder: "reportes",    name: "Reportes",                 position: 18 },
-  tax: { folder: "taxonomia",   name: "Taxonomía",                position: 19 },
+  gen: { folder: "general", name: "General / Configuración", position: 1 },
+  equ: { folder: "equipos", name: "Equipos", position: 2 },
+  cnt: { folder: "contratos", name: "Contratos", position: 3 },
+  cat: { folder: "catalogo", name: "Catálogo", position: 4 },
+  doc: { folder: "documentos", name: "Documentos", position: 5 },
+  ter: { folder: "terceros", name: "Terceros", position: 6 },
+  ort: { folder: "ordenes", name: "Órdenes de Trabajo", position: 7 },
+  seg: { folder: "seguridad", name: "Seguridad", position: 8 },
+  pro: { folder: "proyectos", name: "Proyectos", position: 9 },
+  syn: { folder: "integracion", name: "Integración", position: 10 },
+  lic: { folder: "licencias", name: "Licencias", position: 11 },
+  alq: { folder: "alquileres", name: "Alquileres", position: 12 },
+  dis: { folder: "despacho", name: "Despacho", position: 13 },
+  com: { folder: "comisiones", name: "Comisiones", position: 14 },
+  gas: { folder: "gastos", name: "Gastos", position: 15 },
+  gui: { folder: "interfaz", name: "Interfaz", position: 16 },
+  geo: { folder: "geografico", name: "Geográfico", position: 17 },
+  rep: { folder: "reportes", name: "Reportes", position: 18 },
+  tax: { folder: "taxonomia", name: "Taxonomía", position: 19 },
 };
 
 // Mapeo de tipos SQL a descripciones legibles
@@ -88,22 +94,26 @@ function tableNameToFileName(tableName) {
 // Carga el archivo de columnas y devuelve mapa: tableName -> [{ column, type, nullable, isPK }]
 function loadColumns() {
   const content = fs.readFileSync(SCHEMA_COLUMNS_FILE, "utf8");
-  const lines = content.split(/\r?\n/).filter(l => l.trim() && !l.startsWith("--"));
-  
+  const lines = content
+    .split(/\r?\n/)
+    .filter((l) => l.trim() && !l.startsWith("--"));
+
   const tables = {};
-  
+
   for (const line of lines) {
     const parts = line.trim().split("|");
     if (parts.length < 5) continue;
-    
-    const [tableName, columnName, dataType, isNullable, isPK] = parts.map(p => p.trim());
-    
+
+    const [tableName, columnName, dataType, isNullable, isPK] = parts.map((p) =>
+      p.trim(),
+    );
+
     if (!tableName || !columnName) continue;
-    
+
     if (!tables[tableName]) {
       tables[tableName] = [];
     }
-    
+
     tables[tableName].push({
       column: columnName,
       type: sqlTypeToDisplay(dataType),
@@ -113,53 +123,62 @@ function loadColumns() {
       isFK: columnName.startsWith("id_") && columnName !== "id",
     });
   }
-  
+
   return tables;
 }
 
 // Carga el archivo de FKs y devuelve mapa: tableName -> [{ column, referencedTable }]
 function loadFKs() {
   const content = fs.readFileSync(SCHEMA_FKS_FILE, "utf8");
-  const lines = content.split(/\r?\n/).filter(l => l.trim() && !l.startsWith("--"));
-  
+  const lines = content
+    .split(/\r?\n/)
+    .filter((l) => l.trim() && !l.startsWith("--"));
+
   const fks = {};
-  
+
   for (const line of lines) {
     const parts = line.trim().split("|");
     if (parts.length < 3) continue;
-    
-    const [tableName, columnName, referencedTable] = parts.map(p => p.trim());
-    
+
+    const [tableName, columnName, referencedTable] = parts.map((p) => p.trim());
+
     if (!tableName || !columnName || !referencedTable) continue;
-    
+
     if (!fks[tableName]) {
       fks[tableName] = [];
     }
-    
+
     fks[tableName].push({
       column: columnName,
       referencedTable: referencedTable,
     });
   }
-  
+
   return fks;
 }
 
 // Genera el markdown para una tabla
-function generateMarkdown(tableName, columns, fks, moduleName, moduleFolder, position) {
+function generateMarkdown(
+  tableName,
+  columns,
+  fks,
+  moduleName,
+  moduleFolder,
+  position,
+) {
   const prefix = tableName.split("_")[0];
-  
+
   // Separar columnas de negocio de columnas de auditoría
-  const businessColumns = columns.filter(c => !AUDIT_COLUMNS.has(c.column));
-  
+  const businessColumns = columns.filter((c) => !AUDIT_COLUMNS.has(c.column));
+
   // Descripción basada en el nombre de la tabla
   const entityName = tableName.includes(".")
     ? tableName.substring(tableName.indexOf("_") + 1)
     : tableName.substring(tableName.indexOf("_") + 1);
   const description = `Tabla ${tableName} del módulo ${moduleName}`;
-  
+
   const tableFKs = fks || [];
-  
+
   let md = `---
 sidebar_position: ${position}
 title: ${tableName}
@@ -265,7 +284,9 @@ function main() {
 
   const tableNames = Object.keys(allColumns).sort();
   console.log(`✓ ${tableNames.length} tablas encontradas`);
-  console.log(`✓ ${Object.values(allFKs).reduce((s, v) => s + v.length, 0)} FK relationships encontradas\n`);
+  console.log(
+    `✓ ${Object.values(allFKs).reduce((s, v) => s + v.length, 0)} FK relationships encontradas\n`,
+  );
 
   // Agrupar tablas por módulo
   const byModule = {};
@@ -282,7 +303,9 @@ function main() {
   }
 
   if (unknownTables.length > 0) {
-    console.log(`⚠️  Tablas sin módulo conocido (se omiten): ${unknownTables.join(", ")}\n`);
+    console.log(
+      `⚠️  Tablas sin módulo conocido (se omiten): ${unknownTables.join(", ")}\n`,
+    );
   }
 
   // Asegurar que existan las carpetas
@@ -299,7 +322,9 @@ function main() {
   // Generar documentos por módulo
   for (const [prefix, tables] of Object.entries(byModule).sort()) {
     const moduleInfo = MODULE_FOLDERS[prefix];
-    console.log(`📁 Módulo ${prefix} (${moduleInfo.name}): ${tables.length} tablas`);
+    console.log(
+      `📁 Módulo ${prefix} (${moduleInfo.name}): ${tables.length} tablas`,
+    );
 
     tables.forEach((tableName, index) => {
       try {
@@ -312,12 +337,16 @@ function main() {
           fks,
           moduleInfo.name,
           moduleInfo.folder,
-          index + 1
+          index + 1,
         );
 
         // Nombre de archivo: reemplazar puntos con guión bajo
         const fileName = tableNameToFileName(tableName) + ".md";
-        const outputPath = path.join(DOCS_OUTPUT_DIR, moduleInfo.folder, fileName);
+        const outputPath = path.join(
+          DOCS_OUTPUT_DIR,
+          moduleInfo.folder,
+          fileName,
+        );
 
         fs.writeFileSync(outputPath, markdown, "utf8");
         totalGenerated++;
@@ -333,14 +362,18 @@ function main() {
 
   // Eliminar archivos .md de tablas que ya no existen
   console.log("\n🧹 Limpiando archivos obsoletos...");
-  const validFileNames = new Set(tableNames.map(t => tableNameToFileName(t) + ".md"));
+  const validFileNames = new Set(
+    tableNames.map((t) => tableNameToFileName(t) + ".md"),
+  );
   let deletedCount = 0;
 
   for (const [prefix, info] of Object.entries(MODULE_FOLDERS)) {
     const folderPath = path.join(DOCS_OUTPUT_DIR, info.folder);
     if (!fs.existsSync(folderPath)) continue;
 
-    const existingFiles = fs.readdirSync(folderPath).filter(f => f.endsWith(".md") && f !== "_category_.json");
+    const existingFiles = fs
+      .readdirSync(folderPath)
+      .filter((f) => f.endsWith(".md") && f !== "_category_.json");
     for (const file of existingFiles) {
       if (!validFileNames.has(file)) {
         fs.unlinkSync(path.join(folderPath, file));
