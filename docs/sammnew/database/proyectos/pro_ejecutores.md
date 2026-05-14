@@ -1,0 +1,70 @@
+---
+sidebar_position: 11
+title: pro_ejecutores
+description: Tabla para gestionar ejecutores en el sistema SAMM
+tags: [database, pro]
+---
+
+# pro_ejecutores
+
+## Descripción
+
+Tabla para gestionar ejecutores en el sistema SAMM.
+
+**Módulo**: Proyectos  
+**Prefijo**: `pro_`
+
+## Estructura de la Tabla
+
+| Columna | Tipo | Nulo | Clave | Default | Constraint |
+|---------|------|------|-------|---------|------------|
+| id | INTEGER | ✗ | PK | - | - |
+| active | BIT | ✓ | - | - | - |
+| ejecutores | VARCHAR | ✓ | - | - | - |
+| ejecutores_codigo | VARCHAR | ✓ | - | - | - |
+| costo | DECIMAL | ✓ | - | - | - |
+| unidadTiempo | VARCHAR | ✓ | - | - | - |
+| id_horarioTrabajo | INTEGER | ✓ | FK | - | - |
+| id_usuario | INTEGER | ✓ | FK | - | - |
+| id_horarioEjecutores | INTEGER | ✓ | FK | - | - |
+
+### Columnas Estándar
+
+Todas las tablas incluyen estos campos de auditoría:
+- **id**: Clave primaria auto-incremental
+- **active**: Indicador de registro activo (soft delete)
+- **uid**: User ID del usuario que creó/modificó
+- **eid**: Entity ID para trazabilidad
+
+## Relaciones
+
+### Relaciones Salientes (Foreign Keys)
+
+- **id_horarioTrabajo** → [unknown_horarioTrabajo](../general/unknown_horarioTrabajo) - Referencia a unknown_horarioTrabajo
+- **id_usuario** → [seg_usuario](../seguridad/seg_usuario) - Referencia a seg_usuario
+- **id_horarioEjecutores** → [unknown_horarioEjecutores](../general/unknown_horarioEjecutores) - Referencia a unknown_horarioEjecutores
+
+### Relaciones Entrantes
+
+*Esta tabla puede ser referenciada por otras tablas del sistema.*
+
+## Notas Técnicas
+
+- Esta tabla forma parte del módulo Proyectos
+- Utiliza el patrón de nomenclatura estándar del sistema
+
+## Ejemplos de Uso
+
+```sql
+-- Consulta básica
+SELECT * FROM pro_ejecutores WHERE active = 1;
+
+-- Consulta con joins (si aplica)
+SELECT * FROM pro_ejecutores
+WHERE active = 1
+ORDER BY id DESC;
+```
+
+---
+
+**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.

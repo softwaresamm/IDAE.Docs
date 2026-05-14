@@ -1,0 +1,65 @@
+---
+sidebar_position: 2
+title: seg_cargo_envioCorreo
+description: Tabla para gestionar cargo_envioCorreo en el sistema SAMM
+tags: [database, seg]
+---
+
+# seg_cargo_envioCorreo
+
+## Descripción
+
+Tabla para gestionar cargo_envioCorreo en el sistema SAMM.
+
+**Módulo**: Seguridad  
+**Prefijo**: `seg_`
+
+## Estructura de la Tabla
+
+| Columna | Tipo | Nulo | Clave | Default | Constraint |
+|---------|------|------|-------|---------|------------|
+| id | INTEGER | ✗ | PK | - | - |
+| active | BIT | ✓ | - | - | - |
+| cargo_envioCorreo | VARCHAR | ✓ | - | - | - |
+| id_cargo | INTEGER | ✓ | FK | - | - |
+| id_envioCorreo | INTEGER | ✓ | FK | - | - |
+
+### Columnas Estándar
+
+Todas las tablas incluyen estos campos de auditoría:
+- **id**: Clave primaria auto-incremental
+- **active**: Indicador de registro activo (soft delete)
+- **uid**: User ID del usuario que creó/modificó
+- **eid**: Entity ID para trazabilidad
+
+## Relaciones
+
+### Relaciones Salientes (Foreign Keys)
+
+- **id_cargo** → [unknown_cargo](../general/unknown_cargo) - Referencia a unknown_cargo
+- **id_envioCorreo** → [unknown_envioCorreo](../general/unknown_envioCorreo) - Referencia a unknown_envioCorreo
+
+### Relaciones Entrantes
+
+*Esta tabla puede ser referenciada por otras tablas del sistema.*
+
+## Notas Técnicas
+
+- Esta tabla forma parte del módulo Seguridad
+- Utiliza el patrón de nomenclatura estándar del sistema
+
+## Ejemplos de Uso
+
+```sql
+-- Consulta básica
+SELECT * FROM seg_cargo_envioCorreo WHERE active = 1;
+
+-- Consulta con joins (si aplica)
+SELECT * FROM seg_cargo_envioCorreo
+WHERE active = 1
+ORDER BY id DESC;
+```
+
+---
+
+**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.

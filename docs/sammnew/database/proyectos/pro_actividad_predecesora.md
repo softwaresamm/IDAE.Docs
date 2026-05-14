@@ -1,0 +1,65 @@
+---
+sidebar_position: 8
+title: pro_actividad_predecesora
+description: Tabla para gestionar actividad_predecesora en el sistema SAMM
+tags: [database, pro]
+---
+
+# pro_actividad_predecesora
+
+## Descripción
+
+Tabla para gestionar actividad_predecesora en el sistema SAMM.
+
+**Módulo**: Proyectos  
+**Prefijo**: `pro_`
+
+## Estructura de la Tabla
+
+| Columna | Tipo | Nulo | Clave | Default | Constraint |
+|---------|------|------|-------|---------|------------|
+| id | INTEGER | ✗ | PK | - | - |
+| active | BIT | ✓ | - | - | - |
+| actividad_predecesora | VARCHAR | ✓ | - | - | - |
+| id_actividad_origen | INTEGER | ✓ | FK | - | - |
+| id_actividad_destino | INTEGER | ✓ | FK | - | - |
+
+### Columnas Estándar
+
+Todas las tablas incluyen estos campos de auditoría:
+- **id**: Clave primaria auto-incremental
+- **active**: Indicador de registro activo (soft delete)
+- **uid**: User ID del usuario que creó/modificó
+- **eid**: Entity ID para trazabilidad
+
+## Relaciones
+
+### Relaciones Salientes (Foreign Keys)
+
+- **id_actividad_origen** → [actividad_origen](../general/actividad_origen) - Referencia a actividad_origen
+- **id_actividad_destino** → [actividad_destino](../general/actividad_destino) - Referencia a actividad_destino
+
+### Relaciones Entrantes
+
+*Esta tabla puede ser referenciada por otras tablas del sistema.*
+
+## Notas Técnicas
+
+- Esta tabla forma parte del módulo Proyectos
+- Utiliza el patrón de nomenclatura estándar del sistema
+
+## Ejemplos de Uso
+
+```sql
+-- Consulta básica
+SELECT * FROM pro_actividad_predecesora WHERE active = 1;
+
+-- Consulta con joins (si aplica)
+SELECT * FROM pro_actividad_predecesora
+WHERE active = 1
+ORDER BY id DESC;
+```
+
+---
+
+**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.

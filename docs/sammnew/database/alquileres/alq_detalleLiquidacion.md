@@ -1,0 +1,78 @@
+---
+sidebar_position: 2
+title: alq_detalleLiquidacion
+description: Tabla para gestionar detalleLiquidacion en el sistema SAMM
+tags: [database, alq]
+---
+
+# alq_detalleLiquidacion
+
+## Descripción
+
+Tabla para gestionar detalleLiquidacion en el sistema SAMM.
+
+**Módulo**: Alquileres  
+**Prefijo**: `alq_`
+
+## Estructura de la Tabla
+
+| Columna | Tipo | Nulo | Clave | Default | Constraint |
+|---------|------|------|-------|---------|------------|
+| id | INTEGER | ✗ | PK | - | - |
+| active | BIT | ✓ | - | - | - |
+| detalleLiquidacion | VARCHAR | ✓ | - | - | - |
+| detalleLiquidacion_codigo | VARCHAR | ✓ | - | - | - |
+| cantidad | INTEGER | ✓ | - | - | - |
+| dias | INTEGER | ✓ | - | - | - |
+| fechaInicio_fh | DATETIME | ✓ | - | - | - |
+| fechaFin_fh | DATETIME | ✓ | - | - | - |
+| id_itemDocumento | INTEGER | ✓ | FK | - | - |
+| id_detalleAlquiler | INTEGER | ✓ | FK | - | - |
+| saldo | INTEGER | ✓ | - | - | - |
+| id_documento_movimiento | INTEGER | ✓ | FK | - | - |
+| horometro | DECIMAL | ✓ | - | - | - |
+| id_tarifa | INTEGER | ✓ | FK | - | - |
+| id_evento | INTEGER | ✓ | FK | - | - |
+
+### Columnas Estándar
+
+Todas las tablas incluyen estos campos de auditoría:
+- **id**: Clave primaria auto-incremental
+- **active**: Indicador de registro activo (soft delete)
+- **uid**: User ID del usuario que creó/modificó
+- **eid**: Entity ID para trazabilidad
+
+## Relaciones
+
+### Relaciones Salientes (Foreign Keys)
+
+- **id_itemDocumento** → [doc_itemDocumento](../documentos/doc_itemDocumento) - Referencia a doc_itemDocumento
+- **id_detalleAlquiler** → [unknown_detalleAlquiler](../general/unknown_detalleAlquiler) - Referencia a unknown_detalleAlquiler
+- **id_documento_movimiento** → [documento_movimiento](../general/documento_movimiento) - Referencia a documento_movimiento
+- **id_tarifa** → [unknown_tarifa](../general/unknown_tarifa) - Referencia a unknown_tarifa
+- **id_evento** → [unknown_evento](../general/unknown_evento) - Referencia a unknown_evento
+
+### Relaciones Entrantes
+
+*Esta tabla puede ser referenciada por otras tablas del sistema.*
+
+## Notas Técnicas
+
+- Esta tabla forma parte del módulo Alquileres
+- Utiliza el patrón de nomenclatura estándar del sistema
+
+## Ejemplos de Uso
+
+```sql
+-- Consulta básica
+SELECT * FROM alq_detalleLiquidacion WHERE active = 1;
+
+-- Consulta con joins (si aplica)
+SELECT * FROM alq_detalleLiquidacion
+WHERE active = 1
+ORDER BY id DESC;
+```
+
+---
+
+**Nota**: Esta documentación fue generada automáticamente a partir del análisis del código fuente.
