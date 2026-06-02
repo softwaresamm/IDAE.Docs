@@ -11,6 +11,7 @@ Este documento describe cómo configurar y visualizar la interfaz de Report Serv
 ## Referencias
 
 - [SO-40: Crear aplicación para visualizar reportes (listar reportes, ver filtros y su contenido)]
+- [SO-682: Centrado de imagenes en formato]
 
 ## Información de Versiones
 
@@ -99,7 +100,7 @@ Este es muy estándar y casi no requiere cambios, sin embargo, maneja un archivo
 
 ```json title="Configuración de ruta del sistema origen"
 "OriginSystem": {
-  "BaseRoute": "https://samm.rocaperu.com:8443/sa_dev/api/"
+  "BaseRoute": "https://tusitio/sa_dev/api/"
 }
 ```
 
@@ -112,7 +113,7 @@ Este es muy estándar y casi no requiere cambios, sin embargo, maneja un archivo
 "Report": {
   "SSRS": {
     "BaseRoute": "http://localhost/ReportServer",  // este campo se obtiene con la instalación del report services
-    "DefaultFormat": "PDF",
+    "DefaultFormat": "HTML5",
     "Authentication": {
       "Type": "Basic",
       "Windows": {
@@ -160,7 +161,7 @@ Este hace referencia al API que ya se ha manejado, diferente al entregado por de
   <add key="urlApiIDAE" value="https://app2.softwaresamm.com/sa_idaetest/" />
   <add key="ubicacionSitioReportes" value="C:\Samm\sr_test\" lockItem="true" />
   <add key="tipoReportServices" value="2" /> <!-- 1. Default, 2. Util.ReportService -->
-  <add key="urlReportService" value="https://samm.rocaperu.com:8443/sr_api/api/report-service" /> <!-- Este campo es muy importante para el envío de correo -->
+  <add key="urlReportService" value="https://tusitio/sr_api/api/report-service" /> <!-- Este campo es muy importante para el envío de correo -->
 </appSettings>
 ```
 
@@ -219,6 +220,27 @@ Para este caso no requiere cambios, se puede mantener tal y como lo entrega desa
 :::tip Consejo
 El campo `urlSAMMReportes` debe apuntar a la URL donde está desplegado el sr_web para que la integración funcione correctamente.
 :::
+
+### Despliegue de la solucion.
+Se debe tener clonado el repositiorio de la solucion y una vez descargado abrirlo en visual studio buscar las opciones para ver el explorador de soluciones y luego dar click derecho en `IDAE.UTIL.RSObjects`  como se ve en la imagen. 
+
+![reporte PBI](./img/despliegue.png)
+
+
+se mostraran las opciones donde damos en propiedades y modificamos el campo de `target server URL`
+
+![reporte PBI](./img/despliegue2.png)
+
+esta url la tomaremos de la configuracion del Report Server Configuration Manager de la seccion `Direccion URL del servidor web`
+
+
+Luego de esto debemos seleccionar la solucion y dar en la opcion implementar solucion 
+
+![reporte PBI](./img/despliegue3.png)
+
+con esto se espera que al abrir el portal web del report services se vean los formatos 
+
+![reporte PBI](./img/despliegue%204%20.png)
 
 ### Paso 2: Modificación del nombre de los reportes
 
