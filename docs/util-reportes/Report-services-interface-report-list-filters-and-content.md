@@ -222,7 +222,7 @@ El campo `urlSAMMReportes` debe apuntar a la URL donde está desplegado el sr_we
 :::
 
 ### Despliegue de la solucion.
-Se debe tener clonado el repositiorio de la solucion y una vez descargado abrirlo en visual studio buscar las opciones para ver el explorador de soluciones y luego dar click derecho en `IDAE.UTIL.RSObjects`  como se ve en la imagen 
+Se debe tener clonado el repositiorio de la solucion y una vez descargado abrirlo en visual studio buscar las opciones para ver el explorador de soluciones y luego dar click derecho en `IDAE.UTIL.RSObjects`  como se ve en la imagen. 
 
 ![reporte PBI](./img/despliegue.png)
 
