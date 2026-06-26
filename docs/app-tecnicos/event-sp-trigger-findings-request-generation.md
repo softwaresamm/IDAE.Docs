@@ -144,7 +144,7 @@ Una vez completada la configuración:
 1. Ingrese a **Gestión de Equipos → Operación**.
 3. Verifique que se visualice la lista de chequeo relacionada previamente al modelo, según la configuración documentada en:
    https://softwaresamm.github.io/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types
-4. Al crear el evento desde la aplicación, se debe ejecutar automáticamente la lógica implementada en el procedimiento.
+4. Al insertarse la lista de chequeo, se debe ejecutar automáticamente la lógica implementada en el procedimiento.
 5. Como resultado, el sistema deberá generar la accion de manera correcta.
 
 ---
@@ -167,3 +167,5 @@ Confirme que:
   https://softwaresamm.github.io/IDAE.Docs/docs/app-tecnicos/conditional-checklist-report-types
 - Los procedimientos configurados retornan información al ejecutarse manualmente.
 - El modelo del equipo tiene asociada al menos una lista de chequeo activa.
+
+:::important Para la ejecución del procedimiento es necesario contar previamente con una lista de chequeo, ya que el procedimiento se realiza con base en la información y actividades definidas en dicha lista.
