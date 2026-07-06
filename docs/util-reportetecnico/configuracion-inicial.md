@@ -100,7 +100,7 @@ NEXT_PUBLIC_BASE_PATH=/rt_web
 # redirige a /api/auth/error en lugar de /rt_web/api/auth/error.
 NEXTAUTH_URL=https://tucliente:8443/rt_web
 
-NEXTAUTH_SECRET=valor_llave_secreta
+NEXTAUTH_SECRET=valor_llave_secreta.
 ```
 
 :::warning Precaución
