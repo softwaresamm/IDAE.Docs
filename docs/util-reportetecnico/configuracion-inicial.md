@@ -151,7 +151,7 @@ Una vez completada la configuración:
 
 Verifique que:
 
-- `NEXTAUTH_URL` en el `.env` incluya el `base path` completo (`/rt_web`).
+- `NEXTAUTH_URL` en el `.env` incluya el `base path` completo (`/rt_web`)
 - El dominio y puerto en `NEXTAUTH_URL` coincidan exactamente con la URL pública real del cliente.
 - `NEXTAUTH_SECRET` esté definido y no haya sido alterado tras el despliegue.
 
