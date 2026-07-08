@@ -23,11 +23,12 @@ Este documento describe cómo habilitar el cronómetro en la sección de activid
 
 | Aplicación | Versión Mínima | Descripción |
 | --- | --- | --- |
-| SAMMAPI | >= 1.2.29.0 | API principal |
+| SAMMAPI | >= 1.2.27.0 | API principal |
+| SAMMNEW | >= 7.1.13.1 | SITIO |
 | SAMM LOGICA | >= 5.6.26.1 | Lógica de negocio |
-| CAPA DE DATOS | >= 2.1.14.0 | Capa de acceso a datos |
-| SAMM CORE | >= 2.0.23.1 | Core del sistema |
-| BASE DE DATOS | >= C2.1.14.0 | Base de datos |
+| CAPA DE DATOS | >= C2.1.13.0 | Capa de acceso a datos |
+| SAMM CORE | >= 2.0.22.0 | Core del sistema |
+| BASE DE DATOS | >= C2.1.13.0 | Base de datos |
 | RECURSOS | - | No aplica versión mínima específica |
 
 ## Requisitos Previos
