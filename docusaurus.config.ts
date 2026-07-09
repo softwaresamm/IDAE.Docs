@@ -58,6 +58,11 @@ const config: Config = {
           onInlineTags: "warn",
           onInlineAuthors: "warn",
           onUntruncatedBlogPosts: "warn",
+          // "ALL" para que el sidebar de cada post pueda filtrarse por
+          // producto (ver src/theme/BlogPostPage) sin perder versiones
+          // antiguas por el límite de "recientes".
+          blogSidebarCount: "ALL",
+          blogSidebarTitle: "Otras versiones",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -84,7 +89,7 @@ const config: Config = {
           position: "left",
           label: "Documentación",
         },
-        { to: "/blog", label: "Novedades", position: "left" },
+        { to: "/versiones", label: "Versiones", position: "left" },
         {
           href: "https://idaesoluciones.com",
           label: "idaesoluciones.com",
@@ -134,8 +139,8 @@ const config: Config = {
           title: "Repositorio",
           items: [
             {
-              label: "Novedades",
-              to: "/blog",
+              label: "Versiones",
+              to: "/versiones",
             },
             {
               label: "GitHub",
