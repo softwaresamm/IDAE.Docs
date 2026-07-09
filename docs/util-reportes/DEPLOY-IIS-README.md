@@ -37,11 +37,41 @@ Esta guía es para despliegue en **Windows Server con IIS nativo** (sin Docker).
 
 Antes de iniciar el despliegue, asegúrese de tener:
 
-### 1. Windows Server con IIS instalado
+### 1. Configuracion Report Services
+
+Lo primero que se podra ver es la configuracion estandar la cual podemos dejar tal y como se ve en la foto
+
+![reporte PBI](./img/report_services1.png)
+
+### 1.2 Configuracion dentro del Report Server Configuration Manager
+#### Seccion Cuenta de Servicio 
+en este apartado no sera necesario realizar cambios podemos dejarlo standar como se ve en la foto 
+
+![reporte PBI](./img/Report_services2.png)
+
+### 1.3 Seccion "Direccion URL del servidor Web"
+Para este caso la configuracion que se encuentra disponible se puede mantener, para que se inicie la configuracion se debe dar en el boton `Aplicar` que se encuentra en la parte inferior , en paralelo veremos los resultados de los ajustes aplicados.
+
+![reporte PBI](./img/Report_services3.png)
+
+### 1.4 Seccion "Base de datos"
+
+Es necesario que se cree la base de datos para lo cual daremos click en el boton `Cambiar base de datos` y seleccionar la opcion 1 como se ve en la imagen.
+
+![reporte PBI](./img/Report_services4.png)
+
+Luego de esto proporcionaremos los datos que se pidan 
+
+### 1.5 Seccion "Direccion URL del Portal web"
+
+En este basta con dar en el boton `Aplicar` que se encuentra en la parte inferior , esperar un lapso de 1 min despues de abrir la direccion url del portal web.
+
+
+### 2. Windows Server con IIS instalado
 
 - Windows Server 2019 o superior
 - Windows 10/11 también funciona para pruebas
-- Report services instalado: https://www.microsoft.com/en-us/download/details.aspx?id=104502&msockid=064b61102bd46bce203a75fc2a6a6a9f
+- Report services instalado: https://www.microsoft.com/en-us/download/details.aspx?id=104502&msockid=064b61102bd46bce203a75fc2a6a6a9f (Instalar Edicion gratuita Developer)
 - Windows Server con IIS
 
 #### Recursos del servidor
@@ -109,7 +139,7 @@ openssl pkcs12 -export -out certificate.pfx \
 # Ver: https://letsencrypt.org/getting-started/
 ```
 
-### 2. Instalar IIS con las características necesarias
+### 3. Instalar IIS con las características necesarias
 
 Ejecutar como Administrador en PowerShell:
 
@@ -145,7 +175,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
 Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
 ```
 
-### 3. Instalar Node.js v20 LTS (64-bit)
+### 4. Instalar Node.js v20 LTS (64-bit)
 
 ```powershell title="Instalación de Node.js"
 # Opción 1: Con winget
@@ -164,7 +194,7 @@ node -version # o node -v
 npm -version 
 ```
 
-### 4. Instalar ASP.NET Core Hosting Bundle 8.0
+### 5. Instalar ASP.NET Core Hosting Bundle 8.0
 
 :::important Crítico
 Este módulo es el que permite que IIS ejecute Node.js
@@ -192,20 +222,20 @@ Get-WebGlobalModule | Where-Object { $_.Name -like '*AspNetCore*' }
 
 Debe mostrar: `AspNetCoreModuleV2`
 
-### 5. Instalar URL Rewrite Module (Opcional pero recomendado)
+### 6. Instalar URL Rewrite Module (Opcional pero recomendado)
 
 ```powershell title="Instalar URL Rewrite"
 # Descargar desde: https://www.iis.net/downloads/microsoft/url-rewrite
 # Instalar el MSI
 ```
 
-### 6. ❌ NO instalar iisnode
+### 7. ❌ NO instalar iisnode
 
 :::warning Advertencia
 **iisnode v0.2.26 (última versión de 2017) NO funciona con Node.js v20**. Usaremos AspNetCore Module V2 en su lugar.
 :::
 
-### 7. Scripts de instalación automatizados
+### 8. Scripts de instalación automatizados
 
 Los scripts de instalación están en:
 
@@ -225,11 +255,11 @@ IDAE.UTIL.ReportService.Container\iis\
 - ✅ Inician las aplicaciones
 - ✅ Verifican que funcionan correctamente
 
-### 8. Carpetas compiladas
+### 9. Carpetas compiladas
 
 De parte de desarrollo se deben recibir las carpetas de `sr_api` y `sr_web`
 
-### 9. Estructura de carpetas en el servidor
+### 10. Estructura de carpetas en el servidor
 
 :::note Información
 La estructura puede cambiar según la configuración del cliente
