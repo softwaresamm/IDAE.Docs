@@ -1,19 +1,88 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+# Etiquetas de las notas de versión.
+# Cada PRODUCTO corresponde a una épica de Jira. Etiqueta cada post con su
+# producto (y opcionalmente "release"). Así los usuarios filtran las novedades
+# por producto en /blog/tags/<permalink>.
+#
+# Puedes añadir la versión como etiqueta suelta en el post (p. ej. "v2.0.2");
+# las etiquetas no listadas aquí solo generan un aviso en build, no lo rompen.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+release:
+  label: Release
+  permalink: /release
+  description: Notas de versión (lanzamientos).
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+# --- Productos (épicas de Jira) ---
+samm-web:
+  label: SAMM Web
+  permalink: /samm-web
+  description: Novedades de SAMM Web (SammNew).
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+samm-new:
+  label: SammNew
+  permalink: /samm-new
+  description: Novedades de SammNew.
+
+samm-api:
+  label: SAMM API
+  permalink: /samm-api
+  description: Novedades de SAMM API.
+
+samm-reporte:
+  label: SAMM Reporte
+  permalink: /samm-reporte
+  description: Novedades de SAMM Reporte.
+
+samm-ai:
+  label: SAMMAI
+  permalink: /samm-ai
+  description: Novedades de la plataforma SAMMAI.
+
+app-tecnicos:
+  label: App Técnicos
+  permalink: /app-tecnicos
+  description: Novedades de la app móvil de técnicos.
+
+app-ai:
+  label: App AI
+  permalink: /app-ai
+  description: Novedades de la app con inteligencia artificial (App AI).
+
+febancol:
+  label: FEBANCOL
+  permalink: /febancol
+  description: Novedades de FEBANCOL / SAFE.
+
+vibrancy:
+  label: Vibrancy
+  permalink: /vibrancy
+  description: Novedades de Vibrancy.
+
+orientacion-consultoria:
+  label: Orientación Consultoría
+  permalink: /orientacion-consultoria
+  description: Novedades de Orientación y Consultoría.
+
+util-solicitudes:
+  label: Utilitario Solicitudes
+  permalink: /util-solicitudes
+  description: Novedades del utilitario de solicitudes.
+
+util-reportes:
+  label: Utilitario Reportes
+  permalink: /util-reportes
+  description: Novedades del utilitario de reportes.
+
+util-descarga:
+  label: Utilitario Descarga
+  permalink: /util-descarga
+  description: Novedades del utilitario de descarga masiva.
+
+util-reporte-tecnico:
+  label: Utilitario Reporte Técnico
+  permalink: /util-reporte-tecnico
+  description: Novedades del utilitario de reporte técnico.
+
+util-certificados:
+  label: Utilitario Certificados
+  permalink: /util-certificados
+  description: Novedades del utilitario de certificados.

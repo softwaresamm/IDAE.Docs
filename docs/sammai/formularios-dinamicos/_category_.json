@@ -1,0 +1,8 @@
+{
+  "label": "Formularios Dinámicos",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Flujo de aplicación y diccionario de datos del sistema de formularios dinámicos de SAMMAI."
+  }
+}

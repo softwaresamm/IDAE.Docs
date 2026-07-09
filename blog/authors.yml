@@ -1,25 +1,9 @@
-yangshun:
-  name: Yangshun Tay
-  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
-  url: https://linkedin.com/in/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
-  socials:
-    x: yangshunz
-    linkedin: yangshun
-    github: yangshun
-    newsletter: https://www.greatfrontend.com
+# Autores de las notas de versión (Novedades).
+# Añade aquí a cada persona que publique. La clave (p. ej. "equipo-idae")
+# es la que se referencia en el frontmatter `authors:` de cada post.
 
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
-  socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+equipo-idae:
+  name: Equipo IDAE Soluciones
+  title: Desarrollo de Producto
+  url: https://idaesoluciones.com
+  page: true
