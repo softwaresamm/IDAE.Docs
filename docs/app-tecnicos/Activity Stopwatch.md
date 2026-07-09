@@ -173,8 +173,10 @@ Una vez ejecutado el `ALTER PROCEDURE`, el cambio queda activo de forma inmediat
 
 ![alt text](./img/cronometro_actividades.png)
 
+
+
 :::note Información
-Cabe aclarar que el tiempo minimo debe ser de 1 min
+Cabe aclarar que el tiempo minimo debe ser de 1 min, adicional comparto video de apoyo https://youtu.be/8K8a00bhnOc 
 :::
 ## Casos Especiales
 
