@@ -238,7 +238,13 @@ export const products: Product[] = [
     label: "Utilitario Reporte Técnico",
     icon: "🛠️",
     prefix: "URT",
-    releases: [],
+    releases: [
+      {
+        version: "3.1.0",
+        date: "2026-07-10",
+        href: "/blog/util-reporte-tecnico-v3-1-0",
+      },
+    ],
   },
   {
     slug: "util-certificados",
