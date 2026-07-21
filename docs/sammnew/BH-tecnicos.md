@@ -136,7 +136,7 @@ en el Bh se vera de la siguiente manera
 ![Bloque Home Técnicos](./img/BH.png)
 
 
-Se relaciona video explicativo de como se ve el sp standar y uno modificado https://youtu.be/aVKFnI5Gcv4
+Se relaciona video explicativo de como se ve el sp estándar y uno modificado https://youtu.be/aVKFnI5Gcv4
 
 ## Casos Especiales
 
