@@ -7,7 +7,7 @@ title: "Utilitario Certificados"
 
 El **Utilitario Certificados** es una nueva ventana dentro del módulo **Samm New** que permite almacenar y centralizar los certificados asociados a un activo (equipo) o a una unidad posición (sucursal). La funcionalidad gestiona atributos como tipo, nombre, categoría, alcance, vigencia, fechas de emisión y vencimiento, estándares aplicables y observaciones, permitiendo llevar un control estructurado y centralizado de la información de certificación.
 
-Antes de esta funcionalidad, no existía un espacio dedicado para registrar y consultar de forma centralizada los certificados vinculados a equipos o sucursales, lo que dificultaba su trazabilidad y control de vigencia.
+Antes de esta funcionalidad, no existía un espacio dedicado para registrar y consultar de forma centralizada los certificados vinculados a equipos o unidad posición (sucursal), lo que dificultaba su trazabilidad y control de vigencia.
 
 ## Referencias
 
@@ -80,7 +80,7 @@ No aplica para esta funcionalidad.
 | --- | --- | --- |
 | El menú **Servicio → Equipo → Certificados** no aparece o no direcciona correctamente | El recurso `utilcertificados` no fue desplegado o no está registrado en el menú | Validar con Alta Disponibilidad que el despliegue del recurso `utilcertificados` se haya completado |
 | La ventana de certificados no carga | Versión de Samm New inferior a la mínima requerida | Verificar que la versión instalada de Samm New sea `>= 7.1.14.0` y que los componentes dependientes (samm_logica, capadatos, samcore, SAMMAPI) cumplan la versión mínima |
-| No se puede guardar un certificado | Campos obligatorios incompletos o falta de asociación a equipo/sucursal | Confirmar que el certificado esté asociado a un activo (equipo) o a una sucursal antes de guardar |
+| No se puede guardar un certificado | Campos obligatorios incompletos o falta de asociación a equipo/unidad posición (sucursal) | Confirmar que el certificado esté asociado a un activo (equipo) o a una unidad posición (sucursal) antes de guardar |
 
 ## Errores Conocidos
 
@@ -103,17 +103,17 @@ Característica: Gestión de certificados en Samm New
     Y el certificado es visible en la lista centralizada de certificados del equipo
 ```
 
-### Escenario 2: Registro de certificado asociado a una sucursal
+### Escenario 2: Registro de certificado asociado a una unidad posición (sucursal)
 
 ```gherkin
 Característica: Gestión de certificados en Samm New
 
-  Escenario: Guardar un certificado válido asociado a una sucursal
+  Escenario: Guardar un certificado válido asociado a una unidad posición (sucursal)
     Dado que el usuario navega a "Servicio > Equipo > Certificados"
-    Y selecciona una sucursal existente
+    Y selecciona una unidad posición (sucursal) existente
     Cuando completa los campos obligatorios del certificado
     Y guarda el certificado
-    Entonces el certificado queda registrado y asociado a la sucursal seleccionada
+    Entonces el certificado queda registrado y asociado a la unidad posición (sucursal) seleccionada
     Y la fecha de vencimiento se refleja correctamente en el registro guardado
 ```
 
