@@ -5,7 +5,7 @@ title: "Utilitario Certificados"
 
 # Utilitario Certificados
 
-El **Utilitario Certificados** es una nueva ventana dentro del módulo **Samm New** que permite almacenar y centralizar los certificados asociados a un activo (equipo) o a una sucursal. La funcionalidad gestiona atributos como tipo, nombre, categoría, alcance, vigencia, fechas de emisión y vencimiento, estándares aplicables y observaciones, permitiendo llevar un control estructurado y centralizado de la información de certificación.
+El **Utilitario Certificados** es una nueva ventana dentro del módulo **Samm New** que permite almacenar y centralizar los certificados asociados a un activo (equipo) o a una unidad posición (sucursal). La funcionalidad gestiona atributos como tipo, nombre, categoría, alcance, vigencia, fechas de emisión y vencimiento, estándares aplicables y observaciones, permitiendo llevar un control estructurado y centralizado de la información de certificación.
 
 Antes de esta funcionalidad, no existía un espacio dedicado para registrar y consultar de forma centralizada los certificados vinculados a equipos o sucursales, lo que dificultaba su trazabilidad y control de vigencia.
 
@@ -71,7 +71,7 @@ No aplica para esta funcionalidad.
 ## Resultado Esperado
 
 - El usuario puede acceder a la ventana de **Certificados** desde la ruta **Servicio → Equipo → Certificados**.
-- El usuario puede registrar un certificado asociado a un **equipo** o a una **sucursal**, completando los campos: tipo, nombre, certificado, categoría, alcance, vigencia, fecha de certificado, fecha de vencimiento, estándares aplicables y observaciones.
+- El usuario puede registrar un certificado asociado a un **equipo** o a una unidad posición (sucursal)**sucursal**, completando los campos: tipo, nombre, certificado, categoría, alcance, vigencia, fecha de certificado, fecha de vencimiento, estándares aplicables y observaciones.
 - Los certificados guardados quedan **centralizados** y disponibles para consulta posterior, permitiendo el control de vigencia y trazabilidad.
 
 ## Resolución de Problemas
