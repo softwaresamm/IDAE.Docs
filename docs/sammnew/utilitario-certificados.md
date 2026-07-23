@@ -51,6 +51,10 @@ Confirmar que la funcionalidad `certificados` fue desplegado correctamente y se 
 
 ![Funcionalidad](./img/Funcionalidad-certificados.png)
 
+:::note
+Reemplaza `{{tokenApi}}` por el token de sesión válido generado para el usuario autenticado. `localhost` y `sa_test` deben ajustarse según el ambiente (desarrollo, QA, producción) donde se realice la validación.
+:::
+
 
 ### 3. Validar el acceso desde el menú
 
