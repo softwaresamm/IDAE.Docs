@@ -133,7 +133,6 @@ Confirme que:
 - El usuario cuenta con los permisos necesarios para crear equipos desde la app.
 - No existan errores de conexión entre la app y el API al momento de enviar el formulario.
 
-
 ## Errores Conocidos
 
 No aplica para esta funcionalidad.
