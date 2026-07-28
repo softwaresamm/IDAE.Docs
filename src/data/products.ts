@@ -85,6 +85,11 @@ export const products: Product[] = [
     prefix: "SN",
     releases: [
       {
+        version: "7.1.14.0",
+        date: "2026-07-27",
+        href: "/blog/samm-new-v7-1-14-0",
+      },
+      {
         version: "7.1.13.1",
         date: "2026-07-07",
         href: "/blog/samm-new-v7-1-13-1",
@@ -162,6 +167,11 @@ export const products: Product[] = [
     docLink: "/docs/app-tecnicos",
     releases: [
       {
+        version: "2.3.3.1",
+        date: "2026-07-27",
+        href: "/blog/app-tecnicos-v2-3-3-1",
+      },
+      {
         version: "2.3.2.2",
         date: "2026-07-09",
         href: "/blog/app-tecnicos-v2-3-2-2",
@@ -225,6 +235,11 @@ export const products: Product[] = [
     docLink: "/docs/util-reportes",
     releases: [
       {
+        version: "0.6.0",
+        date: "2026-07-27",
+        href: "/blog/util-reportes-v0-6-0",
+      },
+      {
         version: "0.3.1",
         date: "2026-02-25",
         href: "/blog/util-reportes-v0-3-1",
@@ -256,7 +271,13 @@ export const products: Product[] = [
     label: "Utilitario Certificados",
     icon: "🎓",
     prefix: "UTC",
-    releases: [],
+    releases: [
+      {
+        version: "0.3.0",
+        date: "2026-07-27",
+        href: "/blog/util-certificados-v0-3-0",
+      },
+    ],
   },
 ];
 
