@@ -123,6 +123,11 @@ export const products: Product[] = [
     prefix: "SA",
     releases: [
       {
+        version: "1.2.30.1",
+        date: "2026-07-27",
+        href: "/blog/samm-api-v1-2-30-1",
+      },
+      {
         version: "1.2.27.0",
         date: "2026-06-08",
         href: "/blog/samm-api-v1-2-27-0",
