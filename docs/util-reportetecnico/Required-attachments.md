@@ -44,17 +44,18 @@ No aplica para esta funcionalidad.
 
 ## Configuración
 
-### Paso 1: Localizar el procedimiento almacenado `mob_bandejaServicios`
+### Paso 1: Localizar el procedimiento almacenado `mob_bandejaServicios` y/o `mob_informacion_basica`
 
-Ubique el procedimiento `mob_bandejaServicios` en la base de datos de SAMM. Este procedimiento es el que alimenta la bandeja de servicios consumida por el App Técnicos y contiene el campo que controla si es o no obligatorio adjuntar archivos para la seccion adjuntos
+Ubique el procedimiento `mob_bandejaServicios` y/o  `mob_informacion_basica` en la base de datos de SAMM. Estos procedimientos son los que  alimentan la bandeja de servicios del app , pero tambien tenemos el caso del utilitario de reportes donde leera el procedimiento `mob_informacion_basica` para los casos donde no se tiene una programacion previa dicho esto `mob_bandejaServicios` sera consumida por el App Técnicos y contiene el campo que controla si es o no obligatorio adjuntar archivos para la seccion adjuntos y `mob_informacion_basica` sera de ayuda para el caso de no tener una programacion previa y se desee reportar desde el utilitario de reportes.
 
 ```sql title="Consulta del procedimiento actual"
 sp_helptext 'dbo.mob_bandejaServicios'
+sp_helptext 'dbo.mob_informacion_basica'
 ```
 
 ### Paso 2: Habilitar el campo `requiredAttachments`
 
-Dentro de la definición del procedimiento, ubique el campo `requiredAttachments` en el `SELECT` principal y asegúrese de que su valor sea `'true'`. Este campo es el que determina si es o no obligatorio adjuntar imagenes.
+Dentro de la definición de los procedimientos, ubique el campo `requiredAttachments` en el `SELECT` principal y asegúrese de que su valor sea `'true'`. Este campo es el que determina si es o no obligatorio adjuntar imagenes.
 
 ```sql title="Campo requiredAttachments habilitado"
 ,'true' as requiredAttachments  --- este campo debe decir true para cuando sea obligatorio
@@ -64,7 +65,7 @@ Dentro de la definición del procedimiento, ubique el campo `requiredAttachments
 Si en algún momento se requiere deshabilitar la obligatoriedad para todos los usuarios, basta con cambiar el valor de `requiredAttachments` a `'false'` y volver a alterar el procedimiento.
 :::
 
-### Paso 3: Alterar el procedimiento en la base de datos
+### Paso 3: Alterar el o los  procedimientos en la base de datos
 
 Con el campo `requiredAttachments` en `'true'`, ejecute el `ALTER PROCEDURE` completo para aplicar el cambio en la base de datos.
 
@@ -159,12 +160,47 @@ WHERE
 	)
 END
 ```
+```sql title="Alteración del procedimiento mob_informacion_basica"
+ALTER  PROCEDURE [dbo].[mob_informacion_basica] 
+	@p_id_usuario int ,
+	@p_id_ot int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT 
+		view_doc_documento_ot.id as id_ot 
+		,view_doc_documento_ot.[doc_documento_ot_prefijo] + '-' + convert(varchar(max),(view_doc_documento_ot.[doc_documento_ot_documento_numero])) as NumOT 
+		,isnull(view_equ_equipo.equipo,'') as Equipo 
+		,isnull(view_equ_equipo.id,0) as id_equipo
+		,isnull(view_equ_equipo.[cat_catalogo.equipo_manejahorometro],'false') as ConHorometro
+		,convert(varchar(30),isnull(view_equ_equipo.[ultimalectura_fh],0),126) as FechaHorometro
+		,isnull(view_equ_equipo.[HorometroActual],0) as ValorHorometro
+		,convert(varchar(30),dateadd(hour,-1,getdate()),126) HoraInicio
+		,convert(varchar(30),getdate(),126) HoraFin
+		,'' as comentario
+		,view_doc_documento_ot.[doc_documento_ot_id_subtipoDocumento] as id_subtipoDocumento
+		,view_doc_documento_ot.doc_documento_ot_doc_subtipoDocumento_subtipoDocumento as subtipoDocumento
+		,view_doc_documento_ot.[doc_documento_ot_id_estadoTipoDocumento] as id_estadoTipoDocumento
+		,view_doc_documento_ot.doc_documento_ot_doc_estadoTipoDocumento_estadoTipoDocumento as estadoTipoDocumento
+		,'false' as firmaObligatoria
+		, 'true' as requiredAttachments --Requerir adjuntos
+
+	FROM 
+		view_doc_documento_ot
+		left join view_equ_equipo on view_equ_equipo.id=view_doc_documento_ot.id_equipo
+
+	WHERE 
+	view_doc_documento_ot.id = @p_id_ot
+END
+```
+
 
 :::note Información
-Una vez ejecutado el `ALTER PROCEDURE`, el cambio queda activo de forma inmediata. No se requiere reiniciar servicios adicionales, ya que la bandeja de servicios se consulta en tiempo real desde la app.
+Una vez ejecutado el `ALTER PROCEDURE`, el cambio queda activo de forma inmediata. No se requiere reiniciar servicios adicionales, ya que la bandeja de servicios se consulta en tiempo real desde la app. Para el caso del utilitario de reportes este se consulta cada que se de click en el boton de reportar o reporte dinamico segun parametrizacion del consultor o las preferencias del usuario.
 :::
 
-### Paso 4: visualizar el cronometro
+### Paso 4: visualizar el campo obligatorio
 
 ![alt text](./img/adjuntos-obligatorios.png)
 
