@@ -6,7 +6,7 @@ release_module: "Samm New"
 
 # Parametrización de Obligatoriedad en Motivos de Cancelación
 
-Este documento describe cómo configurar la obligatoriedad del campo **motivo** en las programaciones dentro de Samm New, permitiendo definir para cuáles de los seis tipos de programación el sistema debe exigir su registro al crear o editar una programación. Anteriormente no existía control granular sobre este comportamiento, lo que impedía estandarizar la trazabilidad de los cambios realizados sobre las programaciones.
+Este documento describe cómo configurar la obligatoriedad del campo **motivo** en las programaciones dentro de Samm New, permitiendo definir para cuáles de los seis tipos de programación el sistema debe exigir su registro al crear en el caso de las **no disponibilidades** o editar una programación. Anteriormente no existía control granular sobre este comportamiento, lo que impedía estandarizar la trazabilidad de los cambios realizados sobre las programaciones.
 
 ## Referencias
 
@@ -48,7 +48,7 @@ No aplica para esta funcionalidad.
 
 ### Paso 1: Activar o desactivar la obligatoriedad del motivo por tipo de programación
 
-Este paso permite definir en cuáles de los seis tipos de programación el sistema exigirá el registro de un motivo al momento de crear o editar una programación.
+Este paso permite definir en cuáles de los seis tipos de programación el sistema exigirá el registro de un motivo al momento de crear en el caso de las **no disponibilidades** o editar una programación.
 
 1. Ingrese a `Configuración` → `Aplicación` → `Parámetros Generales`.
 2. Diríjase al tab **OTS**.
@@ -60,7 +60,7 @@ Este paso permite definir en cuáles de los seis tipos de programación el siste
    - `Aplazamiento`
    - `Cancelada`
    - `Reportado`
-5. Marque los checkboxes correspondientes a los tipos de programación en los cuales desea que el sistema exija el registro de un motivo al crear o editar la programación.
+5. Marque los checkboxes correspondientes a los tipos de programación en los cuales desea que el sistema exija el registro de un motivo al crear en el caso de las **no disponibilidades** o editar la programación.
 6. Guarde los cambios realizados en Parámetros Generales.
 
 :::tip Consejo
@@ -75,7 +75,7 @@ No aplica para esta funcionalidad.
 
 Una vez completada la configuración:
 
-1. **Obligatoriedad activa**: Al crear o editar una programación cuyo estado corresponda a un tipo marcado en "Motivo cancelación obligatorio en", el sistema exigirá el registro de un motivo antes de permitir guardar los cambios.
+1. **Obligatoriedad activa**: Al crear en el caso de las **no disponibilidades** o editar una programación cuyo estado corresponda a un tipo marcado en "Motivo cancelación obligatorio en", el sistema exigirá el registro de un motivo antes de permitir guardar los cambios.
 2. **Obligatoriedad inactiva**: Para los tipos de programación no marcados, el campo `motivo` permanecerá opcional.
 3. **Persistencia de la configuración**: Los cambios realizados en Parámetros Generales se mantendrán activos para todos los usuarios del sistema hasta que sean modificados nuevamente.
 
