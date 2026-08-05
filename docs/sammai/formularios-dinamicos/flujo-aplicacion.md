@@ -122,8 +122,8 @@ Cada `FormField` tiene un `type` que determina el componente a renderizar:
 | `ShortText` | `<Input>` | Texto corto con validación de tamaño y regex |
 | `LongText` | `<Textarea>` | Texto largo (ocupa ancho completo) |
 | `Number` | `<Input type="number">` | Numérico |
-| `DateOnly` | `<Input type="date">` | Fecha sin hora |
-| `DateTime` | `<Input type="datetime-local">` | Fecha y hora |
+| `DateOnly` | `<DateFieldInput withTime={false}>` | Selector (Popover + `Calendar`), muestra `dd-MM-yyyy`, envía `yyyy-MM-dd` |
+| `DateTime` | `<DateFieldInput withTime>` | Mismo selector + hora, muestra `dd-MM-yyyy HH:mm`, envía `yyyy-MM-dd'T'HH:mm` |
 | `Boolean` | `<Switch>` | Toggle on/off |
 | `ReadOnly` | `<Input disabled>` | Solo lectura (valor precargado) |
 | `List` | `<ListFieldInput>` | Lista simple + campo comentario |

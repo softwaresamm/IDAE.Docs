@@ -85,6 +85,11 @@ export const products: Product[] = [
     prefix: "SN",
     releases: [
       {
+        version: "7.1.14.2",
+        date: "2026-08-05",
+        href: "/blog/samm-new-v7-1-14-2",
+      },
+      {
         version: "7.1.14.0",
         date: "2026-07-27",
         href: "/blog/samm-new-v7-1-14-0",
@@ -122,6 +127,11 @@ export const products: Product[] = [
     icon: "🔌",
     prefix: "SA",
     releases: [
+      {
+        version: "1.2.30.2",
+        date: "2026-08-05",
+        href: "/blog/samm-api-v1-2-30-2",
+      },
       {
         version: "1.2.30.1",
         date: "2026-07-27",
@@ -265,6 +275,11 @@ export const products: Product[] = [
     prefix: "URT",
     releases: [
       {
+        version: "3.3.0",
+        date: "2026-08-05",
+        href: "/blog/util-reporte-tecnico-v3-3-0",
+      },
+      {
         version: "3.1.0",
         date: "2026-07-10",
         href: "/blog/util-reporte-tecnico-v3-1-0",
@@ -277,6 +292,11 @@ export const products: Product[] = [
     icon: "🎓",
     prefix: "UTC",
     releases: [
+      {
+        version: "0.4.0",
+        date: "2026-08-05",
+        href: "/blog/util-certificados-v0-4-0",
+      },
       {
         version: "0.3.0",
         date: "2026-07-27",
