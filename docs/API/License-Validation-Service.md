@@ -37,7 +37,7 @@ Antes de que el servicio de validación de licencia opere correctamente, asegúr
 ```
 
 :::important Importante
-El valor de la llave `urlApiIDAE` puede variar según el ambiente en el que se esté trabajando (por ejemplo, entre ambientes de producción y de pruebas). Verifique con el equipo correspondiente cuál es la URL vigente que debe configurarse para el cliente antes de habilitar el servicio.
+El valor de la llave `urlApiIDAE` puede variar según la version a trabajar publicado `https://app2.softwaresamm.com/sa_idaetest/`   o version liberada `https://softwaresamm.com/sa_idae/`
 :::
 
 ## Información del Servicio
