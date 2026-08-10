@@ -128,6 +128,11 @@ export const products: Product[] = [
     prefix: "SA",
     releases: [
       {
+        version: "1.2.31.0",
+        date: "2026-08-10",
+        href: "/blog/samm-api-v1-2-31-0",
+      },
+      {
         version: "1.2.30.2",
         date: "2026-08-05",
         href: "/blog/samm-api-v1-2-30-2",
@@ -292,6 +297,11 @@ export const products: Product[] = [
     icon: "🎓",
     prefix: "UTC",
     releases: [
+      {
+        version: "0.5.0",
+        date: "2026-08-10",
+        href: "/blog/util-certificados-v0-5-0",
+      },
       {
         version: "0.4.0",
         date: "2026-08-05",
