@@ -41,9 +41,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
         },
         blog: {
           showReadingTime: true,
@@ -51,9 +48,6 @@ const config: Config = {
             type: ["rss", "atom"],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/softwaresamm/IDAE.Docs/tree/main/",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
@@ -68,6 +62,24 @@ const config: Config = {
           customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["es"],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: false,
+        docsRouteBasePath: "/docs",
+        blogRouteBasePath: "/blog",
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        searchResultLimits: 8,
+      },
     ],
   ],
 
@@ -93,11 +105,6 @@ const config: Config = {
         {
           href: "https://idaesoluciones.com",
           label: "idaesoluciones.com",
-          position: "right",
-        },
-        {
-          href: "https://github.com/softwaresamm/IDAE.Docs",
-          label: "GitHub",
           position: "right",
         },
       ],
@@ -141,10 +148,6 @@ const config: Config = {
             {
               label: "Versiones",
               to: "/versiones",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/softwaresamm/IDAE.Docs",
             },
           ],
         },
