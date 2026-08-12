@@ -48,6 +48,20 @@
   color: #ffffff;
 }
 
+/* ── Logo SAMM: chip blanco para que resalte sobre el navbar oscuro ──────── */
+.navbar__logo {
+  height: 2.5rem;
+}
+
+.navbar__logo img.navbar__logo-samm {
+  height: 100%;
+  width: auto;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 3px 8px;
+  box-sizing: border-box;
+}
+
 .navbar__link--active {
   color: var(--idae-yellow);
 }
