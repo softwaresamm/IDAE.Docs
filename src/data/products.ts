@@ -241,6 +241,11 @@ export const products: Product[] = [
     prefix: "DM",
     releases: [
       {
+        version: "0.2.1",
+        date: "2026-08-12",
+        href: "/blog/util-descarga-v0-2-1",
+      },
+      {
         version: "0.2.0",
         date: "2026-04-22",
         href: "/blog/util-descarga-v0-2-0",
