@@ -2,6 +2,7 @@
 sidebar_position: 1
 release_version: "1.2.31.0"
 release_module: "API"
+slug: /API/License-Validation-Service
 ---
 
 # Servicio de Validación de Licencia

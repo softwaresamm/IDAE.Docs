@@ -2,6 +2,7 @@
 sidebar_position: 1
 release_version: "1.2.30.2"
 release_module: "API"
+slug: /API/Validation-of-creation-or-editing-fields-of-equipment
 ---
 
 # Consulta de Campos Editables y Requeridos para Equipos
@@ -29,7 +30,7 @@ Este documento describe cómo consultar, mediante el servicio API `api/equ/campo
 
 Antes de iniciar la configuración, asegúrese de tener:
 
-- Configuración previa de las columnas de equipos realizada en `_columnas`, siguiendo la [documentación de creación de equipos](https://softwaresamm.github.io/IDAE.Docs/docs/app-tecnicos/Creating-teams-in-the%20team-management-menu).
+- Configuración previa de las columnas de equipos realizada en `_columnas`, siguiendo la [documentación de creación de equipos](../app-tecnicos/Creating-teams-in-the%20team-management-menu).
 - Conocimiento básico en la ejecución de servicios mediante Postman.
 - Acceso al API del sitio a validar (variable urlAPI) y al ID del equipo a consultar.
 
@@ -199,7 +200,7 @@ Preste especial atención al campo `obligatorio` dentro de cada objeto del arreg
 
 ### Paso 1: Configuración previa de columnas
 
-Antes de consultar el servicio, es necesario definir qué campos estarán disponibles para la edición y/o creación de equipos. Esta configuración se realiza en `_columnas`, siguiendo el procedimiento descrito en la [documentación de creación de equipos](https://softwaresamm.github.io/IDAE.Docs/docs/app-tecnicos/Creating-teams-in-the%20team-management-menu).
+Antes de consultar el servicio, es necesario definir qué campos estarán disponibles para la edición y/o creación de equipos. Esta configuración se realiza en `_columnas`, siguiendo el procedimiento descrito en la [documentación de creación de equipos](../app-tecnicos/Creating-teams-in-the%20team-management-menu).
 
 :::note
 Esta configuración determina directamente qué campos aparecerán en la respuesta del servicio del Paso 2, así como su condición de obligatoriedad.

@@ -2,6 +2,7 @@
 sidebar_position: 1
 release_version: "7.1.10.9"
 release_module: "SammNew"
+slug: /util-reportes/DEPLOY-IIS-README
 ---
 
 # Despliegue de IDAE Report Service en IIS
@@ -32,7 +33,7 @@ _Esta sección será completada con tickets de Jira relacionados cuando estén d
 ## Requisitos Previos
 
 :::important Importante
-Esta guía es para despliegue en **Windows Server con IIS nativo** (sin Docker). Para despliegue con Docker en Linux o Windows con Docker Desktop, consultar: `IDAE.UTIL.ReportService.Container/DEPLOY-DOCKER-README.md`
+Esta guía es para despliegue en **Windows Server con IIS nativo** (sin Docker). Para despliegue con Docker en Linux o Windows con Docker Desktop, consultar: `docs/util-reportes/deploy-docker-readme.md`
 :::
 
 Antes de iniciar el despliegue, asegúrese de tener:
