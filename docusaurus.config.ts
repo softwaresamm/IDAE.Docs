@@ -79,6 +79,8 @@ const config: Config = {
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
         searchResultLimits: 8,
+        searchBarShortcut: false,
+        searchBarShortcutHint: false,
       },
     ],
   ],
@@ -91,8 +93,9 @@ const config: Config = {
     navbar: {
       title: "IDAE Soluciones",
       logo: {
-        alt: "IDAE Soluciones",
-        src: "img/logo.svg",
+        alt: "SAMM — IDAE Soluciones",
+        src: "img/logo-samm.jpg",
+        className: "navbar__logo-samm",
       },
       items: [
         {
