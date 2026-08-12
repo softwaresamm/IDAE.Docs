@@ -2,6 +2,7 @@
 sidebar_position: 5
 release_version: "7.1.10.9"
 release_module: "SammNew"
+slug: "/sammnew/Visualization-of-reports-component-report-services copy"
 ---
 
 # Visualización de Report services

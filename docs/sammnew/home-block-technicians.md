@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+slug: /sammnew/BH-tecnicos
 ---
 
 # Configuración del Bloque Home "Técnicos"

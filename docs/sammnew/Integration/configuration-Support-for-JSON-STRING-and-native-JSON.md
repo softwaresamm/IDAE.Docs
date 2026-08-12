@@ -2,6 +2,7 @@
 sidebar_position: 5
 release_version: "5.5.27.0"
 release_module: "SammWeb"
+slug: /sammnew/Integration/configuration-Support-for-JSON-STRING-and-native-JSON
 ---
 
 # Configuración de Envío JSON en Integraciones

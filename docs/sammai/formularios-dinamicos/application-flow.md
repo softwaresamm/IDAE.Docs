@@ -3,6 +3,7 @@ sidebar_position: 1
 title: Flujo de Aplicación
 description: Flujo lógico completo del sistema de formularios dinámicos — desde el menú hasta la carga de opciones de lista.
 tags: [sammai, formularios, flujo, arquitectura]
+slug: /sammai/formularios-dinamicos/flujo-aplicacion
 ---
 
 # Flujo de Aplicación — Formularios Dinámicos

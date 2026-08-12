@@ -2,6 +2,7 @@
 sidebar_position: 1
 release_version: "2.3.2.2"
 release_module: "App Técnicos - Actividades"
+slug: "/app-tecnicos/Activity Stopwatch"
 ---
 
 # Cronómetro y Control de Edición en Sección de Actividades
