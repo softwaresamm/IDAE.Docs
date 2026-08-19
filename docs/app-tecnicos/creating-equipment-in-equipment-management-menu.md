@@ -102,8 +102,7 @@ Ingrese al menú de **Gestión de Equipos** en la App Técnicos y verifique que 
 
 ![Formulario de creación de equipos en la App Técnicos](./img/creación%20equipos%20app.png)
 
-Para una mayor compresion ver el video de apoyo del resultado esperado https://youtu.be/qIcpbUeYbNo
-
+Para una mayor compresion ver el video de apoyo del resultado esperado https://youtube.com/shorts/ZHzRUXKqlCU?feature=share
 ## Casos Especiales
 
 No aplica para esta funcionalidad.
