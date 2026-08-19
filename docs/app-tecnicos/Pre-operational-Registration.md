@@ -30,7 +30,7 @@ Este documento describe cómo configurar el **Registro Preoperacional** para equ
 |BASE DE DATOS| >= C2.1.16.0   |Base de datos                     |
 
 ## Requisitos Previos
-
+ 
 Antes de iniciar la configuración, asegúrese de tener:
 
 - Acceso al módulo de **Gestión de Equipos** con permisos de administración de listas de chequeo.
