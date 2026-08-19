@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 7
 release_version: "v0.3.0"
 release_module: "Utilitario de Reportes"
 ---

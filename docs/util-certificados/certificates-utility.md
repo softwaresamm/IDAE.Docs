@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: "Utilitario Certificados"
+slug: /sammnew/utilitario-certificados
 ---
 
 # Utilitario Certificados

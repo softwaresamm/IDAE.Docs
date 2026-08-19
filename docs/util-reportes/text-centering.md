@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 release_version: "0.3.1"
 release_module: "Util - Reportes"
+slug: /util-reportes/Centrado-texto
 ---
 
 # Justificación de Texto en Reportes RDL

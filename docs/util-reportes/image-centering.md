@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 release_version: "0.3.2-beta"
 release_module: "Utilitario Reportes"
+slug: /util-reportes/centrado-imagenes
 ---
 
 # Centrado de Imágenes en Formatos

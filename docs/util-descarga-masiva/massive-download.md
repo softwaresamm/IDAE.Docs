@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: "Descarga Masiva de Órdenes de Trabajo"
 description: "Ventana independiente en Samm New para la descarga masiva de órdenes de trabajo, con selección de subtipo y formato de descarga."
+slug: /sammnew/Massive-Download
 ---
 
 # Descarga Masiva de Órdenes de Trabajo

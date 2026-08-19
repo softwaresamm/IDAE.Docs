@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 release_version: "V.3.1.0"
 release_module: "Utilitario Reporte Técnico"
+slug: /util-reportetecnico/configuracion-inicial
 ---
 
 # Configuración del Utilitario de Reporte Técnico (RT Web)
@@ -119,7 +120,7 @@ El archivo `web.config` de la aplicación **se deja tal como se encuentra por de
 No se requiere modificar el `web.config` propio de la aplicación `rt_web`. Cualquier cambio de configuración debe realizarse únicamente en el `.env`.
 :::
 
-### Paso 5: Agregar la llave `urlTechnicalReport` en el sitio SN
+### Paso 5: Agregar la llave `urlTechnicalReport` en el sitio SammNew
 
 En el `web.config` del sitio `sn`, agregue la siguiente llave para habilitar el enlace hacia el nuevo reporte técnico web:
 
@@ -199,7 +200,7 @@ No aplica para esta funcionalidad.
 3. Enviar/reportar la OT.
 4. **Resultado esperado**: el estado se limpia correctamente tras reportar (SO-740), los adjuntos se registran con su identificador (SO-752), y la ubicación se envía junto con el reporte (SO-711).
 
-### Escenario 3: Validación del enlace desde el sitio SN
+### Escenario 3: Validación del enlace desde el sitio SammNew
 
 1. Configurar `urlTechnicalReport` en el `web.config` del sitio `sn` apuntando al entorno de pruebas.
 2. Acceder al sitio `sn` y ubicar el enlace/acceso al reporte técnico.

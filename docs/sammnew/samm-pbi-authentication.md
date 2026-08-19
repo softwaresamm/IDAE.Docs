@@ -2,6 +2,7 @@
 sidebar_position: 1
 release_version: "7.1.12.0"
 release_module: "Integración Power BI"
+slug: /sammnew/autenticacion-samm-pbi
 ---
 
 # Autenticación de Conexión SAMM con Power BI

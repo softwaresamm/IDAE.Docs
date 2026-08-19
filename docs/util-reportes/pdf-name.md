@@ -1,7 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 5
 release_version: "v0.3.1"
 release_module: "Utilitario de Reportes"
+slug: /util-reportes/PDF-name
 ---
 
 # Nombre del PDF

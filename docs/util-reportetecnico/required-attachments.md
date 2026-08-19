@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 release_version: "V.3.3.0"
 release_module: "Utilitario Reporte Tecnico - Adjuntos"
+slug: /util-reportetecnico/Required-attachments
 ---
 
 # Controlar obligatoriedad de archivos

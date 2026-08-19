@@ -1,7 +1,8 @@
 ---
-sidebar_position: 3
+sidebar_position: 6
 release_version: "v0.3.1"
 release_module: "Utilitario de Reportes"
+slug: /util-reportes/Report-services-interface-report-list-filters-and-content
 ---
 
 # Interfaz Report Services (Listado de Reportes, Filtros y Contenido)
@@ -584,8 +585,8 @@ Cuando un filtro depende de la selección de otro (ej: Estado depende de País),
 
 ### Documentación relacionada
 
-- Guía de despliegue IIS: `DEPLOY-IIS-README.md`
-- Guía de despliegue Docker: `DEPLOY-DOCKER-README.md`
+- Guía de despliegue IIS: `deploy-iis-readme.md`
+- Guía de despliegue Docker: `deploy-docker-readme.md`
 - Documentación de SSRS: https://docs.microsoft.com/en-us/sql/reporting-services/
 
 ### Herramientas recomendadas

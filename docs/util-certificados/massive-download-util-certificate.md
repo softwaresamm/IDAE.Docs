@@ -1,7 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 release_version: "0.3.0-beta"
 release_module: "Samm New"
+slug: /sammnew/Massive-Download-util-certificate
 ---
 
 # Utilitario Certificados - Descarga Masiva de Certificados
@@ -52,7 +53,7 @@ No aplica para esta funcionalidad.
 Ingrese al Dashboard de certificados a través de la ruta **Servicio > Equipos > Certificados** dentro de Samm New.
 
 :::tip Consejo
-Para más detalle sobre la navegación y estructura del módulo, consulte la documentación de referencia: [Utilitario de Certificados](https://softwaresamm.github.io/IDAE.Docs/docs/sammnew/utilitario-certificados).
+Para más detalle sobre la navegación y estructura del módulo, consulte la documentación de referencia: [Utilitario de Certificados](./utilitario-certificados).
 :::
 
 ### Paso 2: Aplicar Filtros de Búsqueda
