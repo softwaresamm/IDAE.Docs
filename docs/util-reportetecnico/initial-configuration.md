@@ -132,6 +132,8 @@ En el `web.config` del sitio `sn`, agregue la siguiente llave para habilitar el 
 El valor de `urlTechnicalReport` debe apuntar a la misma URL pública configurada en `NEXTAUTH_URL` (Paso 3), incluyendo el `/` final, o el enlace desde el sitio `sn` no resolverá correctamente.
 :::
 
+Video de apoyo donde se muestra como se ven las secciones https://youtu.be/wKPNuSTmH5Y
+
 ## Casos Especiales
 
 No aplica para esta funcionalidad.
