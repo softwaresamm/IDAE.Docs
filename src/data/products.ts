@@ -85,6 +85,16 @@ export const products: Product[] = [
     prefix: "SN",
     releases: [
       {
+        version: "7.1.14.2",
+        date: "2026-08-05",
+        href: "/blog/samm-new-v7-1-14-2",
+      },
+      {
+        version: "7.1.14.0",
+        date: "2026-07-27",
+        href: "/blog/samm-new-v7-1-14-0",
+      },
+      {
         version: "7.1.13.1",
         date: "2026-07-07",
         href: "/blog/samm-new-v7-1-13-1",
@@ -117,6 +127,21 @@ export const products: Product[] = [
     icon: "🔌",
     prefix: "SA",
     releases: [
+      {
+        version: "1.2.31.0",
+        date: "2026-08-10",
+        href: "/blog/samm-api-v1-2-31-0",
+      },
+      {
+        version: "1.2.30.2",
+        date: "2026-08-05",
+        href: "/blog/samm-api-v1-2-30-2",
+      },
+      {
+        version: "1.2.30.1",
+        date: "2026-07-27",
+        href: "/blog/samm-api-v1-2-30-1",
+      },
       {
         version: "1.2.27.0",
         date: "2026-06-08",
@@ -161,6 +186,11 @@ export const products: Product[] = [
     prefix: "APP",
     docLink: "/docs/app-tecnicos",
     releases: [
+      {
+        version: "2.3.3.1",
+        date: "2026-07-27",
+        href: "/blog/app-tecnicos-v2-3-3-1",
+      },
       {
         version: "2.3.2.2",
         date: "2026-07-09",
@@ -211,6 +241,11 @@ export const products: Product[] = [
     prefix: "DM",
     releases: [
       {
+        version: "0.2.1",
+        date: "2026-08-12",
+        href: "/blog/util-descarga-v0-2-1",
+      },
+      {
         version: "0.2.0",
         date: "2026-04-22",
         href: "/blog/util-descarga-v0-2-0",
@@ -224,6 +259,11 @@ export const products: Product[] = [
     prefix: "UTR",
     docLink: "/docs/util-reportes",
     releases: [
+      {
+        version: "0.6.0",
+        date: "2026-07-27",
+        href: "/blog/util-reportes-v0-6-0",
+      },
       {
         version: "0.3.1",
         date: "2026-02-25",
@@ -245,6 +285,11 @@ export const products: Product[] = [
     prefix: "URT",
     releases: [
       {
+        version: "3.3.0",
+        date: "2026-08-05",
+        href: "/blog/util-reporte-tecnico-v3-3-0",
+      },
+      {
         version: "3.1.0",
         date: "2026-07-10",
         href: "/blog/util-reporte-tecnico-v3-1-0",
@@ -256,7 +301,23 @@ export const products: Product[] = [
     label: "Utilitario Certificados",
     icon: "🎓",
     prefix: "UTC",
-    releases: [],
+    releases: [
+      {
+        version: "0.5.0",
+        date: "2026-08-10",
+        href: "/blog/util-certificados-v0-5-0",
+      },
+      {
+        version: "0.4.0",
+        date: "2026-08-05",
+        href: "/blog/util-certificados-v0-4-0",
+      },
+      {
+        version: "0.3.0",
+        date: "2026-07-27",
+        href: "/blog/util-certificados-v0-3-0",
+      },
+    ],
   },
 ];
 

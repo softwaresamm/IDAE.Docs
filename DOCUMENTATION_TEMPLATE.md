@@ -23,6 +23,8 @@ release_module: "[nombre del módulo]"
 - `sidebar_position`: Número entero que define el orden en el sidebar
 - `release_version`: Versión en la que se liberó la funcionalidad (formato: "X.Y.Z")
 - `release_module`: Nombre del módulo al que pertenece (usar nombres consistentes)
+- Los valores de `sidebar_position` deben ser **únicos y secuenciales** (1, 2, 3…) dentro de cada categoría — no depender del orden alfabético de nombres de archivo para desempatar posiciones repetidas
+- Si la categoría contiene un documento de instalación/despliegue (deploy en IIS, Docker, etc.), dicho documento debe tener `sidebar_position: 1`, de modo que aparezca primero en la navegación de esa categoría
 
 ### 2. Título Principal
 
@@ -376,6 +378,22 @@ Información crítica que no debe pasarse por alto
 - Texto del enlace debe ser descriptivo
 - Formato: `[Texto descriptivo](URL)`
 
+### Orden en el Sidebar
+
+**Reglas:**
+- Dentro de una misma categoría, los `sidebar_position` deben ser únicos y secuenciales — evitar empates que dependan del desempate alfabético de Docusaurus por nombre de archivo
+- El documento de instalación/despliegue de un producto (si existe) debe tener `sidebar_position: 1`, para que aparezca primero en su categoría
+- Ejemplo de referencia: [`docs/util-reportes/deploy-iis-readme.md`](./docs/util-reportes/deploy-iis-readme.md)
+
+### Nombres de Archivo
+
+**Reglas:**
+- Los nombres de archivo deben estar en **inglés**, en **kebab-case todo minúsculas**: `mi-documento.md` (no `Mi-Documento.md`, no `mi documento.md`, no `mi_documento.md`)
+- Sin espacios, sin tildes/ñ, sin mayúsculas
+- **Excepción**: `docs/sammnew/database/**` documenta tablas literales de la base de datos SAMM y usa el nombre real de cada tabla (español, notación húngara: `cat_`, `doc_`, `gen_`, etc.), siguiendo la convención de nomenclatura del backend/DB SAMM — no renombrar esos archivos
+- Al renombrar un documento **ya publicado**, fijar `slug:` en el frontmatter con la ruta absoluta antigua (ej. `slug: /util-reportes/PDF-name`) para no romper la URL pública existente — ver ejemplos en `docs/util-reportes/pdf-name.md` o `docs/app-tecnicos/activity-stopwatch.md`
+- Validar con `npm run lint:filenames` (`scripts/validate-filenames.js`) antes de hacer commit; el mismo chequeo corre en CI (`.github/workflows/deploy.yml`) antes del build
+
 ### Imágenes
 
 **Reglas:**
@@ -441,7 +459,7 @@ Ver archivos de referencia:
 
 ---
 
-**Versión del Template:** 1.0
-**Última Actualización:** Diciembre 2025
+**Versión del Template:** 1.1
+**Última Actualización:** Agosto 2026
 **Mantenedor:** Equipo de Documentación IDAE
 ```
