@@ -70,8 +70,8 @@ Este mecanismo es útil para dejar accesibles políticas de seguridad, manuales 
 Verifique que la URL ingresada sea correcta y esté activa antes de guardar. Un link roto o mal escrito se mostrará como texto no navegable o llevará a una página inexistente.
 :::
 
-:::note Información
-comparto video de apoyo https://youtu.be/8K8a00bhnOc 
+:::note Información  
+Se asocia video del resultado esperado https://youtube.com/shorts/ysdNU1lDwqU
 :::
 
 
@@ -105,6 +105,12 @@ Confirme que:
 - La URL ingresada esté completa y bien formada (sin errores de tipeo).
 - El recurso o página de destino esté activo y accesible desde la red donde se usa el dispositivo.
 - No existan restricciones de firewall o proxy que bloqueen el acceso al dominio del link.
+
+:::note Información  
+De no ser valido puede presentarse el siguiente mensaje `No se puede abrir este enlace`
+:::
+
+![link](./img/Error-link.png)
 
 ### Los cambios no se reflejan en el app
 
