@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 release_version: "2.3.2.2"
 release_module: "App Técnicos - Actividades"
 slug: "/app-tecnicos/Activity Stopwatch"

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 7
 release_version: "1.2.27.0"
 release_module: "Gestión de Equipos"
 ---

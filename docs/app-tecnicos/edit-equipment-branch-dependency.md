@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 6
 release_version: "V2.3.0.9"
 release_module: "Gestión de Equipos"
 ---

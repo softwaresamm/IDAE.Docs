@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 9
 release_version: "2.3.1.1"
 release_module: "App 2.0"
 slug: /app-tecnicos/nfc-lectura-app2

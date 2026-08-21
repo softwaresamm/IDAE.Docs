@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 11
 release_version: "2.3.4.6"
 release_module: "App 2.0 - Gestión de Equipos"
 ---

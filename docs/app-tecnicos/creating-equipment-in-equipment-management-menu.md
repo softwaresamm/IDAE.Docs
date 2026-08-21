@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 release_version: "2.3.3.1"
 release_module: "App Técnicos"
 slug: "/app-tecnicos/Creating-teams-in-the team-management-menu"
