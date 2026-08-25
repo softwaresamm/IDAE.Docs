@@ -187,6 +187,11 @@ export const products: Product[] = [
     docLink: "/docs/app-tecnicos",
     releases: [
       {
+        version: "2.3.4.6",
+        date: "2026-08-24",
+        href: "/blog/app-tecnicos-v2-3-4-6",
+      },
+      {
         version: "2.3.3.1",
         date: "2026-07-27",
         href: "/blog/app-tecnicos-v2-3-3-1",
