@@ -230,7 +230,13 @@ export const products: Product[] = [
     label: "FEBANCOL / SAFE",
     icon: "🏦",
     prefix: "FEB",
-    releases: [],
+    releases: [
+      {
+        version: "0.8.0",
+        date: "2026-08-26",
+        href: "/blog/febancol-v0-8-0",
+      },
+    ],
   },
   {
     slug: "vibrancy",
