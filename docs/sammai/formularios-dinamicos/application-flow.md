@@ -213,11 +213,45 @@ Cuando el usuario selecciona una opción desde resultados CMM, el label se guard
 en un `useRef` (`labelCacheRef`) antes de que el popover cierre.
 Esto permite mostrar el label en el trigger aunque los resultados CMM ya no estén en memoria.
 
-### Listas condicionales (pendiente Stage 2b)
+### Listas condicionales (dependencia padre→hijo)
 
-Los campos `ConditionalList` tienen un array `parents: number[]` que referencia
-los `id` de campos padre. Cuando el valor del padre cambia, se debe re-consultar
-el endpoint con `filters: [{ idField: parentId, value: Number(parentValue) }]`.
+Un campo lista puede depender del valor de otro (ej. **Tercero → Sucursal**: al
+elegir un Tercero, Sucursal solo muestra las sucursales de ese Tercero).
+
+**El disparador es el `type` del campo: solo `ConditionalList` y
+`ConditionalListNoComment` filtran** (ver `CONDITIONAL_LIST_TYPES` en
+`types/form.ts`). El/los padres del filtro salen del array `parents: number[]`.
+Una `List`/`ListNoComment` normal nunca filtra, aunque la data traiga `parents`
+— gatear por `type` mantiene la lógica condicional aislada a los campos con esa
+finalidad. Ambos tipos condicionales se renderizan con `ListFieldInput`; **no
+existe** un tipo condicional multi-select, así que `MultiSelectFieldInput` no
+filtra.
+
+El padre trae el array espejo `children`, pero **el frontend nunca lo lee**: cada
+hijo solo consulta sus propios `parents` y solo resetea su propio valor. Así el
+flujo es un DAG por construcción y la dirección es **unidireccional (padre→hijo):
+no puede ciclar**.
+
+`useParentFilters(field, control)`
+(`hooks/features/forms/use-parent-filters.ts`) resuelve los filtros:
+
+- Observa cada campo padre con `useWatch` (claves `getFieldKey({ id })`).
+- Descarta cualquier `parentId === field.id` (guarda anti-autorreferencia).
+- Devuelve `{ filters, ready }` — `filters` lleva un `{ idField, value }` por padre
+  con valor `> 0`; `ready` es `true` solo cuando todos los padres ya tienen valor
+  (o no hay padres).
+
+`ListFieldInput`, solo cuando
+`isConditional = CONDITIONAL_LIST_TYPES.has(field.type)` y `parents` no está vacío
+(`hasParents`):
+
+- Habilita el fetch con `enabled = hasOpened && (!hasParents || ready)`.
+- Pasa los filtros a `useFormResourceOptions` y `useFormResourceSearch` (ambos los
+  incluyen en el `queryKey`, así que un cambio de padre re-consulta).
+- Con `hasParents && !ready`, deshabilita el trigger y muestra
+  `getUiLabel('FORM_LIST_SELECT_PARENT_FIRST')`.
+- Resetea su propio valor (`''`) cuando cambian los filtros (comparados vía
+  `useRef`), limpiando selecciones que ya no corresponden al padre.
 
 ---
 
