@@ -1,13 +1,18 @@
 ---
-sidebar_position: 12
-release_version: "4.3.0.0"
-release_module: "App Técnicos - Reportes"
+sidebar_position: 4
+release_version: "V.4.3.0.0"
+release_module: "Utilitario Reporte Técnico - Reportes Adicionales"
 ---
 
 # Reportes Adicionales para el Correo
 
-Esta funcionalidad permite al técnico visualizar, desde el flujo de reporte de la aplicación, un listado de reportes adicionales disponibles para seleccionar e incluir como
-adjuntos en el correo que se envía junto con el reporte técnico principal. El objetivo funcional es brindar mayor flexibilidad en el envío de información, permitiendo que el correo generado contenga toda la documentación relevante para el destinatario, sin limitarse únicamente al PDF del reporte técnico.
+Esta funcionalidad permite al técnico visualizar, desde el flujo de reporte del **Utilitario de
+Reporte Técnico (RT Web)**, un listado de reportes adicionales disponibles para seleccionar e
+incluir como adjuntos en el correo que se envía junto con el reporte técnico principal. El objetivo
+funcional es brindar mayor flexibilidad en el envío de información, permitiendo que el correo
+generado contenga toda la documentación relevante para el destinatario, sin limitarse únicamente al
+PDF del reporte técnico. El mismo comportamiento aplica también para App Técnicos, ya que comparte
+la propiedad `additionalReportsCode` a través de `mob_bandejaServicios`.
 
 ## Referencias
 
@@ -22,7 +27,7 @@ adjuntos en el correo que se envía junto con el reporte técnico principal. El 
 
 ### Versión de Lanzamiento
 
-:::info **URT v4.3.0.0**
+:::info **V.4.3.0.0**
 :::
 
 ### Versiones Requeridas
@@ -30,7 +35,7 @@ adjuntos en el correo que se envía junto con el reporte técnico principal. El 
 | Aplicación    | Versión Mínima | Descripción            |
 | ------------- | --------------- | ----------------------- |
 | SAMMAPI       | >= 1.2.33.0     | API principal            |
-| SAMMNEW       | >= 7.1.16.3     | Aplicación web           |
+| SAMMNEW       | >= 7.1.16.3     | Aplicación web (incluye RT Web) |
 | SAMM LOGICA   | >= 5.6.26.6     | Lógica de negocio        |
 | SAMM CORE     | >= 2.0.27.0     | Core del sistema         |
 | CAPA DATOS    | >= 2.1.17.2     | Capa de acceso a datos   |
@@ -42,18 +47,24 @@ Antes de iniciar la configuración, asegúrese de tener:
 
 - La plataforma con los envíos de correo configurados
 - El documento Orden de Trabajo con los formatos de impresión configurados
+- Acceso a SQL Server Management Studio (SSMS) con permisos de modificación sobre procedimientos
+  almacenados en la base de datos de SAMM
+- Si también desea habilitar la sección en App Técnicos, la app instalada en los dispositivos
+  móviles debe estar actualizada a una versión compatible con `mob_bandejaServicios`
 
 :::important Importante
-Esta funcionalidad requiere las versiones mínimas especificadas en la tabla anterior. Verifique sus versiones actuales antes de continuar.
+Esta funcionalidad requiere las versiones mínimas especificadas en la tabla anterior. Verifique sus
+versiones actuales antes de continuar.
 :::
 
 ## Información del Servicio
 
 :::note Información
-El SP `mob_informacion_basica` y `mob_bandejaServicios` (consultado al abrir el reporte) debe exponer la propiedad
-`additionalReportsCode`. Ese código es el que **controla la visibilidad** de los "Reportes
-para el correo", si trae un valor, la app muestra la sección y usa ese código como
-filtro al consultar `_obtenerReportesPorCodigoObjeto`.
+El procedimiento `mob_informacion_basica` (consultado por RT Web cuando no existe una programación
+previa) debe exponer la propiedad `additionalReportsCode`. Ese código es el que **controla la
+visibilidad** de la sección "Reportes para el correo": si trae un valor, la aplicación la muestra y
+la usa como filtro al consultar `_obtenerReportesPorCodigoObjeto`. Para que App Técnicos comparta el
+mismo comportamiento, el campo debe agregarse también en `mob_bandejaServicios`.
 :::
 
 ```sql title="mob_informacion_basica — exponer additionalReportsCode"
@@ -92,7 +103,18 @@ BEGIN
 END
 ```
 
-`_obtenerReportesPorCodigoObjeto` recibe el `additionalReportsCode` y devuelve los formatos activos de `rep_reporte` categorizados en `rep_reporte_categoria` para ese código.
+:::tip Consejo
+Para App Técnicos, agregue el mismo campo en el `SELECT` de `mob_bandejaServicios` (ver
+[Controlar obligatoriedad de archivos](./required-attachments.md) para el detalle completo del
+procedimiento), siguiendo el mismo patrón:
+
+```sql title="Campo additionalReportsCode en mob_bandejaServicios"
+,'doc_documento_ot' as additionalReportsCode --SO-2152: código que reciben los SPs de reportes para armar el listado
+```
+:::
+
+`_obtenerReportesPorCodigoObjeto` recibe el `additionalReportsCode` y devuelve los formatos activos
+de `rep_reporte` categorizados en `rep_reporte_categoria` para ese código.
 
 ```sql title="_obtenerReportesPorCodigoObjeto"
 CREATE OR ALTER PROCEDURE [dbo].[_obtenerReportesPorCodigoObjeto]
@@ -159,25 +181,28 @@ particular.
 
 :::note Comportamientos Predefinidos
 El comportamiento de la sección "Reportes para el correo" depende directamente del valor de
-`additionalReportsCode` devuelto por `mob_informacion_basica`.
+`additionalReportsCode` devuelto por `mob_informacion_basica` (RT Web) o `mob_bandejaServicios` (App
+Técnicos).
 :::
 
 | Caso                                                    | Campo/Valor                          | Descripción                                                                                   |
 | -------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `additionalReportsCode` con valor                       | ej. `'doc_documento_ot'`              | La app muestra la sección y consulta `_obtenerReportesPorCodigoObjeto` con ese código para listar los reportes disponibles |
+| `additionalReportsCode` con valor                       | ej. `'doc_documento_ot'`              | La aplicación muestra la sección y consulta `_obtenerReportesPorCodigoObjeto` con ese código para listar los reportes disponibles |
 | Técnico no selecciona ningún reporte adicional          | `reporteCorreo` ausente o vacío en el JSON | El correo se envía únicamente con el PDF del reporte técnico, igual al comportamiento actual   |
 
 ## Configuración
 
-### Paso 1: Definir el código en `mob_informacion_basica` y `mob_bandejaServicios`
+### Paso 1: Definir el código en `mob_informacion_basica` (y `mob_bandejaServicios` si aplica App Técnicos)
 
-Agregue la propiedad `additionalReportsCode` al SELECT del SP `mob_informacion_basica` y `mob_bandejaServicios` con el código que identificará el listado de reportes para el objeto.
+Agregue la propiedad `additionalReportsCode` al `SELECT` del SP `mob_informacion_basica` con el
+código que identificará el listado de reportes para el objeto. Si además quiere habilitar la
+sección en App Técnicos, replique el mismo campo en `mob_bandejaServicios`.
 
 ### Paso 2: Configurar `_obtenerReportesPorCodigoObjeto` y la categorización de reportes
 
-Verifique que exista el SP `_obtenerReportesPorCodigoObjeto`. Luego
-categorice en `rep_reporte_categoria` los reportes (`rep_reporte`, con `esFormato = 1` y
-`active = 1`) que deben aparecer para el código definido en el Paso 1, usando la misma cadena en `reporte_categoria`.
+Verifique que exista el SP `_obtenerReportesPorCodigoObjeto`. Luego categorice en
+`rep_reporte_categoria` los reportes (`rep_reporte`, con `esFormato = 1` y `active = 1`) que deben
+aparecer para el código definido en el Paso 1, usando la misma cadena en `reporte_categoria`.
 
 :::tip Consejo
 El listado de reportes es independiente de la herramienta de generación configurada (ReportViewer
@@ -187,31 +212,37 @@ lógica adicional según la herramienta activa.
 
 ### Paso 3: Validar requisitos previos
 
-Confirme que la plataforma tenga configurados los envíos de correo y que el documento Orden de Trabajo tenga configurados los formatos de impresión, ya que ambos son necesarios para que el correo final se genere y envíe correctamente con los adjuntos seleccionados.
+Confirme que la plataforma tenga configurados los envíos de correo y que el documento Orden de
+Trabajo tenga configurados los formatos de impresión, ya que ambos son necesarios para que el correo
+final se genere y envíe correctamente con los adjuntos seleccionados.
 
 ## Resultado Esperado
 
 Una vez completada la configuración:
 
-1. **Visualización de la sección**: en el flujo de reporte, dentro de "Reportes para el
-   correo", el técnico ve un campo de selección múltiple con los reportes entregados por
-   `_obtenerReportesPorCodigoObjeto`
-2. **Selección enviada al servidor**: los reportes seleccionados se incluyen en el JSON de reporte bajo la propiedad `reporteCorreo` como un arreglo de IDs, por ejemplo `"reporteCorreo": [2,3]`
-3. **Correo con adjuntos consolidados**: el correo final incluye tanto el formato configurado en la regla de correo como los reportes adicionales seleccionados por el técnico
-4. **Sin selección, sin cambios**: si el técnico no selecciona ningún reporte adicional, el correo se envía igual que antes, solo con el PDF del reporte técnico
+1. **Visualización de la sección**: en el flujo de reporte de RT Web (o App Técnicos), dentro de
+   "Reportes para el correo", el técnico ve un campo de selección múltiple con los reportes
+   entregados por `_obtenerReportesPorCodigoObjeto`
+2. **Selección enviada al servidor**: los reportes seleccionados se incluyen en el JSON de reporte
+   bajo la propiedad `reporteCorreo` como un arreglo de IDs, por ejemplo `"reporteCorreo": [2,3]`
+3. **Correo con adjuntos consolidados**: el correo final incluye tanto el formato configurado en la
+   regla de correo como los reportes adicionales seleccionados por el técnico
+4. **Sin selección, sin cambios**: si el técnico no selecciona ningún reporte adicional, el correo
+   se envía igual que antes, solo con el PDF del reporte técnico
 
-### Sección "Reportes para el correo" en la App
+### Sección "Reportes para el correo"
 
 ![Selección de reportes adicionales para adjuntar al correo](./img/additional-reports-section.png)
 
 ## Resolución de Problemas
 
-### La sección "Reportes para el correo" no aparece en la app
+### La sección "Reportes para el correo" no aparece
 
 Verifique que:
 
-- `mob_informacion_basica` y `mob_bandejaServicios` esté devolviendo `additionalReportsCode` con un valor no vacío
-- La versión de la app instalada sea >= URT v4.3.0.0
+- `mob_informacion_basica` (o `mob_bandejaServicios` en App Técnicos) esté devolviendo
+  `additionalReportsCode` con un valor no vacío
+- La versión instalada sea >= V.4.3.0.0
 - La OT consultada corresponda al mismo objeto configurado en el código
 
 ### El listado de reportes aparece vacío
