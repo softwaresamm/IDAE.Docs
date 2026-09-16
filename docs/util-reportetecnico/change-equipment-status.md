@@ -54,7 +54,7 @@ No aplica para esta funcionalidad.
 
 Diríjase a `Configuración - Aplicación - Parámetros Generales`, seleccione el tab `OTS` y luego ingrese a `Secciones Reporte`. En el listado de secciones disponibles para reportar, ubique la opción `Estado Equipo` y habilítela.
 
-![Habilitar sección Estado Equipo](./img/equipo.png)
+![Habilitar sección Estado Equipo](./img/estado_equipo.png)
 
 ### Paso 2: Visualizar la sección Estado Equipo
 
