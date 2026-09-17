@@ -11,7 +11,7 @@ Reporte Técnico (RT Web)**, un listado de reportes adicionales disponibles para
 incluir como adjuntos en el correo que se envía junto con el reporte técnico principal. El objetivo
 funcional es brindar mayor flexibilidad en el envío de información, permitiendo que el correo
 generado contenga toda la documentación relevante para el destinatario, sin limitarse únicamente al
-PDF del reporte técnico.
+PDF del reporte técnico. 
 
 ## Referencias
 
@@ -49,8 +49,6 @@ Antes de iniciar la configuración, asegúrese de tener:
 - El documento Orden de Trabajo con los formatos de impresión configurados
 - Acceso a SQL Server Management Studio (SSMS) con permisos de modificación sobre procedimientos
   almacenados en la base de datos de SAMM
-- Si también desea habilitar la sección en App Técnicos, la app instalada en los dispositivos
-  móviles debe estar actualizada a una versión compatible con `mob_bandejaServicios`
 - Identificar qué herramienta de generación de reportes está en uso: **Reporting Services (SR)** o
   **Reporte Clásico (sobre SN)**, ya que esto determina la base de datos donde deben ejecutarse los
   procedimientos `_obtenerFormatosCodigo` y `_obtenerReportesPorCodigoObjeto`
