@@ -6,7 +6,7 @@ release_module: "APP"
 
 # Reporte de No Disponibilidades
 
-Este documento describe la nueva forma de reportar no disponibilidades desde la App, permitiendo a los técnicos registrar bloques de tiempo en los que no estarán disponibles para atender un servicio (por ejemplo, permisos o capacitaciones), solicitando únicamente los campos que aportan valor al reporte: fecha, trabajos, compromisos, recomendaciones y actividades.
+Este documento describe la nueva forma de reportar no disponibilidades desde la App, permitiendo a los técnicos registrar bloques de tiempo en los que no estarán disponibles para atender un servicio (por ejemplo, permisos o capacitaciones), solicitando únicamente los campos que aportan valor al reporte: fecha, trabajos, compromisos, recomendaciones , actividades y canal de atencion.
 
 ## Referencias
 
