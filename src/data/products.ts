@@ -252,6 +252,11 @@ export const products: Product[] = [
     prefix: "FEB",
     releases: [
       {
+        version: "0.11.0",
+        date: "2026-09-22",
+        href: "/blog/febancol-v0-11-0",
+      },
+      {
         version: "0.8.0",
         date: "2026-08-26",
         href: "/blog/febancol-v0-8-0",
