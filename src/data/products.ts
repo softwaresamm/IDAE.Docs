@@ -52,6 +52,11 @@ export const products: Product[] = [
     docLink: "/docs/category/sammnew",
     releases: [
       {
+        version: "5.5.32.24",
+        date: "2026-09-29",
+        href: "/blog/samm-web-v5-5-32-24",
+      },
+      {
         version: "5.5.32.23",
         date: "2026-07-22",
         href: "/blog/samm-web-v5-5-32-23",
@@ -84,6 +89,11 @@ export const products: Product[] = [
     icon: "🆕",
     prefix: "SN",
     releases: [
+      {
+        version: "7.1.17.1",
+        date: "2026-09-29",
+        href: "/blog/samm-new-v7-1-17-1",
+      },
       {
         version: "7.1.17.0",
         date: "2026-09-18",
@@ -132,6 +142,11 @@ export const products: Product[] = [
     icon: "🔌",
     prefix: "SA",
     releases: [
+      {
+        version: "1.2.33.2",
+        date: "2026-09-29",
+        href: "/blog/samm-api-v1-2-33-2",
+      },
       {
         version: "1.2.33.1",
         date: "2026-09-18",
@@ -251,6 +266,11 @@ export const products: Product[] = [
     icon: "🏦",
     prefix: "FEB",
     releases: [
+      {
+        version: "0.12.0",
+        date: "2026-09-29",
+        href: "/blog/febancol-v0-12-0",
+      },
       {
         version: "0.11.0",
         date: "2026-09-22",

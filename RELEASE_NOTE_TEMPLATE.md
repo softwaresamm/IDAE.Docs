@@ -61,5 +61,5 @@ Resumen breve (1-2 frases) del lanzamiento y su impacto para el usuario.
 ## Notas
 
 - El marcador `<!-- truncate -->` define el resumen que se muestra en la lista de Novedades (evita el aviso `onUntruncatedBlogPosts`).
-- La tabla "Versiones requeridas" es opcional; inclúyela cuando el lanzamiento dependa de versiones mínimas de otros componentes (mismo formato que `DOCUMENTATION_TEMPLATE.md`).
+- La tabla "Versiones requeridas" es opcional; inclúyela cuando el lanzamiento dependa de versiones mínimas de otros componentes (mismo formato que `DOCUMENTATION_TEMPLATE.md`). Dos fuentes posibles: dependencias cross-repo vía issuelinks `Blocks`, y el manifiesto de componentes/DLL que Jira guarda en el `description` de la propia fix version (campo inconsistente: a veces lista markdown `* componente: versión`, a veces JSON inline, a veces vacío). Ver el skill `jira-release-notes` para el detalle de extracción.
 - Si etiquetas con una versión suelta (ej. `v2.0.2`) que no está en `tags.yml`, el build solo emite un aviso, no falla.
