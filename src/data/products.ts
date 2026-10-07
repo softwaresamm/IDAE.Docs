@@ -346,6 +346,11 @@ export const products: Product[] = [
     prefix: "URT",
     releases: [
       {
+        version: "4.4.0",
+        date: "2026-10-07",
+        href: "/blog/util-reporte-tecnico-v4-4-0",
+      },
+      {
         version: "4.3.1.0",
         date: "2026-09-18",
         href: "/blog/util-reporte-tecnico-v4-3-1-0",
