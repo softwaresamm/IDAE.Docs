@@ -51,7 +51,7 @@ Todas las tablas incluyen estas columnas estándar:
 
 ### Relaciones Entrantes
 
-*Esta tabla puede ser referenciada por otras tablas del sistema.*
+- **[doc_tipoDocumento_tipoPendiente](../documentos/doc_tipoDocumento_tipoPendiente)** (id_tipoDocumento) - Clasificaciones (`doc_tipoPendiente`) válidas para este tipo de documento. Administrado desde el tab "Clasificaciones" del formulario `doc_tipoDocumento.aspx`.
 
 ## Notas Técnicas
 
