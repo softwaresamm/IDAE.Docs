@@ -44,7 +44,7 @@ Todas las tablas incluyen estas columnas estándar:
 
 ### Relaciones Entrantes
 
-*Esta tabla puede ser referenciada por otras tablas del sistema.*
+- **[doc_tipoDocumento_tipoPendiente](../documentos/doc_tipoDocumento_tipoPendiente)** (id_tipoPendiente) - Tipos de documento que admiten esta clasificación.
 
 ## Notas Técnicas
 

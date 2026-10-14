@@ -18,8 +18,8 @@ Tabla doc_pendienteDocumento del módulo Documentos.
 
 | Columna | Tipo | Nulo | Clave | Descripción |
 |---------|------|------|-------|-------------|
-| pendienteDocumento | VARCHAR | ✗ | - | - |
-| pendienteDocumento_codigo | VARCHAR | ✓ | - | - |
+| pendienteDocumento | VARCHAR | ✗ | - | Descripción del repuesto/pendiente (campo `elemento` del reporte técnico) |
+| pendienteDocumento_codigo | VARCHAR | ✓ | - | Reutilizada desde SO-2223 para almacenar la **nota** de texto libre del repuesto sugerido. |
 | cantidad | FLOAT | ✓ | - | - |
 | id_documento | INTEGER | ✗ | FK | - |
 | id_catalogo | INTEGER | ✗ | FK | - |
