@@ -62,8 +62,6 @@ Una vez creados los `Tipos de pendiente`, estos se visualizan en dos lugares:
 - Al momento de **agregar sugeridos desde el reporte dinámico**, en la columna **Clasificación**.
 - Desde el **tab de Sugeridos**, donde los sugeridos ya creados muestran su clasificación en la misma columna **Clasificación**.
 
-
-
 :::note
 La columna **Clasificación** solo mostrará los `Tipos de pendiente` previamente creados en el paso 1.
 :::
