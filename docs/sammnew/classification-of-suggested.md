@@ -12,22 +12,24 @@ Este documento describe cómo configurar y utilizar la funcionalidad de **Clasif
 
 - [SO-42: Crear formulario para crear clasificación de los sugeridos documento](https://softwaresamm.atlassian.net/browse/SO-42)
 
+-[SO-2224: SOL - 34033 | Agregar campo de observaciones y filtrar clasificación según tipo de documento en repuestos sugeridos](https://softwaresamm.atlassian.net/browse/SO-2224)
 ## Información de Versiones
 
 ### Versión de Lanzamiento
 
-:::info **v7.1.16.0**
+:::info **v7.1.22.1**
 :::
 
 ### Versiones Requeridas
 
-| Aplicación    | Versión Mínima | Descripción                |
-| ------------- | --------------- | --------------------------- |
-| SAMMAPI       | >= 1.2.32.0     | API principal                |
-| SAMM LOGICA   | >= 5.6.26.5     | Lógica de negocio             |
-| SAMM CORE     | >= 2.0.26.0     | Core del sistema              |
-| CAPA DE DATOS | >= 2.1.17.0     | Capa de acceso a datos        |
-| BASE DE DATOS | >= C2.1.17.0    | Base de datos                 |
+| Aplicación    | Versión Mínima | Descripción       |
+| ------------- | -------------- | ----------------- |
+| SAMMAPI       | >= 1.2.34.5    | API principal     |
+| SAMMNEW       | >= 7.1.22.1    | Aplicación web    |
+| SAMM LOGICA   | >= 5.6.28.0    | Lógica de negocio |
+| SAMM CORE     | >= 2.0.29.1    | Core del sistema  |
+| CAPADATOS     | >= 2.1.21.1    | Capa de datos     |
+| BASE DE DATOS | >= C2.1.21.1   | Base de datos     |
 
 ## Requisitos Previos
 
