@@ -55,7 +55,17 @@ Ingrese a **Configuraci처n > Aplicaci처n > Tipos de pendiente**. Desde este men�
 Defina previamente junto al equipo funcional la nomenclatura y el listado de clasificaciones necesarias, para evitar duplicados o `Tipos de pendiente` con nombres poco descriptivos.
 :::
 
-### Paso 2: Visualizaci처n de la clasificaci처n
+### Paso 2: Asignar pendiente por tipo de documento
+
+Desde el menu de Configuracion-Aplicacion-Tipo Documento , encontraremos los diferentes tipos de documento como lo son , (requisicion,orden de trabajo,gastos,salida,entrada,etc) y al seleccionarlos encontraremos un tab que se llama Clasificaciones y alli podremos asignar los tipos de pendiente que queremos que sean visibles al momento de reportar.
+
+![tipo pendiente desde tipo de documento](./img/Clasificacionxtipodoc.png)
+
+:::tip Consejo
+Esta clasificacion solo se vera aplicada al momento de reportar (utilitario de reporte tecnico) en la web en el tab de sugeridos no se vera este filtro.
+:::
+
+### Paso 3: Visualizaci처n de la clasificaci처n
 
 Una vez creados los `Tipos de pendiente`, estos se visualizan en dos lugares:
 
