@@ -81,6 +81,8 @@ Al agregar cantidades del reemplazo en el POP, se muestra una nueva columna con 
 
 :::note Nota
 El detalle del documento no se modifica hasta que se da **Aceptar** en el POP. Solo al confirmar la entrega se reflejan los cambios en el detalle del documento.
+
+para una mayor comprensión, consulte el siguiente video. https://youtu.be/VHcsR8MWhWg
 :::
 
 ## Casos Especiales
