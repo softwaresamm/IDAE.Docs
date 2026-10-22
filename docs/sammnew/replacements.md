@@ -18,7 +18,7 @@ Los reemplazos y supercedidos se configuran en el tab **Reemplazos** del repuest
 
 ### Versión de Lanzamiento
 
-:::info **v7.1.22.1**
+:::info **v7.1.22.2**
 :::
 
 ### Versiones Requeridas
@@ -26,7 +26,7 @@ Los reemplazos y supercedidos se configuran en el tab **Reemplazos** del repuest
 | Aplicación    | Versión Mínima | Descripción       |
 | ------------- | -------------- | ----------------- |
 | SAMMAPI       | >= 1.2.34.5    | API principal     |
-| SAMMNEW       | >= 7.1.22.1    | Aplicación web    |
+| SAMMNEW       | >= 7.1.22.2    | Aplicación web    |
 | SAMM LOGICA   | >= 5.6.28.0    | Lógica de negocio |
 | SAMM CORE     | >= 2.0.29.1    | Core del sistema  |
 | CAPADATOS     | >= 2.1.21.1    | Capa de datos     |
