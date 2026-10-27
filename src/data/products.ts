@@ -52,6 +52,11 @@ export const products: Product[] = [
     docLink: "/docs/category/sammnew",
     releases: [
       {
+        version: "5.5.32.26",
+        date: "2026-10-27",
+        href: "/blog/samm-web-v5-5-32-26",
+      },
+      {
         version: "5.5.32.24",
         date: "2026-09-29",
         href: "/blog/samm-web-v5-5-32-24",
