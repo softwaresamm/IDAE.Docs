@@ -222,6 +222,11 @@ export const products: Product[] = [
     docLink: "/docs/app-tecnicos",
     releases: [
       {
+        version: "2.3.7.1",
+        date: "2026-10-26",
+        href: "/blog/app-tecnicos-v2-3-7-1",
+      },
+      {
         version: "2.3.6.3",
         date: "2026-09-18",
         href: "/blog/app-tecnicos-v2-3-6-3",
