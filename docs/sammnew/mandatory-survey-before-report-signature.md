@@ -142,7 +142,7 @@ No aplica para esta funcionalidad.
 3. Acepte la confirmación de la encuesta.
 4. Guarde la firma del reporte.
 
-VIDEO 
+video con el detalle de procedimiento: https://www.youtube.com/watch?v=6LTItxML1bo
 
 **Resultado esperado:** la firma se guarda correctamente.
 
