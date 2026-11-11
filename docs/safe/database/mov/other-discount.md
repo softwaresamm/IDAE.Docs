@@ -42,6 +42,25 @@ Catálogo de otros descuentos.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    mov_otherDiscount {
+        int id PK
+        int id_operationType FK
+        int id_movementType FK
+    }
+    mov_associateOtherDiscount
+    mov_movementType
+    mov_operationType
+    mov_otherDiscount ||--o{ mov_associateOtherDiscount : "id_otherDiscount"
+    mov_movementType |o--o{ mov_otherDiscount : "id_movementType"
+    mov_operationType |o--o{ mov_otherDiscount : "id_operationType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

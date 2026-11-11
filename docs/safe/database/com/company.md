@@ -39,6 +39,22 @@ Empresas a las que pertenecen los asociados.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    com_company {
+        int id PK
+        int id_group FK
+    }
+    aso_associate
+    com_group
+    com_company ||--o{ aso_associate : "id_company"
+    com_group |o--o{ com_company : "id_group"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

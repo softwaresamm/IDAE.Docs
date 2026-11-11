@@ -40,6 +40,29 @@ Otros descuentos asignados a cada asociado.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    mov_associateOtherDiscount {
+        int id PK
+        int id_associate FK
+        int id_otherDiscount FK
+        int id_operationType FK
+        int id_movementType FK
+    }
+    aso_associate
+    mov_movementType
+    mov_operationType
+    mov_otherDiscount
+    aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
+    mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
+    mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
+    mov_otherDiscount ||--o{ mov_associateOtherDiscount : "id_otherDiscount"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

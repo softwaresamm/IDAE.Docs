@@ -36,6 +36,21 @@ Catálogo de destinos (finalidad) del crédito. Conserva los ids del sistema leg
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    cre_loanPurpose {
+        int id PK
+    }
+    cre_creditLine
+    cre_loan
+    cre_loanPurpose |o--o{ cre_creditLine : "id_loanPurpose"
+    cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

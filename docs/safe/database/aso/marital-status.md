@@ -35,6 +35,19 @@ Catálogo de estados civiles.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_maritalStatus {
+        int id PK
+    }
+    aso_associate
+    aso_maritalStatus ||--o{ aso_associate : "id_maritalStatus"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

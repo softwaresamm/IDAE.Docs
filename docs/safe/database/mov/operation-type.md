@@ -37,6 +37,23 @@ Catálogo de tipos de operación.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    mov_operationType {
+        int id PK
+    }
+    mov_associateOtherDiscount
+    mov_movement
+    mov_otherDiscount
+    mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
+    mov_operationType ||--o{ mov_movement : "id_operationType"
+    mov_operationType |o--o{ mov_otherDiscount : "id_operationType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

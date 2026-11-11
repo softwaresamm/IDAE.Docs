@@ -35,6 +35,19 @@ Catálogo de tipos de vivienda.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_housingType {
+        int id PK
+    }
+    aso_associate
+    aso_housingType ||--o{ aso_associate : "id_housingType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

@@ -64,6 +64,29 @@ Líneas de crédito (modalidades) con sus condiciones: tasa, plazos, forma de pa
 
 - `UQ__cre__creditLine__eid_code` (eid, code) — filtro `([isActive]=(1))`
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    cre_creditLine {
+        int id PK
+        nvarchar code UK
+        int id_interestRateType FK
+        int id_paymentType FK
+        int id_loanPurpose FK
+    }
+    cre_interestRateType
+    cre_loanPurpose
+    cre_paymentType
+    cre_loan
+    cre_interestRateType ||--o{ cre_creditLine : "id_interestRateType"
+    cre_loanPurpose |o--o{ cre_creditLine : "id_loanPurpose"
+    cre_paymentType ||--o{ cre_creditLine : "id_paymentType"
+    cre_creditLine ||--o{ cre_loan : "id_creditLine"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

@@ -34,6 +34,19 @@ Catálogo de grupos.
 | dateModification | DATETIME2(0) | ✓ | Fecha y hora de última modificación |
 | isActive | BIT | ✗ | Registro activo (borrado lógico) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    com_group {
+        int id PK
+    }
+    com_company
+    com_group |o--o{ com_company : "id_group"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

@@ -35,6 +35,19 @@ Catálogo de bancos.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_bank {
+        int id PK
+    }
+    aso_associate
+    aso_bank |o--o{ aso_associate : "id_bank"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

@@ -38,6 +38,20 @@ Usuarios de la plataforma.
 | dateModification | DATETIME2(0) | ✓ | Fecha y hora de última modificación |
 | isActive | BIT | ✗ | Registro activo (borrado lógico) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    use_user {
+        int id PK
+        int id_profile FK
+    }
+    use_profile
+    use_profile ||--o{ use_user : "id_profile"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

@@ -36,6 +36,19 @@ Catálogo de estados del crédito. Conserva los ids del sistema legado, que no s
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    cre_loanState {
+        int id PK
+    }
+    cre_loan
+    cre_loanState ||--o{ cre_loan : "id_loanState"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

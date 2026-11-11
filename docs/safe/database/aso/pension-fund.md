@@ -35,6 +35,19 @@ Catálogo de fondos de pensiones.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_pensionFund {
+        int id PK
+    }
+    aso_associate
+    aso_pensionFund |o--o{ aso_associate : "id_pensionFund"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

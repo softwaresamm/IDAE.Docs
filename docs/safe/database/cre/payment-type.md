@@ -36,6 +36,19 @@ Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sis
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    cre_paymentType {
+        int id PK
+    }
+    cre_creditLine
+    cre_paymentType ||--o{ cre_creditLine : "id_paymentType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

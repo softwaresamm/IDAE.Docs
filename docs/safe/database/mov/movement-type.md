@@ -33,6 +33,23 @@ Catálogo de tipos de movimiento.
 | dateModification | DATETIME2(0) | ✓ | Fecha y hora de última modificación |
 | isActive | BIT | ✗ | Registro activo (borrado lógico) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    mov_movementType {
+        int id PK
+    }
+    mov_associateOtherDiscount
+    mov_movement
+    mov_otherDiscount
+    mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
+    mov_movementType ||--o{ mov_movement : "id_movementType"
+    mov_movementType |o--o{ mov_otherDiscount : "id_movementType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

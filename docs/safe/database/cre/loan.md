@@ -92,6 +92,30 @@ Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, sald
 
 - `UQ__cre__loan__eid_code` (eid, code) — filtro `([isActive]=(1))`
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    cre_loan {
+        int id PK
+        nvarchar code UK
+        int id_associate FK
+        int id_creditLine FK
+        int id_loanPurpose FK
+        int id_loanState FK
+    }
+    aso_associate
+    cre_creditLine
+    cre_loanPurpose
+    cre_loanState
+    aso_associate ||--o{ cre_loan : "id_associate"
+    cre_creditLine ||--o{ cre_loan : "id_creditLine"
+    cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
+    cre_loanState ||--o{ cre_loan : "id_loanState"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

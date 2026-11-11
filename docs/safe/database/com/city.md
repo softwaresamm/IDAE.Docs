@@ -38,6 +38,19 @@ Catálogo de ciudades.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    com_city {
+        int id PK
+    }
+    aso_associate
+    com_city |o--o{ aso_associate : "id_city"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

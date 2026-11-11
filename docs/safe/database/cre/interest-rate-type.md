@@ -36,6 +36,19 @@ Catálogo de tipos de tasa de interés (1 ANTICIPADOS, 2 VENCIDOS). Conserva los
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    cre_interestRateType {
+        int id PK
+    }
+    cre_creditLine
+    cre_interestRateType ||--o{ cre_creditLine : "id_interestRateType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

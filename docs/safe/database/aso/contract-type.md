@@ -36,6 +36,19 @@ Catálogo de tipos de contrato laboral.
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_contractType {
+        int id PK
+    }
+    aso_associate
+    aso_contractType ||--o{ aso_associate : "id_contractType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

@@ -48,6 +48,35 @@ Movimientos (transacciones) de los asociados.
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    mov_movement {
+        int id PK
+        int id_operationType FK
+        int id_associate FK
+        int id_movementType FK
+        int id_movementState FK
+        int id_discount FK
+        int id_discountImp FK
+    }
+    aso_associate
+    mov_discount
+    mov_discountImp
+    mov_movementState
+    mov_movementType
+    mov_operationType
+    aso_associate ||--o{ mov_movement : "id_associate"
+    mov_discount |o--o{ mov_movement : "id_discount"
+    mov_discountImp |o--o{ mov_movement : "id_discountImp"
+    mov_movementState ||--o{ mov_movement : "id_movementState"
+    mov_movementType ||--o{ mov_movement : "id_movementType"
+    mov_operationType ||--o{ mov_movement : "id_operationType"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

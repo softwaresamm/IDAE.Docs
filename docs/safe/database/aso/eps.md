@@ -35,6 +35,19 @@ Catálogo de EPS (entidades promotoras de salud).
 | isWebUpdated | BIT | ✗ | Actualizado desde la web (legado: ActuWeb) |
 | isWebCreated | BIT | ✗ | Creado desde la web (legado: CreaWeb) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_eps {
+        int id PK
+    }
+    aso_associate
+    aso_eps ||--o{ aso_associate : "id_eps"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

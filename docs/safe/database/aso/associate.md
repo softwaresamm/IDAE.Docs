@@ -129,6 +129,66 @@ Asociados del fondo: datos personales, laborales, financieros y de contacto.
 
 - `UQ__aso__associate__eid_documentNumber` (eid, documentNumber) — filtro `([isActive]=(1))`
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_associate {
+        int id PK
+        nvarchar documentNumber UK
+        int id_maritalStatus FK
+        int id_academicLevel FK
+        int id_housingType FK
+        int id_company FK
+        int id_city FK
+        int id_area FK
+        int id_position FK
+        int id_contractType FK
+        int id_payrollType FK
+        int id_eps FK
+        int id_pensionFund FK
+        int id_state FK
+        int id_gender FK
+        int id_bank FK
+    }
+    aso_academicLevel
+    com_area
+    aso_bank
+    com_city
+    com_company
+    aso_contractType
+    aso_eps
+    aso_gender
+    aso_housingType
+    aso_maritalStatus
+    aso_payrollType
+    aso_pensionFund
+    aso_position
+    aso_state
+    cre_loan
+    mov_associateOtherDiscount
+    mov_movement
+    aso_academicLevel ||--o{ aso_associate : "id_academicLevel"
+    com_area |o--o{ aso_associate : "id_area"
+    aso_bank |o--o{ aso_associate : "id_bank"
+    com_city |o--o{ aso_associate : "id_city"
+    com_company ||--o{ aso_associate : "id_company"
+    aso_contractType ||--o{ aso_associate : "id_contractType"
+    aso_eps ||--o{ aso_associate : "id_eps"
+    aso_gender |o--o{ aso_associate : "id_gender"
+    aso_housingType ||--o{ aso_associate : "id_housingType"
+    aso_maritalStatus ||--o{ aso_associate : "id_maritalStatus"
+    aso_payrollType ||--o{ aso_associate : "id_payrollType"
+    aso_pensionFund |o--o{ aso_associate : "id_pensionFund"
+    aso_position |o--o{ aso_associate : "id_position"
+    aso_state ||--o{ aso_associate : "id_state"
+    aso_associate ||--o{ cre_loan : "id_associate"
+    aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
+    aso_associate ||--o{ mov_movement : "id_associate"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)

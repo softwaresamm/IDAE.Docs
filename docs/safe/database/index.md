@@ -23,11 +23,88 @@ Diccionario de datos de la base de datos `pro_safe` de SAFE (fondo de empleados)
 - El orden de columnas de la tabla y de `<tabla>_typ` debe coincidir con el orden de propiedades del `...Object.cs` del backend (los parámetros tipo tabla se enlazan por posición).
 - `isWebCreated` / `isWebUpdated` vienen de `CreaWeb` / `ActuWeb` del sistema legado.
 
+## Mapa de Relaciones
+
+Todas las tablas y sus relaciones (sin columnas ni relaciones de auditoría). El detalle de columnas está en el diagrama ER de cada módulo.
+
+```mermaid
+erDiagram
+    aso_academicLevel
+    aso_associate
+    aso_bank
+    aso_contractType
+    aso_eps
+    aso_gender
+    aso_housingType
+    aso_maritalStatus
+    aso_payrollType
+    aso_pensionFund
+    aso_position
+    aso_state
+    com_area
+    com_city
+    com_company
+    com_group
+    cre_creditLine
+    cre_interestRateType
+    cre_loan
+    cre_loanPurpose
+    cre_loanState
+    cre_paymentType
+    mov_associateOtherDiscount
+    mov_discount
+    mov_discountImp
+    mov_movement
+    mov_movementState
+    mov_movementType
+    mov_operationType
+    mov_otherDiscount
+    use_profile
+    use_user
+    aso_academicLevel ||--o{ aso_associate : "id_academicLevel"
+    com_area |o--o{ aso_associate : "id_area"
+    aso_bank |o--o{ aso_associate : "id_bank"
+    com_city |o--o{ aso_associate : "id_city"
+    com_company ||--o{ aso_associate : "id_company"
+    aso_contractType ||--o{ aso_associate : "id_contractType"
+    aso_eps ||--o{ aso_associate : "id_eps"
+    aso_gender |o--o{ aso_associate : "id_gender"
+    aso_housingType ||--o{ aso_associate : "id_housingType"
+    aso_maritalStatus ||--o{ aso_associate : "id_maritalStatus"
+    aso_payrollType ||--o{ aso_associate : "id_payrollType"
+    aso_pensionFund |o--o{ aso_associate : "id_pensionFund"
+    aso_position |o--o{ aso_associate : "id_position"
+    aso_state ||--o{ aso_associate : "id_state"
+    com_group |o--o{ com_company : "id_group"
+    cre_interestRateType ||--o{ cre_creditLine : "id_interestRateType"
+    cre_loanPurpose |o--o{ cre_creditLine : "id_loanPurpose"
+    cre_paymentType ||--o{ cre_creditLine : "id_paymentType"
+    aso_associate ||--o{ cre_loan : "id_associate"
+    cre_creditLine ||--o{ cre_loan : "id_creditLine"
+    cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
+    cre_loanState ||--o{ cre_loan : "id_loanState"
+    aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
+    mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
+    mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
+    mov_otherDiscount ||--o{ mov_associateOtherDiscount : "id_otherDiscount"
+    aso_associate ||--o{ mov_movement : "id_associate"
+    mov_discount |o--o{ mov_movement : "id_discount"
+    mov_discountImp |o--o{ mov_movement : "id_discountImp"
+    mov_movementState ||--o{ mov_movement : "id_movementState"
+    mov_movementType ||--o{ mov_movement : "id_movementType"
+    mov_operationType ||--o{ mov_movement : "id_operationType"
+    mov_movementType |o--o{ mov_otherDiscount : "id_movementType"
+    mov_operationType |o--o{ mov_otherDiscount : "id_operationType"
+    use_profile ||--o{ use_user : "id_profile"
+```
+
 ## Módulos
 
 ### Asociados (`aso`)
 
 Asociados del fondo y sus catálogos de información personal y laboral.
+
+[Diagrama ER del módulo](./aso/er-diagram.md)
 
 - [aso.academicLevel](./aso/academic-level.md) - Catálogo de niveles académicos.
 - [aso.associate](./aso/associate.md) - Asociados del fondo: datos personales, laborales, financieros y de contacto.
@@ -46,6 +123,8 @@ Asociados del fondo y sus catálogos de información personal y laboral.
 
 Empresas, áreas, ciudades y grupos.
 
+[Diagrama ER del módulo](./com/er-diagram.md)
+
 - [com.area](./com/area.md) - Catálogo de áreas.
 - [com.city](./com/city.md) - Catálogo de ciudades.
 - [com.company](./com/company.md) - Empresas a las que pertenecen los asociados.
@@ -54,6 +133,8 @@ Empresas, áreas, ciudades y grupos.
 ### Movimientos (`mov`)
 
 Movimientos (transacciones) de los asociados y descuentos.
+
+[Diagrama ER del módulo](./mov/er-diagram.md)
 
 - [mov.associateOtherDiscount](./mov/associate-other-discount.md) - Otros descuentos asignados a cada asociado.
 - [mov.discount](./mov/discount.md) - Descuentos aplicados (archivos de descuento).
@@ -66,7 +147,9 @@ Movimientos (transacciones) de los asociados y descuentos.
 
 ### Créditos (`cre`)
 
-Líneas de crédito, préstamos de los asociados y sus catálogos.
+Líneas de crédito, préstamos de los asociados y sus catálogos. Migrado desde MODALIDAD, SOLICITUD_PRESTAMOS y catálogos relacionados de app_febancol.
+
+[Diagrama ER del módulo](./cre/er-diagram.md)
 
 - [cre.creditLine](./cre/credit-line.md) - Líneas de crédito (modalidades) con sus condiciones: tasa, plazos, forma de pago y requisitos.
 - [cre.interestRateType](./cre/interest-rate-type.md) - Catálogo de tipos de tasa de interés (1 ANTICIPADOS, 2 VENCIDOS). Conserva los ids del sistema legado.
@@ -78,6 +161,8 @@ Líneas de crédito, préstamos de los asociados y sus catálogos.
 ### Usuarios (`use`)
 
 Usuarios y perfiles de la plataforma.
+
+[Diagrama ER del módulo](./use/er-diagram.md)
 
 - [use.profile](./use/profile.md) - Perfiles de usuario.
 - [use.user](./use/user.md) - Usuarios de la plataforma.

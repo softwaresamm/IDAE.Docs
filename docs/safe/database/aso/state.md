@@ -33,6 +33,19 @@ Catálogo de estados del asociado.
 | dateModification | DATETIME2(0) | ✓ | Fecha y hora de última modificación |
 | isActive | BIT | ✗ | Registro activo (borrado lógico) |
 
+## Diagrama ER
+
+Tabla y sus relaciones directas (sin las columnas de auditoría).
+
+```mermaid
+erDiagram
+    aso_state {
+        int id PK
+    }
+    aso_associate
+    aso_state ||--o{ aso_associate : "id_state"
+```
+
 ## Relaciones
 
 ### Relaciones Salientes (Foreign Keys)
