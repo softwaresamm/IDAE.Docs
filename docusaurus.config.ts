@@ -27,6 +27,11 @@ const config: Config = {
 
   onBrokenLinks: "throw",
 
+  // Mermaid diagrams (```mermaid blocks), e.g. the ER diagrams of the data dictionaries
+  markdown: {
+    mermaid: true,
+  },
+
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
@@ -66,6 +71,7 @@ const config: Config = {
   ],
 
   themes: [
+    "@docusaurus/theme-mermaid",
     [
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
