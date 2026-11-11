@@ -45,7 +45,52 @@ La base de datos debe estar en la versión `C2.1.22.0` o superior. Modificar el 
 
 ## Información del Servicio
 
-No aplica para esta funcionalidad.
+:::note Información
+Servicio que consulta el procedimiento `mob_repuestosSugeridos` y retorna los repuestos planeados de una Orden de Trabajo, indicando en qué sección de la APP deben precargarse.
+:::
+
+### Parámetros del Servicio
+
+| Parámetro | Valor | Descripción |
+| --- | --- | --- |
+| `Idot` | int (path param) | Id de la Orden de Trabajo sobre la cual se consultan los repuestos planeados |
+| Autenticación | Bearer Token | El servicio requiere token de autenticación tipo Bearer |
+
+### Request
+
+```bash title="Ejemplo de petición"
+curl --location 'https://localhost.com/sa_api/api/docs/listarRepuestos/{idOT}' \
+--Authorization  'Bearer TOKEN'
+```
+
+### Response
+
+```json title="Ejemplo de respuesta"
+[
+    {
+        "id_documento": 71,
+        "id_bodega": 1,
+        "id_CentroCosto": 0,
+        "id_tipodocumento": 1,
+        "id_tipoPendiente": 1,
+        "id_catalogo": 6,
+        "cantidad": 1.0,
+        "itemDocumento": "Repuesto Daniel F",
+        "seccion": 1
+    },
+    {
+        "id_documento": 71,
+        "id_bodega": 1,
+        "id_CentroCosto": 0,
+        "id_tipodocumento": 1,
+        "id_tipoPendiente": 1,
+        "id_catalogo": 97,
+        "cantidad": 1.0,
+        "itemDocumento": "BATERIA",
+        "seccion": 1
+    }
+]
+```
 
 ## Configuración
 
