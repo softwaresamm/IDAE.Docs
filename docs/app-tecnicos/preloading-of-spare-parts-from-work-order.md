@@ -1,39 +1,47 @@
 ---
 sidebar_position: 1
-release_version: "2.3.5.3"
-release_module: "APP"
+release_version: "4.5.1"
+release_module: "URT"
 ---
 
-# Repuestos Planeados (Ejecutados y Sugeridos) — Precarga desde Orden de Trabajo
+# Mostrar Repuestos Planeados de la OT en el Utilitario de Reporte Técnico
 
-Este documento describe cómo configurar el procedimiento `mob_repuestosSugeridos` para precargar automáticamente en la **APP** los repuestos planeados de una Orden de Trabajo, ya sea en la sección de **repuestos ejecutados** o en la de **repuestos pendientes (sugeridos)**. Anteriormente, al programar la orden, era necesario actualizar la bandeja dos veces para que los repuestos asignados quedaran registrados; con esta configuración el procedimiento entrega directamente los repuestos planeados a la sección correspondiente.
+Este documento describe cómo configurar el procedimiento `mob_repuestosSugeridos` para que el Utilitario de Reporte Técnico (URT) consulte y muestre los repuestos planeados de la Orden de Trabajo (OT), permitiendo al técnico contar con un punto de partida en su reporte. Antes de esta mejora, los repuestos se registraban manualmente uno por uno, sin considerar los ya planeados para la OT, lo que implicaba mayor esfuerzo y riesgo de omisiones.
 
 ## Referencias
 
-- [SO-467: SOL - 31135 | Al programar la orden, se requiere actualizar dos veces la bandeja para registrar repuestos asignados](https://softwaresamm.atlassian.net/browse/SO-467)
+- [SO-2178: Mostrar repuestos planeados de la OT en el utilitario de reporte técnico](https://softwaresamm.atlassian.net/jira/browse/SO-2178)
 
 ## Información de Versiones
 
 ### Versión de Lanzamiento
 
-:::info **v2.3.5.3**
+:::info **URT v4.5.1**
 :::
 
 ### Versiones Requeridas
 
-| Aplicación | Versión Mínima | Descripción |
-| --- | --- | --- |
-| APP | >= 2.3.5.3 | Aplicación móvil |
-| SAMMNEW | >= 7.1.16.1 | Aplicación web (SAMM New) |
-| SAMMAPI | >= 1.2.32.1 | API principal |
-| SAMM LOGICA | >= 5.6.26.5 | Lógica de negocio |
-| SAMM CORE | >= 2.0.26.1 | Core del sistema |
-| CAPA DATOS | >= 2.1.17.1 | Capa de acceso a datos |
-| BASE DE DATOS | >= C2.1.17.1 | Base de datos |
+| Aplicación    | Versión Mínima | Descripción            |
+| ------------- | -------------- | ---------------------- |
+| URT           | >= 4.5.1       | Utilitario de reporte técnico |
+| SAMMAPI       | >= 1.2.35.1    | API principal          |
+| SAMM LOGICA   | >= 5.6.28.0    | Lógica de negocio      |
+| CAPADATOS     | >= 2.1.22.0    | Capa de acceso a datos |
+| SAMCORE       | >= 2.0.30.0    | Core del sistema       |
+| BASE DE DATOS | >= C2.1.22.0   | Base de datos          |
 
 ## Requisitos Previos
 
-No aplica para esta funcionalidad.
+Antes de iniciar la configuración, asegúrese de tener:
+
+- Todas las aplicaciones actualizadas a las versiones mínimas indicadas en la tabla anterior
+- Acceso a la base de datos del cliente
+- Permisos para crear o modificar procedimientos almacenados, según el caso
+- Conocimientos básicos de SQL Server
+
+:::important Importante
+La base de datos debe estar en la versión `C2.1.22.0` o superior. Modificar el procedimiento `mob_repuestosSugeridos` cambia directamente lo que el técnico visualiza en el reporte; realice cualquier ajuste primero en un ambiente de pruebas.
+:::
 
 ## Información del Servicio
 
@@ -51,7 +59,7 @@ Servicio que consulta el procedimiento `mob_repuestosSugeridos` y retorna los re
 ### Request
 
 ```bash title="Ejemplo de petición"
-curl --location 'https://dev.softwaresamm.com/sa_api/api/docs/listarRepuestos/71' \
+curl --location 'https://localhost.com/sa_api/api/docs/listarRepuestos/{idOT}' \
 --Authorization  'Bearer TOKEN'
 ```
 
@@ -84,17 +92,13 @@ curl --location 'https://dev.softwaresamm.com/sa_api/api/docs/listarRepuestos/71
 ]
 ```
 
-:::tip Consejo
-El campo `seccion` en la respuesta determina dónde se precarga cada repuesto en la APP: `1` ejecutados, `2` pendientes, `3` ambas.
-:::
-
 ## Configuración
 
-### Paso 1: Validación del procedimiento `mob_repuestosSugeridos`
+### Paso 1: Validar el procedimiento `mob_repuestosSugeridos`
 
-Se debe garantizar la existencia del procedimiento almacenado `mob_repuestosSugeridos`, el cual recibe el `id` de la Orden de Trabajo (`@p_idOT`) y retorna los repuestos planeados del catálogo asociado, indicando la sección en la que deben precargarse (ejecutados, pendientes, o ambas).
+Garantice que exista el procedimiento almacenado `mob_repuestosSugeridos`. Este recibe el id de la Orden de Trabajo (`@p_idOT`) y retorna los repuestos planeados del catálogo asociado, indicando la sección en la que deben precargarse (ejecutados, pendientes o ambas).
 
-```sql title="mob_repuestosSugeridos"
+```sql title="Procedimiento mob_repuestosSugeridos"
 CREATE PROCEDURE [dbo].[mob_repuestosSugeridos]
 	@p_idOT int
 AS
@@ -104,11 +108,11 @@ BEGIN
 		,iif(i.id_bodega = 0, 1, i.id_bodega) as id_bodega -- bodega para repuestos ejecutados, este campo es requerido
 		,i.id_CentroCosto -- centro de costo para repuestos ejecutados
 		,1 as id_tipodocumento -- tipodocumento para los repuestos pendientes, este campo es requerido
-		,1 as id_tipoPendiente ---- tipopendiente para los repuestos pendientes
+		,1 as id_tipoPendiente -- tipopendiente para los repuestos pendientes
 		,i.id_catalogo as id_catalogo
 		,cantidadPlaneado as cantidad
 		,itemDocumento as itemDocumento
-		,1 as seccion --- 1 si se quiere que salga en los ejecutados, 2 si se quiere que salgan en los pendientes y 3 en ambos
+		,1 as seccion -- 1 si se quiere que salga en los ejecutados, 2 si se quiere que salgan en los pendientes y 3 en ambos
 	from
 		doc_itemDocumento as i
 		INNER JOIN cat_catalogo as c on c.id = i.id_catalogo and c.active = 1
@@ -119,59 +123,87 @@ BEGIN
 END
 ```
 
-:::note
-El campo `seccion` controla dónde se precargan los repuestos: `1` para repuestos ejecutados, `2` para repuestos pendientes (sugeridos) y `3` para ambas secciones simultáneamente.
-:::
-
-:::important Importante
+:::note Nota
 Los campos `id_bodega` e `id_tipodocumento` son obligatorios para que el registro se procese correctamente en sus respectivas secciones (ejecutados y pendientes).
 :::
 
-### Paso 2: Visualización en la APP
+### Paso 2: Definir la sección de precarga
 
-Una vez configurado el procedimiento, al ingresar a la Orden de Trabajo desde la APP, el servicio `listarRepuestos/{Idot}` consulta el procedimiento y los repuestos planeados aparecerán precargados automáticamente en la sección de **repuestos pendientes** o **repuestos ejecutados**, según el valor configurado en el campo `seccion`.
+Según el comportamiento que requiera el cliente, modifique en el procedimiento el valor del campo `seccion`, que controla dónde se precargan los repuestos planeados.
+
+```sql title="Línea del procedimiento que define la sección (ejemplo: ambas secciones)"
+,3 as seccion
+```
+
+| Valor de `seccion` | Repuestos se precargan en        |
+| ------------------ | -------------------------------- |
+| `1`                | Repuestos ejecutados (instalados) |
+| `2`                | Repuestos pendientes (sugeridos) |
+| `3`                | Ambas secciones                  |
+
+:::tip Consejo
+Después de modificar el procedimiento, pruebe con una OT que tenga repuestos planeados y compare el resultado de `EXEC mob_repuestosSugeridos @p_idOT = [id de la OT]` con lo que muestra el URT.
+:::
 
 ## Casos Especiales
 
-No aplica para esta funcionalidad.
+:::note Comportamientos Predefinidos
+El campo `seccion` y los campos obligatorios del procedimiento determinan cómo se procesan los repuestos precargados.
+:::
+
+| Caso                      | Campo/Valor        | Descripción                                                                  |
+| ------------------------- | ------------------ | ---------------------------------------------------------------------------- |
+| Solo ejecutados           | `seccion = 1`      | Los repuestos se precargan únicamente en Repuestos ejecutados                |
+| Solo pendientes           | `seccion = 2`      | Los repuestos se precargan únicamente en Repuestos pendientes (sugeridos)    |
+| Ambas secciones           | `seccion = 3`      | Los repuestos se precargan en ejecutados y pendientes simultáneamente        |
+| Sin precarga              | `seccion = 0`      | Aunque existan repuestos planeados, no se visualizan en ninguna sección      |
+| Bodega sin definir        | `id_bodega = 0`    | Se reemplaza por la bodega `1`                                               |
+| Campos obligatorios       | `id_bodega`, `id_tipodocumento` | Son requeridos para que el registro se procese en cada sección  |
 
 ## Resultado Esperado
 
 Una vez completada la configuración:
 
-1. **Precarga automática de repuestos**: al abrir la Orden de Trabajo en la APP, los repuestos planeados se cargan automáticamente en la sección configurada (ejecutados, pendientes, o ambas), sin requerir actualizar la bandeja más de una vez.
-2. **Consistencia con el catálogo planeado**: la cantidad precargada corresponde a `cantidadPlaneado` según lo definido en el `doc_itemDocumento` de la Orden de Trabajo.
-3. **Eliminación de la doble actualización**: se resuelve el comportamiento previo en el que era necesario actualizar la bandeja dos veces para registrar los repuestos asignados.
+1. **Repuestos planeados visibles**: El técnico visualiza en el URT el listado de repuestos planeados de la OT que está reportando, como base de partida en lugar de agregarlos uno por uno.
+2. **Datos consistentes con la fuente**: La información mostrada se obtiene del procedimiento `mob_repuestosSugeridos` y coincide exactamente con su resultado para la misma OT.
+3. **Precarga según configuración**: Los repuestos aparecen en las secciones definidas por el campo `seccion` (ejecutados, pendientes o ambas).
+4. **Reporte generado sin errores**: Al generar el reporte, el documento muestra la remisión de salida de los repuestos instalados y los repuestos planeados en la sección de sugeridos.
 
 ## Resolución de Problemas
 
-### No se precargan los repuestos en la APP
+### Los repuestos planeados no aparecen en el utilitario
 
 Verifique que:
 
-- El procedimiento `mob_repuestosSugeridos` exista y esté actualizado en la base de datos
-- El `id` de la Orden de Trabajo enviado (`@p_idOT` / `Idot`) corresponda a una orden con ítems planeados en `doc_itemDocumento`
-- El catálogo asociado tenga `id_tipocatalogo = 2` y se encuentre activo
-- Generar una nueva programacion.
+- El procedimiento `mob_repuestosSugeridos` exista en la base de datos
+- La base de datos esté en la versión `C2.1.22.0` o superior
+- El valor de `seccion` no sea `0`
+- La OT tenga repuestos planeados (`cantidadPlaneado`) en `doc_itemDocumento`
 
-### El servicio `listarRepuestos` retorna error de autenticación
-
-Confirme que:
-
-- El Bearer Token enviado en el header `Authorization` sea válido y no haya expirado
-
-### Los repuestos aparecen en la sección incorrecta
+### El procedimiento no retorna registros para una OT con repuestos
 
 Confirme que:
 
-- El valor del campo `seccion` en el procedimiento corresponda a la sección deseada (`1` ejecutados, `2` pendientes, `3` ambas)
+- Los repuestos pertenezcan a un catálogo activo (`cat_catalogo.active = 1`)
+- El subtipo de catálogo esté activo (`cat_subtipocatalogo.active = 1`)
+- El subtipo corresponda a `id_tipocatalogo = 2`
+- El parámetro `@p_idOT` corresponda al id de la OT correcta
 
-### Faltan repuestos esperados en la precarga
+### Los repuestos aparecen en una sección distinta a la esperada
 
 Revise que:
 
-- El catálogo (`cat_catalogo`) y el subtipo de catálogo (`cat_subtipocatalogo`) asociados a cada ítem estén marcados como `active = 1`
-- El ítem correspondiente en `doc_itemDocumento` tenga definida la `cantidadPlaneado`
+- El valor de `seccion` en el procedimiento sea el correcto (`1`, `2` o `3`)
+- El procedimiento modificado se haya guardado en la base de datos correcta
+- No exista otra versión del procedimiento en un esquema distinto a `dbo`
+
+### El registro del repuesto no se procesa al generar el reporte
+
+Revise que:
+
+- El campo `id_bodega` retorne un valor válido (mayor a `0`)
+- El campo `id_tipodocumento` esté presente en el resultado del procedimiento
+- Los campos `id_tipoPendiente` e `id_CentroCosto` retornen valores válidos para la sección correspondiente
 
 ## Errores Conocidos
 
@@ -179,28 +211,38 @@ No aplica para esta funcionalidad.
 
 ## QA — Pruebas
 
-:::tip Consejo
-Verificar cada escenario tanto en la sección de repuestos ejecutados como en la de pendientes, según el valor de `seccion` configurado, y validar la respuesta del servicio `listarRepuestos`.
-:::
+### Escenario 1: Acceso y redirección al Reporte Técnico
 
-**Escenario 1 — Precarga en repuestos ejecutados**
+**Precondiciones:** Usuario autorizado y programaciones disponibles.
 
-1. Configurar `seccion = 1` en `mob_repuestosSugeridos`.
-2. Abrir en la APP una Orden de Trabajo con ítems planeados en `doc_itemDocumento`.
-3. **Resultado esperado:** los repuestos planeados aparecen precargados en la sección de repuestos ejecutados, sin necesidad de actualizar la bandeja más de una vez.
+| Paso | Acción                                                                                         | Resultado esperado                                                                                  |
+| ---- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| 1    | Ingresar a la plataforma web con un usuario autorizado                                         | **El acceso se realiza correctamente**, sin errores de autenticación ni navegación                  |
+| 2    | Abrir el formulario de Programación                                                            | El formulario carga y permite consultar las programaciones                                          |
+| 3    | Seleccionar una programación no disponible                                                     | El sistema redirige al frontend de Reporte Técnico dinámico asociado a la programación              |
+| 4    | Dejar la clave `urlTechnicalReport` sin valor y repetir el paso 3                              | El sistema redirige al Reporte Técnico dinámico según el comportamiento definido para esta ausencia |
+| 5    | Configurar `urlTechnicalReport` con una dirección válida y repetir el paso 3                   | El sistema redirige de acuerdo con la configuración, sin errores                                    |
+| 6    | Revisar las secciones del Reporte Técnico dinámico                                             | No se muestran las secciones Firmas, Archivos adjuntos, Repuestos sugeridos ni Repuestos ejecutados |
 
-**Escenario 2 — Precarga en repuestos pendientes (sugeridos)**
+### Escenario 2: Visualización de repuestos según el valor de `seccion`
 
-1. Configurar `seccion = 2` en `mob_repuestosSugeridos`.
-2. Abrir en la APP la misma Orden de Trabajo.
-3. **Resultado esperado:** los repuestos planeados aparecen precargados en la sección de repuestos pendientes.
+**Precondiciones:** OT con repuestos planeados y acceso para modificar `mob_repuestosSugeridos`.
 
-**Escenario 3 — Consulta directa del servicio `listarRepuestos`**
+| Paso | Configuración         | Resultado esperado                                                                                   |
+| ---- | --------------------- | ---------------------------------------------------------------------------------------------------- |
+| 1    | `seccion = 0`         | **Los repuestos no se visualizan** en Repuestos sugeridos ni en Repuestos instalados                 |
+| 2    | `seccion = 1`         | Los repuestos se visualizan en Repuestos instalados, pero no en Repuestos sugeridos                  |
+| 3    | `seccion = 2`         | Los repuestos se visualizan en Repuestos sugeridos, pero no en Repuestos instalados                  |
+| 4    | `seccion = 3`         | **Los repuestos se visualizan en ambas secciones**, sin omisiones                                    |
+| 5    | `seccion = 0` con una programación sin repuestos planeados | Ninguna sección muestra repuestos y el reporte puede consultarse correctamente |
 
-1. Realizar una petición `GET` a `https://dev.softwaresamm.com/sa_api/api/docs/listarRepuestos/{Idot}` con un Bearer Token válido.
-2. **Resultado esperado:** el servicio retorna un arreglo JSON con los repuestos planeados de la Orden de Trabajo, incluyendo el campo `seccion` para cada uno.
+### Escenario 3: Generación del Reporte Técnico y consistencia de datos
 
-**Escenario 4 — Orden de Trabajo sin ítems planeados**
+**Precondiciones:** Programación con repuestos planeados y `seccion = 3`.
 
-1. Abrir en la APP una Orden de Trabajo que no tenga ítems registrados en `doc_itemDocumento`.
-2. **Resultado esperado:** no se precarga ningún repuesto en ninguna de las secciones, y el servicio retorna un arreglo vacío.
+| Paso | Acción                                                                             | Resultado esperado                                                                                      |
+| ---- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| 1    | Seleccionar la programación y generar el Reporte Técnico                           | El reporte se genera correctamente, sin errores que impidan completar la operación                      |
+| 2    | En el documento generado, abrir la pestaña **Documentos**                          | Se muestra la remisión de salida asociada a los repuestos instalados                                    |
+| 3    | En el documento generado, abrir la pestaña de Repuestos sugeridos                  | Se muestran los repuestos planeados asociados al reporte                                                |
+| 4    | Comparar los repuestos del reporte con los del documento y con el resultado de `EXEC mob_repuestosSugeridos @p_idOT = [id de la OT]` | **La información coincide** con los registros asociados y con la configuración de `seccion` |
