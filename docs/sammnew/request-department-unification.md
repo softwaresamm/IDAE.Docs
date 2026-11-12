@@ -6,7 +6,7 @@ release_module: "SAMM New"
 
 # Unificación de Departamentos de Solicitud
 
-Esta funcionalidad permite consolidar dos o más departamentos de solicitud en un único departamento destino. Durante el proceso se actualizan las solicitudes, órdenes de trabajo y demás relaciones asociadas, se conserva la información histórica y se evita que los departamentos de origen vuelvan a utilizarse en registros nuevos.
+Esta funcionalidad permite unificar un departamento de solicitud de origen con un departamento destino. La operación se realiza **registro por registro**; durante cada ejecución se actualizan las solicitudes, órdenes de trabajo y demás relaciones asociadas, se conserva la información histórica y se evita que el departamento de origen vuelva a utilizarse en registros nuevos.
 
 Antes de esta mejora, no existía un proceso controlado para centralizar departamentos duplicados o equivalentes sin afectar sus relaciones documentales.
 
@@ -47,6 +47,24 @@ Antes de ejecutar la unificación, asegúrese de tener:
 El permiso debe validarse tanto en la interfaz como en el acceso directo a la funcionalidad. Un usuario no autorizado no debe visualizar el botón ni ejecutar la unificación mediante una URL o llamada directa.
 :::
 
+## Evidencias
+
+### Permiso requerido
+
+La siguiente imagen muestra el permiso configurable que debe asignarse al perfil o usuario autorizado para ejecutar la unificación:
+
+![Permiso configurable para unificar departamentos de solicitud](./img/01_permiso_unificacion.png)
+
+### Video del proceso de unificación
+
+El video muestra el proceso completo: ingreso a la pantalla, selección del registro de origen, ubicación del botón `Unificar`, selección del departamento destino, confirmación de la operación y verificación del cambio en las solicitudes asociadas.
+
+En caso de dudas, consulte el siguiente [video de apoyo del proceso de unificación](https://www.youtube.com/watch?v=sepDd7CgnxQ).
+
+:::info Contenido de la demostración
+En el video se utiliza `video 1` como departamento de origen y `video 2` como departamento destino. Después de la unificación se comprueba que las solicitudes asociadas al origen muestran el departamento destino.
+:::
+
 ## Información del Servicio
 
 No aplica para esta funcionalidad.
@@ -61,11 +79,13 @@ Acceda a SAMM New con un usuario autorizado y abra la ruta:
 /forms/ort/ort_departamentoSolicitud.aspx
 ```
 
-Valide que el botón de unificación se encuentre visible y habilitado.
+Ubique en el listado el registro correspondiente al departamento de origen. En las acciones de ese registro, valide que el botón de unificación se encuentre visible y habilitado.
 
-### Paso 2: Seleccionar los departamentos
+### Paso 2: Iniciar la unificación desde el registro de origen
 
-Seleccione dos o más departamentos que deban consolidarse e identifique uno de ellos como departamento destino. Los demás registros se consideran departamentos de origen.
+Localice el departamento de origen y ejecute la acción `Unificar` disponible en ese registro. En la ventana o formulario presentado por el sistema, seleccione el departamento destino al que se trasladarán sus relaciones.
+
+La operación debe repetirse individualmente por cada departamento de origen que se necesite consolidar; la pantalla no permite seleccionar varios departamentos de origen simultáneamente.
 
 :::warning Validación obligatoria
 El sistema no debe continuar si no se selecciona un departamento de origen o si no se define correctamente el departamento destino.
@@ -156,10 +176,6 @@ El error visual no invalida la funcionalidad principal cuando la operación se e
 
 **Precondiciones:** Usuario con el permiso de unificación asignado.
 
-El permiso para ejecutar la unificación debe asignarse mediante el parámetro de seguridad configurable correspondiente, como se muestra en la siguiente imagen:
-
-![Permiso configurable para unificar departamentos de solicitud](./img/01_permiso_unificacion.png)
-
 Durante la validación se debe comprobar que:
 
 - El permiso se controle mediante el parámetro de seguridad configurable.
@@ -171,7 +187,7 @@ Durante la validación se debe comprobar que:
 | 1 | Asignar el permiso configurable al perfil o usuario de prueba | El permiso queda guardado correctamente |
 | 2 | Ingresar a `/forms/ort/ort_departamentoSolicitud.aspx` | La página carga correctamente |
 | 3 | Revisar las acciones disponibles | **El botón de unificación se muestra habilitado** |
-| 4 | Seleccionar departamentos de origen y destino | El sistema permite preparar la unificación |
+| 4 | Ubicar un registro de origen y ejecutar la acción `Unificar` | El sistema permite seleccionar el departamento destino para ese registro |
 | 5 | Ejecutar la acción y consultar la trazabilidad disponible | Se identifica el perfil o usuario que realizó la operación |
 
 ### Escenario 2: Restricción para un usuario sin permiso
@@ -190,11 +206,12 @@ Durante la validación se debe comprobar que:
 
 | Paso | Acción | Resultado esperado |
 | --- | --- | --- |
-| 1 | Seleccionar el departamento de origen y el destino | La selección queda registrada |
-| 2 | Ejecutar la unificación sin seleccionar `Unificar archivos` | La operación finaliza correctamente |
-| 3 | Consultar las solicitudes y órdenes de trabajo relacionadas | **Todos los registros muestran el departamento destino** |
-| 4 | Consultar la información histórica | Los datos continúan disponibles y sin relaciones rotas |
-| 5 | Consultar la trazabilidad en la base de datos | La operación aparece registrada |
+| 1 | Ubicar el registro del departamento de origen y pulsar `Unificar` | Se abre la opción para seleccionar el departamento destino |
+| 2 | Seleccionar el departamento destino | El destino queda definido para el registro de origen |
+| 3 | Ejecutar la unificación sin seleccionar `Unificar archivos` | La operación finaliza correctamente |
+| 4 | Consultar las solicitudes y órdenes de trabajo relacionadas | **Todos los registros muestran el departamento destino** |
+| 5 | Consultar la información histórica | Los datos continúan disponibles y sin relaciones rotas |
+| 6 | Consultar la trazabilidad en la base de datos | La operación aparece registrada |
 
 ### Escenario 4: Exclusión del departamento unificado
 
@@ -222,7 +239,7 @@ Durante la validación se debe comprobar que:
 
 | Paso | Acción | Resultado esperado |
 | --- | --- | --- |
-| 1 | Seleccionar origen y destino | La selección es válida |
+| 1 | Iniciar la unificación desde un registro de origen y seleccionar el destino | La selección es válida |
 | 2 | Activar `Unificar archivos` y ejecutar la operación | Puede presentarse el error visual conocido |
 | 3 | Repetir el proceso sin activar `Unificar archivos` | **La unificación se completa correctamente** |
 | 4 | Consultar solicitudes, órdenes de trabajo y departamentos | Las relaciones apuntan al destino y el origen no está disponible para registros nuevos |
