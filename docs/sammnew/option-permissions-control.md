@@ -1,4 +1,10 @@
-Permisos para visualizar y configurar Opciones en documentos
+---
+sidebar_position: 1
+release_version: "7.1.25.0"
+release_module: "SAMM New"
+---
+
+# Permisos para visualizar y configurar Opciones en documentos
 
 ## Descripción general
 
