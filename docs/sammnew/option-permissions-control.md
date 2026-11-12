@@ -47,7 +47,7 @@ Las pruebas se ejecutaron directamente en el documento de **Cotizaciones**. Tamb
 
 El siguiente video muestra la configuración y validación de los permisos **Ver Opciones** y **Configurar Opciones** en el documento de **Cotizaciones**:
 
-[Ver video de la validación de permisos de Opciones en Cotizaciones](https://youtu.be/1iEUw1FfSNY)
+[Ver video de la validación de permisos de Opciones en Cotizaciones](https://www.youtube.com/watch?v=1iEUw1FfSNY)
 
 ## Resultado general
 
