@@ -67,8 +67,6 @@ Una vez realizado esto, se creará automáticamente una línea con el nombre de 
 
 :::tip Consejo En la línea de la opción se puede cambiar el nombre de la opción según se desee. :::
 
-En caso de tener dudas consultar el siguiente video https://youtu.be/xGhnASoYLyY
-
 Paso 4: Permisos de Opciones
 
 La sección Opciones estaba disponible para todos los perfiles y documentos sin control de acceso. A partir de la versión SN 7.1.25.0 se controla por perfil con dos permisos independientes:
