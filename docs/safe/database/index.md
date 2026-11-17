@@ -11,7 +11,7 @@ Diccionario de datos de la base de datos `pro_safe` de SAFE (fondo de empleados)
 
 ## Estadísticas
 
-- **Total de tablas**: 32
+- **Total de tablas**: 34
 - **Módulos**: 5
 - **Base de datos**: SQL Server (`pro_safe`)
 
@@ -46,8 +46,10 @@ erDiagram
     com_company
     com_group
     cre_creditLine
+    cre_installmentState
     cre_interestRateType
     cre_loan
+    cre_loanInstallment
     cre_loanPurpose
     cre_loanState
     cre_paymentType
@@ -75,6 +77,7 @@ erDiagram
     aso_pensionFund |o--o{ aso_associate : "id_pensionFund"
     aso_position |o--o{ aso_associate : "id_position"
     aso_state ||--o{ aso_associate : "id_state"
+    com_company |o--o{ com_area : "id_company"
     com_group |o--o{ com_company : "id_group"
     cre_interestRateType ||--o{ cre_creditLine : "id_interestRateType"
     cre_loanPurpose |o--o{ cre_creditLine : "id_loanPurpose"
@@ -83,6 +86,8 @@ erDiagram
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_installmentState ||--o{ cre_loanInstallment : "id_installmentState"
+    cre_loan ||--o{ cre_loanInstallment : "id_loan"
     aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
     mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
     mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
@@ -125,7 +130,7 @@ Empresas, áreas, ciudades y grupos.
 
 [Diagrama ER del módulo](./com/er-diagram.md)
 
-- [com.area](./com/area.md) - Catálogo de áreas.
+- [com.area](./com/area.md) - Catálogo de áreas. Cada área puede pertenecer a una empresa; las áreas sin empresa se listan siempre.
 - [com.city](./com/city.md) - Catálogo de ciudades.
 - [com.company](./com/company.md) - Empresas a las que pertenecen los asociados.
 - [com.group](./com/group.md) - Catálogo de grupos.
@@ -147,13 +152,15 @@ Movimientos (transacciones) de los asociados y descuentos.
 
 ### Créditos (`cre`)
 
-Líneas de crédito, préstamos de los asociados y sus catálogos. Migrado desde MODALIDAD, SOLICITUD_PRESTAMOS y catálogos relacionados de app_febancol.
+Líneas de crédito, préstamos de los asociados, sus cuotas y sus catálogos. Migrado desde MODALIDAD, SOLICITUD_PRESTAMOS, SOL_CUOTAS, SIM_CUOTA y catálogos relacionados de app_febancol.
 
 [Diagrama ER del módulo](./cre/er-diagram.md)
 
 - [cre.creditLine](./cre/credit-line.md) - Líneas de crédito (modalidades) con sus condiciones: tasa, plazos, forma de pago y requisitos.
+- [cre.installmentState](./cre/installment-state.md) - Catálogo de estados de la cuota de un crédito: 1 PENDIENTE y 2 PAGADA. Es un catálogo nuevo: el legado solo tenía el indicador Cancelada en cada cuota.
 - [cre.interestRateType](./cre/interest-rate-type.md) - Catálogo de tipos de tasa de interés (1 ANTICIPADOS, 2 VENCIDOS). Conserva los ids del sistema legado.
 - [cre.loan](./cre/loan.md) - Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, saldos, intereses y liquidación.
+- [cre.loanInstallment](./cre/loan-installment.md) - Plan de cuotas de cada crédito, con el estado de cada cuota. Consolida las dos tablas de cuotas del legado.
 - [cre.loanPurpose](./cre/loan-purpose.md) - Catálogo de destinos (finalidad) del crédito. Conserva los ids del sistema legado.
 - [cre.loanState](./cre/loan-state.md) - Catálogo de estados del crédito. Conserva los ids del sistema legado, que no son consecutivos (99 RECHAZADA, 999 CANCELADA POR EL ASOCIADO, 9999 FINALIZADA).
 - [cre.paymentType](./cre/payment-type.md) - Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sistema legado.

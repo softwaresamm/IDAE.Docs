@@ -50,8 +50,10 @@ erDiagram
         int id_group FK
     }
     aso_associate
+    com_area
     com_group
     com_company ||--o{ aso_associate : "id_company"
+    com_company |o--o{ com_area : "id_company"
     com_group |o--o{ com_company : "id_group"
 ```
 
@@ -68,6 +70,7 @@ erDiagram
 | Tabla | Columna | Constraint |
 |-------|---------|------------|
 | [`aso.associate`](../aso/associate.md) | id_company | `FK__aso__associate__id_company` |
+| [`com.area`](../com/area.md) | id_company | `FK__com__area__id_company` |
 
 ## Objetos Relacionados
 

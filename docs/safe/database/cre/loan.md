@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: cre.loan
 description: "Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, saldos, intereses y liquidación."
 tags: [database, cre]
@@ -110,10 +110,12 @@ erDiagram
     cre_creditLine
     cre_loanPurpose
     cre_loanState
+    cre_loanInstallment
     aso_associate ||--o{ cre_loan : "id_associate"
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_loan ||--o{ cre_loanInstallment : "id_loan"
 ```
 
 ## Relaciones
@@ -129,7 +131,9 @@ erDiagram
 
 ### Relaciones Entrantes
 
-*Ninguna tabla referencia a esta tabla.*
+| Tabla | Columna | Constraint |
+|-------|---------|------------|
+| [`cre.loanInstallment`](../cre/loan-installment.md) | id_loan | `FK__cre__loanInstallment__id_loan` |
 
 ## Objetos Relacionados
 
