@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 title: cre.paymentType
 description: "Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sistema legado."
 tags: [database, cre]
@@ -46,7 +46,9 @@ erDiagram
         int id PK
     }
     cre_creditLine
+    cre_loan
     cre_paymentType ||--o{ cre_creditLine : "id_paymentType"
+    cre_paymentType |o--o{ cre_loan : "id_paymentType"
 ```
 
 ## Relaciones
@@ -60,6 +62,7 @@ erDiagram
 | Tabla | Columna | Constraint |
 |-------|---------|------------|
 | [`cre.creditLine`](../cre/credit-line.md) | id_paymentType | `FK__cre__creditLine__id_paymentType` |
+| [`cre.loan`](../cre/loan.md) | id_paymentType | `FK__cre__loan__id_paymentType` |
 
 ## Objetos Relacionados
 

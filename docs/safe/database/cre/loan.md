@@ -72,6 +72,7 @@ Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, sald
 | isInterestOnly | BIT | ✗ | - | - | Paga solo interés (legado: SoloInteres) |
 | rejectionReason | NVARCHAR(MAX) | ✓ | - | - | Motivo del rechazo (legado: MotivoRechazo) |
 | user | NVARCHAR(50) | ✓ | - | - | Login del usuario que registró el crédito (legado: IdUsuario) |
+| id_paymentType | INT | ✓ | FK | - | Forma de pago del crédito: 1 mensual, 2 primas, 3 cuotas fijas, 4 mixto (legado: calculado con PagoPrimas y PlazoFijo) |
 
 ### Columnas Estándar
 
@@ -105,16 +106,19 @@ erDiagram
         int id_creditLine FK
         int id_loanPurpose FK
         int id_loanState FK
+        int id_paymentType FK
     }
     aso_associate
     cre_creditLine
     cre_loanPurpose
     cre_loanState
+    cre_paymentType
     cre_loanInstallment
     aso_associate ||--o{ cre_loan : "id_associate"
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_paymentType |o--o{ cre_loan : "id_paymentType"
     cre_loan ||--o{ cre_loanInstallment : "id_loan"
 ```
 
@@ -128,6 +132,7 @@ erDiagram
 | id_creditLine | [`cre.creditLine`](../cre/credit-line.md).id | `FK__cre__loan__id_creditLine` |
 | id_loanPurpose | [`cre.loanPurpose`](../cre/loan-purpose.md).id | `FK__cre__loan__id_loanPurpose` |
 | id_loanState | [`cre.loanState`](../cre/loan-state.md).id | `FK__cre__loan__id_loanState` |
+| id_paymentType | [`cre.paymentType`](../cre/payment-type.md).id | `FK__cre__loan__id_paymentType` |
 
 ### Relaciones Entrantes
 
@@ -154,6 +159,7 @@ erDiagram
 - `rate` es una fracción mensual: rate × 1200 = tasa anual de la línea (p. ej. 0.0174 = 20,88 % anual).
 - La migración omite los créditos cuyo asociado o línea de crédito no existe en el sistema legado (96 de 4 asociados inexistentes y 53 con la modalidad 1020AG).
 - Las fechas centinela 1899-12-30 del legado se migran como NULL y los montos float se redondean a enteros.
+- `id_paymentType` es nuevo (SO-2267). En los créditos migrados se calcula con PlazoFijo = 1 → 3, PagoPrimas = 1 → 2 y, en otro caso, 1. Los créditos mixtos creados en la web guardan 4 y su plan de pagos combina cuotas mensuales y primas.
 
 ---
 

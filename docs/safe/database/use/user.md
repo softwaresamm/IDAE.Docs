@@ -106,6 +106,8 @@ erDiagram
 | [`cre.loan`](../cre/loan.md) | id_user_modifier | `FK__cre__loan__id_user_modifier` |
 | [`cre.loanInstallment`](../cre/loan-installment.md) | id_user_creator | `FK__cre__loanInstallment__id_user_creator` |
 | [`cre.loanInstallment`](../cre/loan-installment.md) | id_user_modifier | `FK__cre__loanInstallment__id_user_modifier` |
+| [`cre.loanParameter`](../cre/loan-parameter.md) | id_user_creator | `FK__cre__loanParameter__id_user_creator` |
+| [`cre.loanParameter`](../cre/loan-parameter.md) | id_user_modifier | `FK__cre__loanParameter__id_user_modifier` |
 | [`cre.loanPurpose`](../cre/loan-purpose.md) | id_user_creator | `FK__cre__loanPurpose__id_user_creator` |
 | [`cre.loanPurpose`](../cre/loan-purpose.md) | id_user_modifier | `FK__cre__loanPurpose__id_user_modifier` |
 | [`cre.loanState`](../cre/loan-state.md) | id_user_creator | `FK__cre__loanState__id_user_creator` |

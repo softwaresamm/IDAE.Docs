@@ -11,7 +11,7 @@ Diccionario de datos de la base de datos `pro_safe` de SAFE (fondo de empleados)
 
 ## Estadísticas
 
-- **Total de tablas**: 34
+- **Total de tablas**: 35
 - **Módulos**: 5
 - **Base de datos**: SQL Server (`pro_safe`)
 
@@ -50,6 +50,7 @@ erDiagram
     cre_interestRateType
     cre_loan
     cre_loanInstallment
+    cre_loanParameter
     cre_loanPurpose
     cre_loanState
     cre_paymentType
@@ -86,6 +87,7 @@ erDiagram
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_paymentType |o--o{ cre_loan : "id_paymentType"
     cre_installmentState ||--o{ cre_loanInstallment : "id_installmentState"
     cre_loan ||--o{ cre_loanInstallment : "id_loan"
     aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
@@ -161,6 +163,7 @@ Líneas de crédito, préstamos de los asociados, sus cuotas y sus catálogos. M
 - [cre.interestRateType](./cre/interest-rate-type.md) - Catálogo de tipos de tasa de interés (1 ANTICIPADOS, 2 VENCIDOS). Conserva los ids del sistema legado.
 - [cre.loan](./cre/loan.md) - Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, saldos, intereses y liquidación.
 - [cre.loanInstallment](./cre/loan-installment.md) - Plan de cuotas de cada crédito, con el estado de cada cuota. Consolida las dos tablas de cuotas del legado.
+- [cre.loanParameter](./cre/loan-parameter.md) - Parámetros para crear créditos de cada empresa: día de pago de las cuotas y consecutivo del código de crédito. Hay un registro activo por empresa (eid).
 - [cre.loanPurpose](./cre/loan-purpose.md) - Catálogo de destinos (finalidad) del crédito. Conserva los ids del sistema legado.
 - [cre.loanState](./cre/loan-state.md) - Catálogo de estados del crédito. Conserva los ids del sistema legado, que no son consecutivos (99 RECHAZADA, 999 CANCELADA POR EL ASOCIADO, 9999 FINALIZADA).
 - [cre.paymentType](./cre/payment-type.md) - Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sistema legado.
