@@ -95,6 +95,11 @@ export const products: Product[] = [
     prefix: "SN",
     releases: [
       {
+        version: "7.1.25.0",
+        date: "2026-11-18",
+        href: "/blog/samm-new-v7-1-25-0",
+      },
+      {
         version: "7.1.22.2",
         date: "2026-10-23",
         href: "/blog/samm-new-v7-1-22-2",
@@ -152,6 +157,11 @@ export const products: Product[] = [
     icon: "🔌",
     prefix: "SA",
     releases: [
+      {
+        version: "1.2.35.3",
+        date: "2026-11-18",
+        href: "/blog/samm-api-v1-2-35-3",
+      },
       {
         version: "1.2.34.5",
         date: "2026-10-23",
