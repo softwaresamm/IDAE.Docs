@@ -85,6 +85,10 @@ Una vez actualizada la aplicación:
 3. **Reporte registrado**: Al diligenciar los campos obligatorios, la aplicación registra el reporte sin servicio y muestra la confirmación.
 4. **Reporte visible en la web**: El reporte se consulta en el formulario de Programación de la plataforma web con `ID = 0` y conserva la información registrada desde la APP.
 
+:::tip Video de apoyo
+Para ver el proceso completo de reportar sin OT desde la APP, consulte el video de apoyo: https://www.youtube.com/shorts/anS1R0bxpnU
+:::
+
 ## Resolución de Problemas
 
 ### La opción Reportar sin servicio no aparece en el menú
