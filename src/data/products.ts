@@ -216,6 +216,11 @@ export const products: Product[] = [
     prefix: "SR",
     releases: [
       {
+        version: "6.0.0.16",
+        date: "2026-11-20",
+        href: "/blog/samm-reporte-v6-0-0-16",
+      },
+      {
         version: "6.0.0.11",
         date: "2026-03-25",
         href: "/blog/samm-reporte-v6-0-0-11",
