@@ -96,6 +96,7 @@ Estos comportamientos se aplican sin configuración adicional.
 | ---- | -------------- |
 | Parámetro sin configurar | Si no existe la fila de configuración del parámetro, el motivo es **opcional** en todos los tipos. Esto aplica también al panel de cancelar programación. |
 | Tipo obligatorio sin motivos asociados | Si un tipo está marcado como obligatorio pero ningún motivo del maestro pertenece a ese tipo, el campo queda sin opciones y no se podrá guardar. Asocie al menos un motivo en el Paso 1. |
+| Panel "Cancelar programación" | Lista los motivos marcados para el tipo `Cancelada` (no los del tipo actual de la programación) y su obligatoriedad se evalúa con ese tipo. Si ningún motivo está marcado como `Cancelada`, el panel no se muestra. |
 | Edición sin reagendar | El motivo elegido se guarda en la misma programación, que conserva su tipo. Si no se elige un motivo, se mantiene el que ya tenía. |
 | Reagendar a una fecha posterior | La programación original pasa a `Aplazamiento` o `Cancelada` con el motivo elegido y se crea una nueva con el mismo motivo. |
 | Cambio solo de motivo o comentario | Se actualizan las mismas programaciones (el día, o todos los días si se marcó "otros días") sin desactivarlas ni recrearlas. No se envía correo de programación y el cambio queda en el histórico de la programación. |
