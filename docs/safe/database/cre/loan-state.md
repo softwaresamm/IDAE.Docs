@@ -46,7 +46,10 @@ erDiagram
         int id PK
     }
     cre_loan
+    cre_loanStateHistory
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_loanState ||--o{ cre_loanStateHistory : "id_loanState"
+    cre_loanState |o--o{ cre_loanStateHistory : "id_previousLoanState"
 ```
 
 ## Relaciones
@@ -60,6 +63,8 @@ erDiagram
 | Tabla | Columna | Constraint |
 |-------|---------|------------|
 | [`cre.loan`](../cre/loan.md) | id_loanState | `FK__cre__loan__id_loanState` |
+| [`cre.loanStateHistory`](../cre/loan-state-history.md) | id_loanState | `FK__cre__loanStateHistory__id_loanState` |
+| [`cre.loanStateHistory`](../cre/loan-state-history.md) | id_previousLoanState | `FK__cre__loanStateHistory__id_previousLoanState` |
 
 ## Objetos Relacionados
 

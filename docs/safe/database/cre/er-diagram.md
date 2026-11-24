@@ -48,6 +48,12 @@ erDiagram
     cre_loanState {
         int id PK
     }
+    cre_loanStateHistory {
+        int id PK
+        int id_loan FK
+        int id_previousLoanState FK
+        int id_loanState FK
+    }
     cre_paymentType {
         int id PK
     }
@@ -63,6 +69,9 @@ erDiagram
     cre_paymentType |o--o{ cre_loan : "id_paymentType"
     cre_installmentState ||--o{ cre_loanInstallment : "id_installmentState"
     cre_loan ||--o{ cre_loanInstallment : "id_loan"
+    cre_loan ||--o{ cre_loanStateHistory : "id_loan"
+    cre_loanState ||--o{ cre_loanStateHistory : "id_loanState"
+    cre_loanState |o--o{ cre_loanStateHistory : "id_previousLoanState"
     cre_loan |o--o{ mov_movement : "id_loan"
     cre_loanInstallment |o--o{ mov_movement : "id_loanInstallment"
 ```

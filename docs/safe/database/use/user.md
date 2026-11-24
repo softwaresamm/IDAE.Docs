@@ -112,6 +112,8 @@ erDiagram
 | [`cre.loanPurpose`](../cre/loan-purpose.md) | id_user_modifier | `FK__cre__loanPurpose__id_user_modifier` |
 | [`cre.loanState`](../cre/loan-state.md) | id_user_creator | `FK__cre__loanState__id_user_creator` |
 | [`cre.loanState`](../cre/loan-state.md) | id_user_modifier | `FK__cre__loanState__id_user_modifier` |
+| [`cre.loanStateHistory`](../cre/loan-state-history.md) | id_user_creator | `FK__cre__loanStateHistory__id_user_creator` |
+| [`cre.loanStateHistory`](../cre/loan-state-history.md) | id_user_modifier | `FK__cre__loanStateHistory__id_user_modifier` |
 | [`cre.paymentType`](../cre/payment-type.md) | id_user_creator | `FK__cre__paymentType__id_user_creator` |
 | [`cre.paymentType`](../cre/payment-type.md) | id_user_modifier | `FK__cre__paymentType__id_user_modifier` |
 | [`mov.associateOtherDiscount`](../mov/associate-other-discount.md) | id_user_creator | `FK__mov__associateOtherDiscount__id_user_creator` |

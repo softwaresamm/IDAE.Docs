@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 title: cre.paymentType
 description: "Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sistema legado."
 tags: [database, cre]
