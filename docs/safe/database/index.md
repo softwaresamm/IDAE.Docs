@@ -11,7 +11,7 @@ Diccionario de datos de la base de datos `pro_safe` de SAFE (fondo de empleados)
 
 ## Estadísticas
 
-- **Total de tablas**: 35
+- **Total de tablas**: 36
 - **Módulos**: 5
 - **Base de datos**: SQL Server (`pro_safe`)
 
@@ -53,6 +53,7 @@ erDiagram
     cre_loanParameter
     cre_loanPurpose
     cre_loanState
+    cre_loanStateHistory
     cre_paymentType
     mov_associateOtherDiscount
     mov_discount
@@ -90,6 +91,9 @@ erDiagram
     cre_paymentType |o--o{ cre_loan : "id_paymentType"
     cre_installmentState ||--o{ cre_loanInstallment : "id_installmentState"
     cre_loan ||--o{ cre_loanInstallment : "id_loan"
+    cre_loan ||--o{ cre_loanStateHistory : "id_loan"
+    cre_loanState ||--o{ cre_loanStateHistory : "id_loanState"
+    cre_loanState |o--o{ cre_loanStateHistory : "id_previousLoanState"
     aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
     mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
     mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
@@ -168,6 +172,7 @@ Líneas de crédito, préstamos de los asociados y sus catálogos. Migrado desde
 - [cre.loanParameter](./cre/loan-parameter.md) - Tabla cre.loanParameter del módulo Créditos.
 - [cre.loanPurpose](./cre/loan-purpose.md) - Catálogo de destinos (finalidad) del crédito. Conserva los ids del sistema legado.
 - [cre.loanState](./cre/loan-state.md) - Catálogo de estados del crédito. Conserva los ids del sistema legado, que no son consecutivos (99 RECHAZADA, 999 CANCELADA POR EL ASOCIADO, 9999 FINALIZADA).
+- [cre.loanStateHistory](./cre/loan-state-history.md) - Tabla cre.loanStateHistory del módulo Créditos.
 - [cre.paymentType](./cre/payment-type.md) - Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sistema legado.
 
 ### Usuarios (`use`)

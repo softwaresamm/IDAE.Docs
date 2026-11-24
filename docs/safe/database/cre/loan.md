@@ -114,6 +114,7 @@ erDiagram
     cre_loanState
     cre_paymentType
     cre_loanInstallment
+    cre_loanStateHistory
     mov_movement
     aso_associate ||--o{ cre_loan : "id_associate"
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
@@ -121,6 +122,7 @@ erDiagram
     cre_loanState ||--o{ cre_loan : "id_loanState"
     cre_paymentType |o--o{ cre_loan : "id_paymentType"
     cre_loan ||--o{ cre_loanInstallment : "id_loan"
+    cre_loan ||--o{ cre_loanStateHistory : "id_loan"
     cre_loan |o--o{ mov_movement : "id_loan"
 ```
 
@@ -141,6 +143,7 @@ erDiagram
 | Tabla | Columna | Constraint |
 |-------|---------|------------|
 | [`cre.loanInstallment`](../cre/loan-installment.md) | id_loan | `FK__cre__loanInstallment__id_loan` |
+| [`cre.loanStateHistory`](../cre/loan-state-history.md) | id_loan | `FK__cre__loanStateHistory__id_loan` |
 | [`mov.movement`](../mov/movement.md) | id_loan | `FK__mov__movement__id_loan` |
 
 ## Objetos Relacionados
