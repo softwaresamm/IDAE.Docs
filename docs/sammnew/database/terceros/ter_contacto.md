@@ -30,7 +30,7 @@ Tabla ter_contacto del módulo Terceros.
 | cargo | NVARCHAR | ✓ | - | - |
 | codigoAcceso | VARCHAR | ✓ | - | - |
 | id_cargoContacto | INTEGER | ✓ | FK | - |
-| accesoActivo | BIT | ✗ | - | - |
+| accesoActivo | BIT | ✗ | - | Contacto vigente: `1` = aún trabaja en la empresa, `0` = retirado. Hasta SO-2272 el valor se interpretaba al revés; ver [Contactos vigentes en los documentos](../../enabled-contacts-in-documents.md) |
 | ter_cargoContacto_id_usuario_Modifico | INTEGER | ✓ | - | - |
 | ter_cargoContacto_id_usuario_Creo | INTEGER | ✓ | - | - |
 
@@ -64,6 +64,7 @@ Todas las tablas incluyen estas columnas estándar:
 
 - Esta tabla forma parte del módulo Terceros
 - Nombre real en base de datos: `ter_contacto`
+- `accesoActivo` indica si el contacto está vigente (`1`) o retirado (`0`). Las listas de contactos de los documentos y los correos de notificación filtran por `accesoActivo = 1`. El script `bd/updates/SO2272.sql` del repositorio `sammapi` invierte los valores históricos una sola vez por base de datos
 
 ## Ejemplos de Uso
 
