@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 title: cre.loanPurpose
 description: "Catálogo de destinos (finalidad) del crédito. Conserva los ids del sistema legado."
 tags: [database, cre]

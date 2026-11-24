@@ -11,7 +11,7 @@ Diccionario de datos de la base de datos `pro_safe` de SAFE (fondo de empleados)
 
 ## Estadísticas
 
-- **Total de tablas**: 32
+- **Total de tablas**: 35
 - **Módulos**: 5
 - **Base de datos**: SQL Server (`pro_safe`)
 
@@ -46,8 +46,11 @@ erDiagram
     com_company
     com_group
     cre_creditLine
+    cre_installmentState
     cre_interestRateType
     cre_loan
+    cre_loanInstallment
+    cre_loanParameter
     cre_loanPurpose
     cre_loanState
     cre_paymentType
@@ -84,6 +87,9 @@ erDiagram
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_paymentType |o--o{ cre_loan : "id_paymentType"
+    cre_installmentState ||--o{ cre_loanInstallment : "id_installmentState"
+    cre_loan ||--o{ cre_loanInstallment : "id_loan"
     aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
     mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
     mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
@@ -91,6 +97,8 @@ erDiagram
     aso_associate ||--o{ mov_movement : "id_associate"
     mov_discount |o--o{ mov_movement : "id_discount"
     mov_discountImp |o--o{ mov_movement : "id_discountImp"
+    cre_loan |o--o{ mov_movement : "id_loan"
+    cre_loanInstallment |o--o{ mov_movement : "id_loanInstallment"
     mov_movementState ||--o{ mov_movement : "id_movementState"
     mov_movementType ||--o{ mov_movement : "id_movementType"
     mov_operationType ||--o{ mov_movement : "id_operationType"
@@ -153,8 +161,11 @@ Líneas de crédito, préstamos de los asociados y sus catálogos. Migrado desde
 [Diagrama ER del módulo](./cre/er-diagram.md)
 
 - [cre.creditLine](./cre/credit-line.md) - Líneas de crédito (modalidades) con sus condiciones: tasa, plazos, forma de pago y requisitos.
+- [cre.installmentState](./cre/installment-state.md) - Tabla cre.installmentState del módulo Créditos.
 - [cre.interestRateType](./cre/interest-rate-type.md) - Catálogo de tipos de tasa de interés (1 ANTICIPADOS, 2 VENCIDOS). Conserva los ids del sistema legado.
 - [cre.loan](./cre/loan.md) - Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, saldos, intereses y liquidación.
+- [cre.loanInstallment](./cre/loan-installment.md) - Tabla cre.loanInstallment del módulo Créditos.
+- [cre.loanParameter](./cre/loan-parameter.md) - Tabla cre.loanParameter del módulo Créditos.
 - [cre.loanPurpose](./cre/loan-purpose.md) - Catálogo de destinos (finalidad) del crédito. Conserva los ids del sistema legado.
 - [cre.loanState](./cre/loan-state.md) - Catálogo de estados del crédito. Conserva los ids del sistema legado, que no son consecutivos (99 RECHAZADA, 999 CANCELADA POR EL ASOCIADO, 9999 FINALIZADA).
 - [cre.paymentType](./cre/payment-type.md) - Catálogo de formas de pago de las líneas de crédito. Conserva los ids del sistema legado.
