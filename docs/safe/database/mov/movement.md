@@ -32,6 +32,8 @@ Movimientos (transacciones) de los asociados.
 | id_discountImp | INT | ✓ | FK | - | Referencia a mov.discountImp |
 | creationDate | DATETIME2(0) | ✓ | - | - | - |
 | user | NVARCHAR(20) | ✓ | - | - | - |
+| id_loan | INT | ✓ | FK | - | Referencia a cre.loan |
+| id_loanInstallment | INT | ✓ | FK | - | Referencia a cre.loanInstallment |
 
 ### Columnas Estándar
 
@@ -62,16 +64,22 @@ erDiagram
         int id_movementState FK
         int id_discount FK
         int id_discountImp FK
+        int id_loan FK
+        int id_loanInstallment FK
     }
     aso_associate
     mov_discount
     mov_discountImp
+    cre_loan
+    cre_loanInstallment
     mov_movementState
     mov_movementType
     mov_operationType
     aso_associate ||--o{ mov_movement : "id_associate"
     mov_discount |o--o{ mov_movement : "id_discount"
     mov_discountImp |o--o{ mov_movement : "id_discountImp"
+    cre_loan |o--o{ mov_movement : "id_loan"
+    cre_loanInstallment |o--o{ mov_movement : "id_loanInstallment"
     mov_movementState ||--o{ mov_movement : "id_movementState"
     mov_movementType ||--o{ mov_movement : "id_movementType"
     mov_operationType ||--o{ mov_movement : "id_operationType"
@@ -86,6 +94,8 @@ erDiagram
 | id_associate | [`aso.associate`](../aso/associate.md).id | `FK__mov__movement__id_associate` |
 | id_discount | [`mov.discount`](../mov/discount.md).id | `FK__mov__movement__id_discount` |
 | id_discountImp | [`mov.discountImp`](../mov/discount-imp.md).id | `FK__mov__movement__id_discountImp` |
+| id_loan | [`cre.loan`](../cre/loan.md).id | `FK__mov__movement__id_loan` |
+| id_loanInstallment | [`cre.loanInstallment`](../cre/loan-installment.md).id | `FK__mov__movement__id_loanInstallment` |
 | id_movementState | [`mov.movementState`](../mov/movement-state.md).id | `FK__mov__movement__id_movementState` |
 | id_movementType | [`mov.movementType`](../mov/movement-type.md).id | `FK__mov__movement__id_movementType` |
 | id_operationType | [`mov.operationType`](../mov/operation-type.md).id | `FK__mov__movement__id_operationType` |

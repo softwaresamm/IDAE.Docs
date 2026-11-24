@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: cre.loan
 description: "Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, saldos, intereses y liquidación."
 tags: [database, cre]
@@ -72,6 +72,7 @@ Créditos (solicitudes de préstamo) de los asociados: condiciones, fechas, sald
 | isInterestOnly | BIT | ✗ | - | - | Paga solo interés (legado: SoloInteres) |
 | rejectionReason | NVARCHAR(MAX) | ✓ | - | - | Motivo del rechazo (legado: MotivoRechazo) |
 | user | NVARCHAR(50) | ✓ | - | - | Login del usuario que registró el crédito (legado: IdUsuario) |
+| id_paymentType | INT | ✓ | FK | - | Referencia a cre.paymentType |
 
 ### Columnas Estándar
 
@@ -105,15 +106,22 @@ erDiagram
         int id_creditLine FK
         int id_loanPurpose FK
         int id_loanState FK
+        int id_paymentType FK
     }
     aso_associate
     cre_creditLine
     cre_loanPurpose
     cre_loanState
+    cre_paymentType
+    cre_loanInstallment
+    mov_movement
     aso_associate ||--o{ cre_loan : "id_associate"
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_paymentType |o--o{ cre_loan : "id_paymentType"
+    cre_loan ||--o{ cre_loanInstallment : "id_loan"
+    cre_loan |o--o{ mov_movement : "id_loan"
 ```
 
 ## Relaciones
@@ -126,10 +134,14 @@ erDiagram
 | id_creditLine | [`cre.creditLine`](../cre/credit-line.md).id | `FK__cre__loan__id_creditLine` |
 | id_loanPurpose | [`cre.loanPurpose`](../cre/loan-purpose.md).id | `FK__cre__loan__id_loanPurpose` |
 | id_loanState | [`cre.loanState`](../cre/loan-state.md).id | `FK__cre__loan__id_loanState` |
+| id_paymentType | [`cre.paymentType`](../cre/payment-type.md).id | `FK__cre__loan__id_paymentType` |
 
 ### Relaciones Entrantes
 
-*Ninguna tabla referencia a esta tabla.*
+| Tabla | Columna | Constraint |
+|-------|---------|------------|
+| [`cre.loanInstallment`](../cre/loan-installment.md) | id_loan | `FK__cre__loanInstallment__id_loan` |
+| [`mov.movement`](../mov/movement.md) | id_loan | `FK__mov__movement__id_loan` |
 
 ## Objetos Relacionados
 

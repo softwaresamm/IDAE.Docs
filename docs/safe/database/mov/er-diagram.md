@@ -32,6 +32,8 @@ erDiagram
         int id_movementState FK
         int id_discount FK
         int id_discountImp FK
+        int id_loan FK
+        int id_loanInstallment FK
     }
     mov_movementState {
         int id PK
@@ -48,6 +50,8 @@ erDiagram
         int id_movementType FK
     }
     aso_associate
+    cre_loan
+    cre_loanInstallment
     aso_associate ||--o{ mov_associateOtherDiscount : "id_associate"
     mov_movementType |o--o{ mov_associateOtherDiscount : "id_movementType"
     mov_operationType |o--o{ mov_associateOtherDiscount : "id_operationType"
@@ -55,6 +59,8 @@ erDiagram
     aso_associate ||--o{ mov_movement : "id_associate"
     mov_discount |o--o{ mov_movement : "id_discount"
     mov_discountImp |o--o{ mov_movement : "id_discountImp"
+    cre_loan |o--o{ mov_movement : "id_loan"
+    cre_loanInstallment |o--o{ mov_movement : "id_loanInstallment"
     mov_movementState ||--o{ mov_movement : "id_movementState"
     mov_movementType ||--o{ mov_movement : "id_movementType"
     mov_operationType ||--o{ mov_movement : "id_operationType"

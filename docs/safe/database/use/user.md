@@ -98,10 +98,16 @@ erDiagram
 | [`com.group`](../com/group.md) | id_user_modifier | `FK__com__group__id_user_modifier` |
 | [`cre.creditLine`](../cre/credit-line.md) | id_user_creator | `FK__cre__creditLine__id_user_creator` |
 | [`cre.creditLine`](../cre/credit-line.md) | id_user_modifier | `FK__cre__creditLine__id_user_modifier` |
+| [`cre.installmentState`](../cre/installment-state.md) | id_user_creator | `FK__cre__installmentState__id_user_creator` |
+| [`cre.installmentState`](../cre/installment-state.md) | id_user_modifier | `FK__cre__installmentState__id_user_modifier` |
 | [`cre.interestRateType`](../cre/interest-rate-type.md) | id_user_creator | `FK__cre__interestRateType__id_user_creator` |
 | [`cre.interestRateType`](../cre/interest-rate-type.md) | id_user_modifier | `FK__cre__interestRateType__id_user_modifier` |
 | [`cre.loan`](../cre/loan.md) | id_user_creator | `FK__cre__loan__id_user_creator` |
 | [`cre.loan`](../cre/loan.md) | id_user_modifier | `FK__cre__loan__id_user_modifier` |
+| [`cre.loanInstallment`](../cre/loan-installment.md) | id_user_creator | `FK__cre__loanInstallment__id_user_creator` |
+| [`cre.loanInstallment`](../cre/loan-installment.md) | id_user_modifier | `FK__cre__loanInstallment__id_user_modifier` |
+| [`cre.loanParameter`](../cre/loan-parameter.md) | id_user_creator | `FK__cre__loanParameter__id_user_creator` |
+| [`cre.loanParameter`](../cre/loan-parameter.md) | id_user_modifier | `FK__cre__loanParameter__id_user_modifier` |
 | [`cre.loanPurpose`](../cre/loan-purpose.md) | id_user_creator | `FK__cre__loanPurpose__id_user_creator` |
 | [`cre.loanPurpose`](../cre/loan-purpose.md) | id_user_modifier | `FK__cre__loanPurpose__id_user_modifier` |
 | [`cre.loanState`](../cre/loan-state.md) | id_user_creator | `FK__cre__loanState__id_user_creator` |
