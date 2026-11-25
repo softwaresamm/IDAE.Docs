@@ -47,7 +47,7 @@ Esta funcionalidad no requiere cambios en la base de datos. Despliegue el backen
 4. Si cambia el plazo, la lista se actualiza y la línea elegida se borra cuando ya no corresponde; elija de nuevo la línea.
 
 :::warning Validación al proyectar y crear
-**Proyectar cuotas** y la creación del crédito validan la misma regla. Si el plazo no coincide con el plazo máximo de la línea, se muestra: *"El plazo de {plazo} meses no corresponde a la línea de crédito '{línea}': su plazo máximo es de {plazo máximo} meses y debe ser igual al plazo del crédito"*.
+**Proyectar cuotas** y la creación del crédito validan la misma regla. Si el plazo no coincide con el plazo máximo de la línea, se muestra: *"El plazo de 60 meses no corresponde a la línea de crédito '12013AG': su plazo máximo es de 120 meses y debe ser igual al plazo del crédito"* (ejemplo).
 :::
 
 ## Casos Especiales
