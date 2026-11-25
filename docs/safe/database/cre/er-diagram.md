@@ -18,6 +18,9 @@ erDiagram
         int id_paymentType FK
         int id_loanPurpose FK
     }
+    cre_installmentState {
+        int id PK
+    }
     cre_interestRateType {
         int id PK
     }
@@ -28,6 +31,16 @@ erDiagram
         int id_creditLine FK
         int id_loanPurpose FK
         int id_loanState FK
+        int id_paymentType FK
+    }
+    cre_loanInstallment {
+        int id PK
+        int id_loan FK,UK
+        int id_installmentState FK
+        int number UK
+    }
+    cre_loanParameter {
+        int id PK
     }
     cre_loanPurpose {
         int id PK
@@ -46,6 +59,9 @@ erDiagram
     cre_creditLine ||--o{ cre_loan : "id_creditLine"
     cre_loanPurpose |o--o{ cre_loan : "id_loanPurpose"
     cre_loanState ||--o{ cre_loan : "id_loanState"
+    cre_paymentType |o--o{ cre_loan : "id_paymentType"
+    cre_installmentState ||--o{ cre_loanInstallment : "id_installmentState"
+    cre_loan ||--o{ cre_loanInstallment : "id_loan"
 ```
 
 ---
