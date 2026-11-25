@@ -31,12 +31,17 @@ erDiagram
         int id_state FK
         int id_gender FK
         int id_bank FK
+        int id_documentType FK
     }
     aso_bank {
         int id PK
     }
     aso_contractType {
         int id PK
+    }
+    aso_documentType {
+        int id PK
+        nvarchar code UK
     }
     aso_eps {
         int id PK
@@ -74,6 +79,7 @@ erDiagram
     com_city |o--o{ aso_associate : "id_city"
     com_company ||--o{ aso_associate : "id_company"
     aso_contractType ||--o{ aso_associate : "id_contractType"
+    aso_documentType |o--o{ aso_associate : "id_documentType"
     aso_eps ||--o{ aso_associate : "id_eps"
     aso_gender |o--o{ aso_associate : "id_gender"
     aso_housingType ||--o{ aso_associate : "id_housingType"

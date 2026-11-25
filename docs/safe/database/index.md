@@ -11,7 +11,7 @@ Diccionario de datos de la base de datos `pro_safe` de SAFE (fondo de empleados)
 
 ## Estadísticas
 
-- **Total de tablas**: 36
+- **Total de tablas**: 37
 - **Módulos**: 5
 - **Base de datos**: SQL Server (`pro_safe`)
 
@@ -33,6 +33,7 @@ erDiagram
     aso_associate
     aso_bank
     aso_contractType
+    aso_documentType
     aso_eps
     aso_gender
     aso_housingType
@@ -71,6 +72,7 @@ erDiagram
     com_city |o--o{ aso_associate : "id_city"
     com_company ||--o{ aso_associate : "id_company"
     aso_contractType ||--o{ aso_associate : "id_contractType"
+    aso_documentType |o--o{ aso_associate : "id_documentType"
     aso_eps ||--o{ aso_associate : "id_eps"
     aso_gender |o--o{ aso_associate : "id_gender"
     aso_housingType ||--o{ aso_associate : "id_housingType"
@@ -123,6 +125,7 @@ Asociados del fondo y sus catálogos de información personal y laboral.
 - [aso.associate](./aso/associate.md) - Asociados del fondo: datos personales, laborales, financieros y de contacto.
 - [aso.bank](./aso/bank.md) - Catálogo de bancos.
 - [aso.contractType](./aso/contract-type.md) - Catálogo de tipos de contrato laboral.
+- [aso.documentType](./aso/document-type.md) - Tabla aso.documentType del módulo Asociados.
 - [aso.eps](./aso/eps.md) - Catálogo de EPS (entidades promotoras de salud).
 - [aso.gender](./aso/gender.md) - Catálogo de géneros.
 - [aso.housingType](./aso/housing-type.md) - Catálogo de tipos de vivienda.

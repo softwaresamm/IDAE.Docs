@@ -109,6 +109,7 @@ Asociados del fondo: datos personales, laborales, financieros y de contacto.
 | bankAccountCity | NVARCHAR(80) | ✓ | - | - | - |
 | ciiuCode | NVARCHAR(80) | ✓ | - | - | - |
 | systemDate | DATETIME2(0) | ✓ | - | - | - |
+| id_documentType | INT | ✓ | FK | - | Referencia a aso.documentType |
 
 ### Columnas Estándar
 
@@ -152,6 +153,7 @@ erDiagram
         int id_state FK
         int id_gender FK
         int id_bank FK
+        int id_documentType FK
     }
     aso_academicLevel
     com_area
@@ -159,6 +161,7 @@ erDiagram
     com_city
     com_company
     aso_contractType
+    aso_documentType
     aso_eps
     aso_gender
     aso_housingType
@@ -176,6 +179,7 @@ erDiagram
     com_city |o--o{ aso_associate : "id_city"
     com_company ||--o{ aso_associate : "id_company"
     aso_contractType ||--o{ aso_associate : "id_contractType"
+    aso_documentType |o--o{ aso_associate : "id_documentType"
     aso_eps ||--o{ aso_associate : "id_eps"
     aso_gender |o--o{ aso_associate : "id_gender"
     aso_housingType ||--o{ aso_associate : "id_housingType"
@@ -201,6 +205,7 @@ erDiagram
 | id_city | [`com.city`](../com/city.md).id | `FK__aso__associate__id_city` |
 | id_company | [`com.company`](../com/company.md).id | `FK__aso__associate__id_company` |
 | id_contractType | [`aso.contractType`](../aso/contract-type.md).id | `FK__aso__associate__id_contractType` |
+| id_documentType | [`aso.documentType`](../aso/document-type.md).id | `FK__aso__associate__id_documentType` |
 | id_eps | [`aso.eps`](../aso/eps.md).id | `FK__aso__associate__id_eps` |
 | id_gender | [`aso.gender`](../aso/gender.md).id | `FK__aso__associate__id_gender` |
 | id_housingType | [`aso.housingType`](../aso/housing-type.md).id | `FK__aso__associate__id_housingType` |
