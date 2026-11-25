@@ -75,6 +75,7 @@ erDiagram
     aso_pensionFund |o--o{ aso_associate : "id_pensionFund"
     aso_position |o--o{ aso_associate : "id_position"
     aso_state ||--o{ aso_associate : "id_state"
+    com_company |o--o{ com_area : "id_company"
     com_group |o--o{ com_company : "id_group"
     cre_interestRateType ||--o{ cre_creditLine : "id_interestRateType"
     cre_loanPurpose |o--o{ cre_creditLine : "id_loanPurpose"
@@ -125,7 +126,7 @@ Empresas, áreas, ciudades y grupos.
 
 [Diagrama ER del módulo](./com/er-diagram.md)
 
-- [com.area](./com/area.md) - Catálogo de áreas.
+- [com.area](./com/area.md) - Catálogo de áreas. Cada área puede pertenecer a una empresa; las áreas sin empresa se listan siempre.
 - [com.city](./com/city.md) - Catálogo de ciudades.
 - [com.company](./com/company.md) - Empresas a las que pertenecen los asociados.
 - [com.group](./com/group.md) - Catálogo de grupos.

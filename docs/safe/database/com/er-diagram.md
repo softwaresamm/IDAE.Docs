@@ -13,6 +13,7 @@ Tablas del módulo Organización (solo llaves PK, FK y UK) y las tablas de otros
 erDiagram
     com_area {
         int id PK
+        int id_company FK
     }
     com_city {
         int id PK
@@ -28,6 +29,7 @@ erDiagram
     com_area |o--o{ aso_associate : "id_area"
     com_city |o--o{ aso_associate : "id_city"
     com_company ||--o{ aso_associate : "id_company"
+    com_company |o--o{ com_area : "id_company"
     com_group |o--o{ com_company : "id_group"
 ```
 

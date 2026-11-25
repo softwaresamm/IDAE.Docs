@@ -95,6 +95,11 @@ export const products: Product[] = [
     prefix: "SN",
     releases: [
       {
+        version: "7.1.25.0",
+        date: "2026-11-18",
+        href: "/blog/samm-new-v7-1-25-0",
+      },
+      {
         version: "7.1.22.2",
         date: "2026-10-23",
         href: "/blog/samm-new-v7-1-22-2",
@@ -153,6 +158,11 @@ export const products: Product[] = [
     prefix: "SA",
     releases: [
       {
+        version: "1.2.35.3",
+        date: "2026-11-18",
+        href: "/blog/samm-api-v1-2-35-3",
+      },
+      {
         version: "1.2.34.5",
         date: "2026-10-23",
         href: "/blog/samm-api-v1-2-34-5",
@@ -206,6 +216,11 @@ export const products: Product[] = [
     prefix: "SR",
     releases: [
       {
+        version: "6.0.0.16",
+        date: "2026-11-20",
+        href: "/blog/samm-reporte-v6-0-0-16",
+      },
+      {
         version: "6.0.0.11",
         date: "2026-03-25",
         href: "/blog/samm-reporte-v6-0-0-11",
@@ -226,6 +241,11 @@ export const products: Product[] = [
     prefix: "APP",
     docLink: "/docs/app-tecnicos",
     releases: [
+      {
+        version: "2.3.8.0",
+        date: "2026-11-09",
+        href: "/blog/app-tecnicos-v2-3-8-0",
+      },
       {
         version: "2.3.7.1",
         date: "2026-10-26",
