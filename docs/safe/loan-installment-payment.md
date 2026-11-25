@@ -11,6 +11,7 @@ Este documento describe cómo pagar una o varias cuotas de uno o varios crédito
 ## Referencias
 
 - [SO-2279: Permitir pagar cuotas de créditos del asociado al registrar movimientos](https://softwaresamm.atlassian.net/browse/SO-2279)
+- [SO-2287: Unificar la creación de movimientos desde el listado con la del asociado](https://softwaresamm.atlassian.net/browse/SO-2287)
 
 ## Información de Versiones
 
@@ -69,14 +70,15 @@ El detalle de las columnas y relaciones está en el diccionario de datos: [mov.m
 
 ### Paso 3: Registrar el pago de las cuotas
 
-1. Ingrese a **Cartera y Créditos > Movimientos > Nuevo** desde el asociado (`/movements/new?associateId=<id>`).
-2. Seleccione la **Fecha** del movimiento.
-3. Si aplica, seleccione los **Otros descuentos** a registrar, como hasta ahora.
-4. En la sección **Créditos**, seleccione las cuotas a pagar de cada crédito. Las cuotas se pagan **completas y en orden**:
+1. Ingrese a **Cartera y Créditos > Movimientos** y haga clic en **Nuevo movimiento** (o hágalo desde los movimientos del asociado, que lo trae ya seleccionado).
+2. En **Asociado**, busque y seleccione el asociado por documento o nombre (al menos 3 caracteres). Al seleccionarlo se muestran sus otros descuentos y las cuotas de sus créditos **EN PROCESO**. Si cambia de asociado, el formulario se reinicia con los datos del nuevo asociado.
+3. Seleccione la **Fecha** del movimiento.
+4. Si aplica, seleccione los **Otros descuentos** a registrar, como hasta ahora.
+5. En la sección **Créditos**, seleccione las cuotas a pagar de cada crédito. Las cuotas se pagan **completas y en orden**:
    - al marcar una cuota se marcan también todas las anteriores;
    - al desmarcar una cuota se desmarcan también todas las siguientes.
-5. Si el pago se toma de los ahorros del asociado, active **Pagar con ahorros** en el crédito. La sección muestra los **ahorros disponibles para pagar cuotas** y avisa si no alcanzan.
-6. Presione **Crear**. Los otros descuentos y los pagos de cuotas se guardan en una sola transacción: se guarda todo o nada.
+6. Si el pago se toma de los ahorros del asociado, active **Pagar con ahorros** en el crédito. La sección muestra los **ahorros disponibles para pagar cuotas** y avisa si no alcanzan.
+7. Presione **Crear**. Los otros descuentos y los pagos de cuotas se guardan en una sola transacción: se guarda todo o nada. Al crear o cancelar, la aplicación regresa a los movimientos del asociado seleccionado.
 
 :::tip Consejo
 Se puede registrar solo el pago de cuotas, sin seleccionar otros descuentos.
