@@ -63,6 +63,37 @@ El código del tipo de documento es único entre los registros activos. Si inten
 | **Asociados > Nuevo / Editar**            | Campo **Tipo de Documento**, con los tipos del catálogo; un asociado nuevo inicia en CC |
 | **Asociados > Detalle**                   | Muestra el nombre del tipo de documento del catálogo       |
 | **Asociados > Listado > Filtro avanzado** | Filtro **Tipo de documento**                               |
+| **Asociados > Actualización Masiva** (Excel) | Columna **Tipo Documento** con el código del catálogo (ver Paso 4) |
+
+### Paso 4: Actualizar el tipo de documento por Excel
+
+La **Actualización Masiva de Asociados** (`/associates/import`) actualiza asociados existentes, ubicados por número de documento.
+
+1. En **Asociados > Listado**, haga clic en **Actualizar asociados**.
+
+   ![Botón Actualizar asociados en el listado de asociados](./img/associate-update-button.png)
+
+2. Haga clic en **Descargar plantilla**. La indicación de la pantalla resume las reglas del tipo de documento.
+
+   ![Pantalla Actualización Masiva de Asociados](./img/associate-update-page.png)
+
+3. Diligencie la plantilla, selecciónela y haga clic en **Importar**.
+
+   ![Plantilla seleccionada lista para importar](./img/associate-update-file-selected.png)
+
+4. Revise el **Resultado de la importación**: asociados actualizados y filas con errores.
+
+   ![Resultado de la importación con un asociado actualizado](./img/associate-update-result.png)
+
+En la columna **Tipo Documento** de la plantilla:
+
+1. Escriba el **código** de un tipo de documento activo del catálogo (p. ej. `CC`, `CE`, `TI`, `PA`). No importan mayúsculas ni espacios alrededor: ` ce ` se guarda como `CE`.
+2. Si deja la celda vacía, el asociado conserva su tipo de documento actual.
+3. Si el código no existe o está inactivo, la fila se rechaza y el error se muestra en los resultados de la carga, en la columna **Tipo Documento**.
+
+:::note
+La carga nunca crea tipos de documento nuevos: créelos primero en **Preferencias > Tipo de Documento**.
+:::
 
 ## Casos Especiales
 
@@ -74,7 +105,8 @@ Se conserva la columna de texto `aso.associate.documentType` con el código del 
 | -------------------------------------- | ------------------------------------------------------------------------- |
 | Asociado sin tipo antes de la migración | Queda como **CC**                                                        |
 | Asociado con un código fuera de los tipos base | Se crea ese código en el catálogo y el asociado queda enlazado    |
-| Importación de asociados desde Excel   | La asignación del tipo desde el catálogo se completa en SO-2289            |
+| Celda **Tipo Documento** vacía en la carga por Excel | El asociado conserva su tipo; si no tiene ninguno, queda como **CC** |
+| Código inexistente o inactivo en la carga por Excel | La fila se rechaza: *"El tipo de documento 'XX' no existe o está inactivo en el catálogo de tipos de documento"* |
 
 ## Resultado Esperado
 
@@ -92,6 +124,10 @@ Verifique que:
 
 - El tipo de documento esté activo en **Preferencias > Tipo de Documento**
 - Se haya recargado la pantalla después de crearlo
+
+### La carga por Excel rechaza la fila por el tipo de documento
+
+Verifique que el valor de la columna **Tipo Documento** sea el **código** (no el nombre) de un tipo activo en **Preferencias > Tipo de Documento**.
 
 ### Un asociado aparece sin tipo de documento
 
