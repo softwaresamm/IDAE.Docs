@@ -67,7 +67,25 @@ El código del tipo de documento es único entre los registros activos. Si inten
 
 ### Paso 4: Actualizar el tipo de documento por Excel
 
-La **Actualización Masiva de Asociados** (`/associates/import`) actualiza asociados existentes, ubicados por número de documento. En la columna **Tipo Documento** de la plantilla:
+La **Actualización Masiva de Asociados** (`/associates/import`) actualiza asociados existentes, ubicados por número de documento.
+
+1. En **Asociados > Listado**, haga clic en **Actualizar asociados**.
+
+   ![Botón Actualizar asociados en el listado de asociados](./img/associate-update-button.png)
+
+2. Haga clic en **Descargar plantilla**. La indicación de la pantalla resume las reglas del tipo de documento.
+
+   ![Pantalla Actualización Masiva de Asociados](./img/associate-update-page.png)
+
+3. Diligencie la plantilla, selecciónela y haga clic en **Importar**.
+
+   ![Plantilla seleccionada lista para importar](./img/associate-update-file-selected.png)
+
+4. Revise el **Resultado de la importación**: asociados actualizados y filas con errores.
+
+   ![Resultado de la importación con un asociado actualizado](./img/associate-update-result.png)
+
+En la columna **Tipo Documento** de la plantilla:
 
 1. Escriba el **código** de un tipo de documento activo del catálogo (p. ej. `CC`, `CE`, `TI`, `PA`). No importan mayúsculas ni espacios alrededor: ` ce ` se guarda como `CE`.
 2. Si deja la celda vacía, el asociado conserva su tipo de documento actual.
