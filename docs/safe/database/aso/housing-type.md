@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 title: aso.housingType
 description: "Catálogo de tipos de vivienda."
 tags: [database, aso]

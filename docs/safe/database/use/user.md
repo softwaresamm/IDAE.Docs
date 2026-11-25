@@ -72,6 +72,8 @@ erDiagram
 | [`aso.bank`](../aso/bank.md) | id_user_modifier | `FK__aso__bank__id_user_modifier` |
 | [`aso.contractType`](../aso/contract-type.md) | id_user_creator | `FK__aso__contractType__id_user_creator` |
 | [`aso.contractType`](../aso/contract-type.md) | id_user_modifier | `FK__aso__contractType__id_user_modifier` |
+| [`aso.documentType`](../aso/document-type.md) | id_user_creator | `FK__aso__documentType__id_user_creator` |
+| [`aso.documentType`](../aso/document-type.md) | id_user_modifier | `FK__aso__documentType__id_user_modifier` |
 | [`aso.eps`](../aso/eps.md) | id_user_creator | `FK__aso__eps__id_user_creator` |
 | [`aso.eps`](../aso/eps.md) | id_user_modifier | `FK__aso__eps__id_user_modifier` |
 | [`aso.gender`](../aso/gender.md) | id_user_creator | `FK__aso__gender__id_user_creator` |
