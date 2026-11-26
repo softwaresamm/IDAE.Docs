@@ -52,6 +52,11 @@ export const products: Product[] = [
     docLink: "/docs/category/sammnew",
     releases: [
       {
+        version: "5.5.32.27",
+        date: "2026-11-26",
+        href: "/blog/samm-web-v5-5-32-27",
+      },
+      {
         version: "5.5.32.26",
         date: "2026-10-27",
         href: "/blog/samm-web-v5-5-32-26",
@@ -216,6 +221,11 @@ export const products: Product[] = [
     prefix: "SR",
     releases: [
       {
+        version: "6.0.0.18",
+        date: "2026-11-26",
+        href: "/blog/samm-reporte-v6-0-0-18",
+      },
+      {
         version: "6.0.0.16",
         date: "2026-11-20",
         href: "/blog/samm-reporte-v6-0-0-16",
@@ -241,6 +251,11 @@ export const products: Product[] = [
     prefix: "APP",
     docLink: "/docs/app-tecnicos",
     releases: [
+      {
+        version: "2.3.9.0",
+        date: "2026-11-23",
+        href: "/blog/app-tecnicos-v2-3-9-0",
+      },
       {
         version: "2.3.8.0",
         date: "2026-11-09",

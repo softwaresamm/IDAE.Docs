@@ -1,0 +1,5 @@
+{
+    "label": "Créditos",
+    "position": 4,
+    "description": "Líneas de crédito, préstamos de los asociados, sus cuotas y sus catálogos. Migrado desde MODALIDAD, SOLICITUD_PRESTAMOS, SOL_CUOTAS, SIM_CUOTA y catálogos relacionados de app_febancol."
+}
