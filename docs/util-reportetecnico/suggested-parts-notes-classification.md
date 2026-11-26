@@ -26,7 +26,7 @@ Este documento describe la mejora que agrega en la sección de repuestos sugerid
 | Aplicación    | Versión Mínima | Descripción                   |
 | ------------- | -------------- | ----------------------------- |
 | URT           | >= 4.5.1       | Utilitario de reporte técnico |
-| SAMMAPI       | >= 1.2.36.0    | API principal                 |
+| SAMMAPI       | >= [1.2.34.5](https://softwaresamm.github.io/IDAE.Docs/blog/samm-api-v1-2-34-5) | API principal |
 | SAMM LOGICA   | >= 5.6.28.0    | Lógica de negocio             |
 | CAPADATOS     | >= 2.1.23.0    | Capa de acceso a datos        |
 | SAMCORE       | >= 2.0.31.0    | Core del sistema              |
@@ -67,6 +67,10 @@ Ingrese a **Configuración aplicación → Tipos de pendientes**. Si el tipo de 
 
 :::note Nota
 Al hacer clic en **Seleccionar grilla** el tipo queda agregado; no requiere dar **Aceptar**.
+:::
+
+:::note Nota
+El procedimiento almacenado `fil_tipoPendienteXtipoDocumento` sirve para condicionar la respuesta.
 :::
 
 ## Video
