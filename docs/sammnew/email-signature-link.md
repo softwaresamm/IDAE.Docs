@@ -11,6 +11,8 @@ Este documento describe cómo configurar una regla de **Envío de Correo** para 
 ## Referencias
 
 - [SO-2291: SOL-34335 | Incluir link público de firma en correos configurados de envío](https://softwaresamm.atlassian.net/browse/SO-2291)
+- [SO-2292: SOL-34335 | Exponer endpoints públicos de firma de documentos en SAMM API](https://softwaresamm.atlassian.net/browse/SO-2292)
+- [SO-2293: SOL-34335 | Crear página pública de firma de documentos en ReportService](https://softwaresamm.atlassian.net/browse/SO-2293)
 - [SO-2290: OTT-3904 | Mostrar encuesta y exigirla para firmar en documentos doc_documento del reporteador](https://softwaresamm.atlassian.net/browse/SO-2290)
 - [SO-2251: Exigir encuesta para firmar el reporte solo cuando es obligatoria](https://softwaresamm.atlassian.net/browse/SO-2251)
 
@@ -31,10 +33,12 @@ La versión de lanzamiento es provisional; confirmarla con la fix version real a
 | ------------- | -------------- | --------------------------------------------- |
 | SAMMNEW       | >= 7.1.27.0    | Aplicación web (plantilla estándar de correo) |
 | SAMM LOGICA   | >= 5.6.30.3    | Motor de plantillas de correo                 |
-| SR            | >= 6.0.0.17    | Página pública de firma (sitio de reportes)   |
+| SR            | >= 6.0.0.17    | Página pública de firma (sitio de reportes clásico) |
+| SAMMAPI       | Por confirmar (SO-2292) | Endpoints públicos de firma, solo con el servicio de reportes nuevo |
+| REPORT SERVICE FRONTEND | Por confirmar (SO-2293) | Página pública `/firma`, solo con el servicio de reportes nuevo |
 
 :::note Nota
-Los valores de SAMM LOGICA y SR deben ajustarse a la versión real que incluya el cambio. SR no requiere cambios para esta funcionalidad: la página pública de firma ya existía.
+Los valores de SAMM LOGICA, SAMMAPI y REPORT SERVICE FRONTEND deben ajustarse a la versión real que incluya el cambio. SR no requiere cambios para esta funcionalidad: la página pública de firma ya existía. SAMMAPI y el frontend de Report Service solo son necesarios cuando `tipoReportServices` está en `2`. El Backend de Report Service no tiene cambios.
 :::
 
 ## Requisitos Previos
@@ -46,6 +50,7 @@ Antes de iniciar la configuración, asegúrese de tener:
 - Acceso para modificar la vista de la regla (normalmente a cargo del consultor)
 - La clave `urlSAMMReportes` configurada en el `Web.config` de SAMM New, apuntando al sitio de reportes
 - Un formato de reporte (`rep_reporte`) activo con el que el cliente firmará
+- Solo con el servicio de reportes nuevo: `tipoReportServices` en `2`, `urlSAMMReportes` apuntando a la raíz del frontend (por ejemplo `https://<host>/sr_web`), `urlReportService` y `licencia` configuradas en SAMM API, el secreto JWT compartido con el Backend de Report Service, y el usuario `Superadministrador` existente y habilitado
 
 :::important Importante
 La plantilla estándar (`estandar.htm`) ahora incluye el marcador `[LINK_FIRMA]` debajo del cuerpo. Las reglas cuya vista no tenga la columna `LINK_FIRMA` siguen enviando el correo igual que antes: el marcador se reemplaza por vacío.
@@ -53,7 +58,19 @@ La plantilla estándar (`estandar.htm`) ahora incluye el marcador `[LINK_FIRMA]`
 
 ## Información del Servicio
 
-No aplica para esta funcionalidad.
+:::note Información
+Solo aplica con el servicio de reportes nuevo (`tipoReportServices` en `2`). La página `/firma` de Report Service no pide sesión: llama a SAMM API a través de su propio servidor, y SAMM API usa internamente el usuario `Superadministrador`, sin enviar ningún token al navegador. Con el sitio de reportes clásico no se usan estos servicios.
+:::
+
+### Endpoints públicos de SAMM API
+
+| Método | Ruta                          | Descripción                                                              |
+| ------ | ----------------------------- | ------------------------------------------------------------------------ |
+| GET    | `api/fir/publico/estado`      | Indica si el documento ya está firmado                                   |
+| GET    | `api/fir/publico/reporte`     | Devuelve el PDF que el cliente debe revisar                              |
+| POST   | `api/fir/publico/firmar`      | Registra la firma dibujada (cuerpo con `qry` y la firma en `base64`)      |
+
+Los tres reciben el mismo valor `qry` del enlace del correo, tienen límite de intentos y solo aceptan documentos `doc_documento*` y reportes técnicos, con `id` y `r` numéricos. Si el documento ya está firmado, `firmar` responde con el código `YA_FIRMADO`. El PDF firmado se guarda en `gen_archivo` (código `archivofirma`) solo cuando la clave `archivosEnBD` es `1`.
 
 ## Configuración
 
@@ -122,8 +139,8 @@ El enlace público de firma no incluye datos de sesión del usuario: cualquier p
 | Servicio de reportes nuevo         | `tipoReportServices` en `2`                        | El enlace se arma como `.../firma` sobre `urlSAMMReportes`                                            |
 | Encuesta obligatoria               | Encuesta con **Obligatoria** en Sí                 | La firma por enlace exige diligenciar la encuesta, ver [Encuesta obligatoria para firmar](./mandatory-survey-before-signing.md) |
 
-:::warning Servicio de reportes nuevo
-Con `tipoReportServices` en `2` el enlace apunta a la ruta `/firma` del servicio de reportes, que aún no está disponible en esta versión. Mientras tanto, use el sitio de reportes clásico para los enlaces de firma.
+:::warning Alcance con el servicio de reportes nuevo
+Con `tipoReportServices` en `2` el enlace abre la página pública `/firma` de Report Service, que permite la firma dibujada y guarda el PDF firmado. Esta primera versión no cambia el estado del documento, no envía el correo de "documento firmado" ni admite el modo con código de acceso, y el enlace no tiene vencimiento (igual que el del sitio clásico). Si `archivosEnBD` no es `1`, la firma queda registrada pero el PDF firmado no se almacena.
 :::
 
 ## Resultado Esperado
@@ -133,6 +150,7 @@ Una vez completada la configuración:
 1. **Enlace en el correo**: el correo de la regla muestra, debajo del cuerpo, el texto "Para firmar el documento haga clic en el siguiente enlace: Firmar documento".
 2. **Firma sin sesión**: al abrir el enlace, el cliente accede a la página pública de firma del documento y puede firmarlo sin iniciar sesión.
 3. **Correos sin enlace**: las reglas cuya vista no tiene `LINK_FIRMA`, o cuyo `CASE` devuelve vacío, se envían sin enlace y sin texto residual.
+4. **Firma con el servicio de reportes nuevo**: con `tipoReportServices` en `2`, el enlace termina en `/firma?qry=...`, muestra el PDF, permite dibujar la firma y, al firmar, informa que quedó registrada. Al reabrir el enlace, el sistema indica que el documento ya está firmado.
 
 ### Correo con el enlace de firma
 
@@ -169,6 +187,28 @@ Revise que:
 
 - La vista tenga la columna `qry_firma` con ese nombre exacto; si falta, el sistema cifra el texto del marcador y el enlace no funciona
 
+### La página `/firma` muestra "El enlace de firma no es válido"
+
+Verifique que:
+
+- El enlace del correo esté completo y no haya sido modificado ni cortado por el cliente de correo
+- El valor de `t` sea `ort_reporteTecnico` o empiece por `doc_documento`, y `id` y `r` sean numéricos
+
+### La página `/firma` no carga el documento o no permite firmar
+
+Confirme que:
+
+- `tipoReportServices` esté en `2`, y `urlReportService` y `licencia` estén configuradas en SAMM API
+- El usuario `Superadministrador` exista y esté habilitado
+- El secreto JWT de SAMM API sea el mismo del Backend de Report Service
+- Si aparece "Demasiados intentos", espere unos minutos: los endpoints limitan las solicitudes repetidas
+
+### La firma queda registrada pero no se guarda el PDF firmado
+
+Revise que:
+
+- La clave `archivosEnBD` de SAMM API sea `1`; con otro valor el PDF firmado no se almacena en `gen_archivo`
+
 ## Errores Conocidos
 
 No aplica para esta funcionalidad.
@@ -199,7 +239,21 @@ No aplica para esta funcionalidad.
 | 1    | Disparar la regla con el documento del subtipo configurado   | El correo incluye el enlace                     |
 | 2    | Disparar la regla con el documento del otro subtipo          | **El correo se envía sin enlace y sin texto residual** |
 
-### Escenario 3: Reglas existentes no cambian
+### Escenario 3: Firma con el servicio de reportes nuevo
+
+**Criterio de aceptación:** Con `tipoReportServices` en `2`, el cliente firma desde el enlace del correo sin iniciar sesión.
+
+**Precondiciones:** Requisitos del servicio de reportes nuevo cumplidos; un documento sin firmar y su correo con el enlace.
+
+| Paso | Acción                                                  | Resultado esperado                                                            |
+| ---- | ------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| 1    | Abrir el enlace del correo sin sesión                   | Se abre `/firma` con el PDF del documento y el recuadro de firma              |
+| 2    | Dibujar la firma y pulsar **Firmar documento**          | Mensaje de firma registrada; fila nueva en `gen_firma` del documento          |
+| 3    | Con `archivosEnBD` en `1`, revisar `gen_archivo`        | Existe el PDF firmado con código `archivofirma`                               |
+| 4    | Abrir de nuevo el mismo enlace                          | **Indica que el documento ya está firmado** y no ofrece el recuadro de firma  |
+| 5    | Modificar un carácter del `qry` y abrir el enlace       | Mensaje de enlace no válido, sin datos del documento                          |
+
+### Escenario 4: Reglas existentes no cambian
 
 **Criterio de aceptación:** Los correos que usan la plantilla estándar con otras vistas no se ven afectados.
 
