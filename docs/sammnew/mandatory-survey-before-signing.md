@@ -8,8 +8,11 @@ release_module: "SAMM New"
 
 Este documento describe cómo configurar la opción **Obligatoria** al crear una encuesta de evaluación, que permite al administrador decidir si la encuesta de satisfacción debe estar diligenciada antes de firmar el reporte técnico. Antes de esta mejora no existía un parámetro para definirlo: la validación aplicaba sin distinguir si la encuesta era obligatoria, lo que afectaba a los clientes que no manejan encuesta de satisfacción en su proceso. Con la nueva configuración, el sistema exige la encuesta para firmar el reporte únicamente cuando esta se define como obligatoria.
 
+La encuesta se muestra y se exige no solo en el reporte técnico de una OT, sino también al firmar otros documentos (solicitud, requisición, cotización, etc.) desde la pantalla de firma, según las encuestas activas configuradas para el subtipo de cada documento.
+
 ## Referencias
 
+- [SO-2290: Mostrar encuesta y exigirla para firmar en documentos doc_documento del reporteador](https://softwaresamm.atlassian.net/browse/SO-2290)
 - [SO-2251: Exigir encuesta para firmar el reporte solo cuando es obligatoria](https://softwaresamm.atlassian.net/browse/SO-2251)
 - [SO-2216 / HU-57: Validar llenado de encuesta de satisfacción antes de firmar el reporte técnico](https://softwaresamm.atlassian.net/browse/SO-2216)
 - [SO-2249: Agregar columna obligatoria](https://softwaresamm.atlassian.net/browse/SO-2249)
@@ -79,6 +82,12 @@ La validación se aplica tanto cuando el reporte se firma desde la aplicación c
 | Encuesta no obligatoria   | **Obligatoria** en No               | El reporte se firma sin necesidad de diligenciar la encuesta                                  |
 | Firma por enlace          | **Obligatoria** en Sí               | La validación también aplica cuando el reporte se firma a través del enlace enviado al cliente |
 | Clientes sin encuesta     | Sin encuesta o **Obligatoria** en No | La restricción no los afecta                                                                  |
+| Otros documentos          | Encuesta activa para el subtipo del documento | Al firmar una solicitud, requisición, cotización u otro documento, se muestra la encuesta y, si es obligatoria, se exige para firmar |
+| Documento ya firmado      | Cualquiera                          | No se muestra ni se exige la encuesta                                                         |
+
+:::important Importante
+Las encuestas se listan por el **subtipo del documento**. Para que aparezcan al firmar una solicitud u otro documento, la encuesta debe estar activa y configurada para el subtipo de ese documento; si solo está configurada para el subtipo de OT, la lista aparece vacía.
+:::
 
 ## Resultado Esperado
 
@@ -152,3 +161,16 @@ No aplica para esta funcionalidad.
 | 1    | Abrir el enlace de firma enviado al cliente sin diligenciar la encuesta | El cliente visualiza el reporte                                                   |
 | 2    | Intentar guardar la firma sin diligenciar la encuesta                   | **El sistema informa que la encuesta es obligatoria** y no guarda la firma        |
 | 3    | Diligenciar la encuesta y guardar la firma                              | La firma se guarda correctamente                                                  |
+
+### Escenario 4: Encuesta obligatoria al firmar un documento que no es OT
+
+**Criterio de aceptación:** La encuesta debe mostrarse y exigirse para firmar también en documentos diferentes al reporte técnico (solicitud, requisición, cotización), según la configuración de la encuesta.
+
+**Precondiciones:** Encuesta activa con **Obligatoria** en Sí, configurada para el subtipo de la solicitud. Una solicitud pendiente de firma.
+
+| Paso | Acción                                                                       | Resultado esperado                                                                  |
+| ---- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| 1    | Abrir la pantalla de firma de la solicitud                                   | **Se muestra la sección de encuesta** con la evaluación en la lista                 |
+| 2    | Intentar firmar sin diligenciar la encuesta                                  | **El sistema informa que la encuesta es obligatoria** y no permite firmar           |
+| 3    | Diligenciar la encuesta y firmar                                             | La solicitud se firma correctamente                                                 |
+| 4    | Reabrir la pantalla de firma de la solicitud ya firmada                      | No se muestra ni se exige la encuesta                                               |
