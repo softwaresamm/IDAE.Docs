@@ -66,6 +66,10 @@ En la configuración de la bodega, defina en **Salidas en rojo** la opción que 
 | **SÍ** | La bodega permite salidas en rojo. Se puede guardar aunque existan existencias negativas                                                         |
 | **NO** | La bodega no permite salidas en rojo. Antes de guardar, el sistema valida que todas las existencias de la bodega sean iguales o mayores a cero |
 
+Si la bodega tiene existencias negativas, el sistema muestra el siguiente mensaje y no guarda el cambio:
+
+![Mensaje de existencias negativas al cambiar Salidas en rojo a NO](img/warehouse-negative-stock-message.png)
+
 :::tip Consejo
 Antes de cambiar el parámetro a **NO**, revise las existencias de la bodega e identifique los productos con saldo negativo para ajustarlos previamente.
 :::
